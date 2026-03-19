@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Digest — LC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<style>
+/* ============================================================
+   DESIGN SYSTEM — Martian Dusk / Daylight
+   ============================================================ */
+:root {
+  /* Dark theme (default) */
+  --bg-canvas: #120F0E;
+  --bg-html: #080604;
+  --color-sun: #FFA030;
+  --accent-copper: #C87A2E;
+  --accent-amber: #E8A050;
+  --accent-coral: #E8472C;
+  --accent-teal: #2DD4BF;
+  --text-primary: rgba(235, 210, 180, 0.93);
+  --text-secondary: rgba(175, 138, 95, 0.75);
+  --text-dim: rgba(120, 88, 55, 0.58);
+  --glass-bg: rgba(20, 13, 11, 0.78);
+  --glass-border: rgba(194, 118, 46, 0.22);
+  --glass-border-hover: rgba(194, 118, 46, 0.55);
+  --glass-shadow: rgba(0,0,0,0.60);
+  --tag-read: #C87A2E;
+  --tag-watch: #E8A050;
+  --tag-listen: #2DD4BF;
+  --tag-trending: #E8472C;
+  --tag-deep: #FFA030;
+  --tag-code: #a78bfa;
+  --note-bg: rgba(30, 22, 18, 0.9);
+  --dur-fast: 150ms;
+  --dur-base: 240ms;
+  --dur-slow: 320ms;
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --radius-panel: 16px;
+  --radius-tile: 12px;
+  --radius-pill: 6px;
+}
+[data-theme="light"] {
+  --bg-canvas: #EDE9E0;
+  --bg-html: #E5E0D6;
+  --color-sun: #FFA030;
+  --accent-copper: #E03C31;
+  --accent-amber: #C87A2E;
+  --accent-coral: #E8472C;
+  --accent-teal: #0d9488;
+  --text-primary: rgba(35, 18, 6, 0.92);
+  --text-secondary: rgba(100, 70, 40, 0.72);
+  --text-dim: rgba(130, 95, 60, 0.50);
+  --glass-bg: rgba(252, 250, 246, 0.88);
+  --glass-border: rgba(194, 118, 46, 0.18);
+  --glass-border-hover: rgba(194, 118, 46, 0.45);
+  --glass-shadow: rgba(0,0,0,0.08);
+  --note-bg: rgba(252, 250, 246, 0.95);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size: 13px; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg-html);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   AMBIENT CANVAS (background particles + sun glow)
+   ============================================================ */
+#ambient-canvas {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.app-shell { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
+.top-bar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 14px 24px;
+  display: flex; align-items: center; gap: 16px;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.top-bar:hover { border-color: var(--glass-border-hover); }
+
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-mark {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent-copper), var(--color-sun));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 12px; color: #080604;
+  box-shadow: 0 0 16px rgba(255,160,48,0.25);
+}
+.logo-text { font-weight: 600; font-size: 14px; letter-spacing: 0.04em; }
+.logo-sub { font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.17em; font-weight: 600; }
+
+/* Search */
+.search-wrap {
+  flex: 1; max-width: 480px; position: relative;
+}
+.search-input {
+  width: 100%; padding: 9px 14px 9px 36px;
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  border-radius: var(--radius-tile); color: var(--text-primary);
+  font-family: inherit; font-size: 12px; outline: none;
+  backdrop-filter: blur(12px);
+  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.search-input::placeholder { color: var(--text-dim); }
+.search-input:focus {
+  border-color: var(--accent-copper);
+  box-shadow: 0 0 0 3px rgba(200,122,46,0.15);
+}
+.search-icon {
+  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 16px; color: var(--text-dim);
+}
+.search-results {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border); border-radius: var(--radius-tile);
+  box-shadow: 0 12px 40px var(--glass-shadow);
+  max-height: 420px; overflow-y: auto; display: none; z-index: 200;
+}
+.search-results.active { display: block; }
+.search-result-item {
+  padding: 12px 16px; border-bottom: 1px solid var(--glass-border);
+  cursor: pointer; transition: background var(--dur-fast) var(--ease);
+}
+.search-result-item:hover { background: rgba(200,122,46,0.08); }
+.search-result-item:last-child { border-bottom: none; }
+.sr-title { font-size: 12px; font-weight: 500; margin-bottom: 3px; }
+.sr-meta { font-size: 9.5px; color: var(--text-secondary); }
+.sr-snippet { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; }
+.sr-snippet mark { background: rgba(232,160,80,0.3); color: var(--text-primary); border-radius: 2px; padding: 0 2px; }
+
+/* Theme toggle */
+.theme-toggle {
+  width: 44px; height: 24px; border-radius: 999px; cursor: pointer;
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  position: relative; flex-shrink: 0;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.theme-toggle:hover { border-color: var(--glass-border-hover); }
+.theme-toggle .knob {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--color-sun);
+  position: absolute; top: 2px; left: 2px;
+  transition: transform var(--dur-base) var(--ease);
+  box-shadow: 0 0 8px rgba(255,160,48,0.4);
+}
+[data-theme="light"] .theme-toggle .knob { transform: translateX(20px); }
+
+/* Nav pills */
+.nav-pills { display: flex; gap: 4px; flex-shrink: 0; }
+.nav-pill {
+  padding: 6px 14px; border-radius: var(--radius-pill);
+  font-size: 9.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.14em; cursor: pointer; border: 1px solid transparent;
+  color: var(--text-secondary); background: transparent;
+  transition: all var(--dur-fast) var(--ease);
+}
+.nav-pill:hover { color: var(--text-primary); border-color: var(--glass-border); }
+.nav-pill.active {
+  color: #080604; background: var(--accent-amber);
+  border-color: var(--accent-amber);
+  box-shadow: 0 0 12px rgba(232,160,80,0.3);
+}
+
+/* Main content */
+.main { flex: 1; padding: 24px; max-width: 960px; margin: 0 auto; width: 100%; }
+
+/* ============================================================
+   VIEW: DIGEST LIST
+   ============================================================ */
+.view { display: none; }
+.view.active { display: block; }
+
+.digest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.digest-card {
+  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border); border-radius: var(--radius-panel);
+  padding: 20px; cursor: pointer;
+  box-shadow: 0 4px 20px var(--glass-shadow);
+  transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.digest-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 8px 32px var(--glass-shadow), 0 0 20px rgba(200,122,46,0.08);
+}
+.digest-card:active { transform: scale(0.97); }
+.dc-day { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.17em; color: var(--accent-copper); margin-bottom: 8px; }
+.dc-date { font-size: 18px; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 6px; }
+.dc-quote { font-size: 11px; color: var(--text-secondary); font-style: italic; margin-bottom: 12px; line-height: 1.5; }
+.dc-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag {
+  font-size: 8.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+  padding: 3px 8px; border-radius: 999px; color: #080604;
+}
+.tag-read { background: var(--tag-read); }
+.tag-watch { background: var(--tag-watch); }
+.tag-listen { background: var(--tag-listen); }
+.tag-trending { background: var(--tag-trending); }
+.tag-deep { background: var(--tag-deep); }
+.tag-code { background: var(--tag-code); }
+.tag-multi { background: var(--text-dim); color: var(--text-primary); }
+
+/* Article count badge */
+.dc-count { font-size: 9px; color: var(--text-dim); margin-top: 10px; }
+
+/* ============================================================
+   VIEW: SINGLE DIGEST (article list)
+   ============================================================ */
+.back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--text-secondary);
+  cursor: pointer; margin-bottom: 20px; padding: 6px 12px;
+  border: 1px solid var(--glass-border); border-radius: var(--radius-pill);
+  background: transparent;
+  transition: all var(--dur-fast) var(--ease);
+}
+.back-btn:hover { color: var(--text-primary); border-color: var(--glass-border-hover); }
+
+.digest-header { margin-bottom: 28px; }
+.dh-day { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.17em; color: var(--accent-copper); }
+.dh-title { font-size: 22px; font-weight: 300; letter-spacing: -0.02em; margin: 6px 0; }
+.dh-quote {
+  border-left: 2px solid var(--accent-copper);
+  padding: 10px 16px; margin: 16px 0;
+  font-size: 12px; font-style: italic; color: var(--text-secondary); line-height: 1.6;
+}
+.dh-quote .author { display: block; font-style: normal; font-weight: 500; margin-top: 6px; font-size: 10px; color: var(--accent-copper); }
+
+.section-label {
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.17em; color: var(--text-dim);
+  margin: 28px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Article card */
+.article-card {
+  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border); border-radius: var(--radius-panel);
+  margin-bottom: 14px; overflow: hidden;
+  box-shadow: 0 4px 16px var(--glass-shadow);
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.article-card:hover { border-color: var(--glass-border-hover); }
+.article-card.deep-dive { border-left: 3px solid var(--color-sun); }
+
+.ac-header {
+  padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+}
+.ac-title { font-size: 13px; font-weight: 500; line-height: 1.5; flex: 1; }
+.ac-title a { color: var(--text-primary); text-decoration: none; transition: color var(--dur-fast); }
+.ac-title a:hover { color: var(--accent-amber); }
+.ac-meta { font-size: 9.5px; color: var(--text-secondary); margin-top: 5px; display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.ac-summary { font-size: 11.5px; color: var(--text-secondary); line-height: 1.6; margin-top: 8px; }
+.ac-why { font-size: 10.5px; color: var(--accent-copper); font-style: italic; margin-top: 8px; }
+.ac-tags { display: flex; gap: 4px; flex-shrink: 0; align-self: flex-start; }
+
+/* Expand/collapse for notes */
+.ac-expand { font-size: 18px; color: var(--text-dim); cursor: pointer; padding: 4px; transition: transform var(--dur-base) var(--ease); }
+.ac-expand.open { transform: rotate(180deg); }
+
+/* ============================================================
+   ANNOTATION / NOTES PANEL
+   ============================================================ */
+.notes-panel {
+  max-height: 0; overflow: hidden;
+  transition: max-height var(--dur-slow) var(--ease);
+  border-top: 1px solid transparent;
+}
+.notes-panel.open {
+  max-height: 2000px;
+  border-top-color: var(--glass-border);
+}
+.notes-inner { padding: 16px 20px; }
+
+.note-item {
+  background: var(--note-bg); border: 1px solid var(--glass-border);
+  border-radius: var(--radius-tile); padding: 14px; margin-bottom: 10px;
+  position: relative;
+}
+.note-item .note-time { font-size: 8.5px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+.note-item .note-body { font-size: 12px; line-height: 1.65; color: var(--text-primary); }
+.note-item .note-body a { color: var(--accent-teal); text-decoration: none; }
+.note-item .note-body a:hover { text-decoration: underline; }
+.note-item .note-actions {
+  position: absolute; top: 10px; right: 10px;
+  display: flex; gap: 4px; opacity: 0; transition: opacity var(--dur-fast);
+}
+.note-item:hover .note-actions { opacity: 1; }
+.note-action-btn {
+  width: 22px; height: 22px; border-radius: 4px; border: none; cursor: pointer;
+  background: var(--glass-bg); color: var(--text-secondary); font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--dur-fast);
+}
+.note-action-btn:hover { background: var(--accent-copper); color: #080604; }
+
+/* Note editor */
+.note-editor {
+  margin-top: 10px; display: flex; flex-direction: column; gap: 8px;
+}
+.note-toolbar {
+  display: flex; gap: 4px; flex-wrap: wrap;
+}
+.note-toolbar button {
+  padding: 4px 10px; border-radius: var(--radius-pill);
+  font-family: inherit; font-size: 9px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  color: var(--text-secondary); cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.note-toolbar button:hover { border-color: var(--accent-copper); color: var(--text-primary); }
+.note-textarea {
+  width: 100%; min-height: 80px; padding: 12px;
+  background: var(--note-bg); border: 1px solid var(--glass-border);
+  border-radius: var(--radius-tile); color: var(--text-primary);
+  font-family: inherit; font-size: 11.5px; line-height: 1.65;
+  resize: vertical; outline: none;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.note-textarea::placeholder { color: var(--text-dim); }
+.note-textarea:focus { border-color: var(--accent-copper); }
+.note-hint { font-size: 9px; color: var(--text-dim); line-height: 1.5; }
+.note-submit {
+  align-self: flex-end; padding: 7px 18px; border-radius: var(--radius-pill);
+  font-family: inherit; font-size: 9.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.12em; cursor: pointer; border: none;
+  background: var(--accent-copper); color: #080604;
+  box-shadow: 0 0 12px rgba(200,122,46,0.2);
+  transition: all var(--dur-fast) var(--ease);
+}
+.note-submit:hover { background: var(--accent-amber); transform: translateY(-1px); }
+.note-submit:active { transform: scale(0.95); }
+
+/* ============================================================
+   VIEW: ALL NOTES (notebook)
+   ============================================================ */
+.notebook-item {
+  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border); border-radius: var(--radius-panel);
+  padding: 18px 20px; margin-bottom: 12px;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.notebook-item:hover { border-color: var(--glass-border-hover); }
+.nb-article-title { font-size: 11px; font-weight: 600; color: var(--accent-copper); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
+.nb-note { font-size: 12px; line-height: 1.65; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--glass-border); }
+.nb-note:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.nb-note-time { font-size: 8.5px; color: var(--text-dim); margin-bottom: 4px; }
+
+/* ============================================================
+   LC SIGNATURE
+   ============================================================ */
+.lc-signature {
+  position: fixed; bottom: 16px; left: 20px; z-index: 50;
+  opacity: 0.25; transition: opacity var(--dur-base);
+  pointer-events: none;
+}
+.lc-signature svg { width: 36px; height: 36px; }
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-copper); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .top-bar { padding: 10px 14px; gap: 10px; flex-wrap: wrap; }
+  .search-wrap { max-width: 100%; order: 10; flex-basis: 100%; }
+  .nav-pills { gap: 2px; }
+  .nav-pill { padding: 5px 10px; font-size: 8.5px; }
+  .main { padding: 16px 12px; }
+  .digest-grid { grid-template-columns: 1fr; }
+  .logo-text { display: none; }
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.empty-state {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-dim);
+}
+.empty-state .icon { font-size: 36px; margin-bottom: 12px; opacity: 0.3; }
+.empty-state p { font-size: 12px; line-height: 1.6; }
+
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+.stats-bar {
+  display: flex; gap: 20px; margin-bottom: 24px; flex-wrap: wrap;
+}
+.stat-item {
+  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border); border-radius: var(--radius-tile);
+  padding: 14px 18px; flex: 1; min-width: 120px;
+}
+.stat-value { font-size: 22px; font-weight: 300; letter-spacing: -0.02em; color: var(--accent-amber); }
+.stat-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.17em; color: var(--text-dim); margin-top: 4px; }
+
+/* KaTeX overrides */
+.katex { font-size: 1em !important; color: var(--accent-teal) !important; }
+</style>
+</head>
+<body>
+
+<!-- Ambient canvas -->
+<canvas id="ambient-canvas"></canvas>
+
+<!-- LC Signature -->
+<div class="lc-signature">
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 8 L8 32 L22 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-copper)"/>
+    <path d="M38 12 C34 8, 28 8, 26 12 C24 16, 24 26, 26 30 C28 34, 34 34, 38 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" style="color:var(--accent-copper)"/>
+  </svg>
+</div>
+
+<!-- App shell -->
+<div class="app-shell">
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="logo">
+      <div class="logo-mark">LC</div>
+      <div>
+        <div class="logo-text">Morning Digest</div>
+        <div class="logo-sub">PhD Reading Log</div>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input class="search-input" id="searchInput" type="text" placeholder="Search articles, authors, tags... (Ctrl+K)">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="nav-pills">
+      <div class="nav-pill active" data-view="digests">Digests</div>
+      <div class="nav-pill" data-view="notebook">Notebook</div>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle" title="Toggle theme">
+      <div class="knob"></div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="main">
+    <!-- Digest list view -->
+    <div class="view active" id="view-digests">
+      <div class="stats-bar" id="statsBar"></div>
+      <div class="digest-grid" id="digestGrid"></div>
+    </div>
+
+    <!-- Single digest view -->
+    <div class="view" id="view-single">
+      <button class="back-btn" id="backBtn">&larr; All Digests</button>
+      <div id="singleContent"></div>
+    </div>
+
+    <!-- Notebook view -->
+    <div class="view" id="view-notebook">
+      <div class="digest-header">
+        <div class="dh-day">All Notes</div>
+        <div class="dh-title">Your Notebook</div>
+      </div>
+      <div id="notebookContent"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   DATA STORE
+   ============================================================ */
+const STORAGE_KEY = 'lc-digest-notes';
+const THEME_KEY = 'lc-digest-theme';
+
+// Load reading log from embedded data or fetch
+let readingLog = null;
+let fuse = null;
+
+// Notes stored in localStorage
+function loadNotes() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+  catch { return {}; }
+}
+function saveNotes(notes) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+}
+function addNote(articleId, text) {
+  const notes = loadNotes();
+  if (!notes[articleId]) notes[articleId] = [];
+  notes[articleId].push({
+    id: Date.now().toString(36),
+    text: text,
+    created: new Date().toISOString()
+  });
+  saveNotes(notes);
+  return notes;
+}
+function deleteNote(articleId, noteId) {
+  const notes = loadNotes();
+  if (notes[articleId]) {
+    notes[articleId] = notes[articleId].filter(n => n.id !== noteId);
+    if (notes[articleId].length === 0) delete notes[articleId];
+  }
+  saveNotes(notes);
+  return notes;
+}
+
+/* ============================================================
+   THEME
+   ============================================================ */
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem(THEME_KEY, next);
+}
+initTheme();
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+/* ============================================================
+   AMBIENT PARTICLES
+   ============================================================ */
+function initAmbient() {
+  const canvas = document.getElementById('ambient-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let w, h;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Create particles
+  for (let i = 0; i < 35; i++) {
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.5 + 0.5,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.2,
+      alpha: Math.random() * 0.3 + 0.05
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+    // Sun glow
+    if (isDark) {
+      const sunX = w * 0.5;
+      const sunY = h * 0.15;
+      const t = Date.now() / 4000;
+      const pulse = Math.sin(t) * 8;
+      const grad = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, 120 + pulse);
+      grad.addColorStop(0, 'rgba(255,160,48,0.12)');
+      grad.addColorStop(0.5, 'rgba(200,122,46,0.04)');
+      grad.addColorStop(1, 'rgba(200,122,46,0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+    }
+
+    // Particles
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = w;
+      if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h;
+      if (p.y > h) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = isDark
+        ? `rgba(200,122,46,${p.alpha})`
+        : `rgba(200,122,46,${p.alpha * 0.4})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+initAmbient();
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+let currentView = 'digests';
+
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+
+  if (name === 'single') {
+    document.getElementById('view-single').classList.add('active');
+  } else {
+    document.getElementById('view-' + name).classList.add('active');
+    document.querySelector(`.nav-pill[data-view="${name}"]`)?.classList.add('active');
+  }
+  currentView = name;
+}
+
+document.querySelectorAll('.nav-pill').forEach(pill => {
+  pill.addEventListener('click', () => showView(pill.dataset.view));
+});
+document.getElementById('backBtn').addEventListener('click', () => showView('digests'));
+
+/* ============================================================
+   RENDER HELPERS
+   ============================================================ */
+function tagHTML(type) {
+  const map = {
+    'read': 'tag-read', 'watch': 'tag-watch', 'listen': 'tag-listen',
+    'trending': 'tag-trending', 'deep-dive': 'tag-deep', 'deep dive': 'tag-deep',
+    'code': 'tag-code', 'multi-day': 'tag-multi'
+  };
+  const cls = map[type.toLowerCase()] || 'tag-read';
+  return `<span class="tag ${cls}">${type}</span>`;
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function formatNoteTime(isoStr) {
+  const d = new Date(isoStr);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' at ' +
+    d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+}
+
+// Render markdown-like text: **bold**, *italic*, [link](url), `code`, $math$
+function renderNoteText(text) {
+  let html = text
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/`(.+?)`/g, '<code style="background:var(--glass-bg);padding:1px 5px;border-radius:3px;font-size:11px;">$1</code>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank">$1</a>')
+    .replace(/\n/g, '<br>');
+  return html;
+}
+
+/* ============================================================
+   RENDER: DIGEST GRID
+   ============================================================ */
+function renderDigestGrid() {
+  if (!readingLog) return;
+  const grid = document.getElementById('digestGrid');
+  const stats = document.getElementById('statsBar');
+
+  // Group articles by dateAdded
+  const byDate = {};
+  for (const a of readingLog.articles) {
+    if (!byDate[a.dateAdded]) byDate[a.dateAdded] = [];
+    byDate[a.dateAdded].push(a);
+  }
+
+  const dates = Object.keys(byDate).sort().reverse();
+  const totalArticles = readingLog.articles.length;
+  const allNotes = loadNotes();
+  const totalNotes = Object.values(allNotes).reduce((s, arr) => s + arr.length, 0);
+
+  stats.innerHTML = `
+    <div class="stat-item">
+      <div class="stat-value">${readingLog.meta.dayCount}</div>
+      <div class="stat-label">Days Tracked</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">${totalArticles}</div>
+      <div class="stat-label">Articles Curated</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">${totalNotes}</div>
+      <div class="stat-label">Notes Taken</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">${readingLog.meta.dailyMinutes}</div>
+      <div class="stat-label">Min / Day</div>
+    </div>
+  `;
+
+  grid.innerHTML = dates.map((date, i) => {
+    const articles = byDate[date];
+    const tags = [...new Set(articles.flatMap(a => a.tags))].slice(0, 5);
+    const dayNum = readingLog.meta.dayCount - i;
+    return `
+      <div class="digest-card" data-date="${date}">
+        <div class="dc-day">Day ${dayNum}</div>
+        <div class="dc-date">${formatDate(date)}</div>
+        <div class="dc-tags">${tags.map(t => tagHTML(t)).join('')}</div>
+        <div class="dc-count">${articles.length} articles</div>
+      </div>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.digest-card').forEach(card => {
+    card.addEventListener('click', () => renderSingleDigest(card.dataset.date));
+  });
+}
+
+/* ============================================================
+   RENDER: SINGLE DIGEST
+   ============================================================ */
+function renderSingleDigest(date) {
+  const articles = readingLog.articles.filter(a => a.dateAdded === date);
+  const container = document.getElementById('singleContent');
+  const notes = loadNotes();
+
+  // Group: deep-dive, assigned, bookmarked
+  const deepDives = articles.filter(a => a.tags.includes('deep-dive'));
+  const quick = articles.filter(a => !a.tags.includes('deep-dive') && a.status !== 'bookmarked' && !a.tags.includes('multi-day'));
+  const bookmarked = articles.filter(a => a.status === 'bookmarked' || a.tags.includes('multi-day'));
+
+  container.innerHTML = `
+    <div class="digest-header">
+      <div class="dh-day">Day ${readingLog.meta.dayCount}</div>
+      <div class="dh-title">${formatDate(date)}</div>
+    </div>
+    ${deepDives.length ? '<div class="section-label">Deep Dive</div>' + deepDives.map(a => articleCardHTML(a, notes)).join('') : ''}
+    ${quick.length ? '<div class="section-label">Quick Reads</div>' + quick.map(a => articleCardHTML(a, notes)).join('') : ''}
+    ${bookmarked.length ? '<div class="section-label">Bookmarks &amp; Multi-Day</div>' + bookmarked.map(a => articleCardHTML(a, notes)).join('') : ''}
+  `;
+
+  bindArticleEvents(container);
+  showView('single');
+}
+
+function articleCardHTML(article, notes) {
+  const articleNotes = notes[article.id] || [];
+  const isDeep = article.tags.includes('deep-dive');
+  return `
+    <div class="article-card ${isDeep ? 'deep-dive' : ''}" data-id="${article.id}">
+      <div class="ac-header">
+        <div style="flex:1">
+          <div class="ac-title"><a href="${article.url}" target="_blank">${article.title}</a></div>
+          <div class="ac-meta">
+            <span>${article.author}</span>
+            ${article.estimatedMinutes ? `<span>${article.estimatedMinutes} min</span>` : ''}
+            <span>${article.status}</span>
+          </div>
+          ${article.notes ? `<div class="ac-summary">${article.notes}</div>` : ''}
+        </div>
+        <div class="ac-tags">
+          ${article.tags.map(t => tagHTML(t)).join('')}
+        </div>
+      </div>
+      <div class="ac-header" style="padding-top:0; cursor:pointer;" onclick="toggleNotes(this)">
+        <span style="font-size:9px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.14em;font-weight:600;">
+          Notes (${articleNotes.length})
+        </span>
+        <span class="ac-expand">&#9662;</span>
+      </div>
+      <div class="notes-panel" data-article-id="${article.id}">
+        <div class="notes-inner">
+          <div class="notes-list">
+            ${articleNotes.map(n => `
+              <div class="note-item" data-note-id="${n.id}">
+                <div class="note-time">${formatNoteTime(n.created)}</div>
+                <div class="note-body">${renderNoteText(n.text)}</div>
+                <div class="note-actions">
+                  <button class="note-action-btn delete-note" title="Delete">&times;</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          <div class="note-editor">
+            <div class="note-toolbar">
+              <button onclick="insertNoteSnippet(this, '**', '**')">Bold</button>
+              <button onclick="insertNoteSnippet(this, '*', '*')">Italic</button>
+              <button onclick="insertNoteSnippet(this, '[', '](url)')">Link</button>
+              <button onclick="insertNoteSnippet(this, '$', '$')">Math</button>
+              <button onclick="insertNoteSnippet(this, '`', '`')">Code</button>
+            </div>
+            <textarea class="note-textarea" placeholder="Add a note... Supports **bold**, *italic*, [links](url), $LaTeX$, and \`code\`."></textarea>
+            <div class="note-hint">Ctrl+Enter to save &middot; $...$ for inline math &middot; [text](url) for links</div>
+            <button class="note-submit">Save Note</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   ARTICLE EVENTS
+   ============================================================ */
+function toggleNotes(el) {
+  const card = el.closest('.article-card');
+  const panel = card.querySelector('.notes-panel');
+  const arrow = card.querySelector('.ac-expand');
+  panel.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+
+function insertNoteSnippet(btn, before, after) {
+  const editor = btn.closest('.note-editor');
+  const textarea = editor.querySelector('.note-textarea');
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+  const text = textarea.value;
+  const selected = text.substring(start, end) || 'text';
+  textarea.value = text.substring(0, start) + before + selected + after + text.substring(end);
+  textarea.focus();
+  textarea.setSelectionRange(start + before.length, start + before.length + selected.length);
+}
+
+function bindArticleEvents(container) {
+  // Save note
+  container.querySelectorAll('.note-submit').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.closest('.notes-panel');
+      const articleId = panel.dataset.articleId;
+      const textarea = panel.querySelector('.note-textarea');
+      const text = textarea.value.trim();
+      if (!text) return;
+      addNote(articleId, text);
+      textarea.value = '';
+      // Re-render
+      const date = readingLog.articles.find(a => a.id === articleId)?.dateAdded;
+      if (date) renderSingleDigest(date);
+    });
+  });
+
+  // Delete note
+  container.querySelectorAll('.delete-note').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const noteItem = btn.closest('.note-item');
+      const noteId = noteItem.dataset.noteId;
+      const panel = btn.closest('.notes-panel');
+      const articleId = panel.dataset.articleId;
+      deleteNote(articleId, noteId);
+      const date = readingLog.articles.find(a => a.id === articleId)?.dateAdded;
+      if (date) renderSingleDigest(date);
+    });
+  });
+
+  // Ctrl+Enter in textarea
+  container.querySelectorAll('.note-textarea').forEach(ta => {
+    ta.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.key === 'Enter') {
+        ta.closest('.note-editor').querySelector('.note-submit').click();
+      }
+    });
+  });
+
+  // Render KaTeX in notes
+  container.querySelectorAll('.note-body').forEach(el => {
+    renderMathInElement(el, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ],
+      throwOnError: false
+    });
+  });
+}
+
+/* ============================================================
+   RENDER: NOTEBOOK VIEW
+   ============================================================ */
+function renderNotebook() {
+  const notes = loadNotes();
+  const container = document.getElementById('notebookContent');
+
+  const articleIds = Object.keys(notes).filter(id => notes[id].length > 0);
+  if (articleIds.length === 0) {
+    container.innerHTML = `<div class="empty-state"><div class="icon">&#9998;</div><p>No notes yet. Open a digest and start annotating articles.</p></div>`;
+    return;
+  }
+
+  container.innerHTML = articleIds.map(id => {
+    const article = readingLog.articles.find(a => a.id === id);
+    const title = article ? article.title : id;
+    return `
+      <div class="notebook-item">
+        <div class="nb-article-title">${title}</div>
+        ${notes[id].map(n => `
+          <div class="nb-note">
+            <div class="nb-note-time">${formatNoteTime(n.created)}</div>
+            <div class="note-body">${renderNoteText(n.text)}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }).join('');
+
+  // KaTeX
+  container.querySelectorAll('.note-body').forEach(el => {
+    renderMathInElement(el, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ],
+      throwOnError: false
+    });
+  });
+}
+
+// Re-render notebook when switching to it
+document.querySelector('.nav-pill[data-view="notebook"]').addEventListener('click', renderNotebook);
+
+/* ============================================================
+   SEARCH (Fuse.js)
+   ============================================================ */
+function initSearch() {
+  if (!readingLog) return;
+  fuse = new Fuse(readingLog.articles, {
+    keys: [
+      { name: 'title', weight: 3 },
+      { name: 'author', weight: 2 },
+      { name: 'tags', weight: 1.5 },
+      { name: 'notes', weight: 1 }
+    ],
+    threshold: 0.35,
+    includeMatches: true,
+    minMatchCharLength: 2
+  });
+}
+
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim();
+  if (!q || !fuse) { searchResults.classList.remove('active'); return; }
+
+  const results = fuse.search(q).slice(0, 8);
+  if (results.length === 0) {
+    searchResults.innerHTML = '<div style="padding:16px;font-size:11px;color:var(--text-dim);">No results found.</div>';
+    searchResults.classList.add('active');
+    return;
+  }
+
+  searchResults.innerHTML = results.map(r => {
+    const a = r.item;
+    return `
+      <div class="search-result-item" data-date="${a.dateAdded}" data-id="${a.id}">
+        <div class="sr-title">${a.title}</div>
+        <div class="sr-meta">${a.author} &middot; ${a.dateAdded} &middot; ${a.tags.join(', ')}</div>
+        ${a.notes ? `<div class="sr-snippet">${a.notes.substring(0, 120)}...</div>` : ''}
+      </div>
+    `;
+  }).join('');
+  searchResults.classList.add('active');
+
+  searchResults.querySelectorAll('.search-result-item').forEach(item => {
+    item.addEventListener('click', () => {
+      renderSingleDigest(item.dataset.date);
+      searchResults.classList.remove('active');
+      searchInput.value = '';
+      // Scroll to article
+      setTimeout(() => {
+        const card = document.querySelector(`.article-card[data-id="${item.dataset.id}"]`);
+        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    });
+  });
+});
+
+// Close search on click outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) searchResults.classList.remove('active');
+});
+
+// Ctrl+K shortcut
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    searchInput.focus();
+  }
+});
+
+/* ============================================================
+   DATA LOADING
+   ============================================================ */
+async function loadData() {
+  try {
+    const res = await fetch('digests/reading-log.json');
+    readingLog = await res.json();
+  } catch {
+    // Fallback: try embedded data
+    readingLog = window.__DIGEST_DATA || null;
+  }
+  if (readingLog) {
+    renderDigestGrid();
+    initSearch();
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>

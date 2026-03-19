@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "started": "2026-03-18",
+    "dayCount": 1,
+    "researchArea": "Formal Methods + Reinforcement Learning",
+    "dailyMinutes": 45,
+    "format": "html"
+  },
+  "preferences": {
+    "researchers": [
+      "Andrej Karpathy",
+      "Kaiming He",
+      "Saining Xie",
+      "Yann LeCun",
+      "Ilya Sutskever",
+      "John Schulman",
+      "Sebastian Raschka",
+      "Nathan Lambert",
+      "David Ha"
+    ],
+    "themes": [
+      "research philosophy",
+      "how to do research",
+      "reinforcement learning",
+      "formal methods",
+      "AI trends",
+      "scaling laws",
+      "agents",
+      "reasoning",
+      "world models",
+      "RLHF/RLVR"
+    ],
+    "contentBalance": "50% timeless research advice, 50% latest trends",
+    "pinnedSources": [
+      "Hamming - You and Your Research",
+      "Naval - How to Get Rich Without Getting Lucky",
+      "Schulman - An Opinionated Guide to ML Research",
+      "Karpathy - A Survival Guide to a PhD"
+    ]
+  },
+  "articles": [
+    {
+      "id": "schulman-ml-guide",
+      "title": "An Opinionated Guide to ML Research",
+      "author": "John Schulman",
+      "url": "http://joschu.net/blog/opinionated-guide-ml-research.html",
+      "type": "read",
+      "tags": ["research-philosophy", "practical-advice", "deep-dive"],
+      "dateAdded": "2026-03-18",
+      "status": "assigned",
+      "estimatedMinutes": 25,
+      "notes": "Day 1 deep dive. Goal-driven vs idea-driven research framework."
+    },
+    {
+      "id": "karpathy-autoresearch-fortune",
+      "title": "The Karpathy Loop: 700 Experiments, 2 Days",
+      "author": "Fortune / Andrej Karpathy",
+      "url": "https://fortune.com/2026/03/17/andrej-karpathy-loop-autonomous-ai-agents-future/",
+      "type": "read",
+      "tags": ["trending", "agents", "automation"],
+      "dateAdded": "2026-03-18",
+      "status": "assigned",
+      "estimatedMinutes": 5,
+      "notes": "Published Mar 17, 2026. AI agent runs 700 experiments autonomously."
+    },
+    {
+      "id": "sutskever-dwarkesh-age-of-research",
+      "title": "Ilya Sutskever: From the Age of Scaling to the Age of Research",
+      "author": "Dwarkesh Podcast / Ilya Sutskever",
+      "url": "https://www.dwarkesh.com/p/ilya-sutskever-2",
+      "type": "listen",
+      "tags": ["trending", "scaling", "research-philosophy"],
+      "dateAdded": "2026-03-18",
+      "status": "assigned",
+      "estimatedMinutes": 5,
+      "notes": "Key excerpt on shift from scaling era back to research era."
+    },
+    {
+      "id": "venturebeat-2026-trends",
+      "title": "Four AI Research Trends to Watch in 2026",
+      "author": "VentureBeat",
+      "url": "https://venturebeat.com/technology/four-ai-research-trends-enterprise-teams-should-watch-in-2026/",
+      "type": "read",
+      "tags": ["trends", "RLVR", "landscape"],
+      "dateAdded": "2026-03-18",
+      "status": "assigned",
+      "estimatedMinutes": 5,
+      "notes": "RLVR, small models, safety-aware RL, RL environments."
+    },
+    {
+      "id": "hamming-you-and-your-research",
+      "title": "You and Your Research — Richard Hamming",
+      "author": "Richard Hamming",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+      "type": "read",
+      "tags": ["research-philosophy", "classic", "multi-day"],
+      "dateAdded": "2026-03-18",
+      "status": "in-progress",
+      "estimatedMinutes": 45,
+      "multiDay": {
+        "totalDays": 3,
+        "currentDay": 1,
+        "checkpoints": [
+          { "day": 1, "description": "Opening anecdotes about luck and courage", "done": false },
+          { "day": 2, "description": "Working on important problems, open doors", "done": false },
+          { "day": 3, "description": "Style, selling your work, final reflections", "done": false }
+        ]
+      },
+      "notes": "Day 1 of 3. Start with opening through courage section."
+    },
+    {
+      "id": "karpathy-phd-survival",
+      "title": "A Survival Guide to a PhD",
+      "author": "Andrej Karpathy",
+      "url": "http://karpathy.github.io/2016/09/07/phd/",
+      "type": "read",
+      "tags": ["research-philosophy", "practical-advice"],
+      "dateAdded": "2026-03-18",
+      "status": "bookmarked",
+      "estimatedMinutes": 20,
+      "notes": "Bookmarked for upcoming digest."
+    },
+    {
+      "id": "naval-how-to-get-rich",
+      "title": "How to Get Rich (Without Getting Lucky)",
+      "author": "Naval Ravikant",
+      "url": "https://nav.al/rich",
+      "type": "read",
+      "tags": ["research-philosophy", "mental-models"],
+      "dateAdded": "2026-03-18",
+      "status": "bookmarked",
+      "estimatedMinutes": 30,
+      "notes": "Bookmarked. Specific knowledge, leverage, compound interest on effort."
+    },
+    {
+      "id": "karpathy-autoresearch-github",
+      "title": "autoresearch — Karpathy's Open Source Agent Loop",
+      "author": "Andrej Karpathy",
+      "url": "https://github.com/karpathy/autoresearch",
+      "type": "read",
+      "tags": ["code", "agents", "automation"],
+      "dateAdded": "2026-03-18",
+      "status": "bookmarked",
+      "estimatedMinutes": 15,
+      "notes": "Code repo. Adaptable for RL experiments."
+    },
+    {
+      "id": "lex-fridman-490",
+      "title": "State of AI in 2026 — Lex Fridman #490",
+      "author": "Lex Fridman Podcast",
+      "url": "https://lexfridman.com/ai-sota-2026-transcript/",
+      "type": "watch",
+      "tags": ["podcast", "trends", "multi-day"],
+      "dateAdded": "2026-03-18",
+      "status": "bookmarked",
+      "estimatedMinutes": 120,
+      "notes": "Long-form. Good for commute listening across multiple days."
+    }
+  ]
+}
