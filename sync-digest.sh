@@ -12,6 +12,9 @@ echo "=== Syncing digest data to GitHub ==="
 # Copy latest reading-log.json
 cp "$DIGEST_DIR/reading-log.json" "$SITE_DIR/digests/reading-log.json"
 
+# Copy daily digest HTML files
+cp "$DIGEST_DIR"/morning-digest-*.html "$SITE_DIR/digests/" 2>/dev/null
+
 cd "$SITE_DIR"
 
 # Check if there are changes

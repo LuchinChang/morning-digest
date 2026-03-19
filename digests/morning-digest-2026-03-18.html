@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Digest — March 18, 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --fg: #1c1917;
+    --muted: #78716c;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --card-bg: #ffffff;
+    --border: #e7e5e4;
+    --tag-read: #dcfce7;
+    --tag-read-fg: #166534;
+    --tag-watch: #fef3c7;
+    --tag-watch-fg: #92400e;
+    --tag-listen: #ede9fe;
+    --tag-listen-fg: #5b21b6;
+    --tag-deep: #fee2e2;
+    --tag-deep-fg: #991b1b;
+    --tag-trending: #ffedd5;
+    --tag-trending-fg: #9a3412;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --fg: #fafaf9;
+      --muted: #a8a29e;
+      --accent: #60a5fa;
+      --accent-light: #1e3a5f;
+      --card-bg: #1c1917;
+      --border: #292524;
+      --tag-read: #14532d;
+      --tag-read-fg: #bbf7d0;
+      --tag-watch: #451a03;
+      --tag-watch-fg: #fde68a;
+      --tag-listen: #2e1065;
+      --tag-listen-fg: #c4b5fd;
+      --tag-deep: #450a0a;
+      --tag-deep-fg: #fecaca;
+      --tag-trending: #431407;
+      --tag-trending-fg: #fed7aa;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  header { margin-bottom: 32px; }
+  header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  header .date { color: var(--muted); font-size: 0.9rem; }
+  header .subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 8px; line-height: 1.5; }
+  .section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .card h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.4; flex: 1; }
+  .card h3 a { color: var(--fg); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-read { background: var(--tag-read); color: var(--tag-read-fg); }
+  .tag-watch { background: var(--tag-watch); color: var(--tag-watch-fg); }
+  .tag-listen { background: var(--tag-listen); color: var(--tag-listen-fg); }
+  .tag-deep { background: var(--tag-deep); color: var(--tag-deep-fg); }
+  .tag-trending { background: var(--tag-trending); color: var(--tag-trending-fg); }
+  .meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .card p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+  .card .why {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .deep-dive {
+    background: linear-gradient(135deg, var(--accent-light), var(--card-bg));
+    border: 2px solid var(--accent);
+  }
+  .plan-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .plan-box h3 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
+  .plan-box ol, .plan-box ul { padding-left: 20px; }
+  .plan-box li { font-size: 0.9rem; margin-bottom: 8px; color: var(--fg); line-height: 1.5; }
+  .plan-box li strong { font-weight: 600; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 6px 0; font-size: 0.9rem; }
+  .checklist li::before { content: "\2610 "; color: var(--muted); }
+  .quote-box {
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    font-style: italic;
+  }
+  .quote-box .author { font-style: normal; font-weight: 600; display: block; margin-top: 6px; font-size: 0.82rem; }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (max-width: 480px) {
+    body { padding: 16px 12px 48px; }
+    header h1 { font-size: 1.3rem; }
+    .card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Morning Digest</h1>
+  <div class="date">Wednesday, March 18, 2026 &middot; Day 1</div>
+  <div class="subtitle">Your daily 45-minute reading plan. Half research philosophy, half latest trends. Curated for a new PhD student working at the intersection of formal methods and RL.</div>
+</header>
+
+<div class="quote-box">
+  "The people who do great work are not combative. They're merely independent-minded."
+  <span class="author">— Richard Hamming, You and Your Research (1986)</span>
+</div>
+
+<!-- ========== SECTION 1: TODAY'S DEEP DIVE ========== -->
+<div class="section-title">Today's Deep Dive (25 min)</div>
+
+<div class="card deep-dive">
+  <div class="card-header">
+    <h3><a href="http://joschu.net/blog/opinionated-guide-ml-research.html" target="_blank">An Opinionated Guide to ML Research</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>John Schulman</span>
+    <span>~25 min read</span>
+    <span class="tag tag-deep">DEEP DIVE</span>
+  </div>
+  <p>Written for the OpenAI Fellows program, this is the single most actionable guide for early-stage ML researchers. Schulman breaks research into three pillars: choosing problems, making progress, and personal growth. His key insight: goal-driven research (pick a measurable target, work backward) beats idea-driven research for most people starting out.</p>
+  <div class="why">Why today: This is your Day 1 foundation. Schulman's framework will shape how you approach every other article in future digests.</div>
+</div>
+
+<!-- ========== SECTION 2: QUICK READS ========== -->
+<div class="section-title">Quick Reads (15 min total)</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://fortune.com/2026/03/17/andrej-karpathy-loop-autonomous-ai-agents-future/" target="_blank">"The Karpathy Loop": 700 Experiments, 2 Days, and the Future of AI Research</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Fortune &middot; Mar 17, 2026</span>
+    <span>~5 min</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>Published yesterday. Karpathy released "autoresearch" — an AI agent that autonomously ran 700 experiments in 2 days on a single GPU, discovering 20 optimizations that yielded an 11% training speedup. This raises deep questions about the future of research methodology itself.</p>
+  <div class="why">Why today: This is literally from yesterday. As someone starting a PhD in RL + formal methods, the idea of automated experiment loops is directly relevant to your workflow.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.dwarkesh.com/p/ilya-sutskever-2" target="_blank">Ilya Sutskever: From the Age of Scaling to the Age of Research</a></h3>
+    <span class="tag tag-listen">LISTEN</span>
+  </div>
+  <div class="meta">
+    <span>Dwarkesh Podcast</span>
+    <span>~5 min excerpt</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>Sutskever argues that 2020–2025 was the "age of scaling" and we've now returned to the "age of research." The next breakthroughs need better objectives, better generalization, and stronger safety — not just bigger GPUs. Meanwhile, LeCun says LLMs are a "dead end" and pushes for world models that learn through interaction.</p>
+  <div class="why">Why today: This is the biggest strategic question in AI right now: scale vs. new paradigms. Your RL + formal methods background positions you at the frontier of this debate.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://venturebeat.com/technology/four-ai-research-trends-enterprise-teams-should-watch-in-2026/" target="_blank">Four AI Research Trends to Watch in 2026</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>VentureBeat</span>
+    <span>~5 min</span>
+  </div>
+  <p>Quick overview: RL with Verifiable Rewards (RLVR) becoming the dominant training paradigm, smaller efficient models gaining ground, safety-aware RL algorithms, and RL environments becoming enterprise infrastructure.</p>
+  <div class="why">Why today: Maps the landscape you're entering — RLVR is especially relevant to formal methods (verification + RL = your sweet spot).</div>
+</div>
+
+<!-- ========== SECTION 3: BOOKMARK FOR LATER ========== -->
+<div class="section-title">Bookmarks (5 min to skim, finish over coming days)</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html" target="_blank">You and Your Research — Richard Hamming (1986)</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Full transcript &middot; ~45 min read</span>
+    <span class="tag tag-deep">MULTI-DAY</span>
+  </div>
+  <p>The foundational talk on what separates researchers who do great work from those who don't. Hamming spent 40+ years at Bell Labs observing what made people like Shannon, Feynman, and Fermi exceptional. Core themes: courage, open doors, working on important problems, and "planting little acorns."</p>
+  <div class="why">Spread this across 3 days (15 min/day). Tomorrow's digest will have a reading checkpoint.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="http://karpathy.github.io/2016/09/07/phd/" target="_blank">A Survival Guide to a PhD — Andrej Karpathy</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>~20 min read</span>
+  </div>
+  <p>Karpathy's retrospective on his Stanford PhD. Key advice: think of your PhD as more than papers, work from first principles, do things others don't do but should, and find your unique angle rather than following the crowd.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://nav.al/rich" target="_blank">How to Get Rich (Without Getting Lucky) — Naval Ravikant</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Tweetstorm + essays &middot; ~30 min total</span>
+  </div>
+  <p>Not about money per se — it's about building specific knowledge, leverage, and judgment. The mental models here (accountability, leverage, compound interest on effort) apply directly to a research career. A PhD is the ultimate "specific knowledge" play.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://github.com/karpathy/autoresearch" target="_blank">autoresearch — Karpathy's Open Source Agent Loop</a></h3>
+    <span class="tag tag-read">CODE</span>
+  </div>
+  <div class="meta">
+    <span>GitHub &middot; Mar 2026</span>
+  </div>
+  <p>The actual code behind the "Karpathy Loop." An AI agent modifies train.py, trains for 5 min, evaluates, keeps or discards. ~12 experiments/hour. Worth reading the README and understanding the architecture — you could adapt this for your own RL experiments.</p>
+</div>
+
+<!-- ========== SECTION 4: PODCAST / VIDEO QUEUE ========== -->
+<div class="section-title">Podcast &amp; Video Queue</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://lexfridman.com/ai-sota-2026-transcript/" target="_blank">State of AI in 2026 — Lex Fridman #490</a></h3>
+    <span class="tag tag-watch">WATCH</span>
+  </div>
+  <div class="meta">
+    <span>Lex Fridman Podcast</span>
+    <span>Long-form &middot; multi-day</span>
+  </div>
+  <p>With Sebastian Raschka and Nathan Lambert. Covers LLMs, coding, scaling laws, China's AI, agents, and AGI timelines. Good for commute or gym listening.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://sebastianraschka.com/blog/2026/state-of-ai-interview.html" target="_blank">State of AI 2026 — Sebastian Raschka's Blog Companion</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Blog post version of the podcast discussion</span>
+  </div>
+  <p>If you prefer reading to watching, Raschka wrote up his key points from the Lex Fridman conversation. Great reference material.</p>
+</div>
+
+<!-- ========== YOUR 45-MIN PLAN ========== -->
+<div class="section-title">Your 45-Minute Plan for Today</div>
+
+<div class="plan-box">
+  <h3>Suggested Reading Order</h3>
+  <ol>
+    <li><strong>Schulman's Guide (25 min)</strong> — Read the full article carefully. Take notes on his "goal-driven vs idea-driven" framework. Ask yourself: what's your goal-driven research target?</li>
+    <li><strong>Karpathy Loop / Fortune article (5 min)</strong> — Quick read on yesterday's big news. Think about how automated experiment loops could augment your own research.</li>
+    <li><strong>Sutskever on Dwarkesh (5 min)</strong> — Skim or listen to the key excerpt about "age of research." Where does RL + formal methods fit?</li>
+    <li><strong>VentureBeat trends (5 min)</strong> — Quick landscape scan. Note any trends relevant to your work.</li>
+    <li><strong>Hamming, Day 1 of 3 (5 min)</strong> — Start the transcript. Read through the opening anecdotes about luck and courage. Bookmark where you stop.</li>
+  </ol>
+</div>
+
+<div class="plan-box">
+  <h3>Phone vs. Laptop Strategy</h3>
+  <ul class="checklist">
+    <li><strong>Phone (commute, coffee, breaks):</strong> Short reads tagged with TRENDING, podcasts, and the Fortune/VentureBeat articles. This HTML file renders well on mobile — just open it in your phone browser.</li>
+    <li><strong>Laptop (desk time):</strong> Deep dives like Schulman's guide, Hamming transcript, and code repos. Better for note-taking alongside the reading.</li>
+    <li><strong>Tip:</strong> Send yourself the links you want to read on mobile via a quick self-email, or use a "read later" app like Pocket or Instapaper to sync across devices.</li>
+    <li><strong>Podcast queue:</strong> Add Lex Fridman #490 to your podcast app for background listening during non-reading time.</li>
+  </ul>
+</div>
+
+<!-- ========== RESEARCHERS TO FOLLOW ========== -->
+<div class="section-title">Researchers to Follow</div>
+
+<div class="plan-box">
+  <p style="font-size:0.9rem; margin-bottom: 12px;">Build your feed. Follow these people on X/Twitter for a daily stream of ideas:</p>
+  <ul style="padding-left: 20px;">
+    <li style="font-size:0.88rem; margin-bottom: 6px;"><strong>Andrej Karpathy</strong> (<a href="https://x.com/karpathy" target="_blank">@karpathy</a>) — AI education, vibe coding, autoresearch</li>
+    <li style="font-size:0.88rem; margin-bottom: 6px;"><strong>Kaiming He</strong> — MIT EECS, self-supervised learning, diffusion models</li>
+    <li style="font-size:0.88rem; margin-bottom: 6px;"><strong>Saining Xie</strong> (<a href="https://www.sainingxie.com/" target="_blank">site</a>) — NYU, architecture design, vision models</li>
+    <li style="font-size:0.88rem; margin-bottom: 6px;"><strong>Yann LeCun</strong> (<a href="https://x.com/ylecun" target="_blank">@ylecun</a>) — Meta Chief Scientist, world models, vocal critic of LLM hype</li>
+    <li style="font-size:0.88rem; margin-bottom: 6px;"><strong>Ilya Sutskever</strong> — Safe Superintelligence Inc., post-scaling era</li>
+    <li style="font-size:0.88rem; margin-bottom: 6px;"><strong>John Schulman</strong> — RL pioneer, PPO creator, research methodology</li>
+    <li style="font-size:0.88rem; margin-bottom: 6px;"><strong>Sebastian Raschka</strong> (<a href="https://x.com/rasaborski" target="_blank">@rasaborski</a>) — Practical ML, great newsletter</li>
+    <li style="font-size:0.88rem; margin-bottom: 6px;"><strong>Nathan Lambert</strong> — RLHF, alignment, open models</li>
+    <li style="font-size:0.88rem; margin-bottom: 6px;"><strong>David Ha</strong> (<a href="https://x.com/hardmaru" target="_blank">@hardmaru</a>) — World models, creative AI</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Digest &middot; Curated for LuChin's PhD Journey<br>
+  Day 1 of your reading habit. Consistency compounds.
+</footer>
+
+</body>
+</html>

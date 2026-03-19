@@ -239,6 +239,8 @@ body {
 .back-btn:hover { color: var(--text-primary); border-color: var(--glass-border-hover); }
 
 .digest-header { margin-bottom: 28px; }
+.standalone-link { font-size: 11px; color: var(--accent-teal); text-decoration: none; letter-spacing: 0.05em; opacity: 0.7; transition: opacity var(--dur-fast) var(--ease); }
+.standalone-link:hover { opacity: 1; text-decoration: underline; }
 .dh-day { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.17em; color: var(--accent-copper); }
 .dh-title { font-size: 22px; font-weight: 300; letter-spacing: -0.02em; margin: 6px 0; }
 .dh-quote {
@@ -754,6 +756,7 @@ function renderSingleDigest(date) {
     <div class="digest-header">
       <div class="dh-day">Day ${readingLog.meta.dayCount}</div>
       <div class="dh-title">${formatDate(date)}</div>
+      <a href="digests/morning-digest-${date}.html" target="_blank" class="standalone-link">Open standalone digest &rarr;</a>
     </div>
     ${deepDives.length ? '<div class="section-label">Deep Dive</div>' + deepDives.map(a => articleCardHTML(a, notes)).join('') : ''}
     ${quick.length ? '<div class="section-label">Quick Reads</div>' + quick.map(a => articleCardHTML(a, notes)).join('') : ''}
