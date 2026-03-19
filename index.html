@@ -315,6 +315,11 @@ body {
   border-color: var(--accent-coral);
   color: var(--accent-coral);
 }
+.fb-btn.fb-bookmark.active {
+  background: rgba(232, 160, 80, 0.2);
+  border-color: var(--accent-amber);
+  color: var(--accent-amber);
+}
 
 /* Quick-add URL */
 .quick-add {
@@ -367,6 +372,32 @@ body {
   transition: all var(--dur-fast); flex-shrink: 0;
 }
 .queue-item-remove:hover { background: var(--accent-coral); color: #080604; }
+.queue-item-edit {
+  width: 22px; height: 22px; border-radius: 4px; border: none; cursor: pointer;
+  background: var(--glass-bg); color: var(--text-secondary); font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--dur-fast); flex-shrink: 0;
+}
+.queue-item-edit:hover { background: var(--accent-copper); color: #080604; }
+.queue-edit-row {
+  display: flex; gap: 8px; flex: 1; align-items: center;
+}
+.queue-edit-input {
+  flex: 1; padding: 6px 10px;
+  background: var(--note-bg); border: 1px solid var(--accent-copper);
+  border-radius: var(--radius-pill); color: var(--text-primary);
+  font-family: inherit; font-size: 12px; outline: none;
+}
+.queue-edit-save, .queue-edit-cancel {
+  padding: 4px 12px; border-radius: var(--radius-pill);
+  font-family: inherit; font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; cursor: pointer; border: none;
+  transition: all var(--dur-fast) var(--ease);
+}
+.queue-edit-save { background: var(--accent-copper); color: #080604; }
+.queue-edit-save:hover { background: var(--accent-amber); }
+.queue-edit-cancel { background: transparent; border: 1px solid var(--glass-border); color: var(--text-secondary); }
+.queue-edit-cancel:hover { border-color: var(--glass-border-hover); color: var(--text-primary); }
 
 /* Export button */
 .export-btn {
@@ -726,6 +757,81 @@ function removeFromQueue(index) {
   saveQueue(queue);
   renderBookmarks();
 }
+function editQueueItem(index) {
+  const queue = loadQueue();
+  const item = queue[index];
+  if (!item) return;
+  const container = document.getElementById('bookmarksContent');
+  const queueItems = container.querySelectorAll('.queue-item');
+  const el = queueItems[index];
+  if (!el) return;
+  el.innerHTML = `
+    <div class="queue-edit-row">
+      <input class="queue-edit-input" type="url" value="${item.url}">
+      <button class="queue-edit-save" onclick="saveQueueEdit(${index})">Save</button>
+      <button class="queue-edit-cancel" onclick="renderBookmarks()">Cancel</button>
+    </div>
+  `;
+  const input = el.querySelector('.queue-edit-input');
+  input.focus();
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') saveQueueEdit(index);
+    if (e.key === 'Escape') renderBookmarks();
+  });
+}
+function saveQueueEdit(index) {
+  const input = document.querySelector('.queue-edit-input');
+  if (!input) return;
+  const newUrl = input.value.trim();
+  if (!newUrl) return;
+  try { new URL(newUrl); } catch { showToast('Invalid URL'); return; }
+  const queue = loadQueue();
+  if (queue.some((q, i) => i !== index && q.url === newUrl)) {
+    showToast('URL already exists');
+    return;
+  }
+  queue[index].url = newUrl;
+  saveQueue(queue);
+  renderBookmarks();
+  showToast('URL updated');
+}
+
+/* ============================================================
+   BOOKMARKS stored in localStorage
+   ============================================================ */
+const BOOKMARKS_KEY = 'lc-digest-bookmarks';
+
+function loadBookmarks() {
+  try { return JSON.parse(localStorage.getItem(BOOKMARKS_KEY) || '{}'); }
+  catch { return {}; }
+}
+function saveBookmarks(bm) {
+  localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bm));
+}
+function isBookmarked(articleId) {
+  const bm = loadBookmarks();
+  if (bm[articleId]) return true;
+  const article = readingLog?.articles.find(a => a.id === articleId);
+  return article?.status === 'bookmarked';
+}
+function toggleBookmark(articleId) {
+  const bm = loadBookmarks();
+  if (bm[articleId]) {
+    delete bm[articleId];
+    showToast('Bookmark removed');
+  } else {
+    bm[articleId] = { bookmarked: true, ts: new Date().toISOString() };
+    showToast('Bookmarked');
+  }
+  saveBookmarks(bm);
+  // Re-render current view
+  if (currentView === 'single') {
+    const date = readingLog.articles.find(a => a.id === articleId)?.dateAdded;
+    if (date) renderSingleDigest(date);
+  } else if (currentView === 'bookmarks') {
+    renderBookmarks();
+  }
+}
 
 /* ============================================================
    FEEDBACK SUMMARY GENERATION + EXPORT
@@ -1045,6 +1151,7 @@ function articleCardHTML(article, notes) {
       <div class="ac-feedback">
         <button class="fb-btn fb-up ${rating === 'up' ? 'active' : ''}" onclick="setRating('${article.id}', 'up')" title="More like this">&#9650;</button>
         <button class="fb-btn fb-down ${rating === 'down' ? 'active' : ''}" onclick="setRating('${article.id}', 'down')" title="Less like this">&#9660;</button>
+        <button class="fb-btn fb-bookmark ${isBookmarked(article.id) ? 'active' : ''}" onclick="toggleBookmark('${article.id}')" title="${isBookmarked(article.id) ? 'Remove bookmark' : 'Bookmark'}">${isBookmarked(article.id) ? '&#9733;' : '&#9734;'}</button>
       </div>
       <div class="ac-header" style="padding-top:0; cursor:pointer;" onclick="toggleNotes(this)">
         <span style="font-size:9px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.14em;font-weight:600;">
@@ -1210,7 +1317,12 @@ function renderBookmarks() {
   const container = document.getElementById('bookmarksContent');
   const notes = loadNotes();
   const queue = loadQueue();
-  const bookmarked = readingLog.articles.filter(a => a.status === 'bookmarked');
+  const userBm = loadBookmarks();
+  const bookmarkedIds = new Set([
+    ...readingLog.articles.filter(a => a.status === 'bookmarked').map(a => a.id),
+    ...Object.keys(userBm)
+  ]);
+  const bookmarked = readingLog.articles.filter(a => bookmarkedIds.has(a.id));
 
   let html = '';
 
@@ -1221,6 +1333,7 @@ function renderBookmarks() {
       <div class="queue-item">
         <a class="queue-item-url" href="${q.url}" target="_blank">${q.url}</a>
         <span class="queue-item-time">${formatNoteTime(q.addedAt)}</span>
+        <button class="queue-item-edit" onclick="editQueueItem(${i})" title="Edit">&#9998;</button>
         <button class="queue-item-remove" onclick="removeFromQueue(${i})" title="Remove">&times;</button>
       </div>
     `).join('');
