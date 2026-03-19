@@ -284,6 +284,114 @@ body {
 .ac-expand { font-size: 18px; color: var(--text-dim); cursor: pointer; padding: 4px; transition: transform var(--dur-base) var(--ease); }
 .ac-expand.open { transform: rotate(180deg); }
 
+/* Feedback buttons */
+.ac-feedback {
+  padding: 0 20px 10px;
+  display: flex; gap: 6px;
+}
+.fb-btn {
+  width: 28px; height: 28px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--glass-border);
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--dur-fast) var(--ease);
+  font-family: inherit;
+}
+.fb-btn:hover {
+  border-color: var(--glass-border-hover);
+  color: var(--text-secondary);
+}
+.fb-btn.fb-up.active {
+  background: rgba(200, 122, 46, 0.2);
+  border-color: var(--accent-copper);
+  color: var(--accent-amber);
+}
+.fb-btn.fb-down.active {
+  background: rgba(232, 71, 44, 0.15);
+  border-color: var(--accent-coral);
+  color: var(--accent-coral);
+}
+
+/* Quick-add URL */
+.quick-add {
+  display: flex; gap: 8px; margin-bottom: 20px;
+}
+.quick-add-input {
+  flex: 1; padding: 9px 14px;
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  border-radius: var(--radius-tile); color: var(--text-primary);
+  font-family: inherit; font-size: 12px; outline: none;
+  backdrop-filter: blur(12px);
+  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.quick-add-input::placeholder { color: var(--text-dim); }
+.quick-add-input:focus {
+  border-color: var(--accent-copper);
+  box-shadow: 0 0 0 3px rgba(200,122,46,0.15);
+}
+.quick-add-btn {
+  padding: 7px 18px; border-radius: var(--radius-pill);
+  font-family: inherit; font-size: 9.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.12em; cursor: pointer; border: none;
+  background: var(--accent-copper); color: #080604;
+  box-shadow: 0 0 12px rgba(200,122,46,0.2);
+  transition: all var(--dur-fast) var(--ease);
+  flex-shrink: 0;
+}
+.quick-add-btn:hover { background: var(--accent-amber); transform: translateY(-1px); }
+.quick-add-btn:active { transform: scale(0.95); }
+
+/* Queue item (pending URL) */
+.queue-item {
+  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border); border-radius: var(--radius-panel);
+  padding: 14px 20px; margin-bottom: 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.queue-item:hover { border-color: var(--glass-border-hover); }
+.queue-item-url {
+  font-size: 12px; color: var(--accent-teal); text-decoration: none;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1;
+}
+.queue-item-url:hover { text-decoration: underline; }
+.queue-item-time { font-size: 8.5px; color: var(--text-dim); flex-shrink: 0; }
+.queue-item-remove {
+  width: 22px; height: 22px; border-radius: 4px; border: none; cursor: pointer;
+  background: var(--glass-bg); color: var(--text-secondary); font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--dur-fast); flex-shrink: 0;
+}
+.queue-item-remove:hover { background: var(--accent-coral); color: #080604; }
+
+/* Export button */
+.export-btn {
+  padding: 5px 12px; border-radius: var(--radius-pill);
+  font-family: inherit; font-size: 8.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; cursor: pointer;
+  background: transparent; border: 1px solid var(--glass-border);
+  color: var(--text-secondary); flex-shrink: 0;
+  transition: all var(--dur-fast) var(--ease);
+}
+.export-btn:hover { border-color: var(--accent-copper); color: var(--text-primary); }
+
+/* Toast notification */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--accent-copper); border-radius: var(--radius-tile);
+  padding: 12px 20px; font-size: 11px; color: var(--text-primary);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+  transform: translateY(20px); opacity: 0;
+  transition: all var(--dur-base) var(--ease);
+  pointer-events: none;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
 /* ============================================================
    ANNOTATION / NOTES PANEL
    ============================================================ */
@@ -466,7 +574,10 @@ body {
     <div class="nav-pills">
       <div class="nav-pill active" data-view="digests">Digests</div>
       <div class="nav-pill" data-view="notebook">Notebook</div>
+      <div class="nav-pill" data-view="bookmarks">Bookmarks</div>
     </div>
+
+    <button class="export-btn" onclick="exportData()" title="Copy feedback summary + queued URLs to clipboard">Export Data</button>
 
     <div class="theme-toggle" id="themeToggle" title="Toggle theme">
       <div class="knob"></div>
@@ -495,8 +606,24 @@ body {
       </div>
       <div id="notebookContent"></div>
     </div>
+
+    <!-- Bookmarks view -->
+    <div class="view" id="view-bookmarks">
+      <div class="digest-header">
+        <div class="dh-day">Saved</div>
+        <div class="dh-title">Your Bookmarks</div>
+      </div>
+      <div class="quick-add">
+        <input class="quick-add-input" id="quickAddInput" type="url" placeholder="Paste a URL to save for later...">
+        <button class="quick-add-btn" id="quickAddBtn">+ Save</button>
+      </div>
+      <div id="bookmarksContent"></div>
+    </div>
   </div>
 </div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
 
 <script>
 /* ============================================================
@@ -536,6 +663,134 @@ function deleteNote(articleId, noteId) {
   }
   saveNotes(notes);
   return notes;
+}
+
+/* ============================================================
+   RATINGS (thumbs up/down) stored in localStorage
+   ============================================================ */
+const RATINGS_KEY = 'lc-digest-ratings';
+
+function loadRatings() {
+  try { return JSON.parse(localStorage.getItem(RATINGS_KEY) || '{}'); }
+  catch { return {}; }
+}
+function saveRatings(ratings) {
+  localStorage.setItem(RATINGS_KEY, JSON.stringify(ratings));
+}
+function getRating(articleId) {
+  const ratings = loadRatings();
+  return ratings[articleId] ? ratings[articleId].rating : null;
+}
+function setRating(articleId, value) {
+  const ratings = loadRatings();
+  const current = ratings[articleId] ? ratings[articleId].rating : null;
+  if (current === value) {
+    delete ratings[articleId];
+  } else {
+    ratings[articleId] = { rating: value, ts: new Date().toISOString() };
+  }
+  saveRatings(ratings);
+  // Re-render current view
+  if (currentView === 'single') {
+    const date = readingLog.articles.find(a => a.id === articleId)?.dateAdded;
+    if (date) renderSingleDigest(date);
+  } else if (currentView === 'bookmarks') {
+    renderBookmarks();
+  }
+}
+
+/* ============================================================
+   URL QUEUE stored in localStorage
+   ============================================================ */
+const QUEUE_KEY = 'lc-digest-queue';
+
+function loadQueue() {
+  try { return JSON.parse(localStorage.getItem(QUEUE_KEY) || '[]'); }
+  catch { return []; }
+}
+function saveQueue(queue) {
+  localStorage.setItem(QUEUE_KEY, JSON.stringify(queue));
+}
+function addToQueue(url) {
+  if (!url) return;
+  try { new URL(url); } catch { return; }
+  const queue = loadQueue();
+  if (queue.some(q => q.url === url)) return; // no duplicates
+  queue.unshift({ url: url, addedAt: new Date().toISOString() });
+  saveQueue(queue);
+  renderBookmarks();
+}
+function removeFromQueue(index) {
+  const queue = loadQueue();
+  queue.splice(index, 1);
+  saveQueue(queue);
+  renderBookmarks();
+}
+
+/* ============================================================
+   FEEDBACK SUMMARY GENERATION + EXPORT
+   ============================================================ */
+function generateFeedbackSummary() {
+  const ratings = loadRatings();
+  const ratedIds = Object.keys(ratings);
+  if (ratedIds.length === 0) return null;
+
+  const byTag = {}, byAuthor = {}, byType = {};
+  for (const id of ratedIds) {
+    const article = readingLog?.articles.find(a => a.id === id);
+    if (!article) continue;
+    const dir = ratings[id].rating === 'up' ? 0 : 1;
+    // Tags
+    for (const tag of article.tags) {
+      if (!byTag[tag]) byTag[tag] = [0, 0];
+      byTag[tag][dir]++;
+    }
+    // Author
+    const author = article.author;
+    if (!byAuthor[author]) byAuthor[author] = [0, 0];
+    byAuthor[author][dir]++;
+    // Type
+    if (!byType[article.type]) byType[article.type] = [0, 0];
+    byType[article.type][dir]++;
+  }
+
+  // Generate signals: top liked tags, top disliked tags
+  const signals = [];
+  const tagEntries = Object.entries(byTag);
+  const topLiked = tagEntries.filter(([,v]) => v[0] > 0).sort((a,b) => b[1][0] - a[1][0]).slice(0, 2);
+  const topDisliked = tagEntries.filter(([,v]) => v[1] > 0).sort((a,b) => b[1][1] - a[1][1]).slice(0, 2);
+  if (topLiked.length) signals.push('Likes: ' + topLiked.map(([t]) => t).join(', ') + ' content');
+  if (topDisliked.length) signals.push('Dislikes: ' + topDisliked.map(([t]) => t).join(', ') + ' content');
+
+  return {
+    generatedAt: new Date().toISOString(),
+    totalRated: ratedIds.length,
+    byTag, byAuthor, byType, signals
+  };
+}
+
+function exportData() {
+  const summary = generateFeedbackSummary();
+  const queue = loadQueue();
+  const exportObj = {};
+  if (summary) exportObj.feedbackSummary = summary;
+  if (queue.length) exportObj.pendingUrls = queue.map(q => q.url);
+
+  if (Object.keys(exportObj).length === 0) {
+    showToast('Nothing to export yet — rate some articles or add URLs.');
+    return;
+  }
+
+  navigator.clipboard.writeText(JSON.stringify(exportObj, null, 2)).then(() => {
+    showToast('Copied feedback + queue to clipboard');
+  });
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
 /* ============================================================
@@ -770,6 +1025,7 @@ function renderSingleDigest(date) {
 function articleCardHTML(article, notes) {
   const articleNotes = notes[article.id] || [];
   const isDeep = article.tags.includes('deep-dive');
+  const rating = getRating(article.id);
   return `
     <div class="article-card ${isDeep ? 'deep-dive' : ''}" data-id="${article.id}">
       <div class="ac-header">
@@ -785,6 +1041,10 @@ function articleCardHTML(article, notes) {
         <div class="ac-tags">
           ${article.tags.map(t => tagHTML(t)).join('')}
         </div>
+      </div>
+      <div class="ac-feedback">
+        <button class="fb-btn fb-up ${rating === 'up' ? 'active' : ''}" onclick="setRating('${article.id}', 'up')" title="More like this">&#9650;</button>
+        <button class="fb-btn fb-down ${rating === 'down' ? 'active' : ''}" onclick="setRating('${article.id}', 'down')" title="Less like this">&#9660;</button>
       </div>
       <div class="ac-header" style="padding-top:0; cursor:pointer;" onclick="toggleNotes(this)">
         <span style="font-size:9px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.14em;font-weight:600;">
@@ -941,6 +1201,62 @@ function renderNotebook() {
 
 // Re-render notebook when switching to it
 document.querySelector('.nav-pill[data-view="notebook"]').addEventListener('click', renderNotebook);
+
+/* ============================================================
+   RENDER: BOOKMARKS VIEW
+   ============================================================ */
+function renderBookmarks() {
+  if (!readingLog) return;
+  const container = document.getElementById('bookmarksContent');
+  const notes = loadNotes();
+  const queue = loadQueue();
+  const bookmarked = readingLog.articles.filter(a => a.status === 'bookmarked');
+
+  let html = '';
+
+  // Pending URLs section
+  if (queue.length > 0) {
+    html += '<div class="section-label">Pending URLs</div>';
+    html += queue.map((q, i) => `
+      <div class="queue-item">
+        <a class="queue-item-url" href="${q.url}" target="_blank">${q.url}</a>
+        <span class="queue-item-time">${formatNoteTime(q.addedAt)}</span>
+        <button class="queue-item-remove" onclick="removeFromQueue(${i})" title="Remove">&times;</button>
+      </div>
+    `).join('');
+  }
+
+  // Bookmarked articles section
+  if (bookmarked.length > 0) {
+    html += '<div class="section-label">Bookmarked Articles</div>';
+    html += bookmarked.map(a => articleCardHTML(a, notes)).join('');
+  }
+
+  if (!queue.length && !bookmarked.length) {
+    html = `<div class="empty-state"><div class="icon">&#9734;</div><p>No bookmarks yet. Save articles or paste a URL to read later.</p></div>`;
+  }
+
+  container.innerHTML = html;
+  bindArticleEvents(container);
+}
+
+// Re-render bookmarks when switching to it
+document.querySelector('.nav-pill[data-view="bookmarks"]').addEventListener('click', renderBookmarks);
+
+// Quick-add URL events
+document.getElementById('quickAddBtn').addEventListener('click', () => {
+  const input = document.getElementById('quickAddInput');
+  const url = input.value.trim();
+  if (url) {
+    addToQueue(url);
+    input.value = '';
+  }
+});
+document.getElementById('quickAddInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    document.getElementById('quickAddBtn').click();
+  }
+});
 
 /* ============================================================
    SEARCH (Fuse.js)
