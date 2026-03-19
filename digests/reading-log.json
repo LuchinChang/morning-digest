@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 1,
+    "dayCount": 2,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html"
@@ -99,14 +99,14 @@
       "estimatedMinutes": 45,
       "multiDay": {
         "totalDays": 3,
-        "currentDay": 1,
+        "currentDay": 2,
         "checkpoints": [
-          { "day": 1, "description": "Opening anecdotes about luck and courage", "done": false },
+          { "day": 1, "description": "Opening anecdotes about luck and courage", "done": true },
           { "day": 2, "description": "Working on important problems, open doors", "done": false },
           { "day": 3, "description": "Style, selling your work, final reflections", "done": false }
         ]
       },
-      "notes": "Day 1 of 3. Start with opening through courage section."
+      "notes": "Day 2 of 3. Focus on 'important problems' and 'open doors' sections."
     },
     {
       "id": "karpathy-phd-survival",
@@ -114,11 +114,12 @@
       "author": "Andrej Karpathy",
       "url": "http://karpathy.github.io/2016/09/07/phd/",
       "type": "read",
-      "tags": ["research-philosophy", "practical-advice"],
+      "tags": ["research-philosophy", "practical-advice", "deep-dive"],
       "dateAdded": "2026-03-18",
-      "status": "bookmarked",
+      "dateAssigned": "2026-03-19",
+      "status": "assigned",
       "estimatedMinutes": 20,
-      "notes": "Bookmarked for upcoming digest."
+      "notes": "Promoted from bookmarks on Day 2. Deep dive — PhD mindset and survival."
     },
     {
       "id": "naval-how-to-get-rich",
@@ -155,6 +156,78 @@
       "status": "bookmarked",
       "estimatedMinutes": 120,
       "notes": "Long-form. Good for commute listening across multiple days."
+    },
+    {
+      "id": "karpathy-jobs-exposure",
+      "title": "Karpathy Scored Every U.S. Job for AI Exposure",
+      "author": "Fortune / Andrej Karpathy",
+      "url": "https://fortune.com/2026/03/15/andrej-karpathy-openai-cofounder-us-labor-market-exposure-ai-white-collar-jobs-professionals/",
+      "type": "read",
+      "tags": ["trending", "AI-impact", "labor"],
+      "dateAdded": "2026-03-19",
+      "status": "assigned",
+      "estimatedMinutes": 5,
+      "notes": "Day 2 quick read. 342 BLS occupations scored 0-10 for AI exposure."
+    },
+    {
+      "id": "lambert-open-models-next",
+      "title": "What Comes Next with Open Models",
+      "author": "Nathan Lambert / Interconnects",
+      "url": "https://www.interconnects.ai/p/the-next-phase-of-open-models",
+      "type": "read",
+      "tags": ["trending", "open-models", "strategy"],
+      "dateAdded": "2026-03-19",
+      "status": "assigned",
+      "estimatedMinutes": 5,
+      "notes": "Day 2 quick read. Closed vs open models divergence in 2026."
+    },
+    {
+      "id": "raschka-llm-architecture-gallery",
+      "title": "The LLM Architecture Gallery",
+      "author": "Sebastian Raschka",
+      "url": "https://sebastianraschka.com/blog/2026/llm-architecture-gallery.html",
+      "type": "read",
+      "tags": ["reference", "architectures", "visual"],
+      "dateAdded": "2026-03-19",
+      "status": "assigned",
+      "estimatedMinutes": 5,
+      "notes": "Day 2 quick read/browse. Visual reference of all major LLM architectures."
+    },
+    {
+      "id": "lecun-ami-labs-world-models",
+      "title": "Yann LeCun's AMI Labs Raises $1.03B to Build World Models",
+      "author": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+      "type": "read",
+      "tags": ["world-models", "JEPA", "startup"],
+      "dateAdded": "2026-03-19",
+      "status": "bookmarked",
+      "estimatedMinutes": 10,
+      "notes": "Bookmarked. LeCun's contrarian bet on JEPA and world models over LLMs."
+    },
+    {
+      "id": "raschka-state-of-ai-blog",
+      "title": "State of AI 2026 — Raschka's Blog Companion to Lex Fridman #490",
+      "author": "Sebastian Raschka",
+      "url": "https://sebastianraschka.com/blog/2026/state-of-ai-interview.html",
+      "type": "read",
+      "tags": ["landscape", "open-models", "reference"],
+      "dateAdded": "2026-03-19",
+      "status": "bookmarked",
+      "estimatedMinutes": 15,
+      "notes": "Bookmarked. Written companion to the Lex Fridman podcast episode."
+    },
+    {
+      "id": "dwarkesh-dylan-patel-compute",
+      "title": "Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute",
+      "author": "Dwarkesh Podcast / Dylan Patel",
+      "url": "https://www.dwarkesh.com/podcast/archive",
+      "type": "listen",
+      "tags": ["podcast", "compute", "scaling", "trending"],
+      "dateAdded": "2026-03-19",
+      "status": "bookmarked",
+      "estimatedMinutes": 151,
+      "notes": "Bookmarked for commute/gym. Logic, memory, power bottlenecks in AI compute."
     }
   ]
 }
