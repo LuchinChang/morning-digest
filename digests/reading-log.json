@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 2,
+    "dayCount": 3,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html"
@@ -99,14 +99,14 @@
       "estimatedMinutes": 45,
       "multiDay": {
         "totalDays": 3,
-        "currentDay": 2,
+        "currentDay": 3,
         "checkpoints": [
           { "day": 1, "description": "Opening anecdotes about luck and courage", "done": true },
-          { "day": 2, "description": "Working on important problems, open doors", "done": false },
+          { "day": 2, "description": "Working on important problems, open doors", "done": true },
           { "day": 3, "description": "Style, selling your work, final reflections", "done": false }
         ]
       },
-      "notes": "Day 2 of 3. Focus on 'important problems' and 'open doors' sections."
+      "notes": "Day 3 of 3 (final). Focus on style, selling your work, and Hamming's closing challenge."
     },
     {
       "id": "karpathy-phd-survival",
@@ -201,9 +201,10 @@
       "type": "read",
       "tags": ["world-models", "JEPA", "startup"],
       "dateAdded": "2026-03-19",
-      "status": "bookmarked",
+      "dateAssigned": "2026-03-20",
+      "status": "assigned",
       "estimatedMinutes": 10,
-      "notes": "Bookmarked. LeCun's contrarian bet on JEPA and world models over LLMs."
+      "notes": "Promoted from bookmarks on Day 3. LeCun's contrarian bet on JEPA and world models over LLMs."
     },
     {
       "id": "raschka-state-of-ai-blog",
@@ -228,6 +229,78 @@
       "status": "bookmarked",
       "estimatedMinutes": 151,
       "notes": "Bookmarked for commute/gym. Logic, memory, power bottlenecks in AI compute."
+    },
+    {
+      "id": "alphaproof-nature-formal-rl",
+      "title": "AlphaProof: Olympiad-Level Formal Mathematical Reasoning with Reinforcement Learning",
+      "author": "Google DeepMind / Nature",
+      "url": "https://www.nature.com/articles/s41586-025-09833-y",
+      "type": "read",
+      "tags": ["formal-methods", "reinforcement-learning", "deep-dive", "landmark"],
+      "dateAdded": "2026-03-20",
+      "status": "assigned",
+      "estimatedMinutes": 25,
+      "notes": "Day 3 deep dive. RL + Lean formal proofs. Silver-medal IMO performance. Directly at the intersection of LuChin's research areas."
+    },
+    {
+      "id": "meta-rogue-ai-agent",
+      "title": "Meta's Rogue AI Agent Triggers Sev-1 Security Incident",
+      "author": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/18/meta-is-having-trouble-with-rogue-ai-agents/",
+      "type": "read",
+      "tags": ["trending", "agents", "safety", "formal-verification"],
+      "dateAdded": "2026-03-20",
+      "status": "assigned",
+      "estimatedMinutes": 4,
+      "notes": "Day 3 quick read. Real-world case for formal agent verification."
+    },
+    {
+      "id": "lambert-gpt54-codex",
+      "title": "GPT-5.4 Is a Big Step for Codex",
+      "author": "Nathan Lambert / Interconnects",
+      "url": "https://www.interconnects.ai/p/gpt-54-is-a-big-step-for-codex",
+      "type": "read",
+      "tags": ["trending", "agents", "open-models"],
+      "dateAdded": "2026-03-20",
+      "status": "assigned",
+      "estimatedMinutes": 4,
+      "notes": "Day 3 quick read. Lambert's analysis of GPT-5.4's agent capabilities."
+    },
+    {
+      "id": "rlvr-contextual-rubric-rewards",
+      "title": "Alternating Reinforcement Learning with Contextual Rubric Rewards",
+      "author": "arXiv",
+      "url": "https://arxiv.org/abs/2603.15646",
+      "type": "read",
+      "tags": ["RLVR", "reinforcement-learning", "trending"],
+      "dateAdded": "2026-03-20",
+      "status": "assigned",
+      "estimatedMinutes": 4,
+      "notes": "Day 3 quick read (abstract + intro). Structured rubric-based rewards extending RLHF/RLVR."
+    },
+    {
+      "id": "rlvr-decoupling-reasoning-confidence",
+      "title": "Decoupling Reasoning and Confidence: Resurrecting Calibration in RLVR",
+      "author": "arXiv",
+      "url": "https://arxiv.org/abs/2603.09117",
+      "type": "read",
+      "tags": ["RLVR", "calibration", "reinforcement-learning"],
+      "dateAdded": "2026-03-20",
+      "status": "bookmarked",
+      "estimatedMinutes": 20,
+      "notes": "Bookmarked. Addresses over-confidence in RLVR-trained models. Relevant to formal correctness guarantees."
+    },
+    {
+      "id": "rlvr-explainer-promptfoo",
+      "title": "RLVR Explained: Reinforcement Learning with Verifiable Rewards",
+      "author": "Promptfoo",
+      "url": "https://www.promptfoo.dev/blog/rlvr-explained/",
+      "type": "read",
+      "tags": ["RLVR", "explainer", "reference"],
+      "dateAdded": "2026-03-20",
+      "status": "bookmarked",
+      "estimatedMinutes": 10,
+      "notes": "Bookmarked. Accessible overview of the RLVR paradigm. Good primer before diving into papers."
     }
   ]
 }
