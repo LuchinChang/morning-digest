@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 3,
+    "dayCount": 4,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html"
@@ -106,7 +106,7 @@
           { "day": 3, "description": "Style, selling your work, final reflections", "done": false }
         ]
       },
-      "notes": "Day 3 of 3 (final). Focus on style, selling your work, and Hamming's closing challenge."
+      "notes": "Day 3 of 3 (final). Carried over to Day 4 digest. Focus on style, selling your work, and Hamming's closing challenge."
     },
     {
       "id": "karpathy-phd-survival",
@@ -284,11 +284,12 @@
       "author": "arXiv",
       "url": "https://arxiv.org/abs/2603.09117",
       "type": "read",
-      "tags": ["RLVR", "calibration", "reinforcement-learning"],
+      "tags": ["RLVR", "calibration", "reinforcement-learning", "deep-dive"],
       "dateAdded": "2026-03-20",
-      "status": "bookmarked",
+      "dateAssigned": "2026-03-26",
+      "status": "assigned",
       "estimatedMinutes": 20,
-      "notes": "Bookmarked. Addresses over-confidence in RLVR-trained models. Relevant to formal correctness guarantees."
+      "notes": "Promoted from bookmarks on Day 4. Deep dive — addresses over-confidence in RLVR-trained models. Relevant to formal correctness guarantees."
     },
     {
       "id": "rlvr-explainer-promptfoo",
@@ -301,6 +302,90 @@
       "status": "bookmarked",
       "estimatedMinutes": 10,
       "notes": "Bookmarked. Accessible overview of the RLVR paradigm. Good primer before diving into papers."
+    },
+    {
+      "id": "karpathy-humans-bottleneck",
+      "title": "Karpathy: Humans Are the Bottleneck in AI Research",
+      "author": "WinBuzzer / Andrej Karpathy",
+      "url": "https://winbuzzer.com/2026/03/23/karpathy-humans-bottleneck-ai-research-xcxwbn/",
+      "type": "read",
+      "tags": ["trending", "agents", "research-philosophy"],
+      "dateAdded": "2026-03-26",
+      "status": "assigned",
+      "estimatedMinutes": 4,
+      "notes": "Day 4 quick read. Autoresearch found 20 optimizations, 11% training speed gain. Limits: only works with computable metrics."
+    },
+    {
+      "id": "anthropic-claude-code-auto-mode",
+      "title": "Anthropic Launches Claude Code Auto Mode with Safety Gates",
+      "author": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/24/anthropic-hands-claude-code-more-control-but-keeps-it-on-a-leash/",
+      "type": "read",
+      "tags": ["trending", "agents", "safety", "formal-verification"],
+      "dateAdded": "2026-03-26",
+      "status": "assigned",
+      "estimatedMinutes": 4,
+      "notes": "Day 4 quick read. Runtime safety classifier for agent actions — lightweight formal verification in practice."
+    },
+    {
+      "id": "robust-drl-formal-verification",
+      "title": "Robust Deep RL Using Formal Verification (TASE 2025)",
+      "author": "Springer LNCS",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-98208-8_11",
+      "type": "read",
+      "tags": ["formal-methods", "reinforcement-learning", "verification-in-the-loop"],
+      "dateAdded": "2026-03-26",
+      "status": "assigned",
+      "estimatedMinutes": 5,
+      "notes": "Day 4 quick read. Counterexample-guided RL training with formal verification. 70% reduction in training episodes."
+    },
+    {
+      "id": "mcp-97m-downloads",
+      "title": "MCP Hits 97 Million Downloads: The Agentic Infrastructure Moment",
+      "author": "Digital Applied",
+      "url": "https://www.digitalapplied.com/blog/mcp-97-million-downloads-model-context-protocol-mainstream",
+      "type": "read",
+      "tags": ["trending", "agents", "infrastructure"],
+      "dateAdded": "2026-03-26",
+      "status": "assigned",
+      "estimatedMinutes": 3,
+      "notes": "Day 4 quick read. MCP from 2M to 97M downloads in 16 months. 5,800+ servers. Cross-provider adoption."
+    },
+    {
+      "id": "frontiers-formal-methods-slr",
+      "title": "Formal Methods for Safety-Critical ML: A Systematic Literature Review",
+      "author": "Frontiers in AI",
+      "url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1749956/full",
+      "type": "read",
+      "tags": ["formal-methods", "safety", "survey", "reference"],
+      "dateAdded": "2026-03-26",
+      "status": "bookmarked",
+      "estimatedMinutes": 25,
+      "notes": "Bookmarked. SLR covering 2020-2025. Excellent reference for literature review on formal methods + ML safety."
+    },
+    {
+      "id": "ruder-10-tips-phd",
+      "title": "10 Tips for Research and a PhD",
+      "author": "Sebastian Ruder",
+      "url": "https://www.ruder.io/10-tips-for-research-and-a-phd/",
+      "type": "read",
+      "tags": ["research-philosophy", "practical-advice"],
+      "dateAdded": "2026-03-26",
+      "status": "bookmarked",
+      "estimatedMinutes": 10,
+      "notes": "Bookmarked. Practical PhD advice — read broadly, work on two things, collaborate, play the long game."
+    },
+    {
+      "id": "amodei-dwarkesh-end-exponential",
+      "title": "Dario Amodei: We Are Near the End of the Exponential",
+      "author": "Dwarkesh Podcast / Dario Amodei",
+      "url": "https://www.dwarkesh.com/p/dario-amodei-2",
+      "type": "listen",
+      "tags": ["podcast", "scaling", "RL", "trending"],
+      "dateAdded": "2026-03-26",
+      "status": "bookmarked",
+      "estimatedMinutes": 120,
+      "notes": "Bookmarked for commute/gym. AGI in 1-3 years, RL showing log-linear scaling gains, Big Blob of Compute hypothesis."
     }
   ]
 }
