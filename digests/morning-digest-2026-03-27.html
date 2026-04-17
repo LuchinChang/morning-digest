@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Digest — March 27, 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --fg: #1c1917;
+    --muted: #78716c;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --card-bg: #ffffff;
+    --border: #e7e5e4;
+    --tag-read: #dcfce7;
+    --tag-read-fg: #166534;
+    --tag-watch: #fef3c7;
+    --tag-watch-fg: #92400e;
+    --tag-listen: #ede9fe;
+    --tag-listen-fg: #5b21b6;
+    --tag-deep: #fee2e2;
+    --tag-deep-fg: #991b1b;
+    --tag-trending: #ffedd5;
+    --tag-trending-fg: #9a3412;
+    --tag-code: #e0e7ff;
+    --tag-code-fg: #3730a3;
+    --tag-continue: #fdf4ff;
+    --tag-continue-fg: #86198f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --fg: #fafaf9;
+      --muted: #a8a29e;
+      --accent: #60a5fa;
+      --accent-light: #1e3a5f;
+      --card-bg: #1c1917;
+      --border: #292524;
+      --tag-read: #14532d;
+      --tag-read-fg: #bbf7d0;
+      --tag-watch: #451a03;
+      --tag-watch-fg: #fde68a;
+      --tag-listen: #2e1065;
+      --tag-listen-fg: #c4b5fd;
+      --tag-deep: #450a0a;
+      --tag-deep-fg: #fecaca;
+      --tag-trending: #431407;
+      --tag-trending-fg: #fed7aa;
+      --tag-code: #1e1b4b;
+      --tag-code-fg: #c7d2fe;
+      --tag-continue: #4a044e;
+      --tag-continue-fg: #f5d0fe;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  header { margin-bottom: 32px; }
+  header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  header .date { color: var(--muted); font-size: 0.9rem; }
+  header .subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 8px; line-height: 1.5; }
+  .section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .card h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.4; flex: 1; }
+  .card h3 a { color: var(--fg); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-read { background: var(--tag-read); color: var(--tag-read-fg); }
+  .tag-watch { background: var(--tag-watch); color: var(--tag-watch-fg); }
+  .tag-listen { background: var(--tag-listen); color: var(--tag-listen-fg); }
+  .tag-deep { background: var(--tag-deep); color: var(--tag-deep-fg); }
+  .tag-trending { background: var(--tag-trending); color: var(--tag-trending-fg); }
+  .tag-code { background: var(--tag-code); color: var(--tag-code-fg); }
+  .tag-continue { background: var(--tag-continue); color: var(--tag-continue-fg); }
+  .meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .card p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+  .card .why {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .deep-dive {
+    background: linear-gradient(135deg, var(--accent-light), var(--card-bg));
+    border: 2px solid var(--accent);
+  }
+  .continuation {
+    border-left: 4px solid var(--tag-continue-fg);
+  }
+  .plan-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .plan-box h3 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
+  .plan-box ol, .plan-box ul { padding-left: 20px; }
+  .plan-box li { font-size: 0.9rem; margin-bottom: 8px; color: var(--fg); line-height: 1.5; }
+  .plan-box li strong { font-weight: 600; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 6px 0; font-size: 0.9rem; }
+  .checklist li::before { content: "\2610 "; color: var(--muted); }
+  .quote-box {
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    font-style: italic;
+  }
+  .quote-box .author { font-style: normal; font-weight: 600; display: block; margin-top: 6px; font-size: 0.82rem; }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (max-width: 480px) {
+    body { padding: 16px 12px 48px; }
+    header h1 { font-size: 1.3rem; }
+    .card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Morning Digest</h1>
+  <div class="date">Friday, March 27, 2026 &middot; Day 5</div>
+  <div class="subtitle">Your daily 45-minute reading plan. Half research philosophy, half latest trends. Curated for a PhD student working at the intersection of formal methods and RL.</div>
+</header>
+
+<div class="quote-box">
+  "The purpose of computing is insight, not numbers."
+  <span class="author">— Richard Hamming, Numerical Methods for Scientists and Engineers</span>
+</div>
+
+<!-- ========== CONTINUING FROM YESTERDAY ========== -->
+<div class="section-title">Continuing from Yesterday</div>
+
+<div class="card continuation">
+  <div class="card-header">
+    <h3><a href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html" target="_blank">You and Your Research — Day 3 of 3 (Final)</a></h3>
+    <span class="tag tag-continue">MULTI-DAY</span>
+  </div>
+  <div class="meta">
+    <span>Richard Hamming</span>
+    <span>~5 min wrap-up</span>
+    <span>Day 3: Style, selling your work, final reflections</span>
+  </div>
+  <p>Last call on Hamming. If you finished yesterday, take 5 minutes to jot down your top 3 takeaways. If not, read the final section on <em>selling your work</em> — Hamming's point that clear communication is a force multiplier on research impact. His closing challenge: "What are the important problems in your field, and why aren't you working on them?" You now have your answer — formal methods + RL.</p>
+  <div class="why">Final checkpoint. After today, Hamming moves to "completed" in your log. Consider writing a 3-sentence reflection in your research notes.</div>
+</div>
+
+<!-- ========== SECTION 1: TODAY'S DEEP DIVE ========== -->
+<div class="section-title">Today's Deep Dive (25 min)</div>
+
+<div class="card deep-dive">
+  <div class="card-header">
+    <h3><a href="https://www.marktechpost.com/2026/03/23/yann-lecuns-new-leworldmodel-lewm-research-targets-jepa-collapse-in-pixel-based-predictive-world-modeling/" target="_blank">LeWorldModel: LeCun's JEPA That Finally Trains End-to-End from Raw Pixels</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>MarkTechPost &middot; Mar 23, 2026</span>
+    <span>~25 min</span>
+    <span class="tag tag-deep">DEEP DIVE</span>
+  </div>
+  <p>This week, LeCun's collaborators across Mila, NYU, Samsung SAIL, and Brown introduced LeWorldModel (LeWM) — the first JEPA architecture that trains stably end-to-end from raw pixels without the usual "hand-holding" heuristics like stop-gradients, EMA targets, or frozen encoders. The trick: a SIGReg regularizer using the Cramér-Wold theorem to keep latent embeddings diverse and prevent representation collapse. The result is dramatic — 200× fewer tokens than foundation-model-based world models, enabling planning up to 48× faster (under one second for full trajectory optimization).</p>
+  <div class="why">Why today: This is LeCun's contrarian bet in action. World models that plan in latent space rather than pixel space are deeply relevant to RL — if your agent can simulate outcomes cheaply, formal verification of learned policies becomes computationally tractable. Read the architecture overview and the ablation on collapse prevention.</div>
+</div>
+
+<!-- ========== SECTION 2: QUICK READS ========== -->
+<div class="section-title">Quick Reads (15 min total)</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://creati.ai/ai-news/2026-03-13/amazon-90-day-code-safety-reset-ai-agent-retail-outages-2026/" target="_blank">Amazon's 90-Day Code Safety Reset After AI Agent Causes 6.3M Lost Orders</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Creati.ai &middot; Mar 13, 2026</span>
+    <span>~4 min</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>Amazon mandated that 80% of engineers use its AI coding tool Kiro weekly. Then on March 2, a Kiro-assisted deployment caused 1.6M errors and 120K lost orders. Three days later, a second outage lost 6.3 million orders. Amazon responded with a 90-day "code safety reset" across 335 Tier-1 systems: mandatory dual-human review, formal approval gates, and stricter automated checks. A vivid case study in what happens when you deploy AI agents without formal safety guarantees.</p>
+  <div class="why">Why today: The gap between "AI writes code fast" and "the code is correct" is exactly the gap formal verification fills. This story is a real-world motivation slide for your research.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://arxiv.org/abs/2603.10624" target="_blank">RL with Conditional Expectation Reward: Beyond Binary Verification</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>arXiv &middot; Mar 11, 2026</span>
+    <span>~4 min (abstract + intro)</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>RLVR works great when you have binary verification (correct/incorrect), but what about free-form domains? This paper introduces Conditional Expectation Reward (CER), which uses the LLM itself as an implicit verifier — computing the expected likelihood of generating the reference answer conditioned on the generated answer. Unlike binary RLVR, CER provides soft, graded reward signals that capture degrees of correctness. Works across both math and general-domain reasoning.</p>
+  <div class="why">Why today: Extends your RLVR understanding from Days 3–4. The key insight — graded vs. binary rewards — connects to a fundamental question in your work: can formal specifications provide richer reward signals than pass/fail?</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.microsoft.com/en-us/security/blog/2026/03/20/secure-agentic-ai-end-to-end/" target="_blank">Microsoft's Zero Trust for AI: Securing Agents End-to-End</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Microsoft Security Blog &middot; Mar 20, 2026</span>
+    <span>~4 min</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>Microsoft announced Zero Trust for AI (ZT4AI) at RSAC 2026, extending proven Zero Trust principles to the full AI lifecycle. Three core ideas: verify explicitly (continuously evaluate agent behavior), apply least privilege (restrict access to models, prompts, and data), and assume breach (design for resilience against prompt injection and data poisoning). They're releasing a new reference architecture and tooling in Agent 365. 80% of Fortune 500 now use active AI agents — and only 21% of executives have full visibility into agent permissions.</p>
+  <div class="why">Why today: "Verify explicitly, assume breach" is basically runtime formal verification applied to enterprise AI. Notice how industry is independently converging on the principles your research formalizes.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.ruder.io/10-tips-for-research-and-a-phd/" target="_blank">10 Tips for Research and a PhD</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Sebastian Ruder</span>
+    <span>~3 min skim</span>
+    <span>Promoted from bookmarks</span>
+  </div>
+  <p>Practical PhD advice from a seasoned ML/NLP researcher: read broadly, always have two projects going, be ambitious in your problem choice, collaborate early, write a blog, and play the long game. A good companion to the Schulman guide (Day 1) and Karpathy's survival guide (Day 2) — together they form a complete PhD playbook.</p>
+  <div class="why">Why today: You've been building a research philosophy toolkit all week. Ruder adds the practical "what to do on a daily basis" layer. Quick skim — flag 2–3 tips that resonate and revisit later.</div>
+</div>
+
+<!-- ========== SECTION 3: NEW BOOKMARKS ========== -->
+<div class="section-title">New Bookmarks</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure" target="_blank">NIST Launches AI Agent Standards Initiative</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>NIST &middot; Feb 2026</span>
+    <span>~10 min</span>
+  </div>
+  <p>NIST announced a formal initiative to develop interoperability and security standards for AI agents, including single-agent and multi-agent overlays. Still in development, but the direction is clear: formal specifications for agent behavior at the federal level. Worth tracking as the regulatory landscape for your research area takes shape.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://howaiworks.ai/blog/le-world-model-jepa-architecture" target="_blank">LeWorldModel: Deep Dive into JEPA Architecture</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>HowAIWorks.ai &middot; Mar 2026</span>
+    <span>~15 min</span>
+  </div>
+  <p>A more technical companion piece to today's deep dive. Goes deeper into the SIGReg regularizer, the Cramér-Wold theorem application, and architectural comparisons with previous JEPA variants. Bookmark for when you want the full technical picture.</p>
+</div>
+
+<!-- ========== SECTION 4: PODCAST / VIDEO QUEUE ========== -->
+<div class="section-title">Podcast &amp; Video Queue (Commute / Gym)</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.dwarkesh.com/p/dario-amodei-2" target="_blank">Dario Amodei: "We Are Near the End of the Exponential" (continued)</a></h3>
+    <span class="tag tag-listen">LISTEN</span>
+  </div>
+  <div class="meta">
+    <span>Dwarkesh Podcast</span>
+    <span>~2 hours</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>Still in your queue from yesterday. If you haven't started, today's a great day — the RL scaling discussion pairs perfectly with today's RLVR and world models content. Key segment: Amodei's "Big Blob of Compute Hypothesis" and why RL is now showing log-linear scaling gains.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.dwarkesh.com/podcast/archive" target="_blank">Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute</a></h3>
+    <span class="tag tag-listen">LISTEN</span>
+  </div>
+  <div class="meta">
+    <span>Dwarkesh Podcast &middot; Mar 13, 2026</span>
+    <span>2h 31m</span>
+  </div>
+  <p>The hardware reality check. Logic, memory, and power bottlenecks in AI compute. Pairs well with the Amodei episode — Dylan provides the constraints, Dario provides the ambition.</p>
+</div>
+
+<!-- ========== YOUR 45-MIN PLAN ========== -->
+<div class="section-title">Your 45-Minute Plan for Today</div>
+
+<div class="plan-box">
+  <h3>Suggested Reading Order</h3>
+  <ol>
+    <li><strong>LeWorldModel deep dive (25 min)</strong> — LeCun's new JEPA trains end-to-end from raw pixels. Focus on the architecture, the collapse-prevention mechanism (SIGReg), and the 48× planning speedup. Think about implications for RL policy verification in latent space.</li>
+    <li><strong>Amazon's 90-Day Reset (4 min)</strong> — Real-world AI agent failure at massive scale. A motivation story for formal verification of deployed AI systems.</li>
+    <li><strong>RL with Conditional Expectation Reward (4 min)</strong> — Extends RLVR beyond binary rewards. Abstract + intro only. Note the soft grading idea.</li>
+    <li><strong>Microsoft Zero Trust for AI (4 min)</strong> — Industry converging on "verify before acting." Quick scan of the three core principles.</li>
+    <li><strong>Ruder: 10 Tips for PhD (3 min)</strong> — Promoted from bookmarks. Quick skim, flag your top 2–3 tips.</li>
+    <li><strong>Hamming Day 3 wrap-up (5 min)</strong> — Jot 3 takeaways if done; finish the final section if not. Then mark it complete!</li>
+  </ol>
+</div>
+
+<div class="plan-box">
+  <h3>Phone vs. Laptop Strategy</h3>
+  <ul class="checklist">
+    <li><strong>Phone (commute, breaks):</strong> Amazon safety reset, Microsoft Zero Trust, Ruder PhD tips. All mobile-friendly, short reads.</li>
+    <li><strong>Laptop (desk time):</strong> LeWorldModel deep dive (needs focused attention — trace the architecture diagrams), CER paper (abstract + intro on arXiv).</li>
+    <li><strong>Commute/gym audio:</strong> Dario Amodei on Dwarkesh — the RL scaling segment is especially relevant after today's world models content. Dylan Patel episode as overflow.</li>
+  </ul>
+</div>
+
+<div class="plan-box">
+  <h3>This Week So Far</h3>
+  <ul class="checklist">
+    <li><strong>Day 1:</strong> Schulman's ML research guide, Karpathy autoresearch, Sutskever on Dwarkesh</li>
+    <li><strong>Day 2:</strong> Karpathy PhD survival guide, open models, LLM architectures, Hamming Day 1</li>
+    <li><strong>Day 3:</strong> AlphaProof (RL + Lean proofs), Meta rogue agent, RLVR papers, Hamming Day 2</li>
+    <li><strong>Day 4:</strong> RLVR calibration, robust DRL via verification, Claude Code auto mode, Hamming Day 3</li>
+    <li><strong>Day 5 (today):</strong> LeWorldModel (JEPA), Amazon safety reset, CER rewards, Zero Trust for AI, Ruder PhD tips</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Digest &middot; Curated for LuChin's PhD Journey<br>
+  Day 5 of your reading habit. One full week nearly down — you're building real momentum. Happy Friday!
+</footer>
+
+</body>
+</html>

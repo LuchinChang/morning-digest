@@ -1,391 +1,1423 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 4,
+    "dayCount": 10,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
-    "format": "html"
+    "format": "html",
+    "feedSource": "hn-popular-blogs-2025.opml"
   },
   "preferences": {
-    "researchers": [
-      "Andrej Karpathy",
-      "Kaiming He",
-      "Saining Xie",
-      "Yann LeCun",
-      "Ilya Sutskever",
-      "John Schulman",
-      "Sebastian Raschka",
-      "Nathan Lambert",
-      "David Ha"
-    ],
-    "themes": [
-      "research philosophy",
-      "how to do research",
-      "reinforcement learning",
-      "formal methods",
-      "AI trends",
-      "scaling laws",
-      "agents",
-      "reasoning",
-      "world models",
-      "RLHF/RLVR"
-    ],
-    "contentBalance": "50% timeless research advice, 50% latest trends",
-    "pinnedSources": [
-      "Hamming - You and Your Research",
-      "Naval - How to Get Rich Without Getting Lucky",
-      "Schulman - An Opinionated Guide to ML Research",
-      "Karpathy - A Survival Guide to a PhD"
-    ]
+    "feedCount": 92,
+    "contentBalance": "Latest posts from subscribed blogs",
+    "pinnedSources": []
   },
   "articles": [
     {
-      "id": "schulman-ml-guide",
-      "title": "An Opinionated Guide to ML Research",
-      "author": "John Schulman",
-      "url": "http://joschu.net/blog/opinionated-guide-ml-research.html",
-      "type": "read",
-      "tags": ["research-philosophy", "practical-advice", "deep-dive"],
-      "dateAdded": "2026-03-18",
+      "id": "2026-04-04-001",
+      "title": "Emergent Formal Verification: How an Autonomous AI Ecosystem Independently Discovered SMT-Based Safety Across Six Domains",
+      "url": "https://arxiv.org/abs/2603.21149",
+      "source": "arXiv",
+      "date": "2026-03-01",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "READ"
+      ],
       "status": "assigned",
+      "assignedDate": "2026-04-04",
       "estimatedMinutes": 25,
-      "notes": "Day 1 deep dive. Goal-driven vs idea-driven research framework."
+      "digestDay": 1
     },
     {
-      "id": "karpathy-autoresearch-fortune",
-      "title": "The Karpathy Loop: 700 Experiments, 2 Days",
-      "author": "Fortune / Andrej Karpathy",
-      "url": "https://fortune.com/2026/03/17/andrej-karpathy-loop-autonomous-ai-agents-future/",
-      "type": "read",
-      "tags": ["trending", "agents", "automation"],
-      "dateAdded": "2026-03-18",
+      "id": "2026-04-04-002",
+      "title": "The Limit of RLVR: RL Fine-Tuning Enhances Sampling Efficiency, Not Reasoning Capacity",
+      "url": "https://limit-of-rlvr.github.io/",
+      "source": "limit-of-rlvr.github.io",
+      "date": "2026-03-01",
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
-      "estimatedMinutes": 5,
-      "notes": "Published Mar 17, 2026. AI agent runs 700 experiments autonomously."
-    },
-    {
-      "id": "sutskever-dwarkesh-age-of-research",
-      "title": "Ilya Sutskever: From the Age of Scaling to the Age of Research",
-      "author": "Dwarkesh Podcast / Ilya Sutskever",
-      "url": "https://www.dwarkesh.com/p/ilya-sutskever-2",
-      "type": "listen",
-      "tags": ["trending", "scaling", "research-philosophy"],
-      "dateAdded": "2026-03-18",
-      "status": "assigned",
-      "estimatedMinutes": 5,
-      "notes": "Key excerpt on shift from scaling era back to research era."
-    },
-    {
-      "id": "venturebeat-2026-trends",
-      "title": "Four AI Research Trends to Watch in 2026",
-      "author": "VentureBeat",
-      "url": "https://venturebeat.com/technology/four-ai-research-trends-enterprise-teams-should-watch-in-2026/",
-      "type": "read",
-      "tags": ["trends", "RLVR", "landscape"],
-      "dateAdded": "2026-03-18",
-      "status": "assigned",
-      "estimatedMinutes": 5,
-      "notes": "RLVR, small models, safety-aware RL, RL environments."
-    },
-    {
-      "id": "hamming-you-and-your-research",
-      "title": "You and Your Research — Richard Hamming",
-      "author": "Richard Hamming",
-      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
-      "type": "read",
-      "tags": ["research-philosophy", "classic", "multi-day"],
-      "dateAdded": "2026-03-18",
-      "status": "in-progress",
-      "estimatedMinutes": 45,
-      "multiDay": {
-        "totalDays": 3,
-        "currentDay": 3,
-        "checkpoints": [
-          { "day": 1, "description": "Opening anecdotes about luck and courage", "done": true },
-          { "day": 2, "description": "Working on important problems, open doors", "done": true },
-          { "day": 3, "description": "Style, selling your work, final reflections", "done": false }
-        ]
-      },
-      "notes": "Day 3 of 3 (final). Carried over to Day 4 digest. Focus on style, selling your work, and Hamming's closing challenge."
-    },
-    {
-      "id": "karpathy-phd-survival",
-      "title": "A Survival Guide to a PhD",
-      "author": "Andrej Karpathy",
-      "url": "http://karpathy.github.io/2016/09/07/phd/",
-      "type": "read",
-      "tags": ["research-philosophy", "practical-advice", "deep-dive"],
-      "dateAdded": "2026-03-18",
-      "dateAssigned": "2026-03-19",
-      "status": "assigned",
-      "estimatedMinutes": 20,
-      "notes": "Promoted from bookmarks on Day 2. Deep dive — PhD mindset and survival."
-    },
-    {
-      "id": "naval-how-to-get-rich",
-      "title": "How to Get Rich (Without Getting Lucky)",
-      "author": "Naval Ravikant",
-      "url": "https://nav.al/rich",
-      "type": "read",
-      "tags": ["research-philosophy", "mental-models"],
-      "dateAdded": "2026-03-18",
-      "status": "bookmarked",
-      "estimatedMinutes": 30,
-      "notes": "Bookmarked. Specific knowledge, leverage, compound interest on effort."
-    },
-    {
-      "id": "karpathy-autoresearch-github",
-      "title": "autoresearch — Karpathy's Open Source Agent Loop",
-      "author": "Andrej Karpathy",
-      "url": "https://github.com/karpathy/autoresearch",
-      "type": "read",
-      "tags": ["code", "agents", "automation"],
-      "dateAdded": "2026-03-18",
-      "status": "bookmarked",
-      "estimatedMinutes": 15,
-      "notes": "Code repo. Adaptable for RL experiments."
-    },
-    {
-      "id": "lex-fridman-490",
-      "title": "State of AI in 2026 — Lex Fridman #490",
-      "author": "Lex Fridman Podcast",
-      "url": "https://lexfridman.com/ai-sota-2026-transcript/",
-      "type": "watch",
-      "tags": ["podcast", "trends", "multi-day"],
-      "dateAdded": "2026-03-18",
-      "status": "bookmarked",
-      "estimatedMinutes": 120,
-      "notes": "Long-form. Good for commute listening across multiple days."
-    },
-    {
-      "id": "karpathy-jobs-exposure",
-      "title": "Karpathy Scored Every U.S. Job for AI Exposure",
-      "author": "Fortune / Andrej Karpathy",
-      "url": "https://fortune.com/2026/03/15/andrej-karpathy-openai-cofounder-us-labor-market-exposure-ai-white-collar-jobs-professionals/",
-      "type": "read",
-      "tags": ["trending", "AI-impact", "labor"],
-      "dateAdded": "2026-03-19",
-      "status": "assigned",
-      "estimatedMinutes": 5,
-      "notes": "Day 2 quick read. 342 BLS occupations scored 0-10 for AI exposure."
-    },
-    {
-      "id": "lambert-open-models-next",
-      "title": "What Comes Next with Open Models",
-      "author": "Nathan Lambert / Interconnects",
-      "url": "https://www.interconnects.ai/p/the-next-phase-of-open-models",
-      "type": "read",
-      "tags": ["trending", "open-models", "strategy"],
-      "dateAdded": "2026-03-19",
-      "status": "assigned",
-      "estimatedMinutes": 5,
-      "notes": "Day 2 quick read. Closed vs open models divergence in 2026."
-    },
-    {
-      "id": "raschka-llm-architecture-gallery",
-      "title": "The LLM Architecture Gallery",
-      "author": "Sebastian Raschka",
-      "url": "https://sebastianraschka.com/blog/2026/llm-architecture-gallery.html",
-      "type": "read",
-      "tags": ["reference", "architectures", "visual"],
-      "dateAdded": "2026-03-19",
-      "status": "assigned",
-      "estimatedMinutes": 5,
-      "notes": "Day 2 quick read/browse. Visual reference of all major LLM architectures."
-    },
-    {
-      "id": "lecun-ami-labs-world-models",
-      "title": "Yann LeCun's AMI Labs Raises $1.03B to Build World Models",
-      "author": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
-      "type": "read",
-      "tags": ["world-models", "JEPA", "startup"],
-      "dateAdded": "2026-03-19",
-      "dateAssigned": "2026-03-20",
-      "status": "assigned",
-      "estimatedMinutes": 10,
-      "notes": "Promoted from bookmarks on Day 3. LeCun's contrarian bet on JEPA and world models over LLMs."
-    },
-    {
-      "id": "raschka-state-of-ai-blog",
-      "title": "State of AI 2026 — Raschka's Blog Companion to Lex Fridman #490",
-      "author": "Sebastian Raschka",
-      "url": "https://sebastianraschka.com/blog/2026/state-of-ai-interview.html",
-      "type": "read",
-      "tags": ["landscape", "open-models", "reference"],
-      "dateAdded": "2026-03-19",
-      "status": "bookmarked",
-      "estimatedMinutes": 15,
-      "notes": "Bookmarked. Written companion to the Lex Fridman podcast episode."
-    },
-    {
-      "id": "dwarkesh-dylan-patel-compute",
-      "title": "Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute",
-      "author": "Dwarkesh Podcast / Dylan Patel",
-      "url": "https://www.dwarkesh.com/podcast/archive",
-      "type": "listen",
-      "tags": ["podcast", "compute", "scaling", "trending"],
-      "dateAdded": "2026-03-19",
-      "status": "bookmarked",
-      "estimatedMinutes": 151,
-      "notes": "Bookmarked for commute/gym. Logic, memory, power bottlenecks in AI compute."
-    },
-    {
-      "id": "alphaproof-nature-formal-rl",
-      "title": "AlphaProof: Olympiad-Level Formal Mathematical Reasoning with Reinforcement Learning",
-      "author": "Google DeepMind / Nature",
-      "url": "https://www.nature.com/articles/s41586-025-09833-y",
-      "type": "read",
-      "tags": ["formal-methods", "reinforcement-learning", "deep-dive", "landmark"],
-      "dateAdded": "2026-03-20",
-      "status": "assigned",
-      "estimatedMinutes": 25,
-      "notes": "Day 3 deep dive. RL + Lean formal proofs. Silver-medal IMO performance. Directly at the intersection of LuChin's research areas."
-    },
-    {
-      "id": "meta-rogue-ai-agent",
-      "title": "Meta's Rogue AI Agent Triggers Sev-1 Security Incident",
-      "author": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/18/meta-is-having-trouble-with-rogue-ai-agents/",
-      "type": "read",
-      "tags": ["trending", "agents", "safety", "formal-verification"],
-      "dateAdded": "2026-03-20",
-      "status": "assigned",
+      "assignedDate": "2026-04-04",
       "estimatedMinutes": 4,
-      "notes": "Day 3 quick read. Real-world case for formal agent verification."
+      "digestDay": 1
     },
     {
-      "id": "lambert-gpt54-codex",
-      "title": "GPT-5.4 Is a Big Step for Codex",
-      "author": "Nathan Lambert / Interconnects",
-      "url": "https://www.interconnects.ai/p/gpt-54-is-a-big-step-for-codex",
-      "type": "read",
-      "tags": ["trending", "agents", "open-models"],
-      "dateAdded": "2026-03-20",
+      "id": "2026-04-04-003",
+      "title": "Safety is Non-Compositional: A Formal Framework for Capability-Based AI Systems",
+      "url": "https://arxiv.org/abs/2603.15973",
+      "source": "arXiv",
+      "date": "2026-03-01",
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "TRENDING"
+      ],
       "status": "assigned",
+      "assignedDate": "2026-04-04",
       "estimatedMinutes": 4,
-      "notes": "Day 3 quick read. Lambert's analysis of GPT-5.4's agent capabilities."
+      "digestDay": 1
     },
     {
-      "id": "rlvr-contextual-rubric-rewards",
-      "title": "Alternating Reinforcement Learning with Contextual Rubric Rewards",
-      "author": "arXiv",
-      "url": "https://arxiv.org/abs/2603.15646",
-      "type": "read",
-      "tags": ["RLVR", "reinforcement-learning", "trending"],
-      "dateAdded": "2026-03-20",
+      "id": "2026-04-04-004",
+      "title": "On the Direction of RLVR Updates for LLM Reasoning: Identification and Exploitation",
+      "url": "https://arxiv.org/abs/2603.22117",
+      "source": "arXiv",
+      "date": "2026-03-23",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
       "status": "assigned",
+      "assignedDate": "2026-04-04",
       "estimatedMinutes": 4,
-      "notes": "Day 3 quick read (abstract + intro). Structured rubric-based rewards extending RLHF/RLVR."
+      "digestDay": 1
     },
     {
-      "id": "rlvr-decoupling-reasoning-confidence",
-      "title": "Decoupling Reasoning and Confidence: Resurrecting Calibration in RLVR",
-      "author": "arXiv",
-      "url": "https://arxiv.org/abs/2603.09117",
-      "type": "read",
-      "tags": ["RLVR", "calibration", "reinforcement-learning", "deep-dive"],
-      "dateAdded": "2026-03-20",
-      "dateAssigned": "2026-03-26",
+      "id": "2026-04-04-005",
+      "title": "Vulnerability Research Is Cooked",
+      "url": "https://simonwillison.net/2026/Apr/3/vulnerability-research-is-cooked/",
+      "source": "simonwillison.net",
+      "date": "2026-04-03",
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
-      "estimatedMinutes": 20,
-      "notes": "Promoted from bookmarks on Day 4. Deep dive — addresses over-confidence in RLVR-trained models. Relevant to formal correctness guarantees."
-    },
-    {
-      "id": "rlvr-explainer-promptfoo",
-      "title": "RLVR Explained: Reinforcement Learning with Verifiable Rewards",
-      "author": "Promptfoo",
-      "url": "https://www.promptfoo.dev/blog/rlvr-explained/",
-      "type": "read",
-      "tags": ["RLVR", "explainer", "reference"],
-      "dateAdded": "2026-03-20",
-      "status": "bookmarked",
-      "estimatedMinutes": 10,
-      "notes": "Bookmarked. Accessible overview of the RLVR paradigm. Good primer before diving into papers."
-    },
-    {
-      "id": "karpathy-humans-bottleneck",
-      "title": "Karpathy: Humans Are the Bottleneck in AI Research",
-      "author": "WinBuzzer / Andrej Karpathy",
-      "url": "https://winbuzzer.com/2026/03/23/karpathy-humans-bottleneck-ai-research-xcxwbn/",
-      "type": "read",
-      "tags": ["trending", "agents", "research-philosophy"],
-      "dateAdded": "2026-03-26",
-      "status": "assigned",
-      "estimatedMinutes": 4,
-      "notes": "Day 4 quick read. Autoresearch found 20 optimizations, 11% training speed gain. Limits: only works with computable metrics."
-    },
-    {
-      "id": "anthropic-claude-code-auto-mode",
-      "title": "Anthropic Launches Claude Code Auto Mode with Safety Gates",
-      "author": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/24/anthropic-hands-claude-code-more-control-but-keeps-it-on-a-leash/",
-      "type": "read",
-      "tags": ["trending", "agents", "safety", "formal-verification"],
-      "dateAdded": "2026-03-26",
-      "status": "assigned",
-      "estimatedMinutes": 4,
-      "notes": "Day 4 quick read. Runtime safety classifier for agent actions — lightweight formal verification in practice."
-    },
-    {
-      "id": "robust-drl-formal-verification",
-      "title": "Robust Deep RL Using Formal Verification (TASE 2025)",
-      "author": "Springer LNCS",
-      "url": "https://link.springer.com/chapter/10.1007/978-3-031-98208-8_11",
-      "type": "read",
-      "tags": ["formal-methods", "reinforcement-learning", "verification-in-the-loop"],
-      "dateAdded": "2026-03-26",
-      "status": "assigned",
-      "estimatedMinutes": 5,
-      "notes": "Day 4 quick read. Counterexample-guided RL training with formal verification. 70% reduction in training episodes."
-    },
-    {
-      "id": "mcp-97m-downloads",
-      "title": "MCP Hits 97 Million Downloads: The Agentic Infrastructure Moment",
-      "author": "Digital Applied",
-      "url": "https://www.digitalapplied.com/blog/mcp-97-million-downloads-model-context-protocol-mainstream",
-      "type": "read",
-      "tags": ["trending", "agents", "infrastructure"],
-      "dateAdded": "2026-03-26",
-      "status": "assigned",
+      "assignedDate": "2026-04-04",
       "estimatedMinutes": 3,
-      "notes": "Day 4 quick read. MCP from 2M to 97M downloads in 16 months. 5,800+ servers. Cross-provider adoption."
+      "digestDay": 1
     },
     {
-      "id": "frontiers-formal-methods-slr",
-      "title": "Formal Methods for Safety-Critical ML: A Systematic Literature Review",
-      "author": "Frontiers in AI",
-      "url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1749956/full",
-      "type": "read",
-      "tags": ["formal-methods", "safety", "survey", "reference"],
-      "dateAdded": "2026-03-26",
-      "status": "bookmarked",
-      "estimatedMinutes": 25,
-      "notes": "Bookmarked. SLR covering 2020-2025. Excellent reference for literature review on formal methods + ML safety."
-    },
-    {
-      "id": "ruder-10-tips-phd",
-      "title": "10 Tips for Research and a PhD",
-      "author": "Sebastian Ruder",
-      "url": "https://www.ruder.io/10-tips-for-research-and-a-phd/",
-      "type": "read",
-      "tags": ["research-philosophy", "practical-advice"],
-      "dateAdded": "2026-03-26",
-      "status": "bookmarked",
-      "estimatedMinutes": 10,
-      "notes": "Bookmarked. Practical PhD advice — read broadly, work on two things, collaborate, play the long game."
-    },
-    {
-      "id": "amodei-dwarkesh-end-exponential",
-      "title": "Dario Amodei: We Are Near the End of the Exponential",
-      "author": "Dwarkesh Podcast / Dario Amodei",
+      "id": "2026-04-04-006",
+      "title": "Dario Amodei \u2014 We are near the end of the exponential",
       "url": "https://www.dwarkesh.com/p/dario-amodei-2",
-      "type": "listen",
-      "tags": ["podcast", "scaling", "RL", "trending"],
-      "dateAdded": "2026-03-26",
-      "status": "bookmarked",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-02-13",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-04",
       "estimatedMinutes": 120,
-      "notes": "Bookmarked for commute/gym. AGI in 1-3 years, RL showing log-linear scaling gains, Big Blob of Compute hypothesis."
+      "digestDay": 1
+    },
+    {
+      "id": "2026-04-04-007",
+      "title": "Dylan Patel \u2014 Deep Dive on the 3 Big Bottlenecks to Scaling AI Compute",
+      "url": "https://podscripts.co/podcasts/dwarkesh-podcast/dylan-patel-deep-dive-on-the-3-big-bottlenecks-to-scaling-ai-compute",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-03-13",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-07",
+      "estimatedMinutes": 90,
+      "digestDay": 2
+    },
+    {
+      "id": "2026-04-04-008",
+      "title": "The How and Why of Reading 300 Papers in 5 Years",
+      "url": "https://www.fregu856.com/post/phd_of_reading/",
+      "source": "fregu856.com",
+      "date": "2025-12-01",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-07",
+      "estimatedMinutes": 10,
+      "digestDay": 2
+    },
+    {
+      "id": "2026-04-04-009",
+      "title": "RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs",
+      "url": "https://arxiv.org/abs/2506.14245",
+      "source": "arXiv",
+      "date": "2025-06-01",
+      "tags": [
+        "READ",
+        "RLVR",
+        "PROMOTED"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-08",
+      "estimatedMinutes": 15,
+      "digestDay": 3
+    },
+    {
+      "id": "2026-04-07-001",
+      "title": "Policy Improvement Reinforcement Learning (PIRL)",
+      "url": "https://arxiv.org/abs/2604.00860",
+      "source": "arXiv",
+      "date": "2026-04-01",
+      "tags": [
+        "DEEP DIVE",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-07",
+      "estimatedMinutes": 25,
+      "digestDay": 2
+    },
+    {
+      "id": "2026-04-07-002",
+      "title": "I Don't Know If My Job Will Still Exist in Ten Years",
+      "url": "https://www.seangoedecke.com/will-my-job-still-exist/",
+      "source": "seangoedecke.com",
+      "date": "2026-03-06",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-07",
+      "estimatedMinutes": 4,
+      "digestDay": 2
+    },
+    {
+      "id": "2026-04-07-003",
+      "title": "Evaluating LLM-Generated ACSL Annotations for Formal Verification",
+      "url": "https://arxiv.org/html/2602.13851",
+      "source": "arXiv",
+      "date": "2026-02-01",
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-07",
+      "estimatedMinutes": 5,
+      "digestDay": 2
+    },
+    {
+      "id": "2026-04-07-004",
+      "title": "research-llm-apis 2026-04-04 Release",
+      "url": "https://simonwillison.net/2026/Apr/5/research-llm-apis/",
+      "source": "simonwillison.net",
+      "date": "2026-04-05",
+      "tags": [
+        "READ",
+        "TRENDING",
+        "CODE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-07",
+      "estimatedMinutes": 3,
+      "digestDay": 2
+    },
+    {
+      "id": "2026-04-07-005",
+      "title": "Lex Fridman #490 \u2014 State of AI in 2026: LLMs, Coding, Scaling Laws, Agents, AGI",
+      "url": "https://lexfridman.com/ai-sota-2026/",
+      "source": "Lex Fridman Podcast",
+      "date": "2026-02-01",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-07",
+      "estimatedMinutes": 180,
+      "digestDay": 2
+    },
+    {
+      "id": "2026-04-08-001",
+      "title": "Towards a Science of Scaling Agent Systems: When and Why Agent Systems Work",
+      "url": "https://arxiv.org/abs/2512.08296",
+      "source": "Google Research / arXiv",
+      "date": "2026-01-28",
+      "tags": [
+        "DEEP DIVE",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-08",
+      "estimatedMinutes": 25,
+      "digestDay": 3
+    },
+    {
+      "id": "2026-04-08-002",
+      "title": "Meta's New Model Is Muse Spark \u2014 and meta.ai Has Some Interesting New Tools",
+      "url": "https://simonwillison.net/2026/Apr/8/muse-spark/",
+      "source": "simonwillison.net",
+      "date": "2026-04-08",
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-08",
+      "estimatedMinutes": 3,
+      "digestDay": 3
+    },
+    {
+      "id": "2026-04-08-003",
+      "title": "Anthropic's Project Glasswing \u2014 Restricting Claude Mythos to Security Researchers",
+      "url": "https://simonwillison.net/2026/Apr/7/project-glasswing/",
+      "source": "simonwillison.net",
+      "date": "2026-04-07",
+      "tags": [
+        "TRENDING",
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-08",
+      "estimatedMinutes": 3,
+      "digestDay": 3
+    },
+    {
+      "id": "2026-04-08-004",
+      "title": "From Verifiable Dot to Reward Chain: Harnessing Verifiable Reference-Based Rewards for Open-Ended Generation",
+      "url": "https://arxiv.org/abs/2601.18533",
+      "source": "arXiv",
+      "date": "2026-01-01",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-08",
+      "estimatedMinutes": 5,
+      "digestDay": 3
+    },
+    {
+      "id": "2026-04-08-005",
+      "title": "First, Make Me Care",
+      "url": "https://gwern.net/blog/2026/make-me-care",
+      "source": "gwern.net",
+      "date": "2026-01-14",
+      "tags": [
+        "RESEARCH ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-08",
+      "estimatedMinutes": 4,
+      "digestDay": 3
+    },
+    {
+      "id": "2026-04-08-006",
+      "title": "On Dwarkesh Patel's 2026 Podcast With Dario Amodei",
+      "url": "https://thezvi.substack.com/p/on-dwarkesh-patels-2026-podcast-with",
+      "source": "thezvi.substack.com",
+      "date": "2026-02-01",
+      "tags": [
+        "LISTEN",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-08",
+      "estimatedMinutes": 15,
+      "digestDay": 3
+    },
+    {
+      "id": "2026-04-10-001",
+      "title": "A Control Barrier Function-Constrained Model Predictive Control Framework for Safe Reinforcement Learning (PECTS)",
+      "url": "https://arxiv.org/abs/2604.06463",
+      "source": "arXiv",
+      "date": "2026-04-07",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-10",
+      "estimatedMinutes": 25,
+      "digestDay": 4
+    },
+    {
+      "id": "2026-04-10-002",
+      "title": "Talking with Verifiers: Automatic Specification Generation for Neural Network Verification",
+      "url": "https://arxiv.org/html/2603.02235",
+      "source": "arXiv",
+      "date": "2026-02-01",
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-10",
+      "estimatedMinutes": 5,
+      "digestDay": 4
+    },
+    {
+      "id": "2026-04-10-003",
+      "title": "Neural Theorem Proving: Generating and Structuring Proofs for Formal Verification",
+      "url": "https://arxiv.org/abs/2504.17017",
+      "source": "arXiv",
+      "date": "2025-04-01",
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "CODE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-10",
+      "estimatedMinutes": 4,
+      "digestDay": 4
+    },
+    {
+      "id": "2026-04-10-004",
+      "title": "Release: scan-for-secrets 0.2",
+      "url": "https://simonwillison.net/2026/Apr/5/scan-for-secrets/",
+      "source": "simonwillison.net",
+      "date": "2026-04-05",
+      "tags": [
+        "READ",
+        "CODE",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-10",
+      "estimatedMinutes": 3,
+      "digestDay": 4
+    },
+    {
+      "id": "2026-04-10-005",
+      "title": "Terence Tao \u2014 Career Advice (index)",
+      "url": "https://terrytao.wordpress.com/career-advice/",
+      "source": "terrytao.wordpress.com",
+      "date": "2026-04-10",
+      "tags": [
+        "RESEARCH ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-10",
+      "estimatedMinutes": 3,
+      "digestDay": 4
+    },
+    {
+      "id": "2026-04-10-006",
+      "title": "Michael Nielsen \u2014 How Science Actually Progresses",
+      "url": "https://www.dwarkesh.com/p/michael-nielsen",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-04-07",
+      "tags": [
+        "LISTEN",
+        "TRENDING",
+        "RESEARCH ADVICE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-10",
+      "estimatedMinutes": 123,
+      "digestDay": 4
+    },
+    {
+      "id": "2026-04-11-001",
+      "title": "Formal Methods in Robot Policy Learning and Verification: A Survey on Current Techniques and Future Directions",
+      "url": "https://arxiv.org/abs/2602.06971",
+      "source": "arXiv / Transactions on Machine Learning Research",
+      "date": "2026-01-09",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-11",
+      "estimatedMinutes": 25,
+      "digestDay": 5
+    },
+    {
+      "id": "2026-04-11-002",
+      "title": "AI Trends 2026: Test-Time Reasoning and the Rise of Reflective Agents",
+      "url": "https://huggingface.co/blog/aufklarer/ai-trends-2026-test-time-reasoning-reflective-agen",
+      "source": "HuggingFace Blog",
+      "date": "2025-12-24",
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-11",
+      "estimatedMinutes": 5,
+      "digestDay": 5
+    },
+    {
+      "id": "2026-04-11-003",
+      "title": "GLM-5.1: Towards Long-Horizon Tasks",
+      "url": "https://simonwillison.net/2026/Apr/7/glm-51/",
+      "source": "simonwillison.net",
+      "date": "2026-04-07",
+      "tags": [
+        "TRENDING",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-11",
+      "estimatedMinutes": 3,
+      "digestDay": 5
+    },
+    {
+      "id": "2026-04-11-004",
+      "title": "Doing Research",
+      "url": "https://medium.com/@paul.niehaus/doing-research-18cb310529e0",
+      "source": "Paul Niehaus \u00b7 Medium",
+      "date": "2023-01-01",
+      "tags": [
+        "RESEARCH ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-11",
+      "estimatedMinutes": 7,
+      "digestDay": 5
+    },
+    {
+      "id": "2026-04-11-005",
+      "title": "Lex Fridman #494 \u2014 Jensen Huang: NVIDIA \u2014 The $4 Trillion Company & the AI Revolution",
+      "url": "https://lexfridman.com/jensen-huang/",
+      "source": "Lex Fridman Podcast",
+      "date": "2026-03-23",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-11",
+      "estimatedMinutes": 180,
+      "digestDay": 5
+    },
+    {
+      "id": "2026-04-11-006",
+      "title": "Robust Deep Reinforcement Learning Using Formal Verification",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-98208-8_11",
+      "source": "SpringerLink",
+      "date": "2026-01-01",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-11",
+      "estimatedMinutes": 25,
+      "digestDay": 5
+    },
+    {
+      "id": "2026-04-11-007",
+      "title": "Rethinking Exploration in RLVR: From Entropy Regularization to Refinement via Bidirectional Entropy Modulation",
+      "url": "https://arxiv.org/abs/2604.04894",
+      "source": "arXiv",
+      "date": "2026-04-06",
+      "tags": [
+        "TRENDING",
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-11",
+      "estimatedMinutes": 5,
+      "digestDay": 5
+    },
+    {
+      "id": "2026-04-11-008",
+      "title": "We Are in the 'Gentleman Scientist' Era of AI Research",
+      "url": "https://www.seangoedecke.com/ai-and-informal-science/",
+      "source": "seangoedecke.com",
+      "date": "2026-04-01",
+      "tags": [
+        "RESEARCH ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-11",
+      "estimatedMinutes": 5,
+      "digestDay": 5
+    },
+    {
+      "id": "2026-04-11-009",
+      "title": "T3RL: Tool Verification for Test-Time Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2603.02203",
+      "source": "arXiv",
+      "date": "2026-03-02",
+      "tags": [
+        "TRENDING",
+        "RLVR",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-11",
+      "estimatedMinutes": 4,
+      "digestDay": 5
+    },
+    {
+      "id": "2026-04-11-010",
+      "title": "Practical Notes on Getting LLMs to Generate New Ideas",
+      "url": "https://www.seangoedecke.com/idea-mill/",
+      "source": "seangoedecke.com",
+      "date": "2026-04-01",
+      "tags": [
+        "RESEARCH ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-13",
+      "estimatedMinutes": 5,
+      "digestDay": 6
+    },
+    {
+      "id": "2026-04-13-001",
+      "title": "Formal Methods for Safety-Critical Machine Learning: A Systematic Literature Review",
+      "url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1749956/full",
+      "source": "Frontiers in Artificial Intelligence",
+      "date": "2026-01-01",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-13",
+      "estimatedMinutes": 25,
+      "digestDay": 6
+    },
+    {
+      "id": "2026-04-13-002",
+      "title": "An Imperfect Verifier is Good Enough: Learning with Noisy Rewards",
+      "url": "https://arxiv.org/abs/2604.07666",
+      "source": "arXiv",
+      "date": "2026-04-10",
+      "tags": [
+        "TRENDING",
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-13",
+      "estimatedMinutes": 5,
+      "digestDay": 6
+    },
+    {
+      "id": "2026-04-13-003",
+      "title": "Canopy: Property-Driven Learning for Congestion Control",
+      "url": "https://arxiv.org/abs/2412.10915",
+      "source": "arXiv / EuroSys 2026",
+      "date": "2026-04-01",
+      "tags": [
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-13",
+      "estimatedMinutes": 4,
+      "digestDay": 6
+    },
+    {
+      "id": "2026-04-13-004",
+      "title": "MLST \u2014 How Do AI Models Actually Think? (Laura Ruis)",
+      "url": "https://podbay.fm/p/machine-learning-street-talk-mlst/e/1737332892",
+      "source": "Machine Learning Street Talk",
+      "date": "2026-04-06",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-13",
+      "estimatedMinutes": 90,
+      "digestDay": 6
+    },
+    {
+      "id": "2026-04-13-005",
+      "title": "10 Tips for Research and a PhD \u2014 Sebastian Ruder",
+      "url": "https://www.ruder.io/10-tips-for-research-and-a-phd/",
+      "source": "ruder.io",
+      "date": "2019-03-01",
+      "tags": [
+        "RESEARCH ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-14",
+      "estimatedMinutes": 8,
+      "digestDay": 7
+    },
+    {
+      "id": "2026-04-13-006",
+      "title": "Formal Verification of Noisy Quantum Reinforcement Learning Policies",
+      "url": "https://arxiv.org/abs/2512.01502",
+      "source": "arXiv",
+      "date": "2025-12-01",
+      "tags": [
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-15",
+      "estimatedMinutes": 25,
+      "digestDay": 8
+    },
+    {
+      "id": "2026-04-14-001",
+      "title": "HypRL: Reinforcement Learning of Control Policies for Hyperproperties",
+      "url": "https://arxiv.org/abs/2504.04675",
+      "source": "arXiv / NeurIPS 2025",
+      "date": "2025-10-01",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-14",
+      "estimatedMinutes": 25,
+      "digestDay": 7
+    },
+    {
+      "id": "2026-04-14-002",
+      "title": "Some Thoughts on AI and Research",
+      "url": "https://economics.mit.edu/sites/default/files/2026-04/IA%20AI%20note_1.pdf",
+      "source": "Isaiah Andrews \u00b7 MIT Economics",
+      "date": "2026-04-03",
+      "tags": [
+        "TRENDING",
+        "RESEARCH ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-14",
+      "estimatedMinutes": 4,
+      "digestDay": 7
+    },
+    {
+      "id": "2026-04-14-003",
+      "title": "Research: Exploring the new `servo` crate",
+      "url": "https://simonwillison.net/2026/Apr/13/servo-crate-exploration/",
+      "source": "simonwillison.net",
+      "date": "2026-04-13",
+      "tags": [
+        "TRENDING",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-14",
+      "estimatedMinutes": 3,
+      "digestDay": 7
+    },
+    {
+      "id": "2026-04-14-004",
+      "title": "Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling",
+      "url": "https://arxiv.org/abs/2604.08178",
+      "source": "arXiv",
+      "date": "2026-04-01",
+      "tags": [
+        "TRENDING",
+        "AGENTS",
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-14",
+      "estimatedMinutes": 4,
+      "digestDay": 7
+    },
+    {
+      "id": "2026-04-15-001",
+      "title": "Mining Beyond the Bools: Learning Data Transformations and Temporal Specifications",
+      "url": "https://arxiv.org/abs/2603.06710",
+      "source": "arXiv · Yale & Columbia",
+      "date": "2026-03-05",
+      "tags": ["FORMAL METHODS", "TRENDING", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-15",
+      "estimatedMinutes": 5,
+      "digestDay": 8
+    },
+    {
+      "id": "2026-04-15-002",
+      "title": "Reward Modeling for Reinforcement Learning-Based LLM Reasoning: Design, Challenges, and Evaluation",
+      "url": "https://arxiv.org/abs/2602.09305",
+      "source": "arXiv",
+      "date": "2026-02-10",
+      "tags": ["RLVR", "TRENDING", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-15",
+      "estimatedMinutes": 8,
+      "digestDay": 8
+    },
+    {
+      "id": "2026-04-15-003",
+      "title": "Trusted Access for the Next Era of Cyber Defense — OpenAI's GPT-5.4-Cyber",
+      "url": "https://simonwillison.net/2026/Apr/14/trusted-access-openai/",
+      "source": "simonwillison.net",
+      "date": "2026-04-14",
+      "tags": ["TRENDING", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-15",
+      "estimatedMinutes": 3,
+      "digestDay": 8
+    },
+    {
+      "id": "2026-04-15-004",
+      "title": "Anthropic to Launch Claude Opus 4.7 and New AI Design Tool This Week",
+      "url": "https://techbriefly.com/2026/04/15/anthropic-to-launch-claude-opus-4-7-and-new-ai-design-tool-this-week/",
+      "source": "TechBriefly",
+      "date": "2026-04-15",
+      "tags": ["TRENDING", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-15",
+      "estimatedMinutes": 2,
+      "digestDay": 8
+    },
+    {
+      "id": "2026-04-15-005",
+      "title": "Advice for New PhD Students: Your Research Career is a Long Game",
+      "url": "https://cfiesler.medium.com/advice-for-new-phd-students-your-research-career-is-a-long-game-4721abbd80ac",
+      "source": "Casey Fiesler · Medium",
+      "date": "2020-08-01",
+      "tags": ["RESEARCH ADVICE", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-15",
+      "estimatedMinutes": 5,
+      "digestDay": 8
+    },
+    {
+      "id": "2026-04-15-006",
+      "title": "Dwarkesh × Elon Musk — \"In 36 months, the cheapest place to put AI will be space\"",
+      "url": "https://www.dwarkesh.com/p/elon-musk",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-02-05",
+      "tags": ["LISTEN"],
+      "status": "assigned",
+      "assignedDate": "2026-04-15",
+      "estimatedMinutes": 90,
+      "digestDay": 8
+    },
+    {
+      "id": "2026-04-15-007",
+      "title": "Verification-Guided Falsification for Safe RL via Explainable Abstraction and Risk-Aware Exploration",
+      "url": "https://arxiv.org/abs/2506.03469",
+      "source": "arXiv",
+      "date": "2025-06-01",
+      "tags": ["FORMAL METHODS", "TRENDING", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-16",
+      "estimatedMinutes": 15,
+      "digestDay": 9
+    },
+    {
+      "id": "2026-04-16-001",
+      "title": "Emotion Concepts and their Function in a Large Language Model",
+      "url": "https://transformer-circuits.pub/2026/emotions/index.html",
+      "source": "transformer-circuits.pub · Anthropic",
+      "date": "2026-04-03",
+      "tags": ["DEEP DIVE", "TRENDING", "INTERPRETABILITY", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-16",
+      "estimatedMinutes": 25,
+      "digestDay": 9
+    },
+    {
+      "id": "2026-04-16-002",
+      "title": "Inside the AI Index: 12 Takeaways from the 2026 Report",
+      "url": "https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report",
+      "source": "Stanford HAI",
+      "date": "2026-04-01",
+      "tags": ["TRENDING", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-16",
+      "estimatedMinutes": 5,
+      "digestDay": 9
+    },
+    {
+      "id": "2026-04-16-003",
+      "title": "From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models",
+      "url": "https://arxiv.org/abs/2604.09459",
+      "source": "arXiv",
+      "date": "2026-04-13",
+      "tags": ["TRENDING", "RLVR", "AGENTS", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-16",
+      "estimatedMinutes": 4,
+      "digestDay": 9
+    },
+    {
+      "id": "2026-04-16-004",
+      "title": "Formal Synthesis of Certifiably Robust Neural Lyapunov-Barrier Certificates",
+      "url": "https://arxiv.org/abs/2602.05311",
+      "source": "arXiv",
+      "date": "2026-02-05",
+      "tags": ["FORMAL METHODS", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-16",
+      "estimatedMinutes": 3,
+      "digestDay": 9
+    },
+    {
+      "id": "2026-04-16-005",
+      "title": "MLST — How AI Could Be A Mathematician's Co-Pilot by 2026 (Prof. Swarat Chaudhuri)",
+      "url": "https://open.spotify.com/episode/0EF43Uk3Kpl9lIG7C1VuxX",
+      "source": "Machine Learning Street Talk",
+      "date": "2024-11-25",
+      "tags": ["LISTEN", "FORMAL METHODS"],
+      "status": "assigned",
+      "assignedDate": "2026-04-16",
+      "estimatedMinutes": 90,
+      "digestDay": 9
+    },
+    {
+      "id": "2026-04-16-006",
+      "title": "Foundation World Models for Agents that Learn, Verify, and Adapt Reliably Beyond Static Environments",
+      "url": "https://arxiv.org/abs/2602.23997",
+      "source": "arXiv",
+      "date": "2026-02-27",
+      "tags": ["FORMAL METHODS", "AGENTS", "READ"],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 20,
+      "digestDay": null
+    },
+    {
+      "id": "2026-04-16-007",
+      "title": "AutoSpec: Automating the Refinement of Reinforcement Learning Specifications",
+      "url": "https://arxiv.org/abs/2512.01047",
+      "source": "arXiv",
+      "date": "2025-11-30",
+      "tags": ["FORMAL METHODS", "READ", "PROMOTED"],
+      "status": "assigned",
+      "assignedDate": "2026-04-17",
+      "estimatedMinutes": 15,
+      "digestDay": 10
+    },
+    {
+      "id": "2026-04-17-001",
+      "title": "SUPERNOVA: Eliciting General Reasoning in LLMs with Reinforcement Learning on Natural Instructions",
+      "url": "https://arxiv.org/abs/2604.08477",
+      "source": "arXiv",
+      "date": "2026-04-09",
+      "tags": ["DEEP DIVE", "RLVR", "TRENDING", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-17",
+      "estimatedMinutes": 25,
+      "digestDay": 10
+    },
+    {
+      "id": "2026-04-17-002",
+      "title": "From P(y|x) to P(y): Investigating Reinforcement Learning in Pre-train Space",
+      "url": "https://arxiv.org/abs/2604.14142",
+      "source": "arXiv",
+      "date": "2026-04-15",
+      "tags": ["RLVR", "TRENDING", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-17",
+      "estimatedMinutes": 5,
+      "digestDay": 10
+    },
+    {
+      "id": "2026-04-17-003",
+      "title": "Why Opinion on AI Is So Divided",
+      "url": "https://www.technologyreview.com/2026/04/13/1135720/why-opinion-on-ai-is-so-divided/",
+      "source": "MIT Technology Review",
+      "date": "2026-04-13",
+      "tags": ["TRENDING", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-17",
+      "estimatedMinutes": 4,
+      "digestDay": 10
+    },
+    {
+      "id": "2026-04-17-004",
+      "title": "Thoughts While Watching Myself Be Automated",
+      "url": "https://dynomight.substack.com/p/automated",
+      "source": "Dynomight",
+      "date": "2026-04-01",
+      "tags": ["RESEARCH ADVICE", "READ"],
+      "status": "assigned",
+      "assignedDate": "2026-04-17",
+      "estimatedMinutes": 5,
+      "digestDay": 10
+    },
+    {
+      "id": "2026-04-17-005",
+      "title": "Dwarkesh × Jensen Huang — TPU Competition, Why We Should Sell Chips to China, & Nvidia's Supply Chain Moat",
+      "url": "https://www.dwarkesh.com/p/jensen-huang",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-04-15",
+      "tags": ["LISTEN", "TRENDING"],
+      "status": "assigned",
+      "assignedDate": "2026-04-17",
+      "estimatedMinutes": 103,
+      "digestDay": 10
+    }
+  ],
+  "feeds": [
+    {
+      "text": "simonwillison.net",
+      "xmlUrl": "https://simonwillison.net/atom/everything/",
+      "htmlUrl": "https://simonwillison.net"
+    },
+    {
+      "text": "jeffgeerling.com",
+      "xmlUrl": "https://www.jeffgeerling.com/blog.xml",
+      "htmlUrl": "https://jeffgeerling.com"
+    },
+    {
+      "text": "seangoedecke.com",
+      "xmlUrl": "https://www.seangoedecke.com/rss.xml",
+      "htmlUrl": "https://seangoedecke.com"
+    },
+    {
+      "text": "krebsonsecurity.com",
+      "xmlUrl": "https://krebsonsecurity.com/feed/",
+      "htmlUrl": "https://krebsonsecurity.com"
+    },
+    {
+      "text": "daringfireball.net",
+      "xmlUrl": "https://daringfireball.net/feeds/main",
+      "htmlUrl": "https://daringfireball.net"
+    },
+    {
+      "text": "ericmigi.com",
+      "xmlUrl": "https://ericmigi.com/rss.xml",
+      "htmlUrl": "https://ericmigi.com"
+    },
+    {
+      "text": "antirez.com",
+      "xmlUrl": "http://antirez.com/rss",
+      "htmlUrl": "http://antirez.com"
+    },
+    {
+      "text": "idiallo.com",
+      "xmlUrl": "https://idiallo.com/feed.rss",
+      "htmlUrl": "https://idiallo.com"
+    },
+    {
+      "text": "maurycyz.com",
+      "xmlUrl": "https://maurycyz.com/index.xml",
+      "htmlUrl": "https://maurycyz.com"
+    },
+    {
+      "text": "pluralistic.net",
+      "xmlUrl": "https://pluralistic.net/feed/",
+      "htmlUrl": "https://pluralistic.net"
+    },
+    {
+      "text": "shkspr.mobi",
+      "xmlUrl": "https://shkspr.mobi/blog/feed/",
+      "htmlUrl": "https://shkspr.mobi"
+    },
+    {
+      "text": "lcamtuf.substack.com",
+      "xmlUrl": "https://lcamtuf.substack.com/feed",
+      "htmlUrl": "https://lcamtuf.substack.com"
+    },
+    {
+      "text": "mitchellh.com",
+      "xmlUrl": "https://mitchellh.com/feed.xml",
+      "htmlUrl": "https://mitchellh.com"
+    },
+    {
+      "text": "dynomight.net",
+      "xmlUrl": "https://dynomight.net/feed.xml",
+      "htmlUrl": "https://dynomight.net"
+    },
+    {
+      "text": "utcc.utoronto.ca/~cks",
+      "xmlUrl": "https://utcc.utoronto.ca/~cks/space/blog/?atom",
+      "htmlUrl": "https://utcc.utoronto.ca/~cks"
+    },
+    {
+      "text": "xeiaso.net",
+      "xmlUrl": "https://xeiaso.net/blog.rss",
+      "htmlUrl": "https://xeiaso.net"
+    },
+    {
+      "text": "devblogs.microsoft.com/oldnewthing",
+      "xmlUrl": "https://devblogs.microsoft.com/oldnewthing/feed",
+      "htmlUrl": "https://devblogs.microsoft.com/oldnewthing"
+    },
+    {
+      "text": "righto.com",
+      "xmlUrl": "https://www.righto.com/feeds/posts/default",
+      "htmlUrl": "https://righto.com"
+    },
+    {
+      "text": "lucumr.pocoo.org",
+      "xmlUrl": "https://lucumr.pocoo.org/feed.atom",
+      "htmlUrl": "https://lucumr.pocoo.org"
+    },
+    {
+      "text": "skyfall.dev",
+      "xmlUrl": "https://skyfall.dev/rss.xml",
+      "htmlUrl": "https://skyfall.dev"
+    },
+    {
+      "text": "garymarcus.substack.com",
+      "xmlUrl": "https://garymarcus.substack.com/feed",
+      "htmlUrl": "https://garymarcus.substack.com"
+    },
+    {
+      "text": "rachelbythebay.com",
+      "xmlUrl": "https://rachelbythebay.com/w/atom.xml",
+      "htmlUrl": "https://rachelbythebay.com"
+    },
+    {
+      "text": "overreacted.io",
+      "xmlUrl": "https://overreacted.io/rss.xml",
+      "htmlUrl": "https://overreacted.io"
+    },
+    {
+      "text": "timsh.org",
+      "xmlUrl": "https://timsh.org/rss/",
+      "htmlUrl": "https://timsh.org"
+    },
+    {
+      "text": "johndcook.com",
+      "xmlUrl": "https://www.johndcook.com/blog/feed/",
+      "htmlUrl": "https://johndcook.com"
+    },
+    {
+      "text": "gilesthomas.com",
+      "xmlUrl": "https://gilesthomas.com/feed/rss.xml",
+      "htmlUrl": "https://gilesthomas.com"
+    },
+    {
+      "text": "matklad.github.io",
+      "xmlUrl": "https://matklad.github.io/feed.xml",
+      "htmlUrl": "https://matklad.github.io"
+    },
+    {
+      "text": "derekthompson.org",
+      "xmlUrl": "https://www.theatlantic.com/feed/author/derek-thompson/",
+      "htmlUrl": "https://derekthompson.org"
+    },
+    {
+      "text": "evanhahn.com",
+      "xmlUrl": "https://evanhahn.com/feed.xml",
+      "htmlUrl": "https://evanhahn.com"
+    },
+    {
+      "text": "terriblesoftware.org",
+      "xmlUrl": "https://terriblesoftware.org/feed/",
+      "htmlUrl": "https://terriblesoftware.org"
+    },
+    {
+      "text": "rakhim.exotext.com",
+      "xmlUrl": "https://rakhim.exotext.com/rss.xml",
+      "htmlUrl": "https://rakhim.exotext.com"
+    },
+    {
+      "text": "joanwestenberg.com",
+      "xmlUrl": "https://joanwestenberg.com/rss",
+      "htmlUrl": "https://joanwestenberg.com"
+    },
+    {
+      "text": "xania.org",
+      "xmlUrl": "https://xania.org/feed",
+      "htmlUrl": "https://xania.org"
+    },
+    {
+      "text": "micahflee.com",
+      "xmlUrl": "https://micahflee.com/feed/",
+      "htmlUrl": "https://micahflee.com"
+    },
+    {
+      "text": "nesbitt.io",
+      "xmlUrl": "https://nesbitt.io/feed.xml",
+      "htmlUrl": "https://nesbitt.io"
+    },
+    {
+      "text": "construction-physics.com",
+      "xmlUrl": "https://www.construction-physics.com/feed",
+      "htmlUrl": "https://construction-physics.com"
+    },
+    {
+      "text": "tedium.co",
+      "xmlUrl": "https://feed.tedium.co/",
+      "htmlUrl": "https://tedium.co"
+    },
+    {
+      "text": "susam.net",
+      "xmlUrl": "https://susam.net/feed.xml",
+      "htmlUrl": "https://susam.net"
+    },
+    {
+      "text": "entropicthoughts.com",
+      "xmlUrl": "https://entropicthoughts.com/feed.xml",
+      "htmlUrl": "https://entropicthoughts.com"
+    },
+    {
+      "text": "buttondown.com/hillelwayne",
+      "xmlUrl": "https://buttondown.com/hillelwayne/rss",
+      "htmlUrl": "https://buttondown.com/hillelwayne"
+    },
+    {
+      "text": "dwarkesh.com",
+      "xmlUrl": "https://www.dwarkeshpatel.com/feed",
+      "htmlUrl": "https://dwarkesh.com"
+    },
+    {
+      "text": "borretti.me",
+      "xmlUrl": "https://borretti.me/feed.xml",
+      "htmlUrl": "https://borretti.me"
+    },
+    {
+      "text": "wheresyoured.at",
+      "xmlUrl": "https://www.wheresyoured.at/rss/",
+      "htmlUrl": "https://wheresyoured.at"
+    },
+    {
+      "text": "jayd.ml",
+      "xmlUrl": "https://jayd.ml/feed.xml",
+      "htmlUrl": "https://jayd.ml"
+    },
+    {
+      "text": "minimaxir.com",
+      "xmlUrl": "https://minimaxir.com/index.xml",
+      "htmlUrl": "https://minimaxir.com"
+    },
+    {
+      "text": "geohot.github.io",
+      "xmlUrl": "https://geohot.github.io/blog/feed.xml",
+      "htmlUrl": "https://geohot.github.io"
+    },
+    {
+      "text": "paulgraham.com",
+      "xmlUrl": "http://www.aaronsw.com/2002/feeds/pgessays.rss",
+      "htmlUrl": "https://paulgraham.com"
+    },
+    {
+      "text": "filfre.net",
+      "xmlUrl": "https://www.filfre.net/feed/",
+      "htmlUrl": "https://filfre.net"
+    },
+    {
+      "text": "blog.jim-nielsen.com",
+      "xmlUrl": "https://blog.jim-nielsen.com/feed.xml",
+      "htmlUrl": "https://blog.jim-nielsen.com"
+    },
+    {
+      "text": "dfarq.homeip.net",
+      "xmlUrl": "https://dfarq.homeip.net/feed/",
+      "htmlUrl": "https://dfarq.homeip.net"
+    },
+    {
+      "text": "jyn.dev",
+      "xmlUrl": "https://jyn.dev/atom.xml",
+      "htmlUrl": "https://jyn.dev"
+    },
+    {
+      "text": "geoffreylitt.com",
+      "xmlUrl": "https://www.geoffreylitt.com/feed.xml",
+      "htmlUrl": "https://geoffreylitt.com"
+    },
+    {
+      "text": "downtowndougbrown.com",
+      "xmlUrl": "https://www.downtowndougbrown.com/feed/",
+      "htmlUrl": "https://downtowndougbrown.com"
+    },
+    {
+      "text": "brutecat.com",
+      "xmlUrl": "https://brutecat.com/rss.xml",
+      "htmlUrl": "https://brutecat.com"
+    },
+    {
+      "text": "eli.thegreenplace.net",
+      "xmlUrl": "https://eli.thegreenplace.net/feeds/all.atom.xml",
+      "htmlUrl": "https://eli.thegreenplace.net"
+    },
+    {
+      "text": "abortretry.fail",
+      "xmlUrl": "https://www.abortretry.fail/feed",
+      "htmlUrl": "https://abortretry.fail"
+    },
+    {
+      "text": "fabiensanglard.net",
+      "xmlUrl": "https://fabiensanglard.net/rss.xml",
+      "htmlUrl": "https://fabiensanglard.net"
+    },
+    {
+      "text": "oldvcr.blogspot.com",
+      "xmlUrl": "https://oldvcr.blogspot.com/feeds/posts/default",
+      "htmlUrl": "https://oldvcr.blogspot.com"
+    },
+    {
+      "text": "bogdanthegeek.github.io",
+      "xmlUrl": "https://bogdanthegeek.github.io/blog/index.xml",
+      "htmlUrl": "https://bogdanthegeek.github.io"
+    },
+    {
+      "text": "hugotunius.se",
+      "xmlUrl": "https://hugotunius.se/feed.xml",
+      "htmlUrl": "https://hugotunius.se"
+    },
+    {
+      "text": "gwern.net",
+      "xmlUrl": "https://gwern.substack.com/feed",
+      "htmlUrl": "https://gwern.net"
+    },
+    {
+      "text": "berthub.eu",
+      "xmlUrl": "https://berthub.eu/articles/index.xml",
+      "htmlUrl": "https://berthub.eu"
+    },
+    {
+      "text": "chadnauseam.com",
+      "xmlUrl": "https://chadnauseam.com/rss.xml",
+      "htmlUrl": "https://chadnauseam.com"
+    },
+    {
+      "text": "simone.org",
+      "xmlUrl": "https://simone.org/feed/",
+      "htmlUrl": "https://simone.org"
+    },
+    {
+      "text": "it-notes.dragas.net",
+      "xmlUrl": "https://it-notes.dragas.net/feed/",
+      "htmlUrl": "https://it-notes.dragas.net"
+    },
+    {
+      "text": "beej.us",
+      "xmlUrl": "https://beej.us/blog/rss.xml",
+      "htmlUrl": "https://beej.us"
+    },
+    {
+      "text": "hey.paris",
+      "xmlUrl": "https://hey.paris/index.xml",
+      "htmlUrl": "https://hey.paris"
+    },
+    {
+      "text": "danielwirtz.com",
+      "xmlUrl": "https://danielwirtz.com/rss.xml",
+      "htmlUrl": "https://danielwirtz.com"
+    },
+    {
+      "text": "matduggan.com",
+      "xmlUrl": "https://matduggan.com/rss/",
+      "htmlUrl": "https://matduggan.com"
+    },
+    {
+      "text": "refactoringenglish.com",
+      "xmlUrl": "https://refactoringenglish.com/index.xml",
+      "htmlUrl": "https://refactoringenglish.com"
+    },
+    {
+      "text": "worksonmymachine.substack.com",
+      "xmlUrl": "https://worksonmymachine.substack.com/feed",
+      "htmlUrl": "https://worksonmymachine.substack.com"
+    },
+    {
+      "text": "philiplaine.com",
+      "xmlUrl": "https://philiplaine.com/index.xml",
+      "htmlUrl": "https://philiplaine.com"
+    },
+    {
+      "text": "steveblank.com",
+      "xmlUrl": "https://steveblank.com/feed/",
+      "htmlUrl": "https://steveblank.com"
+    },
+    {
+      "text": "bernsteinbear.com",
+      "xmlUrl": "https://bernsteinbear.com/feed.xml",
+      "htmlUrl": "https://bernsteinbear.com"
+    },
+    {
+      "text": "danieldelaney.net",
+      "xmlUrl": "https://danieldelaney.net/feed",
+      "htmlUrl": "https://danieldelaney.net"
+    },
+    {
+      "text": "troyhunt.com",
+      "xmlUrl": "https://www.troyhunt.com/rss/",
+      "htmlUrl": "https://troyhunt.com"
+    },
+    {
+      "text": "herman.bearblog.dev",
+      "xmlUrl": "https://herman.bearblog.dev/feed/",
+      "htmlUrl": "https://herman.bearblog.dev"
+    },
+    {
+      "text": "tomrenner.com",
+      "xmlUrl": "https://tomrenner.com/index.xml",
+      "htmlUrl": "https://tomrenner.com"
+    },
+    {
+      "text": "blog.pixelmelt.dev",
+      "xmlUrl": "https://blog.pixelmelt.dev/rss/",
+      "htmlUrl": "https://blog.pixelmelt.dev"
+    },
+    {
+      "text": "martinalderson.com",
+      "xmlUrl": "https://martinalderson.com/feed.xml",
+      "htmlUrl": "https://martinalderson.com"
+    },
+    {
+      "text": "danielchasehooper.com",
+      "xmlUrl": "https://danielchasehooper.com/feed.xml",
+      "htmlUrl": "https://danielchasehooper.com"
+    },
+    {
+      "text": "chiark.greenend.org.uk/~sgtatham",
+      "xmlUrl": "https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/feed.xml",
+      "htmlUrl": "https://chiark.greenend.org.uk/~sgtatham"
+    },
+    {
+      "text": "grantslatton.com",
+      "xmlUrl": "https://grantslatton.com/rss.xml",
+      "htmlUrl": "https://grantslatton.com"
+    },
+    {
+      "text": "experimental-history.com",
+      "xmlUrl": "https://www.experimental-history.com/feed",
+      "htmlUrl": "https://experimental-history.com"
+    },
+    {
+      "text": "anildash.com",
+      "xmlUrl": "https://anildash.com/feed.xml",
+      "htmlUrl": "https://anildash.com"
+    },
+    {
+      "text": "aresluna.org",
+      "xmlUrl": "https://aresluna.org/main.rss",
+      "htmlUrl": "https://aresluna.org"
+    },
+    {
+      "text": "michael.stapelberg.ch",
+      "xmlUrl": "https://michael.stapelberg.ch/feed.xml",
+      "htmlUrl": "https://michael.stapelberg.ch"
+    },
+    {
+      "text": "miguelgrinberg.com",
+      "xmlUrl": "https://blog.miguelgrinberg.com/feed",
+      "htmlUrl": "https://miguelgrinberg.com"
+    },
+    {
+      "text": "keygen.sh",
+      "xmlUrl": "https://keygen.sh/blog/feed.xml",
+      "htmlUrl": "https://keygen.sh"
+    },
+    {
+      "text": "mjg59.dreamwidth.org",
+      "xmlUrl": "https://mjg59.dreamwidth.org/data/rss",
+      "htmlUrl": "https://mjg59.dreamwidth.org"
+    },
+    {
+      "text": "computer.rip",
+      "xmlUrl": "https://computer.rip/rss.xml",
+      "htmlUrl": "https://computer.rip"
+    },
+    {
+      "text": "tedunangst.com",
+      "xmlUrl": "https://www.tedunangst.com/flak/rss",
+      "htmlUrl": "https://tedunangst.com"
     }
   ]
 }

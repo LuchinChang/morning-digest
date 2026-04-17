@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 13, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .header-sub {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 16px;
+      border-radius: 8px;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .quote-block .quote-author {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+
+    .section {
+      padding: 0 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--divider);
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+
+    .section-title .icon { font-size: 1rem; }
+
+    .plan-badge {
+      background: #1e3a8a;
+      color: white;
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .card.deep-dive {
+      border-left: 4px solid var(--tag-deep);
+      background: linear-gradient(to right, var(--tag-deep-bg), var(--card));
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+      background: linear-gradient(to right, var(--tag-promoted-bg), var(--card));
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card-title a:hover { text-decoration: underline; color: var(--accent); }
+
+    .card-time {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      background: var(--bg);
+      padding: 3px 8px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .card-source {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card-body {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tag-deep { color: var(--tag-deep); background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read { color: var(--tag-read); background: var(--tag-read-bg); }
+    .tag-listen { color: var(--tag-listen); background: var(--tag-listen-bg); }
+    .tag-watch { color: var(--tag-watch); background: var(--tag-watch-bg); }
+    .tag-code { color: var(--tag-code); background: var(--tag-code-bg); }
+    .tag-formal { color: var(--tag-formal); background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted); background: var(--tag-promoted-bg); }
+    .tag-agents { color: var(--tag-agents); background: var(--tag-agents-bg); }
+    .tag-advice { color: var(--tag-advice); background: var(--tag-advice-bg); }
+    .tag-rlvr { color: var(--tag-rlvr); background: var(--tag-rlvr-bg); }
+
+    .plan-grid {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .plan-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--divider);
+      font-size: 0.85rem;
+    }
+
+    .plan-row:last-child { border-bottom: none; }
+
+    .plan-step {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .plan-content { flex: 1; }
+    .plan-label { font-weight: 700; color: var(--text); }
+    .plan-desc { font-size: 0.78rem; color: var(--muted); }
+
+    .plan-time {
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      background: var(--bg);
+      padding: 3px 8px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .strategy-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .strategy-card h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .strategy-card ul {
+      list-style: none;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .strategy-card ul li::before {
+      content: "-> ";
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .podcast-card:last-child { margin-bottom: 0; }
+
+    .podcast-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .podcast-info { flex: 1; }
+    .podcast-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .podcast-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .podcast-title a:hover { text-decoration: underline; color: var(--accent); }
+
+    .podcast-meta { font-size: 0.75rem; color: var(--muted); }
+
+    .bookmark-row {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bookmark-row:last-child { margin-bottom: 0; }
+
+    .bookmark-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .bookmark-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .bookmark-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .bookmark-title a:hover { text-decoration: underline; color: var(--accent); }
+
+    .bookmark-time {
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--divider);
+      padding: 18px 20px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .footer-day {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 480px) {
+      .strategy-grid { grid-template-columns: 1fr; }
+      header { padding: 20px 14px 16px; }
+      .section { padding: 0 12px; }
+      .quote-block { margin: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-meta">Monday &middot; April 13, 2026 &middot; Day 6</div>
+  <h1>Morning Digest</h1>
+  <div class="header-sub">Formal Methods + Reinforcement Learning &middot; 45 min</div>
+</header>
+
+<!-- Quote -->
+<div class="quote-block">
+  "Program testing can be used to show the presence of bugs, but never to show their absence."
+  <div class="quote-author">&mdash; Edsger W. Dijkstra, <em>Notes on Structured Programming</em> (1970)</div>
+</div>
+
+<!-- Your 45-Minute Plan -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">&#9201;</span> Your 45-Minute Plan
+    <span class="plan-badge">Today's Reading Order</span>
+  </div>
+  <div class="plan-grid">
+    <div class="plan-row">
+      <div class="plan-step">1</div>
+      <div class="plan-content">
+        <div class="plan-label">Deep Dive &mdash; Formal Methods for Safety-Critical ML (Survey)</div>
+        <div class="plan-desc">A comprehensive 2026 systematic review mapping the entire landscape of formal verification for ML safety. Start here &mdash; it will frame every other paper you've read this week.</div>
+      </div>
+      <div class="plan-time">25 min</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-step">2</div>
+      <div class="plan-content">
+        <div class="plan-label">Quick Read &mdash; An Imperfect Verifier is Good Enough</div>
+        <div class="plan-desc">Fresh April 2026 result: RLVR tolerates up to 15% verifier noise with minimal performance loss. Extends the RLVR thread from last week.</div>
+      </div>
+      <div class="plan-time">5 min</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-step">3</div>
+      <div class="plan-content">
+        <div class="plan-label">Quick Read &mdash; Canopy: Property-Driven Learning</div>
+        <div class="plan-desc">Formal verification meets learning-based congestion control. Quantitative certificates guide training &mdash; a concrete blueprint for verification-in-the-loop.</div>
+      </div>
+      <div class="plan-time">4 min</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-step">4</div>
+      <div class="plan-content">
+        <div class="plan-label">Quick Read &mdash; Getting LLMs to Generate New Ideas <span style="font-size:0.7rem; color:var(--tag-promoted);">(PROMOTED)</span></div>
+        <div class="plan-desc">From your bookmarks: Sean Goedecke on practical techniques for using LLMs as idea-generation tools in research.</div>
+      </div>
+      <div class="plan-time">5 min</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-step">5</div>
+      <div class="plan-content">
+        <div class="plan-label">Queue Bookmarks + Podcast Line-up</div>
+        <div class="plan-desc">Set up your commute listen and triage new bookmarks.</div>
+      </div>
+      <div class="plan-time">6 min</div>
+    </div>
+  </div>
+</div>
+
+<!-- Deep Dive -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">&#128300;</span> Deep Dive &middot; 25 minutes
+  </div>
+
+  <div class="card deep-dive">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1749956/full" target="_blank">
+          Formal Methods for Safety-Critical Machine Learning: A Systematic Literature Review
+        </a>
+      </div>
+      <div class="card-time">~25 min</div>
+    </div>
+    <div class="card-source">Frontiers in Artificial Intelligence &middot; January 2026</div>
+    <div class="card-body">
+      A comprehensive systematic review covering 2020&ndash;mid-2025, categorizing formal methods for ML safety into eight families: reachability &amp; over-approximation, SMT-based verification, MILP/ILP approaches, model checking, runtime verification, shielding, control barrier functions, and risk verification. This is the map of the territory you're working in &mdash; it will help you see where your formal methods + RL research sits relative to the broader field, identify gaps, and find collaborators. Skim the taxonomy tables first, then deep-read the sections on shielding and control barrier functions (most relevant to your RL work).
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Reads -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">&#9889;</span> Quick Reads &middot; ~14 minutes
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://arxiv.org/abs/2604.07666" target="_blank">
+          An Imperfect Verifier is Good Enough: Learning with Noisy Rewards
+        </a>
+      </div>
+      <div class="card-time">~5 min</div>
+    </div>
+    <div class="card-source">arXiv &middot; April 10, 2026</div>
+    <div class="card-body">
+      How robust is RLVR when the verifier makes mistakes? This paper shows that noise rates up to 15% barely dent training performance across Qwen3, GLM4, and Llama 3.1. A model-based verifier at ~85% accuracy recovers most of the ground-truth signal. Practically, this means you don't need a perfect proof checker to get useful RLVR training &mdash; a significant insight for combining formal verification with reward-based learning.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://arxiv.org/abs/2412.10915" target="_blank">
+          Canopy: Property-Driven Learning for Congestion Control
+        </a>
+      </div>
+      <div class="card-time">~4 min</div>
+    </div>
+    <div class="card-source">arXiv / EuroSys 2026 &middot; December 2024 (published April 2026)</div>
+    <div class="card-body">
+      Learning-based congestion controllers are fast but unreliable. Canopy fixes this by introducing "quantitative certificates" &mdash; an abstract interpreter runs in the training loop, measuring the volume of an input region that provably satisfies safety properties, and feeding that signal back as reward. The result: controllers that are both adaptive and formally guaranteed. A concrete example of verification-in-the-loop training that maps directly to your research agenda.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card promoted">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://www.seangoedecke.com/idea-mill/" target="_blank">
+          Practical Notes on Getting LLMs to Generate New Ideas
+        </a>
+      </div>
+      <div class="card-time">~5 min</div>
+    </div>
+    <div class="card-source">seangoedecke.com &middot; April 2026 &middot; <strong>From your bookmarks</strong></div>
+    <div class="card-body">
+      Promoted from your reading queue. Sean Goedecke shares practical techniques for using LLMs as idea-generation partners &mdash; how to prompt them for novel research angles, what works, and what just produces rehashed conventional wisdom. Useful for brainstorming new directions at the intersection of formal methods and RL.
+    </div>
+    <div class="tags">
+      <span class="tag tag-promoted">Promoted</span>
+      <span class="tag tag-advice">Research Advice</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</div>
+
+<!-- Phone vs Laptop Strategy -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">&#128241;</span> Phone vs. Laptop Strategy
+  </div>
+  <div class="strategy-grid">
+    <div class="strategy-card">
+      <h4>&#128241; Phone-Friendly</h4>
+      <ul>
+        <li>Sean Goedecke &mdash; LLMs for Ideas (blog post)</li>
+        <li>Imperfect Verifier abstract + results</li>
+        <li>Podcast queue for commute</li>
+      </ul>
+    </div>
+    <div class="strategy-card">
+      <h4>&#128187; Laptop Required</h4>
+      <ul>
+        <li>Formal Methods SLR (Frontiers, long-form survey)</li>
+        <li>Canopy paper (equations + proofs)</li>
+        <li>Any follow-up references from the SLR</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Podcast / Video Queue -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">&#127911;</span> Podcast &amp; Video Queue &middot; Commute / Gym
+  </div>
+  <div class="podcast-card">
+    <div class="podcast-icon">&#127897;</div>
+    <div class="podcast-info">
+      <div class="podcast-title">
+        <a href="https://podbay.fm/p/machine-learning-street-talk-mlst/e/1737332892" target="_blank">
+          MLST &mdash; How Do AI Models Actually Think? (Laura Ruis)
+        </a>
+      </div>
+      <div class="podcast-meta">Machine Learning Street Talk &middot; April 2026 &middot; ~90 min &middot; Deep conversation on reasoning, internal representations, and what "understanding" means for AI systems &mdash; connects to the formal verification question of specifying what models should do vs. what they actually learn</div>
+    </div>
+  </div>
+  <div class="podcast-card">
+    <div class="podcast-icon">&#127897;</div>
+    <div class="podcast-info">
+      <div class="podcast-title">
+        <a href="https://lexfridman.com/jensen-huang/" target="_blank">
+          Lex Fridman #494 &mdash; Jensen Huang: NVIDIA &amp; the AI Revolution (continue)
+        </a>
+      </div>
+      <div class="podcast-meta">Lex Fridman Podcast &middot; April 9, 2026 &middot; 3h &middot; Jensen on AI infrastructure as a core operating layer &mdash; finish this one if you started it last week</div>
+    </div>
+  </div>
+</div>
+
+<!-- Bookmarks for Later -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">&#128278;</span> Bookmarks for Later
+  </div>
+  <div class="bookmark-row">
+    <div class="bookmark-dot"></div>
+    <div class="bookmark-title">
+      <a href="https://www.ruder.io/10-tips-for-research-and-a-phd/" target="_blank">
+        10 Tips for Research and a PhD &mdash; Sebastian Ruder
+      </a>
+    </div>
+    <div class="bookmark-time">~8 min</div>
+  </div>
+  <div class="bookmark-row">
+    <div class="bookmark-dot"></div>
+    <div class="bookmark-title">
+      <a href="https://arxiv.org/abs/2512.01502" target="_blank">
+        Formal Verification of Noisy Quantum Reinforcement Learning Policies
+      </a>
+    </div>
+    <div class="bookmark-time">~15 min</div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-day">Day 6</span>
+  Morning Digest &middot; Formal Methods + RL<br/>
+  Built for LuChin &middot; <a href="#">Manage preferences</a>
+</footer>
+
+</body>
+</html>

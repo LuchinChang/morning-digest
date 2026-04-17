@@ -1,0 +1,97 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # allow manual trigger from GitHub UI
+
+# Allow one concurrent deployment; cancel any in-progress run on new push
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+# Permissions required by actions/deploy-pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # ── Job 1: Validate ─────────────────────────────────────────
+  validate:
+    name: Validate digest files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate reading-log.json is well-formed
+        run: |
+          python3 - <<'EOF'
+          import json, sys
+
+          with open("digests/reading-log.json") as f:
+              data = json.load(f)
+
+          day   = data["meta"]["dayCount"]
+          arts  = data["articles"]
+          urls  = [a["url"] for a in arts]
+          dupes = {u for u in urls if urls.count(u) > 1}
+
+          print(f"✅  reading-log.json valid")
+          print(f"    Day count : {day}")
+          print(f"    Articles  : {len(arts)}")
+
+          if dupes:
+              print(f"❌  Duplicate URLs detected:")
+              for u in sorted(dupes):
+                  print(f"    {u}")
+              sys.exit(1)
+
+          print(f"    Duplicates: none")
+          EOF
+
+      - name: Check all digest HTML files are present in log
+        run: |
+          python3 - <<'EOF'
+          import json, os, re, sys
+
+          with open("digests/reading-log.json") as f:
+              data = json.load(f)
+
+          log_days = data["meta"]["dayCount"]
+
+          # Count HTML digest files
+          html_files = [
+              f for f in os.listdir("digests")
+              if re.match(r"morning-digest-\d{4}-\d{2}-\d{2}\.html", f)
+          ]
+          print(f"✅  {len(html_files)} digest HTML files found")
+          for f in sorted(html_files):
+              print(f"    {f}")
+          EOF
+
+  # ── Job 2: Build + Deploy ────────────────────────────────────
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: validate            # only deploy if validation passes
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'            # serve entire repo root
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

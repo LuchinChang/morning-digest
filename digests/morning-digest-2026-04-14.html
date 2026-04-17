@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 14, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep    { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending{ color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read    { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen  { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch   { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code    { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal  { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted{ color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents  { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice  { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr   { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 13px;
+      padding: 5px 0;
+      border-top: 1px solid var(--divider);
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item .bk-icon {
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .bookmark-item .bk-info {
+      flex: 1;
+    }
+
+    .bookmark-item .bk-title {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .bookmark-item .bk-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .strategy-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .strategy-box h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .strategy-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .strategy-device {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .strategy-detail {
+      font-size: 13px;
+    }
+
+    .strategy-detail strong {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .podcast-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+    }
+
+    .podcast-item:first-of-type { border-top: none; }
+
+    .podcast-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .podcast-info { flex: 1; }
+
+    .podcast-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .podcast-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px 32px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    .day-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-meta">Tuesday · April 14, 2026 · Formal Methods × RL</div>
+  <h1>Morning Digest ☀️</h1>
+  <div class="subtitle">Your curated 45-minute reading plan</div>
+</header>
+
+<!-- Quote -->
+<div class="quote-block">
+  <p>"Every good regulator of a system must be a model of that system."</p>
+  <cite>— Roger Conant &amp; William Ross Ashby, 1970 &nbsp;·&nbsp; The Law of Requisite Variety</cite>
+</div>
+
+<!-- 45-minute plan -->
+<section>
+  <div class="section-title">Your 45-Minute Plan</div>
+  <div class="plan-banner">
+    <h2>⏱ Reading Order</h2>
+
+    <div class="plan-row">
+      <span class="plan-time">0–25 min</span>
+      <span class="plan-label">🔬 <strong>Deep Dive:</strong> HypRL — RL of Control Policies for Hyperproperties (NeurIPS 2025)</span>
+    </div>
+    <div class="plan-row">
+      <span class="plan-time">25–33 min</span>
+      <span class="plan-label">📌 <strong>Promoted:</strong> 10 Tips for Research and a PhD — Sebastian Ruder</span>
+    </div>
+    <div class="plan-row">
+      <span class="plan-time">33–37 min</span>
+      <span class="plan-label">📄 <strong>Quick Read:</strong> Some Thoughts on AI and Research — Isaiah Andrews (MIT)</span>
+    </div>
+    <div class="plan-row">
+      <span class="plan-time">37–40 min</span>
+      <span class="plan-label">💻 <strong>Quick Read:</strong> Exploring the new <code>servo</code> crate — Simon Willison</span>
+    </div>
+    <div class="plan-row">
+      <span class="plan-time">40–44 min</span>
+      <span class="plan-label">📄 <strong>Quick Read:</strong> Aligning Agents via Planning — arXiv April 2026</span>
+    </div>
+    <div class="plan-row">
+      <span class="plan-time">44–45 min</span>
+      <span class="plan-label">🔖 <strong>Bookmark check:</strong> Noisy Quantum RL paper queued for tomorrow</span>
+    </div>
+  </div>
+</section>
+
+<!-- Deep Dive -->
+<section>
+  <div class="section-title">Deep Dive</div>
+
+  <div class="card deep">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2504.04675" target="_blank">HypRL: Reinforcement Learning of Control Policies for Hyperproperties</a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv / NeurIPS 2025</span>
+      <span class="dot">·</span>
+      <span>MSU &amp; collaborators</span>
+      <span class="dot">·</span>
+      <span>~25 min read</span>
+    </div>
+    <div class="card-body">
+      Most RL formalisms only handle universal trace properties (∀*), missing agent interdependencies like fairness, opacity, and noninterference. HypRL extends specification-guided RL to <em>hyperproperties</em> — properties over multiple execution traces expressed in HyperLTL. It applies Skolemization to handle quantifier alternations and defines quantitative robustness functions to shape rewards over product MDPs, then uses standard RL to maximize expected satisfaction. Case studies show clear gains over purely trace-based approaches, making this directly relevant if you work on multi-agent verification or privacy-preserving policy synthesis.
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-rlvr">RL</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Reads -->
+<section>
+  <div class="section-title">Quick Reads</div>
+
+  <!-- Promoted Bookmark -->
+  <div class="card promoted">
+    <div class="card-title">
+      <a href="https://www.ruder.io/10-tips-for-research-and-a-phd/" target="_blank">10 Tips for Research and a PhD</a>
+    </div>
+    <div class="card-meta">
+      <span>Sebastian Ruder · ruder.io</span>
+      <span class="dot">·</span>
+      <span>Promoted from bookmarks</span>
+      <span class="dot">·</span>
+      <span>~8 min read</span>
+    </div>
+    <div class="card-body">
+      Sebastian Ruder (NLP researcher at Google) distills a decade of hard-won lessons into ten actionable principles for thriving in a PhD: from choosing meaningful problems and reading broadly, to managing your advisor and saying no strategically. A classic in the ML research community — short enough to revisit periodically as a calibration check on how you're spending your time.
+    </div>
+    <div class="tags">
+      <span class="tag tag-promoted">Promoted Bookmark</span>
+      <span class="tag tag-advice">Research Advice</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Isaiah Andrews -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://economics.mit.edu/sites/default/files/2026-04/IA%20AI%20note_1.pdf" target="_blank">Some Thoughts on AI and Research</a>
+    </div>
+    <div class="card-meta">
+      <span>Isaiah Andrews · MIT Economics</span>
+      <span class="dot">·</span>
+      <span>April 3, 2026</span>
+      <span class="dot">·</span>
+      <span>~4 min read</span>
+    </div>
+    <div class="card-body">
+      A brief, frank note from an MIT economist on how AI tools are changing the research process. Key insight: AI models produce output that looks plausible but can be wrong in ways that require expertise to detect — so "learning when and how to audit model output is a core skill." A grounding reminder as you think about where to trust Claude vs. where to trust your own proof-checker.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-advice">Research Advice</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Simon Willison servo -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://simonwillison.net/2026/Apr/13/servo-crate-exploration/" target="_blank">Research: Exploring the new <code>servo</code> crate</a>
+    </div>
+    <div class="card-meta">
+      <span>Simon Willison · simonwillison.net</span>
+      <span class="dot">·</span>
+      <span>April 13, 2026 (yesterday)</span>
+      <span class="dot">·</span>
+      <span>~3 min read</span>
+    </div>
+    <div class="card-body">
+      After the April 2026 release of the <code>servo</code> v0.1.0 crate, Servo is now an embeddable browser engine for Rust — and Willison digs into the API surface. A headless CLI (<code>servo-shot</code>) renders URLs or HTML to PNG against stable Rust. Less ML, more useful-tooling: good context for understanding where Rust-based infrastructure is heading as you think about verification toolchains.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-code">Code</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Aligning Agents -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.08178" target="_blank">Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling</a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · 2604.08178</span>
+      <span class="dot">·</span>
+      <span>April 2026</span>
+      <span class="dot">·</span>
+      <span>~4 min read</span>
+    </div>
+    <div class="card-body">
+      Rather than scoring individual actions, this paper benchmarks reward models that evaluate entire trajectories — think of it as verifiable reward at the trajectory level, which connects naturally to trace-based specification satisfaction. A timely companion to your HypRL deep dive today, asking: how do we systematically measure whether our reward model captures the right thing over a full execution?
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- Bookmarks & Progress -->
+<section>
+  <div class="section-title">Bookmarks &amp; Queue</div>
+  <div class="bookmark-section">
+    <h3>🔖 Queued for upcoming digests</h3>
+
+    <div class="bookmark-item">
+      <span class="bk-icon">🔬</span>
+      <div class="bk-info">
+        <div class="bk-title">
+          <a href="https://arxiv.org/abs/2512.01502" target="_blank">Formal Verification of Noisy Quantum Reinforcement Learning Policies</a>
+        </div>
+        <div class="bk-sub">arXiv 2512.01502 · December 2025 · ~15 min · Introducing QVerifier for probabilistic model checking of trained quantum RL policies under noise</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phone vs Laptop -->
+<section>
+  <div class="section-title">Phone vs. Laptop Strategy</div>
+  <div class="strategy-box">
+    <h3>Where to read each piece</h3>
+
+    <div class="strategy-row">
+      <span class="strategy-device">📱</span>
+      <div class="strategy-detail">
+        <strong>Phone (commute / coffee)</strong>
+        Ruder's 10 Tips (clean blog layout, mobile-friendly) · Isaiah Andrews note (short PDF) · Simon Willison servo post
+      </div>
+    </div>
+
+    <div class="strategy-row">
+      <span class="strategy-device">💻</span>
+      <div class="strategy-detail">
+        <strong>Laptop (focused session)</strong>
+        HypRL deep dive — follow the math in §3 (Skolemization + robustness functions) with a PDF viewer and a scratch pad for notation · Aligning Agents benchmark (skim the tables)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Podcast / Video Queue -->
+<section>
+  <div class="section-title">Podcast &amp; Video Queue</div>
+  <div class="podcast-card">
+    <h3>🎧 For commute / gym</h3>
+
+    <div class="podcast-item">
+      <span class="podcast-icon">🎙️</span>
+      <div class="podcast-info">
+        <div class="podcast-title">
+          <a href="https://podcasts.apple.com/gb/podcast/ai-papers-2026-04-08/id1885218467?i=1000760204681" target="_blank">DailyArxiv — AI Papers 2026-04-08</a>
+        </div>
+        <div class="podcast-meta">DailyArxiv AI Research Podcast · ~20 min · Narrated summaries of top arXiv papers from last week — good for staying broad without screen time</div>
+      </div>
+    </div>
+
+    <div class="podcast-item">
+      <span class="podcast-icon">🎙️</span>
+      <div class="podcast-info">
+        <div class="podcast-title">
+          <a href="https://lexfridman.com/podcast/" target="_blank">Lex Fridman Podcast — Latest episode</a>
+        </div>
+        <div class="podcast-meta">Lex Fridman · varies · Check for any new April 2026 episode; recent guest Lars Brownworth (Apr 9) covers historical systems thinking — useful context for long-horizon reasoning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="day-badge">Day 7</div>
+  <br/>
+  <strong>LuChin's Morning Digest</strong> &nbsp;·&nbsp; Formal Methods × Reinforcement Learning<br/>
+  Generated automatically · April 14, 2026 &nbsp;·&nbsp; Questions? Update preferences in <code>reading-log.json</code>
+</footer>
+
+</body>
+</html>

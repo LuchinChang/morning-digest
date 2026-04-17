@@ -1,0 +1,92 @@
+name: Validate Digest (PR / push)
+
+# Run on every push and on PRs targeting main.
+# Catches broken JSON or duplicate URLs before they land in production.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'digests/morning-digest-*.html'
+      - 'digests/reading-log.json'
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint reading-log + HTML
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: reading-log.json — parse & duplicate check
+        run: |
+          python3 - <<'EOF'
+          import json, sys
+
+          with open("digests/reading-log.json") as f:
+              data = json.load(f)
+
+          arts  = data["articles"]
+          urls  = [a["url"] for a in arts]
+          dupes = {u for u in urls if urls.count(u) > 1}
+
+          if dupes:
+              print("❌  Duplicate article URLs found in reading-log.json:")
+              for u in sorted(dupes):
+                  print(f"   {u}")
+              sys.exit(1)
+
+          statuses = {a["status"] for a in arts}
+          valid    = {"assigned", "in-progress", "bookmarked", "completed"}
+          bad      = statuses - valid
+          if bad:
+              print(f"❌  Unknown status values: {bad}")
+              sys.exit(1)
+
+          print(f"✅  reading-log.json OK — {len(arts)} articles, day {data['meta']['dayCount']}")
+          EOF
+
+      - name: HTML digest files — basic sanity check
+        run: |
+          python3 - <<'EOF'
+          import os, re, sys
+
+          digest_dir = "digests"
+          files = sorted(
+              f for f in os.listdir(digest_dir)
+              if re.match(r"morning-digest-\d{4}-\d{2}-\d{2}\.html", f)
+          )
+
+          errors = []
+          for fname in files:
+              path = os.path.join(digest_dir, fname)
+              with open(path, encoding="utf-8") as fh:
+                  content = fh.read()
+              if "<!DOCTYPE html>" not in content:
+                  errors.append(f"{fname}: missing DOCTYPE")
+              if "<title>" not in content:
+                  errors.append(f"{fname}: missing <title>")
+              if 'href="http' not in content and 'href="https' not in content:
+                  errors.append(f"{fname}: no external links found (suspicious)")
+
+          if errors:
+              print("❌  HTML issues detected:")
+              for e in errors:
+                  print(f"   {e}")
+              sys.exit(1)
+
+          print(f"✅  {len(files)} digest HTML files look healthy")
+          for f in files[-3:]:
+              print(f"   ...{f}")
+          EOF
+
+      - name: Summary
+        run: |
+          echo "### ✅ Validation passed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All digest files and reading-log.json are well-formed." >> $GITHUB_STEP_SUMMARY

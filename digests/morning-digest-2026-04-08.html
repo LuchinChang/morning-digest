@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 8, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .header-sub {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 16px;
+      border-radius: 8px;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .quote-block .quote-author {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+
+    .section {
+      padding: 0 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--divider);
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+
+    .section-title .icon { font-size: 1rem; }
+
+    .plan-badge {
+      background: #1e3a8a;
+      color: white;
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .card.deep-dive {
+      border-left: 4px solid var(--tag-deep);
+      background: linear-gradient(to right, var(--tag-deep-bg), var(--card));
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+      background: linear-gradient(to right, var(--tag-promoted-bg), var(--card));
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card-title a:hover { text-decoration: underline; color: var(--accent); }
+
+    .card-time {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      background: var(--bg);
+      padding: 3px 8px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .card-source {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card-body {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tag-deep { color: var(--tag-deep); background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read { color: var(--tag-read); background: var(--tag-read-bg); }
+    .tag-listen { color: var(--tag-listen); background: var(--tag-listen-bg); }
+    .tag-watch { color: var(--tag-watch); background: var(--tag-watch-bg); }
+    .tag-code { color: var(--tag-code); background: var(--tag-code-bg); }
+    .tag-formal { color: var(--tag-formal); background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted); background: var(--tag-promoted-bg); }
+    .tag-agents { color: var(--tag-agents); background: var(--tag-agents-bg); }
+    .tag-advice { color: var(--tag-advice); background: var(--tag-advice-bg); }
+    .tag-rlvr { color: var(--tag-deep); background: var(--tag-deep-bg); }
+
+    .plan-grid {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .plan-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--divider);
+      font-size: 0.85rem;
+    }
+
+    .plan-row:last-child { border-bottom: none; }
+
+    .plan-step {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .plan-content { flex: 1; }
+    .plan-label { font-weight: 700; color: var(--text); }
+    .plan-desc { font-size: 0.78rem; color: var(--muted); }
+
+    .plan-time {
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      margin-top: 3px;
+    }
+
+    .strategy-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.84rem;
+    }
+
+    .strategy-box h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .strategy-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 8px;
+      align-items: flex-start;
+    }
+
+    .strategy-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .strategy-text { font-size: 0.82rem; color: var(--muted); }
+    .strategy-text strong { color: var(--text); }
+
+    .bookmark-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      font-size: 0.84rem;
+    }
+
+    .bookmark-callout .bc-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--tag-promoted);
+      margin-bottom: 4px;
+    }
+
+    .bookmark-callout a {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .bookmark-callout a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 20px 16px 32px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+    }
+
+    .footer-day {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-meta">Morning Digest · Day 3 · Formal Methods + RL</div>
+  <h1>Wednesday, April 8, 2026 ☀️</h1>
+  <div class="header-sub">45 minutes · Deep Focus · LuChin's Daily Reading</div>
+</header>
+
+<!-- ===== QUOTE ===== -->
+<div class="quote-block">
+  "You should do your job in such a fashion that others can build on top of it."
+  <div class="quote-author">— Richard Hamming, <em>You and Your Research</em> (1986)</div>
+</div>
+
+<!-- ===== YOUR 45-MINUTE PLAN ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">⏱</span>
+    Your 45-Minute Plan
+    <span class="plan-badge">Today's Order</span>
+  </div>
+  <div class="plan-grid">
+    <div class="plan-row">
+      <div class="plan-step">1</div>
+      <div class="plan-content">
+        <div class="plan-label">Deep Dive — Towards a Science of Scaling Agent Systems</div>
+        <div class="plan-desc">Google Research quantifies when and why multi-agent coordination helps (or hurts). Core to understanding your research context.</div>
+      </div>
+      <div class="plan-time">25 min</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-step">2</div>
+      <div class="plan-content">
+        <div class="plan-label">Quick: Meta Muse Spark drops today</div>
+        <div class="plan-desc">Simon Willison on the first Meta model since Llama 4 — stay current on the frontier.</div>
+      </div>
+      <div class="plan-time">3 min</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-step">3</div>
+      <div class="plan-content">
+        <div class="plan-label">Quick: Anthropic Project Glasswing</div>
+        <div class="plan-desc">Frontier models restricted to security researchers — relevant to formal verification and AI safety.</div>
+      </div>
+      <div class="plan-time">3 min</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-step">4</div>
+      <div class="plan-content">
+        <div class="plan-label">Quick: From Verifiable Dot to Reward Chain</div>
+        <div class="plan-desc">Extending RLVR to open-ended generation — read the abstract/intro and skim contributions. Direct RLVR research.</div>
+      </div>
+      <div class="plan-time">5 min</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-step">5</div>
+      <div class="plan-content">
+        <div class="plan-label">Quick: Gwern — "First, Make Me Care"</div>
+        <div class="plan-desc">Writing advice for researchers — how to open a paper or post with a hook instead of background. Short and immediately useful.</div>
+      </div>
+      <div class="plan-time">4 min</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-step">📌</div>
+      <div class="plan-content">
+        <div class="plan-label">Bookmark Check (promoted from queue)</div>
+        <div class="plan-desc">RLVR Implicitly Incentivizes Correct Reasoning — your bookmarked paper from last week. Full read queued for tomorrow or weekend.</div>
+      </div>
+      <div class="plan-time">~5 min</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DEEP DIVE ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">🔬</span>
+    Deep Dive
+  </div>
+
+  <div class="card deep-dive">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://arxiv.org/abs/2512.08296" target="_blank">
+          Towards a Science of Scaling Agent Systems: When and Why Agent Systems Work
+        </a>
+      </div>
+      <div class="card-time">25 min</div>
+    </div>
+    <div class="card-source">Google Research · arXiv 2512.08296 · Published Jan 28, 2026</div>
+    <div class="card-body">
+      Through 180 controlled experiments across four agentic benchmarks, researchers derived the first quantitative scaling principles for AI agent systems — revealing that multi-agent coordination <em>dramatically improves</em> performance on parallelizable tasks but <em>degrades</em> it on sequential ones. They introduce a predictive model that identifies the optimal architecture for 87% of unseen tasks. The key culprit: coordination overhead vs. parallelization benefit is a genuine tradeoff, not just "more agents = better." Directly relevant to designing RL agents that need to coordinate with formal verifiers.
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUICK READS ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">⚡</span>
+    Quick Reads
+    <span style="font-size:0.7rem; color: var(--muted);">~15 min total</span>
+  </div>
+
+  <!-- Card 1: Muse Spark -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://simonwillison.net/2026/Apr/8/muse-spark/" target="_blank">
+          Meta's New Model Is Muse Spark — and meta.ai Has Some Interesting New Tools
+        </a>
+      </div>
+      <div class="card-time">3 min</div>
+    </div>
+    <div class="card-source">Simon Willison · simonwillison.net · April 8, 2026 (Today)</div>
+    <div class="card-body">
+      Meta just released Muse Spark — their first model since Llama 4 a year ago. Simon Willison does a quick run-through of its capabilities and the new tools appearing on meta.ai. Good 3-minute pulse check on where the frontier stands today.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Card 2: Project Glasswing -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://simonwillison.net/2026/Apr/7/project-glasswing/" target="_blank">
+          Anthropic's Project Glasswing — Restricting Claude Mythos to Security Researchers — Sounds Necessary
+        </a>
+      </div>
+      <div class="card-time">3 min</div>
+    </div>
+    <div class="card-source">Simon Willison · simonwillison.net · April 7, 2026</div>
+    <div class="card-body">
+      Anthropic is restricting access to their most capable security-research model (Claude Mythos) to vetted researchers. Simon Willison thinks this is the right call. Relevant to the broader theme of AI + formal verification — when do you deploy a powerful AI to find security vulnerabilities, and under what safety constraints?
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Card 3: Verifiable Dot to Reward Chain -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://arxiv.org/abs/2601.18533" target="_blank">
+          From Verifiable Dot to Reward Chain: Harnessing Verifiable Reference-Based Rewards for Open-Ended Generation
+        </a>
+      </div>
+      <div class="card-time">5 min</div>
+    </div>
+    <div class="card-source">arXiv 2601.18533 · Jan 2026 · Published at ICLR 2026</div>
+    <div class="card-body">
+      RLVR works beautifully when there's a verifiable ground truth — but what about open-ended generation? This paper proposes RLVRR, which extracts a verifiable linguistic reward chain from high-quality references, decomposing signals into content and style dimensions. A direct extension of the RLVR ideas you've been tracking, now into less structured problem spaces.
+    </div>
+    <div class="tags">
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Card 4: Gwern -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://gwern.net/blog/2026/make-me-care" target="_blank">
+          First, Make Me Care
+        </a>
+      </div>
+      <div class="card-time">4 min</div>
+    </div>
+    <div class="card-source">Gwern Branwen · gwern.net · January 2026</div>
+    <div class="card-body">
+      Gwern on why nonfiction — papers included — fails when it opens with background and motivation instead of a compelling hook. Concrete advice for writing introductions that make reviewers lean in rather than skim past. Short, sharp, and something you can apply the next time you're writing a paper intro or grant proposal.
+    </div>
+    <div class="tags">
+      <span class="tag tag-advice">Research Advice</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROMOTED BOOKMARK ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">📌</span>
+    Promoted from Bookmarks
+  </div>
+
+  <div class="card promoted">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://arxiv.org/abs/2506.14245" target="_blank">
+          RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs
+        </a>
+      </div>
+      <div class="card-time">15 min</div>
+    </div>
+    <div class="card-source">arXiv 2506.14245 · Published at ICLR 2026</div>
+    <div class="card-body">
+      You bookmarked this one — and today's a great day to finally assign it. This ICLR 2026 paper introduces <em>CoT-Pass@K</em>, a new metric that captures both final-answer correctness <em>and</em> reasoning chain quality. It demonstrates that RLVR can extend the reasoning boundary for math and coding, not just resample existing paths. A key counterpoint to the "Limit of RLVR" piece from Day 1 — read them together.
+    </div>
+    <div class="tags">
+      <span class="tag tag-promoted">✨ Promoted</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PHONE VS LAPTOP ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">📱</span>
+    Phone vs. Laptop Strategy
+  </div>
+  <div class="strategy-box">
+    <h3>Where to read what</h3>
+
+    <div class="strategy-row">
+      <div class="strategy-icon">☕</div>
+      <div class="strategy-text">
+        <strong>Morning coffee (phone):</strong> Simon Willison's Muse Spark and Project Glasswing — both short, news-style, no math needed.
+      </div>
+    </div>
+
+    <div class="strategy-row">
+      <div class="strategy-icon">💻</div>
+      <div class="strategy-text">
+        <strong>Deep work block (laptop):</strong> The Scaling Agent Systems paper — figures, tables, and proofs are best on a bigger screen. Take notes as you read.
+      </div>
+    </div>
+
+    <div class="strategy-row">
+      <div class="strategy-icon">🚶</div>
+      <div class="strategy-text">
+        <strong>Commute / gym (listen):</strong> Re-listen to the Dario Amodei Dwarkesh episode from Day 1, now that you've read more about RLVR — the second listen often lands differently.
+      </div>
+    </div>
+
+    <div class="strategy-row">
+      <div class="strategy-icon">🌙</div>
+      <div class="strategy-text">
+        <strong>Wind-down (light):</strong> Gwern's "First, Make Me Care" — short and actionable. Perfect before sleep when your brain is still sharp but tired.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PODCAST / VIDEO QUEUE ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">🎧</span>
+    Commute & Gym Queue
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://thezvi.substack.com/p/on-dwarkesh-patels-2026-podcast-with" target="_blank">
+          Zvi's Analysis: "On Dwarkesh Patel's 2026 Podcast With Dario Amodei"
+        </a>
+      </div>
+      <div class="card-time">15 min</div>
+    </div>
+    <div class="card-source">Zvi Mowshowitz · thezvi.substack.com</div>
+    <div class="card-body">
+      If you listened to the Dario/Dwarkesh episode earlier in the week (Day 1), Zvi's commentary is the perfect companion — he highlights what Dario got right and where to push back. A good example of engaged, critical reading of primary sources.
+    </div>
+    <div class="tags">
+      <span class="tag tag-listen">Read / Listen</span>
+      <span class="tag tag-trending">Trending</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-day">Day 3</div>
+  <div>Formal Methods + Reinforcement Learning · April 8, 2026</div>
+  <div style="margin-top:6px; font-size: 0.7rem;">
+    Generated automatically · Reading log up to date
+  </div>
+</footer>
+
+</body>
+</html>

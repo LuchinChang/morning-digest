@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Digest — March 29, 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --fg: #1c1917;
+    --muted: #78716c;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --card-bg: #ffffff;
+    --border: #e7e5e4;
+    --tag-read: #dcfce7;
+    --tag-read-fg: #166534;
+    --tag-watch: #fef3c7;
+    --tag-watch-fg: #92400e;
+    --tag-listen: #ede9fe;
+    --tag-listen-fg: #5b21b6;
+    --tag-deep: #fee2e2;
+    --tag-deep-fg: #991b1b;
+    --tag-trending: #ffedd5;
+    --tag-trending-fg: #9a3412;
+    --tag-code: #e0e7ff;
+    --tag-code-fg: #3730a3;
+    --tag-continue: #fdf4ff;
+    --tag-continue-fg: #86198f;
+    --tag-bookmark: #f0fdf4;
+    --tag-bookmark-fg: #15803d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --fg: #fafaf9;
+      --muted: #a8a29e;
+      --accent: #60a5fa;
+      --accent-light: #1e3a5f;
+      --card-bg: #1c1917;
+      --border: #292524;
+      --tag-read: #14532d;
+      --tag-read-fg: #bbf7d0;
+      --tag-watch: #451a03;
+      --tag-watch-fg: #fde68a;
+      --tag-listen: #2e1065;
+      --tag-listen-fg: #c4b5fd;
+      --tag-deep: #450a0a;
+      --tag-deep-fg: #fecaca;
+      --tag-trending: #431407;
+      --tag-trending-fg: #fed7aa;
+      --tag-code: #1e1b4b;
+      --tag-code-fg: #c7d2fe;
+      --tag-continue: #4a044e;
+      --tag-continue-fg: #f5d0fe;
+      --tag-bookmark: #052e16;
+      --tag-bookmark-fg: #86efac;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  header { margin-bottom: 32px; }
+  header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  header .date { color: var(--muted); font-size: 0.9rem; }
+  header .subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 8px; line-height: 1.5; }
+  .section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .card h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.4; flex: 1; }
+  .card h3 a { color: var(--fg); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-read { background: var(--tag-read); color: var(--tag-read-fg); }
+  .tag-watch { background: var(--tag-watch); color: var(--tag-watch-fg); }
+  .tag-listen { background: var(--tag-listen); color: var(--tag-listen-fg); }
+  .tag-deep { background: var(--tag-deep); color: var(--tag-deep-fg); }
+  .tag-trending { background: var(--tag-trending); color: var(--tag-trending-fg); }
+  .tag-code { background: var(--tag-code); color: var(--tag-code-fg); }
+  .tag-continue { background: var(--tag-continue); color: var(--tag-continue-fg); }
+  .tag-bookmark { background: var(--tag-bookmark); color: var(--tag-bookmark-fg); }
+  .meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .card p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+  .card .why {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .deep-dive {
+    background: linear-gradient(135deg, var(--accent-light), var(--card-bg));
+    border: 2px solid var(--accent);
+  }
+  .continuation {
+    border-left: 4px solid var(--tag-continue-fg);
+  }
+  .plan-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .plan-box h3 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
+  .plan-box ol, .plan-box ul { padding-left: 20px; }
+  .plan-box li { font-size: 0.9rem; margin-bottom: 8px; color: var(--fg); line-height: 1.5; }
+  .plan-box li strong { font-weight: 600; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 6px 0; font-size: 0.9rem; }
+  .checklist li::before { content: "\2610 "; color: var(--muted); }
+  .quote-box {
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    font-style: italic;
+  }
+  .quote-box .author { font-style: normal; font-weight: 600; display: block; margin-top: 6px; font-size: 0.82rem; }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (max-width: 480px) {
+    body { padding: 16px 12px 48px; }
+    header h1 { font-size: 1.3rem; }
+    .card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Morning Digest</h1>
+  <div class="date">Sunday, March 29, 2026 &middot; Day 7</div>
+  <div class="subtitle">Your daily 45-minute reading plan. Half research philosophy, half latest trends. Curated for a PhD student working at the intersection of formal methods and RL.</div>
+</header>
+
+<div class="quote-box">
+  "Program testing can be used to show the presence of bugs, but never to show their absence."
+  <span class="author">&mdash; Edsger W. Dijkstra</span>
+</div>
+
+<!-- ========== CONTINUING FROM YESTERDAY ========== -->
+<div class="section-title">&#9654; Continuing from Yesterday</div>
+
+<div class="card continuation">
+  <div class="card-header">
+    <h3><a href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html" target="_blank">You and Your Research &mdash; Day 3 of 3 (Final)</a></h3>
+    <span class="tag tag-continue">MULTI-DAY</span>
+  </div>
+  <div class="meta">
+    <span>Richard Hamming</span>
+    <span>~5 min to finish</span>
+    <span>Focus: Style, selling your work, the closing challenge</span>
+  </div>
+  <p>Still open from yesterday. Hamming's final section is his most actionable: the ability to <em>communicate</em> your work is a force multiplier on research impact. Great results that nobody hears about might as well not exist. His closing challenge &mdash; <em>"What are the important problems in your field, and why aren't you working on them?"</em> &mdash; should be pinned to your desk. Today, finish this and write your three-sentence takeaway. All four pinned sources will then be complete.</p>
+  <div class="why">Day 3 of 3 &mdash; wrap this up first thing. If you finish today, mark it complete in your notes. You've earned the closure.</div>
+</div>
+
+<!-- ========== YOUR 45-MINUTE PLAN ========== -->
+<div class="section-title">&#9200; Your 45-Minute Plan</div>
+
+<div class="plan-box">
+  <h3>Reading Order</h3>
+  <ol>
+    <li><strong>0&ndash;5 min:</strong> Finish Hamming Day 3 (above) &mdash; style, selling, closing reflection. Write your takeaway.</li>
+    <li><strong>5&ndash;25 min:</strong> Deep Dive &mdash; AgentSpec: runtime enforcement for LLM agents (ICSE 2026). Read Sections 1&ndash;3 closely; skim evaluation tables.</li>
+    <li><strong>25&ndash;29 min:</strong> Quick Read &mdash; Karpathy: "I've never felt this behind as a programmer." The thread, not just the tweet.</li>
+    <li><strong>29&ndash;33 min:</strong> Quick Read &mdash; NASA Perseverance completes first AI-planned drive on Mars using Claude.</li>
+    <li><strong>33&ndash;38 min:</strong> Quick Read &mdash; Shields for Safe RL (CACM). Skim intro + shielding framework overview.</li>
+    <li><strong>38&ndash;45 min:</strong> Promoted Bookmark &mdash; NIST AI Agent Standards Initiative. Policy context for your formal methods work.</li>
+  </ol>
+</div>
+
+<!-- ========== DEEP DIVE ========== -->
+<div class="section-title">&#128218; Deep Dive (20 min)</div>
+
+<div class="card deep-dive">
+  <div class="card-header">
+    <h3><a href="https://arxiv.org/abs/2503.18666" target="_blank">AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents</a></h3>
+    <span class="tag tag-deep">DEEP DIVE</span>
+  </div>
+  <div class="meta">
+    <span>ICSE 2026 (April, Rio de Janeiro)</span>
+    <span>~20 min</span>
+    <span>Formal methods &times; agents</span>
+  </div>
+  <p>A lightweight DSL for specifying and enforcing runtime safety constraints on LLM agents. Each AgentSpec rule is a three-tuple: triggering event, predicate functions, and enforcement actions. The framework supports both <em>preventive</em> (block before execution) and <em>corrective</em> (repair after detection) enforcement modes. Results: 90%+ unsafe execution prevention in code agents, 100% compliance in autonomous driving scenarios, with overhead in milliseconds. The automated rule generation feature &mdash; using LLMs to write safety specs for LLMs &mdash; is the most thought-provoking part.</p>
+  <div class="why">This is exactly your research neighborhood: formal specification meets learned agents. The DSL design choices (expressiveness vs. verifiability tradeoffs) and the preventive-vs-corrective modes map directly onto the shielding literature. Read Sections 1&ndash;3 carefully, skim Section 5 (evaluation).</div>
+</div>
+
+<!-- ========== QUICK READS ========== -->
+<div class="section-title">&#9889; Quick Reads (15 min total)</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://x.com/karpathy/status/2004607146781278521" target="_blank">Karpathy: "I've Never Felt This Behind as a Programmer"</a></h3>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="meta">
+    <span>Andrej Karpathy / X</span>
+    <span>~4 min</span>
+    <span>Viral thread &mdash; Hacker News front page</span>
+  </div>
+  <p>Karpathy admits the profession is being "dramatically refactored" &mdash; programmers now contribute increasingly sparse bits between AI-generated code. His key insight: you could be <em>10X more powerful</em> if you properly string together what's become available, and failing to do so is "a skill issue." He describes a new programmable layer of abstraction: managing agents, subagents, prompts, memory, permissions, and tools. Not doom &mdash; an invitation to level up.</p>
+  <div class="why">Research philosophy from the trenches. The "sparse and between" framing applies to PhD research too: your value increasingly lies in knowing <em>what</em> to ask the tools to do, not in grinding through every step yourself.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-perseverance-rover-completes-first-ai-planned-drive-on-mars/" target="_blank">NASA Perseverance Completes First AI-Planned Drive on Mars</a></h3>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="meta">
+    <span>NASA / JPL &times; Anthropic</span>
+    <span>~4 min</span>
+    <span>Deployed AI agents &mdash; literally on another planet</span>
+  </div>
+  <p>Perseverance drove 689 feet on Dec 8 and 807 feet on Dec 10, 2025 &mdash; the first Mars drives ever planned by AI. JPL used Claude's vision-language models to analyze terrain data and stitch together waypoints, replacing a planning task humans had done manually for 28 years. Safety verification: commands were run through JPL's digital twin, checking 500,000+ telemetry variables before transmission. The formal verification angle writes itself &mdash; this is runtime verification of an autonomous agent in the highest-stakes environment imaginable.</p>
+  <div class="why">Real-world deployment of exactly the pattern AgentSpec formalizes: agent proposes actions, verification layer checks them, only safe commands execute. Except the stakes are a $2.7B rover on Mars.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://cacm.acm.org/research/shields-for-safe-reinforcement-learning/" target="_blank">Shields for Safe Reinforcement Learning</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>K&ouml;nighofer, Bloem, Jansen, Junges &amp; Pranger / CACM 68(11)</span>
+    <span>~5 min (intro + framework overview)</span>
+    <span>Survey &mdash; formal methods &times; RL</span>
+  </div>
+  <p>A comprehensive review of <em>shielding</em> for safe RL: external modules that block unsafe actions at runtime based on a formal model of the world. Covers discrete and continuous settings, model-free and model-based RL, single-agent and multi-agent scenarios. The key insight: shielding <em>decouples</em> safety logic from reward-driven policy optimization, combining symbolic AI's provable guarantees with RL's scalability. Now published in Communications of the ACM &mdash; a signal that the mainstream CS community considers this approach mature enough for broad attention.</p>
+  <div class="why">Core reading for your research area. This survey is the canonical reference for shielded RL. Skim the intro and Section 2 (framework overview) today; bookmark for a deeper multi-day pass later if needed.</div>
+</div>
+
+<!-- ========== PROMOTED BOOKMARK ========== -->
+<div class="section-title">&#128204; Promoted from Bookmarks</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure" target="_blank">NIST Launches AI Agent Standards Initiative</a></h3>
+    <span class="tag tag-bookmark">PROMOTED</span>
+  </div>
+  <div class="meta">
+    <span>NIST</span>
+    <span>~7 min</span>
+    <span>Federal standards for agent safety</span>
+  </div>
+  <p>NIST is developing federal standards for AI agent interoperability and security, with single-agent and multi-agent overlays in progress. This matters for your research: government standards bodies are now explicitly asking for formal verification methods applied to autonomous agents. The initiative covers identity management, behavioral constraints, and audit trails &mdash; all areas where formal specification languages like AgentSpec's DSL could provide concrete solutions. Policy tailwind for formal methods researchers.</p>
+  <div class="why">Promoted from bookmarks. Pairs perfectly with today's AgentSpec deep dive &mdash; the standards initiative is the "demand side" for the kind of formal safety work AgentSpec represents on the "supply side."</div>
+</div>
+
+<!-- ========== PHONE VS LAPTOP ========== -->
+<div class="section-title">&#128247; Phone vs. Laptop Strategy</div>
+
+<div class="plan-box">
+  <h3>Where to Read What</h3>
+  <ul>
+    <li><strong>Phone (commute/couch):</strong> Hamming wrap-up, Karpathy's tweet thread, NASA Perseverance article. All prose-friendly and easy to read on mobile.</li>
+    <li><strong>Laptop (desk focus):</strong> AgentSpec paper &mdash; you'll want to study the DSL syntax examples and evaluation tables. CACM Shields survey &mdash; the framework diagrams are worth zooming into.</li>
+    <li><strong>Ears (gym/walk):</strong> Queue up Dario Amodei on Dwarkesh ("Near the End of the Exponential") &mdash; still the top podcast priority from yesterday. Alternatively, start Lex Fridman #490 (State of AI in 2026).</li>
+  </ul>
+</div>
+
+<!-- ========== STILL IN QUEUE ========== -->
+<div class="section-title">&#128209; Still in Queue</div>
+
+<div class="plan-box">
+  <h3>Bookmarks for This Week</h3>
+  <ul>
+    <li><strong>Frontiers SLR:</strong> <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1749956/full" target="_blank">Formal Methods for Safety-Critical ML</a> &mdash; 25 min deep read. Excellent for your lit review.</li>
+    <li><strong>Raschka:</strong> <a href="https://sebastianraschka.com/blog/2026/state-of-ai-interview.html" target="_blank">State of AI 2026 blog companion</a> &mdash; 15 min. Written version of Lex Fridman #490.</li>
+    <li><strong>LeWorldModel:</strong> <a href="https://howaiworks.ai/blog/le-world-model-jepa-architecture" target="_blank">Technical deep dive into JEPA architecture</a> &mdash; 15 min. SIGReg regularizer details.</li>
+    <li><strong>Karpathy:</strong> <a href="https://github.com/karpathy/autoresearch" target="_blank">autoresearch repo</a> &mdash; 15 min. Code walkthrough for adapting to RL experiments.</li>
+    <li><strong>Podcasts:</strong> Amodei on Dwarkesh (120 min), Lex #490 (120 min), Dylan Patel compute bottlenecks (151 min).</li>
+  </ul>
+</div>
+
+<!-- ========== PODCAST QUEUE ========== -->
+<div class="section-title">&#127911; Podcast / Video Queue</div>
+
+<div class="plan-box">
+  <h3>For Commute &amp; Gym</h3>
+  <ul>
+    <li><strong>Priority Listen:</strong> <a href="https://www.dwarkesh.com/p/dario-amodei-2" target="_blank">Dario Amodei: "Near the End of the Exponential"</a> &mdash; Dwarkesh Podcast. AGI in 1&ndash;3 years, RL showing log-linear scaling gains. Still the top podcast pick.</li>
+    <li><strong>Long-form:</strong> <a href="https://lexfridman.com/ai-sota-2026-transcript/" target="_blank">Lex Fridman #490: State of AI in 2026</a> &mdash; queued since Day 1. Perfect for a long Sunday walk.</li>
+    <li><strong>Also saved:</strong> <a href="https://www.dwarkesh.com/podcast/archive" target="_blank">Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute</a> &mdash; logic, memory, power infrastructure.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Morning Digest &middot; Day 7 &middot; March 29, 2026</p>
+  <p style="margin-top:6px;">Formal Methods &times; Reinforcement Learning &mdash; one day at a time.</p>
+</footer>
+
+</body>
+</html>

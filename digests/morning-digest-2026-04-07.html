@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Digest — April 7, 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --fg: #1c1917;
+    --muted: #78716c;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --card-bg: #ffffff;
+    --border: #e7e5e4;
+    --tag-read: #dcfce7;
+    --tag-read-fg: #166534;
+    --tag-watch: #fef3c7;
+    --tag-watch-fg: #92400e;
+    --tag-listen: #ede9fe;
+    --tag-listen-fg: #5b21b6;
+    --tag-deep: #fee2e2;
+    --tag-deep-fg: #991b1b;
+    --tag-trending: #ffedd5;
+    --tag-trending-fg: #9a3412;
+    --tag-code: #e0e7ff;
+    --tag-code-fg: #3730a3;
+    --tag-continue: #fdf4ff;
+    --tag-continue-fg: #86198f;
+    --tag-bookmark: #f0fdf4;
+    --tag-bookmark-fg: #15803d;
+    --tag-fm: #ecfdf5;
+    --tag-fm-fg: #065f46;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --fg: #fafaf9;
+      --muted: #a8a29e;
+      --accent: #60a5fa;
+      --accent-light: #1e3a5f;
+      --card-bg: #1c1917;
+      --border: #292524;
+      --tag-read: #14532d;
+      --tag-read-fg: #bbf7d0;
+      --tag-watch: #451a03;
+      --tag-watch-fg: #fde68a;
+      --tag-listen: #2e1065;
+      --tag-listen-fg: #c4b5fd;
+      --tag-deep: #450a0a;
+      --tag-deep-fg: #fecaca;
+      --tag-trending: #431407;
+      --tag-trending-fg: #fed7aa;
+      --tag-code: #1e1b4b;
+      --tag-code-fg: #c7d2fe;
+      --tag-continue: #4a044e;
+      --tag-continue-fg: #f5d0fe;
+      --tag-bookmark: #052e16;
+      --tag-bookmark-fg: #86efac;
+      --tag-fm: #022c22;
+      --tag-fm-fg: #6ee7b7;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  header { margin-bottom: 32px; }
+  header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  header .date { color: var(--muted); font-size: 0.9rem; }
+  header .subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 8px; line-height: 1.5; }
+  .quote-block {
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin-bottom: 32px;
+    background: var(--accent-light);
+    border-radius: 0 8px 8px 0;
+  }
+  .quote-block p { font-style: italic; font-size: 0.95rem; line-height: 1.6; color: var(--fg); }
+  .quote-block cite { display: block; margin-top: 6px; font-size: 0.8rem; color: var(--muted); font-style: normal; }
+  .section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .card h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.4; flex: 1; }
+  .card h3 a { color: var(--fg); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-read    { background: var(--tag-read);    color: var(--tag-read-fg); }
+  .tag-watch   { background: var(--tag-watch);   color: var(--tag-watch-fg); }
+  .tag-listen  { background: var(--tag-listen);  color: var(--tag-listen-fg); }
+  .tag-deep    { background: var(--tag-deep);    color: var(--tag-deep-fg); }
+  .tag-trending{ background: var(--tag-trending);color: var(--tag-trending-fg); }
+  .tag-code    { background: var(--tag-code);    color: var(--tag-code-fg); }
+  .tag-fm      { background: var(--tag-fm);      color: var(--tag-fm-fg); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; }
+  .card p { font-size: 0.93rem; color: var(--fg); line-height: 1.65; }
+  .plan-block {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .plan-block h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; }
+  .plan-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .plan-row:last-child { border-bottom: none; }
+  .plan-time {
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+    min-width: 52px;
+    padding-top: 1px;
+  }
+  .plan-row a { color: var(--fg); text-decoration: none; }
+  .plan-row a:hover { color: var(--accent); }
+  .strategy-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .strategy-box h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; }
+  .strategy-cols { display: flex; gap: 16px; }
+  .strategy-col { flex: 1; }
+  .strategy-col h5 { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; }
+  .strategy-col ul { list-style: none; }
+  .strategy-col ul li { font-size: 0.86rem; padding: 3px 0; padding-left: 14px; position: relative; color: var(--fg); }
+  .strategy-col ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+  .podcast-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .podcast-icon { font-size: 1.4rem; flex-shrink: 0; padding-top: 2px; }
+  .podcast-info h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 3px; }
+  .podcast-info h4 a { color: var(--fg); text-decoration: none; }
+  .podcast-info h4 a:hover { color: var(--accent); }
+  .podcast-info p { font-size: 0.85rem; color: var(--muted); }
+  .bookmark-callout {
+    background: var(--tag-bookmark);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+  .bookmark-callout h4 { font-size: 0.85rem; font-weight: 600; color: var(--tag-bookmark-fg); margin-bottom: 6px; }
+  .bookmark-callout p { font-size: 0.87rem; color: var(--fg); line-height: 1.5; }
+  .bookmark-callout a { color: var(--accent); text-decoration: none; }
+  .bookmark-callout a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (max-width: 480px) {
+    .strategy-cols { flex-direction: column; }
+    .card-header { flex-direction: column; }
+    .tag { align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>☀️ Morning Digest</h1>
+  <div class="date">Tuesday, April 7, 2026 · Day 2</div>
+  <div class="subtitle">45 minutes · Formal Methods + Reinforcement Learning</div>
+</header>
+
+<div class="quote-block">
+  <p>"Research is seeing what everybody else has seen, and thinking what nobody else has thought."</p>
+  <cite>— Albert Szent-Györgyi, Nobel Prize in Physiology or Medicine, 1937</cite>
+</div>
+
+<!-- YOUR 45-MINUTE PLAN -->
+<div class="section-title">Your 45-Minute Plan</div>
+
+<div class="plan-block">
+  <h4>Reading order for today</h4>
+  <div class="plan-row">
+    <span class="plan-time">0–25 min</span>
+    <span>🧠 <strong>DEEP DIVE</strong> — <a href="https://arxiv.org/abs/2604.00860">Policy Improvement Reinforcement Learning (PIRL)</a> — new RLVR paper from April 1</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">25–35 min</span>
+    <span>📖 <strong>PROMOTED BOOKMARK</strong> — <a href="https://www.fregu856.com/post/phd_of_reading/">How and Why of Reading 300 Papers in 5 Years</a> — practical PhD strategy</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">35–39 min</span>
+    <span>⚡ <strong>QUICK READ</strong> — <a href="https://www.seangoedecke.com/will-my-job-still-exist/">I Don't Know If My Job Will Still Exist in Ten Years</a> — Sean Goedecke</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">39–43 min</span>
+    <span>⚡ <strong>QUICK READ</strong> — <a href="https://arxiv.org/html/2602.13851">Evaluating LLM-Generated ACSL Annotations for Formal Verification</a> — formal methods × LLMs</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">43–45 min</span>
+    <span>🔖 <strong>SCAN</strong> — <a href="https://simonwillison.net/2026/Apr/5/research-llm-apis/">Simon Willison: research-llm-apis release</a> + queue tomorrow's bookmarks</span>
+  </div>
+</div>
+
+<!-- PHONE VS LAPTOP -->
+<div class="strategy-box">
+  <h4>📱 Phone vs. 💻 Laptop Strategy</h4>
+  <div class="strategy-cols">
+    <div class="strategy-col">
+      <h5>Phone (commute/gym)</h5>
+      <ul>
+        <li>Sean Goedecke: Will My Job Exist</li>
+        <li>Simon Willison quick scan</li>
+        <li>Lex Fridman #490 (audio)</li>
+        <li>Dylan Patel on Dwarkesh (audio)</li>
+      </ul>
+    </div>
+    <div class="strategy-col">
+      <h5>Laptop (desk/focus time)</h5>
+      <ul>
+        <li>PIRL arxiv paper (deep dive)</li>
+        <li>ACSL Annotations paper</li>
+        <li>300 Papers reading post</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- DEEP DIVE -->
+<div class="section-title">Deep Dive · 25 min</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://arxiv.org/abs/2604.00860" target="_blank">Policy Improvement Reinforcement Learning (PIRL)</a></h3>
+    <span class="tag tag-deep">DEEP DIVE</span>
+  </div>
+  <div class="tags">
+    <span class="tag tag-read">READ</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="meta">arXiv · Beihang University &amp; Peking University · April 1, 2026 · ~25 min</div>
+  <p>Current RLVR methods (GRPO, DAPO, etc.) optimize policies using instantaneous batch statistics without verifying whether updates actually improved the model — an open-loop design that can silently drift or collapse. PIRL addresses this by replacing surrogate reward maximization with the explicit objective of maximizing <em>cumulative policy improvement across iterations</em>, introducing a Policy Improvement Policy Optimization (PIPO) algorithm. If you've been reading the RLVR debate from last week's digest, this paper directly responds to the "open loop" critique and is worth reading closely.</p>
+</div>
+
+<!-- PROMOTED BOOKMARK -->
+<div class="section-title">Promoted from Bookmarks · 10 min</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.fregu856.com/post/phd_of_reading/" target="_blank">The How and Why of Reading 300 Papers in 5 Years</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="tags">
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="meta">fregu856.com · ~10 min</div>
+  <p>A PhD student's detailed retrospective on building a consistent paper-reading practice — how they tracked what they read, structured their notes, decided what to read next, and managed the tension between depth and breadth. Practical, honest, and directly applicable. A good counterpoint to the "just skim everything" advice you'll often hear at conferences.</p>
+</div>
+
+<!-- QUICK READS -->
+<div class="section-title">Quick Reads · ~15 min total</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.seangoedecke.com/will-my-job-still-exist/" target="_blank">I Don't Know If My Job Will Still Exist in Ten Years</a></h3>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="tags">
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">seangoedecke.com · Sean Goedecke · March 2026 · ~4 min</div>
+  <p>A staff engineer reflects on AI's trajectory and the uncomfortable reality that agents don't need fundamentally new capabilities to displace software engineers — they just need to keep getting better at what they already do. Written from inside a big tech company, it's more grounded than most AI-doom or AI-utopia takes. Useful for calibrating your own assumptions about what a PhD in CS prepares you for in 2030.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://arxiv.org/html/2602.13851" target="_blank">Evaluating LLM-Generated ACSL Annotations for Formal Verification</a></h3>
+    <span class="tag tag-fm">FORMAL METHODS</span>
+  </div>
+  <div class="tags">
+    <span class="tag tag-read">READ</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="meta">arXiv · ~5 min</div>
+  <p>Researchers tested GPT-5 and OLMo3 on generating ACSL (ANSI/ISO C Specification Language) annotations for formal verification of C code. The study directly benchmarks frontier models on the specification-generation problem that sits at the intersection of your two research areas — how well can LLMs produce the kind of formal artifacts that downstream verifiers actually need? Skim the evaluation tables; the gap between models is telling.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://simonwillison.net/2026/Apr/5/research-llm-apis/" target="_blank">research-llm-apis 2026-04-04 Release</a></h3>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="tags">
+    <span class="tag tag-read">READ</span>
+    <span class="tag tag-code">CODE</span>
+  </div>
+  <div class="meta">simonwillison.net · April 5, 2026 · ~3 min</div>
+  <p>Simon Willison is rearchitecting his <code>llm</code> Python library and used Claude Code to read through client libraries for Anthropic, OpenAI, Gemini, and Mistral to design a new unified abstraction layer. It's a quick read, but interesting as a case study in agentic coding workflows — and the design questions about cross-provider API unification come up in practice more often than you'd expect when building research tooling.</p>
+</div>
+
+<!-- BOOKMARK SECTION -->
+<div class="section-title">Bookmarks &amp; Queue · 5 min</div>
+
+<div class="bookmark-callout">
+  <h4>🔖 Still queued from last time</h4>
+  <p><strong><a href="https://arxiv.org/abs/2506.14245">RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs</a></strong> — (~15 min) — This one pairs well with today's PIRL paper. Read it tomorrow or later this week to complete the RLVR picture: does training with verifiable rewards actually teach reasoning, or just sampling efficiency?</p>
+</div>
+
+<div class="bookmark-callout">
+  <h4>🔖 Carry forward</h4>
+  <p><strong><a href="https://podscripts.co/podcasts/dwarkesh-podcast/dylan-patel-deep-dive-on-the-3-big-bottlenecks-to-scaling-ai-compute">Dylan Patel — 3 Big Bottlenecks to Scaling AI Compute</a></strong> (Dwarkesh Podcast, ~90 min) — Still bookmarked. Good for a long commute or gym session this week.</p>
+</div>
+
+<!-- PODCAST QUEUE -->
+<div class="section-title">Podcast / Video Queue · commute or gym</div>
+
+<div class="podcast-card">
+  <div class="podcast-icon">🎙️</div>
+  <div class="podcast-info">
+    <h4><a href="https://lexfridman.com/ai-sota-2026/" target="_blank">Lex Fridman #490 — State of AI in 2026: LLMs, Coding, Scaling Laws, Agents, AGI</a></h4>
+    <p>With Nathan Lambert (post-training lead at Ai2, author of <em>The RLHF Book</em>) and Sebastian Raschka (author of <em>Build a Large Language Model from Scratch</em>). Covers the shift from RLHF to RLVR/DAPO/GRPO, reasoning model training, and the 2026 AI landscape. ~3 hours, but dense and worth it. Nathan is one of the best communicators on post-training methods.</p>
+  </div>
+</div>
+
+<div class="podcast-card">
+  <div class="podcast-icon">🎙️</div>
+  <div class="podcast-info">
+    <h4><a href="https://podscripts.co/podcasts/dwarkesh-podcast/dylan-patel-deep-dive-on-the-3-big-bottlenecks-to-scaling-ai-compute" target="_blank">Dwarkesh × Dylan Patel — 3 Big Bottlenecks to Scaling AI Compute</a></h4>
+    <p>Dylan Patel (SemiAnalysis) does a deep dive on compute, memory bandwidth, and interconnect as the three structural bottlenecks to scaling AI. Important context for understanding why scaling laws are hitting friction in 2026. ~90 min. Promoted from bookmarks — great for a long run or gym session.</p>
+  </div>
+</div>
+
+<footer>
+  Day 2 of your reading journey · Formal Methods + Reinforcement Learning · Generated April 7, 2026
+</footer>
+
+</body>
+</html>

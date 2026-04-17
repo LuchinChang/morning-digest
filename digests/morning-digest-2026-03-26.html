@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Digest — March 26, 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --fg: #1c1917;
+    --muted: #78716c;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --card-bg: #ffffff;
+    --border: #e7e5e4;
+    --tag-read: #dcfce7;
+    --tag-read-fg: #166534;
+    --tag-watch: #fef3c7;
+    --tag-watch-fg: #92400e;
+    --tag-listen: #ede9fe;
+    --tag-listen-fg: #5b21b6;
+    --tag-deep: #fee2e2;
+    --tag-deep-fg: #991b1b;
+    --tag-trending: #ffedd5;
+    --tag-trending-fg: #9a3412;
+    --tag-code: #e0e7ff;
+    --tag-code-fg: #3730a3;
+    --tag-continue: #fdf4ff;
+    --tag-continue-fg: #86198f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --fg: #fafaf9;
+      --muted: #a8a29e;
+      --accent: #60a5fa;
+      --accent-light: #1e3a5f;
+      --card-bg: #1c1917;
+      --border: #292524;
+      --tag-read: #14532d;
+      --tag-read-fg: #bbf7d0;
+      --tag-watch: #451a03;
+      --tag-watch-fg: #fde68a;
+      --tag-listen: #2e1065;
+      --tag-listen-fg: #c4b5fd;
+      --tag-deep: #450a0a;
+      --tag-deep-fg: #fecaca;
+      --tag-trending: #431407;
+      --tag-trending-fg: #fed7aa;
+      --tag-code: #1e1b4b;
+      --tag-code-fg: #c7d2fe;
+      --tag-continue: #4a044e;
+      --tag-continue-fg: #f5d0fe;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  header { margin-bottom: 32px; }
+  header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  header .date { color: var(--muted); font-size: 0.9rem; }
+  header .subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 8px; line-height: 1.5; }
+  .section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .card h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.4; flex: 1; }
+  .card h3 a { color: var(--fg); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-read { background: var(--tag-read); color: var(--tag-read-fg); }
+  .tag-watch { background: var(--tag-watch); color: var(--tag-watch-fg); }
+  .tag-listen { background: var(--tag-listen); color: var(--tag-listen-fg); }
+  .tag-deep { background: var(--tag-deep); color: var(--tag-deep-fg); }
+  .tag-trending { background: var(--tag-trending); color: var(--tag-trending-fg); }
+  .tag-code { background: var(--tag-code); color: var(--tag-code-fg); }
+  .tag-continue { background: var(--tag-continue); color: var(--tag-continue-fg); }
+  .meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .card p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+  .card .why {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .deep-dive {
+    background: linear-gradient(135deg, var(--accent-light), var(--card-bg));
+    border: 2px solid var(--accent);
+  }
+  .continuation {
+    border-left: 4px solid var(--tag-continue-fg);
+  }
+  .plan-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .plan-box h3 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
+  .plan-box ol, .plan-box ul { padding-left: 20px; }
+  .plan-box li { font-size: 0.9rem; margin-bottom: 8px; color: var(--fg); line-height: 1.5; }
+  .plan-box li strong { font-weight: 600; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 6px 0; font-size: 0.9rem; }
+  .checklist li::before { content: "\2610 "; color: var(--muted); }
+  .quote-box {
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    font-style: italic;
+  }
+  .quote-box .author { font-style: normal; font-weight: 600; display: block; margin-top: 6px; font-size: 0.82rem; }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (max-width: 480px) {
+    body { padding: 16px 12px 48px; }
+    header h1 { font-size: 1.3rem; }
+    .card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Morning Digest</h1>
+  <div class="date">Thursday, March 26, 2026 &middot; Day 4</div>
+  <div class="subtitle">Your daily 45-minute reading plan. Half research philosophy, half latest trends. Curated for a PhD student working at the intersection of formal methods and RL.</div>
+</header>
+
+<div class="quote-box">
+  "The key to doing good research is arriving at the right question. A good question is one where the answer will teach you something more than you already know."
+  <span class="author">— John Schulman, An Opinionated Guide to ML Research</span>
+</div>
+
+<!-- ========== CONTINUING FROM YESTERDAY ========== -->
+<div class="section-title">Continuing from Yesterday</div>
+
+<div class="card continuation">
+  <div class="card-header">
+    <h3><a href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html" target="_blank">You and Your Research — Day 3 of 3 (Final)</a></h3>
+    <span class="tag tag-continue">MULTI-DAY</span>
+  </div>
+  <div class="meta">
+    <span>Richard Hamming</span>
+    <span>~10 min today</span>
+    <span>Day 3: Style, selling your work, final reflections</span>
+  </div>
+  <p>If you haven't finished Hamming's Day 3 checkpoint yet, today's the day. His final section is about why <em>selling</em> your research matters as much as doing it — why clear writing, good talks, and "open doors" compound over a career. Hamming closes with a direct challenge to the audience: are you working on the most important problems in your field?</p>
+  <div class="why">Checkpoint: Read from "selling your work" through the Q&amp;A. Once done, you've completed one of the most cited pieces of research advice ever given.</div>
+</div>
+
+<!-- ========== SECTION 1: TODAY'S DEEP DIVE ========== -->
+<div class="section-title">Today's Deep Dive (20 min)</div>
+
+<div class="card deep-dive">
+  <div class="card-header">
+    <h3><a href="https://arxiv.org/abs/2603.09117" target="_blank">Decoupling Reasoning and Confidence: Resurrecting Calibration in RLVR</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>arXiv &middot; Mar 2026</span>
+    <span>~20 min</span>
+    <span class="tag tag-deep">DEEP DIVE</span>
+  </div>
+  <p>Promoted from your bookmarks. This paper tackles a critical failure mode in RLVR: models trained with verifiable rewards become dangerously over-confident in wrong answers. The authors propose decoupling the reasoning process from confidence estimation, so the model can still explore aggressively during RL training while maintaining calibrated uncertainty. This is directly relevant to any work combining RL with formal correctness guarantees — you need the model to know what it doesn't know.</p>
+  <div class="why">Why today: You've been building up RLVR context over the past three days. This paper connects RLVR to calibration and epistemic humility — a bridge between learned reward signals and formal safety properties. Focus on Sections 1-3 and the experimental setup.</div>
+</div>
+
+<!-- ========== SECTION 2: QUICK READS ========== -->
+<div class="section-title">Quick Reads (15 min total)</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://winbuzzer.com/2026/03/23/karpathy-humans-bottleneck-ai-research-xcxwbn/" target="_blank">Karpathy: Humans Are the Bottleneck in AI Research</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>WinBuzzer &middot; Mar 23, 2026</span>
+    <span>~4 min</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>Karpathy's autoresearch agent ran 700 experiments over two nights and found 20 optimizations he'd missed by hand — an 11% training speed gain on a larger model. His provocative claim: human researchers are now the bottleneck in any domain with a clear, computable metric. But he's careful to note the limits — this only works where evaluation is automated. For your PhD, the question is: can formal verification provide the "computable metric" that makes RL research more automatable?</p>
+  <div class="why">Why today: Fresh take on the autoresearch story. Connects directly to your work — formal specs could be the automated evaluation signal that makes RL research loops tighter.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/03/24/anthropic-hands-claude-code-more-control-but-keeps-it-on-a-leash/" target="_blank">Anthropic Launches Claude Code Auto Mode with Safety Gates</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>TechCrunch &middot; Mar 24, 2026</span>
+    <span>~4 min</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>Anthropic shipped auto mode for Claude Code — a classifier reviews each tool call before execution, scanning for mass file deletions, data exfiltration, and prompt injection attacks. Safe actions proceed automatically; risky ones are blocked. It's essentially runtime formal verification of agent actions. Compare this with Meta's rogue agent incident from last week: different approaches to the same problem of constraining autonomous AI behavior.</p>
+  <div class="why">Why today: A real-world deployment of "verify before acting" — the exact principle your research area formalizes. Note how the safety classifier acts as a lightweight specification checker.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://link.springer.com/chapter/10.1007/978-3-031-98208-8_11" target="_blank">Robust Deep RL Using Formal Verification (TASE 2025)</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Springer LNCS &middot; 2026</span>
+    <span>~5 min (abstract + method)</span>
+    <span class="tag tag-deep">YOUR FIELD</span>
+  </div>
+  <p>A new paper integrating formal verification directly into the DRL training loop. Counterexamples generated by verification tools serve as corrective feedback to guide policy adjustments, enabling the agent to avoid unsafe actions and learn faster. Experiments show up to 70% reduction in training episodes while significantly improving policy safety. This is verification-in-the-loop RL — exactly your intersection.</p>
+  <div class="why">Why today: This is a paper in your exact research area. Skim the abstract, method overview, and results table. Consider how this compares to AlphaProof's approach from Day 3.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.digitalapplied.com/blog/mcp-97-million-downloads-model-context-protocol-mainstream" target="_blank">MCP Hits 97 Million Downloads: The Agentic Infrastructure Moment</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Digital Applied &middot; Mar 25, 2026</span>
+    <span>~3 min</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>Anthropic's Model Context Protocol went from a handful of reference implementations to 97 million monthly SDK downloads and 5,800+ community servers. Every major AI company now supports it. This is the "USB port for AI agents" moment — and it raises interesting questions about formal specifications for agent-tool interfaces.</p>
+  <div class="why">Why today: Infrastructure context. Understanding how agents connect to tools is useful background for thinking about where formal guarantees need to live in agentic systems.</div>
+</div>
+
+<!-- ========== SECTION 3: BOOKMARKS ========== -->
+<div class="section-title">New Bookmarks</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1749956/full" target="_blank">Formal Methods for Safety-Critical ML: A Systematic Literature Review</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Frontiers in AI &middot; 2026</span>
+    <span>~25 min deep read</span>
+  </div>
+  <p>A comprehensive SLR covering 2020–2025 on using formal methods to enhance ML safety in safety-critical domains. Covers verification, testing, and runtime monitoring. Excellent reference for your literature review and for identifying gaps in current approaches.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.ruder.io/10-tips-for-research-and-a-phd/" target="_blank">10 Tips for Research and a PhD</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Sebastian Ruder</span>
+    <span>~10 min</span>
+  </div>
+  <p>Practical PhD advice from a seasoned ML/NLP researcher: read broadly, work on two things at once, be ambitious, collaborate, write a blog, and play the long game. A good companion to the Schulman and Karpathy pieces you've already read.</p>
+</div>
+
+<!-- ========== SECTION 4: PODCAST / VIDEO QUEUE ========== -->
+<div class="section-title">Podcast &amp; Video Queue (Commute / Gym)</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.dwarkesh.com/p/dario-amodei-2" target="_blank">Dario Amodei: "We Are Near the End of the Exponential"</a></h3>
+    <span class="tag tag-listen">LISTEN</span>
+  </div>
+  <div class="meta">
+    <span>Dwarkesh Podcast &middot; Feb 13, 2026</span>
+    <span>~2 hours</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <p>Anthropic's CEO argues we're 1–3 years from AGI. The key insight: RL is now showing the same log-linear scaling gains that pre-training showed. They discuss the "Big Blob of Compute Hypothesis," whether algorithmic cleverness matters, how AI labs will make money, and US-China dynamics. A must-listen for anyone in RL research.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.dwarkesh.com/podcast/archive" target="_blank">Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute (continued)</a></h3>
+    <span class="tag tag-listen">LISTEN</span>
+  </div>
+  <div class="meta">
+    <span>Dwarkesh Podcast &middot; Mar 13, 2026</span>
+    <span>2h 31m</span>
+  </div>
+  <p>Still in your queue. Logic, memory, and power bottlenecks in AI compute scaling. Pairs well with the Amodei episode — Dylan provides the hardware reality check on Dario's scaling optimism.</p>
+</div>
+
+<!-- ========== YOUR 45-MIN PLAN ========== -->
+<div class="section-title">Your 45-Minute Plan for Today</div>
+
+<div class="plan-box">
+  <h3>Suggested Reading Order</h3>
+  <ol>
+    <li><strong>RLVR Calibration deep dive (20 min)</strong> — Promoted from bookmarks. Decoupling reasoning from confidence in RLVR models. Focus on Sections 1–3 and the experimental design. This builds on the RLVR context from Days 2–3.</li>
+    <li><strong>Karpathy: Humans Are the Bottleneck (4 min)</strong> — Fresh take on autoresearch. Think about how formal specs could serve as the automated evaluation signal.</li>
+    <li><strong>Claude Code Auto Mode (4 min)</strong> — Real-world "verify before acting" for AI agents. Runtime safety classification as lightweight formal verification.</li>
+    <li><strong>Robust DRL via Formal Verification (5 min)</strong> — Skim this new paper in your exact research intersection. Verification-in-the-loop RL training.</li>
+    <li><strong>MCP hits 97M downloads (3 min)</strong> — The agentic infrastructure moment. Quick context on how agents connect to tools.</li>
+    <li><strong>Hamming Day 3 finale (10 min)</strong> — If not yet done, finish the talk. Selling your work, open doors, the final challenge.</li>
+  </ol>
+</div>
+
+<div class="plan-box">
+  <h3>Phone vs. Laptop Strategy</h3>
+  <ul class="checklist">
+    <li><strong>Phone (commute, breaks):</strong> Karpathy bottleneck article, Claude Code auto mode, MCP milestone. All short and mobile-friendly.</li>
+    <li><strong>Laptop (desk time):</strong> RLVR calibration paper (needs focused reading, take notes on how decoupled confidence connects to your formal methods work), Robust DRL paper (skim method + results).</li>
+    <li><strong>Commute/gym audio:</strong> Start with Dario Amodei on Dwarkesh — the RL scaling discussion is especially relevant. Continue with Dylan Patel if you have extra time.</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Digest &middot; Curated for LuChin's PhD Journey<br>
+  Day 4 of your reading habit. Four days strong — consistency compounds. Happy Thursday.
+</footer>
+
+</body>
+</html>

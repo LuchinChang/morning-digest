@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Digest — April 4, 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --fg: #1c1917;
+    --muted: #78716c;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --card-bg: #ffffff;
+    --border: #e7e5e4;
+    --tag-read: #dcfce7;
+    --tag-read-fg: #166534;
+    --tag-watch: #fef3c7;
+    --tag-watch-fg: #92400e;
+    --tag-listen: #ede9fe;
+    --tag-listen-fg: #5b21b6;
+    --tag-deep: #fee2e2;
+    --tag-deep-fg: #991b1b;
+    --tag-trending: #ffedd5;
+    --tag-trending-fg: #9a3412;
+    --tag-code: #e0e7ff;
+    --tag-code-fg: #3730a3;
+    --tag-continue: #fdf4ff;
+    --tag-continue-fg: #86198f;
+    --tag-bookmark: #f0fdf4;
+    --tag-bookmark-fg: #15803d;
+    --tag-fm: #ecfdf5;
+    --tag-fm-fg: #065f46;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --fg: #fafaf9;
+      --muted: #a8a29e;
+      --accent: #60a5fa;
+      --accent-light: #1e3a5f;
+      --card-bg: #1c1917;
+      --border: #292524;
+      --tag-read: #14532d;
+      --tag-read-fg: #bbf7d0;
+      --tag-watch: #451a03;
+      --tag-watch-fg: #fde68a;
+      --tag-listen: #2e1065;
+      --tag-listen-fg: #c4b5fd;
+      --tag-deep: #450a0a;
+      --tag-deep-fg: #fecaca;
+      --tag-trending: #431407;
+      --tag-trending-fg: #fed7aa;
+      --tag-code: #1e1b4b;
+      --tag-code-fg: #c7d2fe;
+      --tag-continue: #4a044e;
+      --tag-continue-fg: #f5d0fe;
+      --tag-bookmark: #052e16;
+      --tag-bookmark-fg: #86efac;
+      --tag-fm: #022c22;
+      --tag-fm-fg: #6ee7b7;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  header { margin-bottom: 32px; }
+  header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  header .date { color: var(--muted); font-size: 0.9rem; }
+  header .subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 8px; line-height: 1.5; }
+  .quote-block {
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin-bottom: 32px;
+    background: var(--accent-light);
+    border-radius: 0 8px 8px 0;
+  }
+  .quote-block p { font-style: italic; font-size: 0.95rem; line-height: 1.6; color: var(--fg); }
+  .quote-block cite { display: block; margin-top: 6px; font-size: 0.8rem; color: var(--muted); font-style: normal; }
+  .section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .card h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.4; flex: 1; }
+  .card h3 a { color: var(--fg); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-read    { background: var(--tag-read);    color: var(--tag-read-fg); }
+  .tag-watch   { background: var(--tag-watch);   color: var(--tag-watch-fg); }
+  .tag-listen  { background: var(--tag-listen);  color: var(--tag-listen-fg); }
+  .tag-deep    { background: var(--tag-deep);    color: var(--tag-deep-fg); }
+  .tag-trending{ background: var(--tag-trending);color: var(--tag-trending-fg); }
+  .tag-code    { background: var(--tag-code);    color: var(--tag-code-fg); }
+  .tag-fm      { background: var(--tag-fm);      color: var(--tag-fm-fg); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; }
+  .card p { font-size: 0.93rem; color: var(--fg); line-height: 1.65; }
+  .plan-block {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .plan-block h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; }
+  .plan-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .plan-row:last-child { border-bottom: none; }
+  .plan-time {
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+    min-width: 52px;
+    padding-top: 1px;
+  }
+  .plan-row a { color: var(--fg); text-decoration: none; }
+  .plan-row a:hover { color: var(--accent); }
+  .strategy-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .strategy-box h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; }
+  .strategy-cols { display: flex; gap: 16px; }
+  .strategy-col { flex: 1; }
+  .strategy-col h5 { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; }
+  .strategy-col ul { list-style: none; }
+  .strategy-col ul li { font-size: 0.86rem; padding: 3px 0; padding-left: 14px; position: relative; color: var(--fg); }
+  .strategy-col ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+  .podcast-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .podcast-icon { font-size: 1.4rem; flex-shrink: 0; padding-top: 2px; }
+  .podcast-info h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 3px; }
+  .podcast-info h4 a { color: var(--fg); text-decoration: none; }
+  .podcast-info h4 a:hover { color: var(--accent); }
+  .podcast-info p { font-size: 0.85rem; color: var(--muted); }
+  footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (max-width: 480px) {
+    .strategy-cols { flex-direction: column; }
+    .card-header { flex-direction: column; }
+    .tag { align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>☀️ Morning Digest</h1>
+  <div class="date">Saturday, April 4, 2026 &nbsp;·&nbsp; Day 1</div>
+  <div class="subtitle">45 minutes · Formal Methods + Reinforcement Learning</div>
+</header>
+
+<div class="quote-block">
+  <p>"Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better."</p>
+  <cite>— Edsger W. Dijkstra</cite>
+</div>
+
+<!-- YOUR 45-MINUTE PLAN -->
+<div class="section-title">Your 45-Minute Plan</div>
+
+<div class="plan-block">
+  <h4>📋 Reading Order</h4>
+  <div class="plan-row">
+    <span class="plan-time">0–25 min</span>
+    <span><strong>DEEP DIVE</strong> — <a href="https://arxiv.org/abs/2603.21149">Emergent Formal Verification: Autonomous AI Independently Discovers Z3 SMT Safety</a></span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">25–29 min</span>
+    <span><strong>QUICK READ</strong> — <a href="https://limit-of-rlvr.github.io/">The Limit of RLVR</a> (does RL actually expand reasoning?)</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">29–33 min</span>
+    <span><strong>QUICK READ</strong> — <a href="https://arxiv.org/abs/2603.15973">Safety is Non-Compositional</a> (formal proof + AI agents)</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">33–37 min</span>
+    <span><strong>QUICK READ</strong> — <a href="https://arxiv.org/abs/2603.22117">On the Direction of RLVR Updates</a> (Alibaba/Qwen, March 2026)</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">37–40 min</span>
+    <span><strong>QUICK READ</strong> — <a href="https://simonwillison.net/2026/Apr/3/vulnerability-research-is-cooked/">Vulnerability Research Is Cooked</a> (Simon Willison)</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">40–45 min</span>
+    <span><strong>BOOKMARK</strong> — Queue podcast + scan bookmarks for next session</span>
+  </div>
+</div>
+
+<!-- DEEP DIVE -->
+<div class="section-title">Deep Dive · 25 min</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://arxiv.org/abs/2603.21149" target="_blank">Emergent Formal Verification: How an Autonomous AI Ecosystem Independently Discovered SMT-Based Safety Across Six Domains</a></h3>
+  </div>
+  <div class="tags">
+    <span class="tag tag-deep">DEEP DIVE</span>
+    <span class="tag tag-fm">FORMAL METHODS</span>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">arXiv 2603.21149 · Octavian Untila · March 2026 · ~25 min</div>
+  <p>An autonomous AI system (SUBSTRATE S3), given no instructions about formal methods, independently proposed using the Z3 SMT solver across six distinct safety domains: LLM-generated code verification, tool API safety for agents, post-distillation reasoning correctness, CLI validation, hardware assembly, and smart contract safety. The convergent discovery across 8 products over 13 days — with very low overlap between variants — suggests formal verification isn't just a useful technique for AI safety, it's an <em>emergent property</em> of any sufficiently complex system reasoning about its own safety. Achieves 100% classification accuracy on 181 test cases with zero false positives. Perfect reading for someone working at the intersection of formal methods and learning systems — this paper asks: does intelligence, given enough room to self-reflect, naturally rediscover the tools you're spending your PhD on?</p>
+</div>
+
+<!-- QUICK READS -->
+<div class="section-title">Quick Reads · ~15 min total</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://limit-of-rlvr.github.io/" target="_blank">The Limit of RLVR: RL Fine-Tuning Enhances Sampling Efficiency, Not Reasoning Capacity</a></h3>
+  </div>
+  <div class="tags">
+    <span class="tag tag-trending">TRENDING</span>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">limit-of-rlvr.github.io · 2026 · ~4 min</div>
+  <p>A systematic study across math, coding, and vision benchmarks delivers a sobering finding: RLVR (PPO, GRPO, Reinforce++) doesn't expand the reasoning space of base models — it narrows exploration by amplifying rewarded trajectories. Base models surpass RL-trained variants at large pass@k; RL only wins at low sampling budgets. The implication is that current RL methods optimize <em>within</em> the base distribution rather than beyond it. This is the most-discussed empirical challenge to RLVR's promise right now, and it has direct implications for your work if you're using RL to verify or generate proofs.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://arxiv.org/abs/2603.15973" target="_blank">Safety is Non-Compositional: A Formal Framework for Capability-Based AI Systems</a></h3>
+  </div>
+  <div class="tags">
+    <span class="tag tag-fm">FORMAL METHODS</span>
+    <span class="tag tag-read">READ</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="meta">arXiv 2603.15973 · March 2026 · ~4 min</div>
+  <p>Contains the first formal proof that safety is <em>non-compositional</em> in the presence of conjunctive capability dependencies: two agents each individually incapable of reaching any forbidden capability can, when combined, collectively reach a forbidden goal through an emergent conjunctive dependency. This is a clean, formal-methods-style result with real implications for multi-agent system design and safe RL. Read the abstract and theorem statements — this one is dense but rewarding.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://arxiv.org/abs/2603.22117" target="_blank">On the Direction of RLVR Updates for LLM Reasoning: Identification and Exploitation</a></h3>
+  </div>
+  <div class="tags">
+    <span class="tag tag-read">READ</span>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="meta">arXiv 2603.22117 · Qwen Pilot Team / Alibaba · March 23, 2026 · ~4 min</div>
+  <p>Instead of asking <em>how much</em> RLVR changes a model (magnitude), this paper asks <em>which direction</em> it moves. They show that the signed, token-level log-probability difference Δlog p between base and RLVR models is a sharper lens than magnitude-based metrics for identifying sparse but reasoning-critical updates. Practical payoff: a test-time extrapolation method that amplifies the policy along Δlog p to improve reasoning accuracy without further training. Good companion to the Limit of RLVR paper above.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://simonwillison.net/2026/Apr/3/vulnerability-research-is-cooked/" target="_blank">Vulnerability Research Is Cooked</a></h3>
+  </div>
+  <div class="tags">
+    <span class="tag tag-trending">TRENDING</span>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">simonwillison.net · April 3, 2026 · ~3 min</div>
+  <p>Simon Willison's take on how AI is reshaping the security research landscape — the tools, the pace, and the economics. Short, punchy, and a useful reminder that the fields neighboring yours (program analysis, verification, security) are being disrupted in real time. Worth skimming for awareness even if it's not your primary domain.</p>
+</div>
+
+<!-- COMMUTE / GYM QUEUE -->
+<div class="section-title">Commute &amp; Gym Queue 🎧</div>
+
+<div class="podcast-card">
+  <div class="podcast-icon">🎙️</div>
+  <div class="podcast-info">
+    <h4><a href="https://www.dwarkesh.com/p/dario-amodei-2" target="_blank">Dario Amodei — "We are near the end of the exponential"</a></h4>
+    <p>Dwarkesh Podcast · February 13, 2026 · ~2h · LISTEN<br>
+    Dario's vision of AI as "a country of geniuses in a data center" — covers the scaling hypothesis in the RL regime, how AI diffuses through the economy, Anthropic's compute strategy, and alignment plans. Dense and worth your full attention on a long run.</p>
+  </div>
+</div>
+
+<div class="podcast-card">
+  <div class="podcast-icon">🎙️</div>
+  <div class="podcast-info">
+    <h4><a href="https://podscripts.co/podcasts/dwarkesh-podcast/dylan-patel-deep-dive-on-the-3-big-bottlenecks-to-scaling-ai-compute" target="_blank">Dylan Patel — Deep Dive on the 3 Big Bottlenecks to Scaling AI Compute</a></h4>
+    <p>Dwarkesh Podcast · March 13, 2026 · ~90 min · LISTEN<br>
+    SemiAnalysis founder on what actually limits AI scaling right now — power, networking, and chip manufacturing. Highly technical, grounding for understanding why the RL regime may evolve the way it does.</p>
+  </div>
+</div>
+
+<!-- PHONE vs LAPTOP STRATEGY -->
+<div class="section-title">Phone vs. Laptop Strategy</div>
+
+<div class="strategy-box">
+  <div class="strategy-cols">
+    <div class="strategy-col">
+      <h5>📱 Phone (Anywhere)</h5>
+      <ul>
+        <li>Limit of RLVR — skim the charts</li>
+        <li>Simon Willison — vulnerability piece</li>
+        <li>Start the Dwarkesh podcast queue</li>
+        <li>Scan arXiv abstract for 2603.15973</li>
+      </ul>
+    </div>
+    <div class="strategy-col">
+      <h5>💻 Laptop (Focused Time)</h5>
+      <ul>
+        <li>Deep dive: arXiv 2603.21149 PDF</li>
+        <li>Direction of RLVR updates paper</li>
+        <li>Take notes, cross-reference Z3 work</li>
+        <li>Follow up on any paper citations</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKMARKED FOR LATER -->
+<div class="section-title">Bookmarked for Later</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.fregu856.com/post/phd_of_reading/" target="_blank">The How and Why of Reading 300 Papers in 5 Years</a></h3>
+  </div>
+  <div class="tags">
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">fregu856.com · Fredrik Gustafsson (Oxford postdoc, ML for Healthcare) · ~10 min · Save for a slow afternoon</div>
+  <p>A machine learning researcher reflects on building a sustainable reading habit through a PhD — tracking papers read, writing short notes, and why consistency beats speed. Practical and honest. Good to revisit when you're feeling behind on the literature.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://arxiv.org/abs/2506.14245" target="_blank">RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs</a></h3>
+  </div>
+  <div class="tags">
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">arXiv 2506.14245 · ~15 min · For a deeper reading session</div>
+  <p>A counterpoint to the "Limit of RLVR" paper — argues that RLVR does implicitly incentivize correct reasoning structures in base models, not just sampling tricks. Reading both together gives you the full picture of an ongoing debate at the heart of the field.</p>
+</div>
+
+<footer>
+  Day 1 of your reading streak · April 4, 2026 · Formal Methods + RL · Generated automatically
+</footer>
+
+</body>
+</html>

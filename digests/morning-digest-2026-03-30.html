@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Digest — March 30, 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --fg: #1c1917;
+    --muted: #78716c;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --card-bg: #ffffff;
+    --border: #e7e5e4;
+    --tag-read: #dcfce7;
+    --tag-read-fg: #166534;
+    --tag-watch: #fef3c7;
+    --tag-watch-fg: #92400e;
+    --tag-listen: #ede9fe;
+    --tag-listen-fg: #5b21b6;
+    --tag-deep: #fee2e2;
+    --tag-deep-fg: #991b1b;
+    --tag-trending: #ffedd5;
+    --tag-trending-fg: #9a3412;
+    --tag-code: #e0e7ff;
+    --tag-code-fg: #3730a3;
+    --tag-continue: #fdf4ff;
+    --tag-continue-fg: #86198f;
+    --tag-bookmark: #f0fdf4;
+    --tag-bookmark-fg: #15803d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --fg: #fafaf9;
+      --muted: #a8a29e;
+      --accent: #60a5fa;
+      --accent-light: #1e3a5f;
+      --card-bg: #1c1917;
+      --border: #292524;
+      --tag-read: #14532d;
+      --tag-read-fg: #bbf7d0;
+      --tag-watch: #451a03;
+      --tag-watch-fg: #fde68a;
+      --tag-listen: #2e1065;
+      --tag-listen-fg: #c4b5fd;
+      --tag-deep: #450a0a;
+      --tag-deep-fg: #fecaca;
+      --tag-trending: #431407;
+      --tag-trending-fg: #fed7aa;
+      --tag-code: #1e1b4b;
+      --tag-code-fg: #c7d2fe;
+      --tag-continue: #4a044e;
+      --tag-continue-fg: #f5d0fe;
+      --tag-bookmark: #052e16;
+      --tag-bookmark-fg: #86efac;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  header { margin-bottom: 32px; }
+  header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  header .date { color: var(--muted); font-size: 0.9rem; }
+  header .subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 8px; line-height: 1.5; }
+  .section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .card h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.4; flex: 1; }
+  .card h3 a { color: var(--fg); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-read { background: var(--tag-read); color: var(--tag-read-fg); }
+  .tag-watch { background: var(--tag-watch); color: var(--tag-watch-fg); }
+  .tag-listen { background: var(--tag-listen); color: var(--tag-listen-fg); }
+  .tag-deep { background: var(--tag-deep); color: var(--tag-deep-fg); }
+  .tag-trending { background: var(--tag-trending); color: var(--tag-trending-fg); }
+  .tag-code { background: var(--tag-code); color: var(--tag-code-fg); }
+  .tag-continue { background: var(--tag-continue); color: var(--tag-continue-fg); }
+  .tag-bookmark { background: var(--tag-bookmark); color: var(--tag-bookmark-fg); }
+  .meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .card p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+  .card .why {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .deep-dive {
+    background: linear-gradient(135deg, var(--accent-light), var(--card-bg));
+    border: 2px solid var(--accent);
+  }
+  .continuation {
+    border-left: 4px solid var(--tag-continue-fg);
+  }
+  .plan-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .plan-box h3 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
+  .plan-box ol, .plan-box ul { padding-left: 20px; }
+  .plan-box li { font-size: 0.9rem; margin-bottom: 8px; color: var(--fg); line-height: 1.5; }
+  .plan-box li strong { font-weight: 600; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 6px 0; font-size: 0.9rem; }
+  .checklist li::before { content: "\2610 "; color: var(--muted); }
+  .quote-box {
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    font-style: italic;
+  }
+  .quote-box .author { font-style: normal; font-weight: 600; display: block; margin-top: 6px; font-size: 0.82rem; }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (max-width: 480px) {
+    body { padding: 16px 12px 48px; }
+    header h1 { font-size: 1.3rem; }
+    .card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Morning Digest</h1>
+  <div class="date">Monday, March 30, 2026 &middot; Day 8</div>
+  <div class="subtitle">Your daily 45-minute reading plan. Half research philosophy, half latest trends. Curated for a PhD student working at the intersection of formal methods and RL.</div>
+</header>
+
+<div class="quote-box">
+  "What I cannot create, I do not understand."
+  <span class="author">&mdash; Richard Feynman (found on his blackboard after his death, 1988)</span>
+</div>
+
+<!-- ========== CONTINUING FROM YESTERDAY ========== -->
+<div class="section-title">&#9654; Continuing from Yesterday</div>
+
+<div class="card continuation">
+  <div class="card-header">
+    <h3><a href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html" target="_blank">You and Your Research &mdash; Day 3 of 3 (Wrap-Up)</a></h3>
+    <span class="tag tag-continue">MULTI-DAY</span>
+  </div>
+  <div class="meta">
+    <span>Richard Hamming</span>
+    <span>~5 min to finish</span>
+    <span>Focus: Style, selling your work, final challenge</span>
+  </div>
+  <p>This has been open since Day 4. New week, clean slate &mdash; let's close it out. Hamming's last section is deceptively important: great research that nobody hears about might as well not exist. His closing challenge &mdash; <em>"What are the important problems in your field, and why aren't you working on them?"</em> &mdash; is worth writing down and pinning somewhere visible. Five minutes, then mark it done.</p>
+  <div class="why">Final pinned source still open. Start your Monday by finishing what you started. Write a three-sentence takeaway and move on.</div>
+</div>
+
+<!-- ========== YOUR 45-MINUTE PLAN ========== -->
+<div class="section-title">&#9200; Your 45-Minute Plan</div>
+
+<div class="plan-box">
+  <h3>Reading Order</h3>
+  <ol>
+    <li><strong>0&ndash;5 min:</strong> Wrap up Hamming Day 3 (above). Write your takeaway, mark it complete.</li>
+    <li><strong>5&ndash;30 min:</strong> Deep Dive &mdash; Frontiers SLR: Formal Methods for Safety-Critical ML. Focus on taxonomy (Section 2) and RL-specific findings (Section 4).</li>
+    <li><strong>30&ndash;35 min:</strong> Quick Read &mdash; Safe Multi-Agent RL Using Formal Runtime Enforcement (Springer 2026).</li>
+    <li><strong>35&ndash;39 min:</strong> Quick Read &mdash; AI Bots Have Officially Taken Over the Internet (CNBC).</li>
+    <li><strong>39&ndash;43 min:</strong> Quick Read &mdash; Mistral Small 4: Open-Source Reasoning, Vision &amp; Code in One Model.</li>
+    <li><strong>43&ndash;45 min:</strong> Scan bookmarks, queue podcast for commute.</li>
+  </ol>
+</div>
+
+<!-- ========== DEEP DIVE ========== -->
+<div class="section-title">&#128218; Deep Dive (25 min)</div>
+
+<div class="card deep-dive">
+  <div class="card-header">
+    <h3><a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1749956/full" target="_blank">Formal Methods for Safety-Critical ML: A Systematic Literature Review</a></h3>
+    <span class="tag tag-deep">DEEP DIVE</span>
+  </div>
+  <div class="meta">
+    <span>Frontiers in Artificial Intelligence (2026)</span>
+    <span>~25 min</span>
+    <span>Promoted from bookmarks</span>
+  </div>
+  <p>A comprehensive SLR covering 2020&ndash;2025 on how formal methods have been applied to safety-critical machine learning systems. This is the survey paper your lit review needs: it taxonomizes approaches (model checking, theorem proving, abstract interpretation, runtime verification) and maps them to ML lifecycle stages (training, testing, deployment). The RL-specific sections cover shielding, constrained MDPs, and reward specification verification &mdash; all directly relevant to your research.</p>
+  <div class="why">Promoted from bookmarks (queued since Day 4). This is the single most useful reference for positioning your thesis at the intersection of formal methods and RL. Read the taxonomy and RL sections carefully; skim the DNN verification parts. Save the bibliography &mdash; it's a goldmine.</div>
+</div>
+
+<!-- ========== QUICK READS ========== -->
+<div class="section-title">&#9889; Quick Reads (13 min total)</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://link.springer.com/chapter/10.1007/978-3-032-11176-0_28" target="_blank">Safe Multi-Agent RL Using Formal Runtime Enforcement: A Case Study</a></h3>
+    <span class="tag tag-read">READ</span>
+  </div>
+  <div class="meta">
+    <span>Mohapatra, Anand &amp; Pinisetty / Springer LNCS (2026)</span>
+    <span>~5 min</span>
+    <span>Formal methods &times; multi-agent RL</span>
+  </div>
+  <p>A 2026 case study applying runtime enforcement &mdash; a formal verification technique &mdash; to a multi-agent RL drone swarm. Enforcement strategies prevent collisions and boundary breaches while improving overall swarm performance. The key contribution: combining RE with MARL <em>improves</em> rather than degrades learning, countering the common objection that safety constraints slow down RL. Directly extends the shielding paradigm from yesterday's CACM survey into multi-agent settings.</p>
+  <div class="why">Fresh paper, right at the intersection of your research. Builds on the Shields survey from Day 7. Read intro + enforcement mechanism design; skim the drone experiments.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://www.cnbc.com/2026/03/26/ai-bots-humans-internet.html" target="_blank">AI and Bots Have Officially Taken Over the Internet</a></h3>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="meta">
+    <span>CNBC / Human Security Report</span>
+    <span>~4 min</span>
+    <span>Published March 26, 2026</span>
+  </div>
+  <p>The 2026 State of AI Traffic report from Human Security shows automated traffic now exceeds human traffic online. AI traffic grew 187% in 2025; agent traffic (like OpenClaw) grew nearly 8,000%. Cloudflare's CEO predicts full crossover by 2027, but Human Security's data suggests it's already happening. The "dead internet" hypothesis is becoming empirical fact. Stu Solomon: <em>"The internet was created with this basic notion that there's a human on the other side of the screen, and that notion is very rapidly being replaced."</em></p>
+  <div class="why">Big-picture context for why formal verification of AI agents matters: when most internet actors are autonomous, trust and safety require formal guarantees, not just vibes.</div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3><a href="https://mistral.ai/news/mistral-small-4" target="_blank">Mistral Small 4: Open-Source Reasoning, Vision &amp; Code in One Model</a></h3>
+    <span class="tag tag-trending">TRENDING</span>
+  </div>
+  <div class="meta">
+    <span>Mistral AI</span>
+    <span>~4 min</span>
+    <span>Released March 16, 2026 &middot; Apache 2.0</span>
+  </div>
+  <p>Mistral unifies reasoning (Magistral), multimodal (Pixtral), and agentic coding (Devstral) into a single 119B-parameter MoE model &mdash; but only 6B active parameters per token. A configurable <code>reasoning_effort</code> parameter lets you dial reasoning depth per request. 256k context window, 40% latency reduction vs. Small 3, Apache 2.0 license. On benchmarks it matches or beats GPT-OSS 120B with significantly shorter outputs. The biggest open-source model news of March.</p>
+  <div class="why">Practical tool awareness: if you ever need a self-hosted reasoning model for RL experiment pipelines, this is the current best option. The MoE architecture + configurable reasoning is a neat engineering choice.</div>
+</div>
+
+<!-- ========== PHONE VS LAPTOP ========== -->
+<div class="section-title">&#128247; Phone vs. Laptop Strategy</div>
+
+<div class="plan-box">
+  <h3>Where to Read What</h3>
+  <ul>
+    <li><strong>Phone (commute/couch):</strong> Hamming wrap-up, CNBC bots article, Mistral Small 4 announcement. All prose-friendly, no diagrams needed.</li>
+    <li><strong>Laptop (desk focus):</strong> Frontiers SLR deep dive &mdash; you'll want to navigate sections, study the taxonomy figures, and mine the bibliography. Safe MARL runtime enforcement paper &mdash; architecture diagrams matter here.</li>
+    <li><strong>Ears (gym/walk):</strong> Top pick: <a href="https://www.dwarkesh.com/p/dario-amodei-2" target="_blank">Dario Amodei on Dwarkesh</a> &mdash; "Near the End of the Exponential." RL scaling gains, AGI timeline. Still the #1 podcast in queue.</li>
+  </ul>
+</div>
+
+<!-- ========== STILL IN QUEUE ========== -->
+<div class="section-title">&#128209; Still in Queue</div>
+
+<div class="plan-box">
+  <h3>Bookmarks for This Week</h3>
+  <ul>
+    <li><strong>Raschka:</strong> <a href="https://sebastianraschka.com/blog/2026/state-of-ai-interview.html" target="_blank">State of AI 2026 blog companion</a> &mdash; 15 min. Written version of Lex Fridman #490.</li>
+    <li><strong>LeWorldModel:</strong> <a href="https://howaiworks.ai/blog/le-world-model-jepa-architecture" target="_blank">Technical deep dive into JEPA architecture</a> &mdash; 15 min. SIGReg regularizer details.</li>
+    <li><strong>Karpathy:</strong> <a href="https://github.com/karpathy/autoresearch" target="_blank">autoresearch repo</a> &mdash; 15 min code walkthrough. Adaptable for RL experiments.</li>
+    <li><strong>Podcasts:</strong> Amodei on Dwarkesh (120 min), Lex #490 (120 min), Dylan Patel compute bottlenecks (151 min).</li>
+  </ul>
+</div>
+
+<!-- ========== PODCAST QUEUE ========== -->
+<div class="section-title">&#127911; Podcast / Video Queue</div>
+
+<div class="plan-box">
+  <h3>For Commute &amp; Gym</h3>
+  <ul>
+    <li><strong>Priority Listen:</strong> <a href="https://www.dwarkesh.com/p/dario-amodei-2" target="_blank">Dario Amodei: "Near the End of the Exponential"</a> &mdash; Dwarkesh Podcast. AGI in 1&ndash;3 years, RL showing log-linear scaling gains. Start here.</li>
+    <li><strong>Long-form:</strong> <a href="https://lexfridman.com/ai-sota-2026-transcript/" target="_blank">Lex Fridman #490: State of AI in 2026</a> &mdash; queued since Day 1. Good for a long walk or commute.</li>
+    <li><strong>Also saved:</strong> <a href="https://www.dwarkesh.com/podcast/archive" target="_blank">Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute</a> &mdash; logic, memory, power infrastructure.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Morning Digest &middot; Day 8 &middot; March 30, 2026</p>
+  <p style="margin-top:6px;">Formal Methods &times; Reinforcement Learning &mdash; one day at a time.</p>
+</footer>
+
+</body>
+</html>

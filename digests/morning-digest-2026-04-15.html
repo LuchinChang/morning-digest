@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 15, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep    { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending{ color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read    { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen  { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch   { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code    { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal  { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted{ color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents  { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice  { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr   { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 13px;
+      padding: 5px 0;
+      border-top: 1px solid var(--divider);
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item .bk-icon {
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .bookmark-item .bk-info {
+      flex: 1;
+    }
+
+    .bookmark-item .bk-title {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .bookmark-item .bk-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .strategy-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .strategy-box h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .strategy-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .strategy-device {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .strategy-detail {
+      font-size: 13px;
+    }
+
+    .strategy-detail strong {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .podcast-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+    }
+
+    .podcast-item:first-of-type { border-top: none; }
+
+    .podcast-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .podcast-info { flex: 1; }
+
+    .podcast-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .podcast-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px 32px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    .day-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      margin-bottom: 12px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-meta">Wednesday · April 15, 2026 · Formal Methods × RL</div>
+  <h1>Morning Digest ☀️</h1>
+  <div class="subtitle">Your curated 45-minute reading plan</div>
+</header>
+
+<!-- Quote -->
+<div class="quote-block">
+  <p>"The art of doing mathematics consists in finding that special case which contains all the germs of generality."</p>
+  <cite>— David Hilbert &nbsp;·&nbsp; On the nature of mathematical insight</cite>
+</div>
+
+<!-- 45-minute plan -->
+<section>
+  <div class="section-title">Your 45-Minute Plan</div>
+  <div class="plan-banner">
+    <h2>⏱ Reading Order</h2>
+
+    <div class="plan-row">
+      <span class="plan-time">0–25 min</span>
+      <span class="plan-label">📌 <strong>Deep Dive (Promoted Bookmark):</strong> Formal Verification of Noisy Quantum RL Policies</span>
+    </div>
+    <div class="plan-row">
+      <span class="plan-time">25–30 min</span>
+      <span class="plan-label">📐 <strong>Quick Read:</strong> Mining Beyond the Bools — TSL specification mining from traces</span>
+    </div>
+    <div class="plan-row">
+      <span class="plan-time">30–38 min</span>
+      <span class="plan-label">🎯 <strong>Quick Read:</strong> Reward Modeling for RL Reasoning — RLVR survey &amp; framework</span>
+    </div>
+    <div class="plan-row">
+      <span class="plan-time">38–43 min</span>
+      <span class="plan-label">🎓 <strong>Quick Read:</strong> Your Research Career is a Long Game — Casey Fiesler</span>
+    </div>
+    <div class="plan-row">
+      <span class="plan-time">43–45 min</span>
+      <span class="plan-label">📰 <strong>Trending scan:</strong> OpenAI GPT-5.4-Cyber + Claude Opus 4.7 news</span>
+    </div>
+  </div>
+</section>
+
+<!-- Promoted bookmark callout -->
+<section>
+  <div class="promoted-callout">
+    📌 <span>Promoting a bookmarked paper to today's Deep Dive — queued since Day 6.</span>
+  </div>
+</section>
+
+<!-- Deep Dive -->
+<section>
+  <div class="section-title">Deep Dive</div>
+
+  <div class="card deep promoted">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2512.01502" target="_blank">Formal Verification of Noisy Quantum Reinforcement Learning Policies</a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · December 2025</span>
+      <span class="dot">·</span>
+      <span>Promoted from bookmarks</span>
+      <span class="dot">·</span>
+      <span>~25 min read</span>
+    </div>
+    <div class="card-body">
+      This paper asks a fundamental question at the intersection of quantum computing and formal verification: how do we certify the safety of RL policies that operate in inherently noisy quantum environments? The authors develop a formal verification framework for quantum RL policies subject to depolarizing and amplitude-damping noise channels, using density matrix reachability analysis and quantum temporal logic to express and check safety constraints. Results show that policies verified under noise models up to a threshold error rate maintain probabilistic safety guarantees — directly relevant if you're thinking about robustness certificates for learned policies under stochastic or adversarial perturbations.
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-promoted">Promoted Bookmark</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Reads -->
+<section>
+  <div class="section-title">Quick Reads</div>
+
+  <!-- Mining Beyond the Bools -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2603.06710" target="_blank">Mining Beyond the Bools: Learning Data Transformations and Temporal Specifications</a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · March 5, 2026</span>
+      <span class="dot">·</span>
+      <span>Yale &amp; Columbia · Piskac et al.</span>
+      <span class="dot">·</span>
+      <span>~5 min read</span>
+    </div>
+    <div class="card-body">
+      Existing specification mining is largely restricted to Boolean event abstractions, missing data-aware properties. This paper formalizes TSL<sub>f</sub> — a finite-prefix Temporal Stream Logic that extends LTL<sub>f</sub> with first-order predicates and functional updates — and uses SyGuS-based synthesis to mine specifications that cover both data transformations and temporal behaviors. Demonstrated on OpenAI Gymnasium ToyText environments, it's orders of magnitude more sample-efficient than passive baselines, which could meaningfully accelerate spec-generation pipelines for verifiable RL.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Reward Modeling for RL Reasoning -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2602.09305" target="_blank">Reward Modeling for Reinforcement Learning-Based LLM Reasoning: Design, Challenges, and Evaluation</a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · February 10, 2026</span>
+      <span class="dot">·</span>
+      <span>~8 min read</span>
+    </div>
+    <div class="card-body">
+      Introduces Reasoning-Aligned Reinforcement Learning (RARL), a unifying framework arguing that reward modeling is the central architect of reasoning alignment — not just an implementation detail. The paper systematizes diverse reward paradigms (outcome rewards, process rewards, verifiable rewards) for multi-step reasoning, evaluates their trade-offs in generalization and trustworthiness, and maps out open problems. A great conceptual map for understanding where RLVR sits in the broader RL-for-reasoning landscape.
+    </div>
+    <div class="tags">
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Casey Fiesler research advice -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://cfiesler.medium.com/advice-for-new-phd-students-your-research-career-is-a-long-game-4721abbd80ac" target="_blank">Advice for New PhD Students: Your Research Career is a Long Game</a>
+    </div>
+    <div class="card-meta">
+      <span>Casey Fiesler · Medium</span>
+      <span class="dot">·</span>
+      <span>~5 min read</span>
+    </div>
+    <div class="card-body">
+      A grounding, sanity-preserving read from an HCI professor who has mentored dozens of PhD students. Fiesler argues that the PhD is not a sprint toward a single breakthrough but a cumulative, long-arc process — and that learning to manage your own morale, set realistic pace expectations, and build resilience is as important as any technical skill. Particularly good on comparing yourself to peers and the danger of short-term productivity metrics swamping long-term intellectual development.
+    </div>
+    <div class="tags">
+      <span class="tag tag-advice">Research Advice</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- Trending News -->
+<section>
+  <div class="section-title">Trending Now</div>
+
+  <!-- Simon Willison - OpenAI trusted access -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://simonwillison.net/2026/Apr/14/trusted-access-openai/" target="_blank">Trusted Access for the Next Era of Cyber Defense — OpenAI's GPT-5.4-Cyber</a>
+    </div>
+    <div class="card-meta">
+      <span>simonwillison.net</span>
+      <span class="dot">·</span>
+      <span>April 14, 2026</span>
+      <span class="dot">·</span>
+      <span>~3 min read</span>
+    </div>
+    <div class="card-body">
+      OpenAI launched GPT-5.4-Cyber, a specialized model for security research — a direct response to Anthropic's Project Glasswing / Claude Mythos rollout. Simon Willison's link post ties together the competitive dynamics: frontier labs are now racing not just on benchmark reasoning but on domain-specific security capabilities. Worth a quick scan to stay current on the capability race.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Anthropic Opus 4.7 news -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://techbriefly.com/2026/04/15/anthropic-to-launch-claude-opus-4-7-and-new-ai-design-tool-this-week/" target="_blank">Anthropic to Launch Claude Opus 4.7 and New AI Design Tool This Week</a>
+    </div>
+    <div class="card-meta">
+      <span>TechBriefly</span>
+      <span class="dot">·</span>
+      <span>April 15, 2026</span>
+      <span class="dot">·</span>
+      <span>~2 min read</span>
+    </div>
+    <div class="card-body">
+      Fresh news today: Anthropic is expected to release Claude Opus 4.7 alongside an AI-powered design tool for generating websites and presentations. Separately, some heavy users have flagged perceived quality regressions tied to reduced default token effort — good to know if you're relying on Claude for any research tooling. Skim-worthy headline news.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- Phone vs Laptop Strategy -->
+<section>
+  <div class="section-title">Phone vs. Laptop Strategy</div>
+  <div class="strategy-box">
+    <h3>📱 Phone (Commute / Low Energy)</h3>
+    <div class="strategy-row">
+      <div class="strategy-device">📱</div>
+      <div class="strategy-detail">
+        <strong>Good for today:</strong>
+        Casey Fiesler's PhD career advice (5 min) and the two trending news items (5 min total). Light on equations, high on value per minute. Also perfect for starting the Dwarkesh × Elon Musk podcast in the podcast queue.
+      </div>
+    </div>
+    <h3 style="margin-top: 12px;">💻 Laptop (Focused Time)</h3>
+    <div class="strategy-row">
+      <div class="strategy-device">💻</div>
+      <div class="strategy-detail">
+        <strong>Best for today:</strong>
+        The quantum verification deep dive and the Mining Beyond the Bools TSL paper — both have dense notation (density matrices, SyGuS rules) that you'll want to tab between the abstract and PDF. The RARL reward modeling survey is also better on laptop for following the taxonomy figures.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Podcast Queue -->
+<section>
+  <div class="section-title">🎧 Podcast / Video Queue</div>
+  <div class="podcast-card">
+    <h3>For Commute / Gym</h3>
+    <div class="podcast-item">
+      <div class="podcast-icon">🎙</div>
+      <div class="podcast-info">
+        <div class="podcast-title">
+          <a href="https://www.dwarkesh.com/p/elon-musk" target="_blank">Dwarkesh × Elon Musk — "In 36 months, the cheapest place to put AI will be space"</a>
+        </div>
+        <div class="podcast-meta">Dwarkesh Podcast · Feb 5, 2026 · ~90 min · Topics: orbital data centers, scaling power on Earth, xAI alignment plans, humanoid manufacturing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bookmarks for Later -->
+<section>
+  <div class="section-title">🔖 Bookmarks for Later</div>
+  <div class="bookmark-section">
+    <h3>Queued — don't lose these</h3>
+    <div class="bookmark-item">
+      <div class="bk-icon">📄</div>
+      <div class="bk-info">
+        <div class="bk-title">
+          <a href="https://arxiv.org/abs/2506.03469" target="_blank">Verification-Guided Falsification for Safe RL via Explainable Abstraction and Risk-Aware Exploration</a>
+        </div>
+        <div class="bk-sub">arXiv · Hybrid Storm model checker + CAPS policy summarization for RL safety · ~15 min read</div>
+      </div>
+    </div>
+    <div class="bookmark-item">
+      <div class="bk-icon">🐙</div>
+      <div class="bk-info">
+        <div class="bk-title">
+          <a href="https://github.com/TsinghuaC3I/Awesome-RL-for-LRMs" target="_blank">Awesome-RL-for-LRMs — Survey of RL for Large Reasoning Models</a>
+        </div>
+        <div class="bk-sub">GitHub · TsinghuaC3I · Curated paper list, continuously updated · Good for backfilling RLVR context</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="day-badge">Day 8</div>
+  <br />
+  <strong>Morning Digest</strong> · April 15, 2026<br />
+  Formal Methods × Reinforcement Learning · LuChin's Research Reading Plan<br />
+  <span style="opacity:0.6; font-size:11px;">45 minutes · 1 deep dive · 3 quick reads · 2 trending · 1 podcast</span>
+</footer>
+
+</body>
+</html>

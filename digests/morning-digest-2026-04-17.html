@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 17, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '→ ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .podcast-card a:hover {
+      text-decoration: underline;
+    }
+
+    .podcast-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .podcast-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .podcast-desc {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 20px 16px 28px;
+      border-top: 1px solid var(--divider);
+      margin-top: 8px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 420px) {
+      .device-section {
+        grid-template-columns: 1fr;
+      }
+      header h1 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-meta">Friday · April 17, 2026 · Day 10</div>
+  <h1>☀️ Morning Digest</h1>
+  <div class="subtitle">Formal Methods + Reinforcement Learning · 45 min plan</div>
+</header>
+
+<!-- ── QUOTE ── -->
+<div class="quote-block">
+  <p>"Mathematics is the art of giving the same name to different things."</p>
+  <cite>— Henri Poincaré</cite>
+</div>
+
+<!-- ── PROMOTED BOOKMARK CALLOUT ── -->
+<div style="padding: 0 16px;">
+  <div class="promoted-callout">
+    <span class="callout-icon">📌</span>
+    <span><strong>Promoted from queue:</strong> AutoSpec has been waiting in your bookmarks — it's squarely on your core topic (automated RL spec refinement). Today's a great day to dig in.</span>
+  </div>
+</div>
+
+<!-- ── YOUR 45-MINUTE PLAN ── -->
+<div class="plan-banner">
+  <h2>⏱ Your 45-Minute Plan</h2>
+  <div class="plan-row">
+    <span class="plan-time">0–25 min</span>
+    <span class="plan-label">📖 <strong>Deep Dive:</strong> SUPERNOVA — pushing RLVR beyond math &amp; code</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">25–30 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> RL in Pre-train Space — a new angle on RLVR limits</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">30–34 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> MIT Tech Review on why opinions on AI are so divided</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">34–39 min</span>
+    <span class="plan-label">📌 <strong>Promoted bookmark:</strong> AutoSpec — automated RL spec refinement intro read</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">39–44 min</span>
+    <span class="plan-label">💭 <strong>Research philosophy:</strong> Dynomight on watching oneself be automated</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">44–45 min</span>
+    <span class="plan-label">📚 Queue check + queue your podcast commute</span>
+  </div>
+</div>
+
+<!-- ── DEEP DIVE ── -->
+<section>
+  <div class="section-title">🔬 Deep Dive · 25 min</div>
+
+  <div class="card deep">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.08477" target="_blank" rel="noopener">
+        SUPERNOVA: Eliciting General Reasoning in LLMs with Reinforcement Learning on Natural Instructions
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 9, 2026</span>
+      <span class="dot">·</span>
+      <span>Suvarna, Phan, Beikzadeh, Bansal, Gabriel et al.</span>
+      <span class="dot">·</span>
+      <span>~25 min</span>
+    </div>
+    <div class="card-body">
+      RLVR has dramatically improved LLM reasoning on math and code — but it stalls out on open-ended tasks like causal inference, temporal reasoning, and common sense. SUPERNOVA proposes a data-curation framework that recasts expert-annotated instruction-tuning datasets as verifiable RLVR training signal, systematically unlocking general reasoning without needing synthetic verifiers. The key insight: instruction data already encodes rich reasoning patterns; the challenge is making them reward-compatible. A must-read if you're thinking about extending RLVR to formally-specified open-ended tasks.
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK READS ── -->
+<section>
+  <div class="section-title">⚡ Quick Reads · ~15 min total</div>
+
+  <!-- Quick Read 1 -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.14142" target="_blank" rel="noopener">
+        From P(y|x) to P(y): Investigating Reinforcement Learning in Pre-train Space
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 2026</span>
+      <span class="dot">·</span>
+      <span>~5 min</span>
+    </div>
+    <div class="card-body">
+      A sharp theoretical observation: current RLVR fine-tunes the conditional distribution P(y|x), but the reasoning ceiling is ultimately bounded by the base model's prior P(y). The paper introduces <em>PreRL</em>, which pushes reward-driven updates directly into pre-train space to break through that ceiling. Pairs nicely with the "Limit of RLVR" paper from your Day 1 digest — a consistent theme worth tracking.
+    </div>
+    <div class="tags">
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Quick Read 2 -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.technologyreview.com/2026/04/13/1135720/why-opinion-on-ai-is-so-divided/" target="_blank" rel="noopener">
+        Why Opinion on AI Is So Divided
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>MIT Technology Review · Apr 13, 2026</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      73% of US AI experts see AI's job impact as positive; only 23% of the general public agrees. This piece unpacks the "jagged frontier" phenomenon — AI models that ace the Math Olympiad but can't read analog clocks — and why it causes such wildly different interpretations of the same technology. Good calibration reading if you're explaining your work to non-experts or thinking about how to position research claims.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Quick Read 3: Research Philosophy -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://dynomight.substack.com/p/automated" target="_blank" rel="noopener">
+        Thoughts While Watching Myself Be Automated
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>Dynomight · 2026</span>
+      <span class="dot">·</span>
+      <span>~5 min</span>
+    </div>
+    <div class="card-body">
+      Dynomight reflects on what it feels like to watch AI increasingly handle work that felt intellectually distinctive — and what it means for how we should think about the value of doing research ourselves. A grounding, honest piece with no easy answers. Useful when your subfield is moving faster than you can keep up.
+    </div>
+    <div class="tags">
+      <span class="tag tag-advice">Research Advice</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROMOTED BOOKMARK ── -->
+<section>
+  <div class="section-title">📌 Promoted from Queue · 15 min</div>
+
+  <div class="card promoted">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2512.01047" target="_blank" rel="noopener">
+        AutoSpec: Automating the Refinement of Reinforcement Learning Specifications
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Nov 2025</span>
+      <span class="dot">·</span>
+      <span>~15 min</span>
+    </div>
+    <div class="card-body">
+      AutoSpec tackles a pain point you know well: hand-written RL reward specifications are brittle, and manually iterating on them is expensive. This paper proposes an automated pipeline to refine specifications using counterexample-guided feedback — essentially marrying ideas from formal synthesis with practical RL engineering. If you've been thinking about how to make reward shaping more principled, this is your read. Start with the intro and Section 3 today; the rest is strong follow-on reading.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-promoted">Promoted</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKMARKS FOR LATER ── -->
+<section>
+  <div class="section-title">📚 Bookmarks &amp; Queue</div>
+
+  <div class="bookmark-section">
+    <h3>Still in the queue</h3>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2602.23997" target="_blank" rel="noopener">
+        Foundation World Models for Agents that Learn, Verify, and Adapt Reliably Beyond Static Environments
+      </a>
+      <span class="bookmark-time">~20 min</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHONE VS LAPTOP ── -->
+<section>
+  <div class="section-title">📱 Phone vs. Laptop Strategy</div>
+
+  <div class="device-section">
+    <div class="device-col">
+      <h3>📱 Phone / Commute</h3>
+      <ul>
+        <li>MIT Tech Review opinion piece (quick read)</li>
+        <li>Dynomight reflection</li>
+        <li>Podcast queue below</li>
+      </ul>
+    </div>
+    <div class="device-col">
+      <h3>💻 Laptop / Desk</h3>
+      <ul>
+        <li>SUPERNOVA (needs full attention, skim equations)</li>
+        <li>PreRL P(y|x)→P(y) paper</li>
+        <li>AutoSpec (grab the PDF, read §3)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── PODCAST QUEUE ── -->
+<section>
+  <div class="section-title">🎧 Podcast / Commute Queue</div>
+
+  <div class="podcast-card">
+    <div class="podcast-title">
+      <a href="https://www.dwarkesh.com/p/jensen-huang" target="_blank" rel="noopener">
+        Dwarkesh × Jensen Huang — TPU Competition, Why We Should Sell Chips to China, &amp; Nvidia's Supply Chain Moat
+      </a>
+    </div>
+    <div class="podcast-meta">Dwarkesh Podcast · Apr 15, 2026 · ~103 min</div>
+    <div class="podcast-desc">
+      Jensen Huang on why he thinks selling AI chips to China is a US strategic imperative, Nvidia's defensibility against Google TPUs and in-house accelerators, and the inference economy to come. Dense with strategic insight on the compute layer that funds all the research we care about.
+    </div>
+    <div class="tags" style="margin-top: 8px;">
+      <span class="tag tag-listen">Listen</span>
+      <span class="tag tag-trending">Trending</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <strong>Day 10</strong> of your reading streak · Formal Methods + Reinforcement Learning<br />
+  <span style="margin-top: 4px; display: inline-block;">Generated by your morning digest scheduler · April 17, 2026</span>
+</footer>
+
+</body>
+</html>

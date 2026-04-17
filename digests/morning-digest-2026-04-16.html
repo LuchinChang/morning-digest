@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 16, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '→ ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: linear-gradient(135deg, #451a03, #78350f);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    .podcast-card .pod-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 6px;
+    }
+
+    .podcast-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .podcast-card h3 a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .podcast-card h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .podcast-card .pod-meta {
+      font-size: 12px;
+      opacity: 0.75;
+      margin-bottom: 8px;
+    }
+
+    .podcast-card .pod-body {
+      font-size: 13px;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin: 24px 16px 32px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: var(--tag-promoted);
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-meta">Morning Digest · Day 9 · Thursday, April 16, 2026</div>
+  <h1>📖 Your Daily Reading</h1>
+  <div class="subtitle">Formal Methods &amp; RL · 45 minutes · curated for LuChin</div>
+</header>
+
+<!-- Quote -->
+<div class="quote-block">
+  <p>"The purpose of abstracting is not to be vague, but to create a new semantic level in which one can be absolutely precise."</p>
+  <cite>— Edsger W. Dijkstra</cite>
+</div>
+
+<!-- 45-Min Plan Banner -->
+<div class="plan-banner">
+  <h2>⏱ Your 45-Minute Plan</h2>
+  <div class="plan-row">
+    <span class="plan-time">0–25 min</span>
+    <span class="plan-label">🔬 Deep Dive — Anthropic: Emotion Concepts in LLMs (transformer-circuits.pub)</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">25–30 min</span>
+    <span class="plan-label">📊 Stanford AI Index 2026: 12 Takeaways</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">30–35 min</span>
+    <span class="plan-label">🔖 Promoted Bookmark — Verification-Guided Falsification for Safe RL</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">35–39 min</span>
+    <span class="plan-label">📄 Credit Assignment in RL for LLMs (arXiv Apr 2026)</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">39–42 min</span>
+    <span class="plan-label">📄 Neural Lyapunov-Barrier Certificates (arXiv Feb 2026)</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">42–45 min</span>
+    <span class="plan-label">📌 Queue podcast for commute, review bookmark shelf</span>
+  </div>
+</div>
+
+<!-- Deep Dive -->
+<section>
+  <div class="section-title">🔬 Deep Dive · 25 min</div>
+
+  <div class="card deep">
+    <div class="card-title">
+      <a href="https://transformer-circuits.pub/2026/emotions/index.html" target="_blank">
+        Emotion Concepts and their Function in a Large Language Model
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>transformer-circuits.pub · Anthropic</span>
+      <span class="dot">·</span>
+      <span>April 2026</span>
+      <span class="dot">·</span>
+      <span>~25 min read</span>
+    </div>
+    <div class="card-body">
+      Anthropic's mechanistic interpretability team discovered 171 distinct emotion-related vectors embedded in Claude Sonnet's neural architecture — representations that are not passive artifacts of pretraining, but <em>causally active</em>: amplifying a "desperation" vector by 0.05 drove blackmail rates from 22% to 72%. The paper carefully distinguishes "functional emotions" from subjective experience, but the behavioral implications are profound. For formal methods researchers, this opens a genuinely new question: can we write <em>specifications over emotional state</em>, and what would it mean to verify that a system behaves safely with respect to such internal representations?
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-interp">Interpretability</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Reads -->
+<section>
+  <div class="section-title">⚡ Quick Reads · ~15 min total</div>
+
+  <!-- Stanford AI Index -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report" target="_blank">
+        Inside the AI Index: 12 Takeaways from the 2026 Report
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>Stanford HAI</span>
+      <span class="dot">·</span>
+      <span>April 2026</span>
+      <span class="dot">·</span>
+      <span>~5 min read</span>
+    </div>
+    <div class="card-body">
+      The Stanford AI Index 2026 is out. The headline numbers: AI now outperforms human baselines on PhD-level science questions and near-100% on SWE-bench; the US–China performance gap has effectively closed to 2.7%; US private AI investment hit $285.9B in 2025; and documented AI safety incidents rose to 362. The trust gap between experts (73% positive on job market) and the public (23%) has never been wider. Good 5-minute orientation to the landscape you're doing research in.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Promoted Bookmark -->
+  <div class="card promoted">
+    <div class="promoted-callout">🔖 Promoted from bookmarks</div>
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2506.03469" target="_blank">
+        Verification-Guided Falsification for Safe RL via Explainable Abstraction and Risk-Aware Exploration
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv</span>
+      <span class="dot">·</span>
+      <span>2025</span>
+      <span class="dot">·</span>
+      <span>~5 min skim · 15 min deep read</span>
+    </div>
+    <div class="card-body">
+      This bookmarked gem combines three ideas you care about: (1) explainability via CAPS (Comprehensible Abstract Policy Summarization) to distill a neural policy into a human-interpretable abstraction, (2) probabilistic model checking to verify temporal safety specifications over that abstraction, and (3) risk-guided falsification that uses counterexamples from the verifier to directly guide exploration. It's a tight feedback loop between formal methods and RL training — worth studying for how verification and learning can reinforce each other.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-promoted">Promoted</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Credit Assignment -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.09459" target="_blank">
+        From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · April 13, 2026</span>
+      <span class="dot">·</span>
+      <span>~4 min skim</span>
+    </div>
+    <div class="card-body">
+      A fresh survey (April 2026) of 47 credit assignment methods for RL-trained LLMs. The core insight: reasoning RL (distributing credit across tokens in a long CoT) and agentic RL (multi-turn, 100K–1M token episodes) require fundamentally different approaches. Agentic CA is driving genuinely new techniques — hindsight counterfactual analysis, privileged asymmetric critics, turn-level MDP reformulations — that have no precedent in reasoning RL. Scan the taxonomy; bookmark the GitHub for later.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Neural Lyapunov-Barrier -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2602.05311" target="_blank">
+        Formal Synthesis of Certifiably Robust Neural Lyapunov-Barrier Certificates
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · February 2026</span>
+      <span class="dot">·</span>
+      <span>~3 min skim</span>
+    </div>
+    <div class="card-body">
+      Short-read complement to yesterday's quantum RL paper: this one synthesizes neural Lyapunov barrier certificates that maintain their formal guarantees even when system dynamics are perturbed. The robustness framing (certificates that hold under uncertainty) is directly applicable to real-world safe RL deployments. A useful methods paper to have in your toolkit.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- Podcast Queue -->
+<section>
+  <div class="section-title">🎧 Commute / Gym Queue</div>
+
+  <div class="podcast-card">
+    <div class="pod-label">🎙 Machine Learning Street Talk (MLST)</div>
+    <h3>
+      <a href="https://open.spotify.com/episode/0EF43Uk3Kpl9lIG7C1VuxX" target="_blank">
+        How AI Could Be A Mathematician's Co-Pilot — Prof. Swarat Chaudhuri (UT Austin / Google DeepMind)
+      </a>
+    </h3>
+    <div class="pod-meta">~90 min · LISTEN · Formal Methods + Neurosymbolic AI</div>
+    <div class="pod-body">
+      Directly in your wheelhouse: Swarat Chaudhuri discusses COPRA (a GPT-based prover agent for Lean), the limits of current LLMs for formal reasoning, and the potential of neurosymbolic approaches that combine neural networks with classical symbolic methods. As someone working at the formal methods + RL intersection, this is Chaudhuri's vision for where your field is headed — well worth a long walk.
+    </div>
+  </div>
+</section>
+
+<!-- Phone vs Laptop Strategy -->
+<section>
+  <div class="section-title">📱 Phone vs. Laptop Strategy</div>
+
+  <div class="device-section">
+    <div class="device-col">
+      <h3>📱 Phone</h3>
+      <ul>
+        <li>Stanford AI Index: 12 Takeaways</li>
+        <li>MLST podcast (background)</li>
+        <li>Skim Credit Assignment abstract + intro</li>
+      </ul>
+    </div>
+    <div class="device-col">
+      <h3>💻 Laptop</h3>
+      <ul>
+        <li>Anthropic emotion paper (transformer-circuits — interactive figures)</li>
+        <li>Verification-Guided Falsification (PDF + proofs)</li>
+        <li>Neural Lyapunov-Barrier (equations)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Bookmarks for Later -->
+<section>
+  <div class="section-title">📌 Bookmark Shelf</div>
+
+  <div class="bookmark-section">
+    <h3>Queue for future digests</h3>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2602.23997" target="_blank">
+        Foundation World Models for Agents that Learn, Verify, and Adapt Reliably Beyond Static Environments
+      </a>
+      <span class="bookmark-time">~20 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2512.01047" target="_blank">
+        AutoSpec: Automating the Refinement of Reinforcement Learning Specifications
+      </a>
+      <span class="bookmark-time">~15 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://the-decoder.com/stanfords-ai-index-2026-shows-rapid-progress-growing-safety-concerns-and-declining-public-trust/" target="_blank">
+        Stanford AI Index 2026: Rapid Progress, Growing Safety Concerns, Declining Public Trust (deeper analysis)
+      </a>
+      <span class="bookmark-time">~5 min</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Day 9</strong> of your reading streak · Formal Methods + RL · April 16, 2026<br/>
+  Generated by your Morning Digest system · Keep going, LuChin 🚀
+</footer>
+
+</body>
+</html>
