@@ -25,50 +25,56 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate reading-log.json is well-formed
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate reading-log.json (delegated to normalize-log.py --check)
+        # Single source of truth for schema validation. Hard-fails on:
+        # invalid JSON, missing required fields, duplicate ids, and same URL
+        # assigned to the same day twice. Cross-day URL repeats are warnings,
+        # not errors, since they're legitimate for multi-day reads / promotions.
+        run: |
+          python3 normalize-log.py --check digests/reading-log.json
+
+      - name: Inventory digest HTML files
         run: |
           python3 - <<'EOF'
-          import json, sys
+          import json, os, re
 
           with open("digests/reading-log.json") as f:
               data = json.load(f)
 
-          day   = data["meta"]["dayCount"]
-          arts  = data["articles"]
-          urls  = [a["url"] for a in arts]
-          dupes = {u for u in urls if urls.count(u) > 1}
+          # Days that have at least one assigned article
+          assigned_days = sorted({
+              a["assignedDate"] for a in data["articles"]
+              if a.get("assignedDate")
+          })
 
-          print(f"✅  reading-log.json valid")
-          print(f"    Day count : {day}")
-          print(f"    Articles  : {len(arts)}")
-
-          if dupes:
-              print(f"❌  Duplicate URLs detected:")
-              for u in sorted(dupes):
-                  print(f"    {u}")
-              sys.exit(1)
-
-          print(f"    Duplicates: none")
-          EOF
-
-      - name: Check all digest HTML files are present in log
-        run: |
-          python3 - <<'EOF'
-          import json, os, re, sys
-
-          with open("digests/reading-log.json") as f:
-              data = json.load(f)
-
-          log_days = data["meta"]["dayCount"]
-
-          # Count HTML digest files
-          html_files = [
+          # HTML digests on disk
+          html_files = sorted(
               f for f in os.listdir("digests")
-              if re.match(r"morning-digest-\d{4}-\d{2}-\d{2}\.html", f)
-          ]
-          print(f"✅  {len(html_files)} digest HTML files found")
-          for f in sorted(html_files):
-              print(f"    {f}")
+              if re.match(r"morning-digest-\d{4}-\d{2}-\d{2}\.html$", f)
+          )
+          html_dates = {f[len("morning-digest-"):-len(".html")] for f in html_files}
+
+          print(f"📅  Assigned days in JSON : {len(assigned_days)}")
+          print(f"📄  HTML digests on disk  : {len(html_files)}")
+
+          missing_html = [d for d in assigned_days if d not in html_dates]
+          extra_html   = sorted(d for d in html_dates if d not in set(assigned_days))
+
+          if missing_html:
+              print(f"⚠️   Days in JSON without standalone HTML ({len(missing_html)}):")
+              for d in missing_html:
+                  print(f"      {d}")
+          if extra_html:
+              print(f"ℹ️   Standalone HTMLs not yet in JSON ({len(extra_html)}):")
+              for d in extra_html:
+                  print(f"      {d}")
+
+          # These are informational only — neither blocks deployment.
           EOF
 
   # ── Job 2: Build + Deploy ────────────────────────────────────
