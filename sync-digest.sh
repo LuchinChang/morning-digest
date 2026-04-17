@@ -12,8 +12,6 @@
 # automatically before any git operation.
 # ============================================================
 
-set -e
-
 SITE_DIR="$(cd "$(dirname "$0")" && pwd)"
 DIGEST_DIR="$(dirname "$SITE_DIR")"
 TOKEN_FILE="$DIGEST_DIR/.gh-token"
@@ -46,40 +44,43 @@ if git diff --cached --quiet; then
   exit 0
 fi
 
-# ── Step 4: Configure auth (PAT from file) ───────────────────
-REMOTE_URL=$(git remote get-url origin)
-REPO_SLUG=$(echo "$REMOTE_URL" | sed 's|https://github.com/||' | sed 's|git@github.com:||' | sed 's|\.git$||')
+# ── Step 4: Derive a clean repo slug (strip any embedded auth) ──
+RAW_URL=$(git remote get-url origin)
+# Remove any token that may have been left from a previous failed run
+CLEAN_URL=$(echo "$RAW_URL" | sed 's|https://[^@]*@github\.com/|https://github.com/|')
+REPO_SLUG=$(echo "$CLEAN_URL" | sed 's|https://github\.com/||' | sed 's|git@github\.com:||' | sed 's|\.git$||')
+# Always restore the clean URL first so config is never left dirty
+git remote set-url origin "https://github.com/${REPO_SLUG}.git"
 
+# ── Step 5: Configure auth and register cleanup trap ────────
 if [ -f "$TOKEN_FILE" ]; then
   TOKEN=$(cat "$TOKEN_FILE" | tr -d '[:space:]')
-  # Temporarily override the remote URL with the token embedded
-  git remote set-url origin "https://x-access-token:${TOKEN}@github.com/${REPO_SLUG}.git"
-  RESTORE_URL=true
   echo "🔑  Using PAT from .gh-token for auth"
+  # Inject token only for the duration of the push;
+  # the trap guarantees the clean URL is restored even on failure
+  trap 'git remote set-url origin "https://github.com/${REPO_SLUG}.git"' EXIT
+  git remote set-url origin "https://x-access-token:${TOKEN}@github.com/${REPO_SLUG}.git"
 else
   echo "⚠️  No .gh-token file found at: $TOKEN_FILE"
-  echo "   Attempting SSH push (will fail if SSH key not configured) ..."
-  git remote set-url origin "git@github.com:${REPO_SLUG}.git"
-  RESTORE_URL=false
+  echo "   Create one with a GitHub PAT (Contents + Workflow write scope)."
+  echo "   Skipping push."
+  exit 0
 fi
 
-# ── Step 5: Commit + Push ────────────────────────────────────
+# ── Step 6: Commit + Push ────────────────────────────────────
 DATE=$(date +%Y-%m-%d)
-git commit -m "Update digest: $DATE" || {
-  echo "Nothing new to commit."
-}
+git commit -m "Update digest: $DATE" || echo "Nothing new to commit."
 
-git push origin main || {
+if git push origin main; then
+  echo "✅  Pushed successfully."
+else
   echo ""
   echo "❌  Push failed. Possible reasons:"
-  echo "   1. .gh-token is missing or expired — regenerate at github.com/settings/tokens"
-  echo "   2. Network issue"
-  echo "   Files are already staged; next run will retry."
-}
-
-# ── Step 6: Restore clean remote URL (no token in config) ────
-if [ "$RESTORE_URL" = "true" ]; then
-  git remote set-url origin "https://github.com/${REPO_SLUG}.git"
+  echo "   1. PAT expired — regenerate at github.com/settings/tokens"
+  echo "      then overwrite: $TOKEN_FILE"
+  echo "   2. PAT missing 'workflow' scope (needed for .github/workflows files)"
+  echo "   3. Network issue"
 fi
+# trap fires here → remote URL restored to clean HTTPS
 
 echo "=== Sync complete ==="
