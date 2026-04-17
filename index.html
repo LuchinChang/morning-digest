@@ -723,7 +723,7 @@ function setRating(articleId, value) {
   saveRatings(ratings);
   // Re-render current view
   if (currentView === 'single') {
-    const date = readingLog.articles.find(a => a.id === articleId)?.dateAdded;
+    const date = articleDate(readingLog.articles.find(a => a.id === articleId));
     if (date) renderSingleDigest(date);
   } else if (currentView === 'bookmarks') {
     renderBookmarks();
@@ -826,7 +826,7 @@ function toggleBookmark(articleId) {
   saveBookmarks(bm);
   // Re-render current view
   if (currentView === 'single') {
-    const date = readingLog.articles.find(a => a.id === articleId)?.dateAdded;
+    const date = articleDate(readingLog.articles.find(a => a.id === articleId));
     if (date) renderSingleDigest(date);
   } else if (currentView === 'bookmarks') {
     renderBookmarks();
@@ -852,7 +852,7 @@ function generateFeedbackSummary() {
       byTag[tag][dir]++;
     }
     // Author
-    const author = article.author;
+    const author = articleSource(article);
     if (!byAuthor[author]) byAuthor[author] = [0, 0];
     byAuthor[author][dir]++;
     // Type
@@ -1020,9 +1020,15 @@ function tagHTML(type) {
 }
 
 function formatDate(dateStr) {
+  if (!dateStr) return 'Unscheduled';
   const d = new Date(dateStr + 'T00:00:00');
+  if (isNaN(d.getTime())) return 'Unscheduled';
   return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
+
+// Tolerate field-name drift in the generator output.
+function articleDate(a) { return a && (a.assignedDate || a.dateAdded) || null; }
+function articleSource(a) { return a && (a.source || a.author) || ''; }
 
 function formatNoteTime(isoStr) {
   const d = new Date(isoStr);
@@ -1050,11 +1056,14 @@ function renderDigestGrid() {
   const grid = document.getElementById('digestGrid');
   const stats = document.getElementById('statsBar');
 
-  // Group articles by dateAdded
+  // Group articles by assignedDate (tolerate legacy field name `dateAdded`).
+  // Skip articles that have no assigned date yet — those are queued bookmarks.
   const byDate = {};
   for (const a of readingLog.articles) {
-    if (!byDate[a.dateAdded]) byDate[a.dateAdded] = [];
-    byDate[a.dateAdded].push(a);
+    const d = a.assignedDate || a.dateAdded;
+    if (!d) continue;
+    if (!byDate[d]) byDate[d] = [];
+    byDate[d].push(a);
   }
 
   const dates = Object.keys(byDate).sort().reverse();
@@ -1104,7 +1113,7 @@ function renderDigestGrid() {
    RENDER: SINGLE DIGEST
    ============================================================ */
 function renderSingleDigest(date) {
-  const articles = readingLog.articles.filter(a => a.dateAdded === date);
+  const articles = readingLog.articles.filter(a => articleDate(a) === date);
   const container = document.getElementById('singleContent');
   const notes = loadNotes();
 
@@ -1138,7 +1147,7 @@ function articleCardHTML(article, notes) {
         <div style="flex:1">
           <div class="ac-title"><a href="${article.url}" target="_blank">${article.title}</a></div>
           <div class="ac-meta">
-            <span>${article.author}</span>
+            <span>${articleSource(article)}</span>
             ${article.estimatedMinutes ? `<span>${article.estimatedMinutes} min</span>` : ''}
             <span>${article.status}</span>
           </div>
@@ -1225,7 +1234,7 @@ function bindArticleEvents(container) {
       addNote(articleId, text);
       textarea.value = '';
       // Re-render
-      const date = readingLog.articles.find(a => a.id === articleId)?.dateAdded;
+      const date = articleDate(readingLog.articles.find(a => a.id === articleId));
       if (date) renderSingleDigest(date);
     });
   });
@@ -1239,7 +1248,7 @@ function bindArticleEvents(container) {
       const panel = btn.closest('.notes-panel');
       const articleId = panel.dataset.articleId;
       deleteNote(articleId, noteId);
-      const date = readingLog.articles.find(a => a.id === articleId)?.dateAdded;
+      const date = articleDate(readingLog.articles.find(a => a.id === articleId));
       if (date) renderSingleDigest(date);
     });
   });
@@ -1406,9 +1415,9 @@ searchInput.addEventListener('input', () => {
   searchResults.innerHTML = results.map(r => {
     const a = r.item;
     return `
-      <div class="search-result-item" data-date="${a.dateAdded}" data-id="${a.id}">
+      <div class="search-result-item" data-date="${articleDate(a) || ''}" data-id="${a.id}">
         <div class="sr-title">${a.title}</div>
-        <div class="sr-meta">${a.author} &middot; ${a.dateAdded} &middot; ${a.tags.join(', ')}</div>
+        <div class="sr-meta">${articleSource(a)} &middot; ${articleDate(a) || 'unscheduled'} &middot; ${a.tags.join(', ')}</div>
         ${a.notes ? `<div class="sr-snippet">${a.notes.substring(0, 120)}...</div>` : ''}
       </div>
     `;

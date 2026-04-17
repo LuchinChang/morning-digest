@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 10,
+    "dayCount": 18,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -27,7 +27,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-04",
       "estimatedMinutes": 25,
-      "digestDay": 1
+      "digestDay": 9
     },
     {
       "id": "2026-04-04-002",
@@ -42,7 +42,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-04",
       "estimatedMinutes": 4,
-      "digestDay": 1
+      "digestDay": 9
     },
     {
       "id": "2026-04-04-003",
@@ -58,7 +58,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-04",
       "estimatedMinutes": 4,
-      "digestDay": 1
+      "digestDay": 9
     },
     {
       "id": "2026-04-04-004",
@@ -73,7 +73,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-04",
       "estimatedMinutes": 4,
-      "digestDay": 1
+      "digestDay": 9
     },
     {
       "id": "2026-04-04-005",
@@ -88,7 +88,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-04",
       "estimatedMinutes": 3,
-      "digestDay": 1
+      "digestDay": 9
     },
     {
       "id": "2026-04-04-006",
@@ -102,7 +102,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-04",
       "estimatedMinutes": 120,
-      "digestDay": 1
+      "digestDay": 9
     },
     {
       "id": "2026-04-04-007",
@@ -116,7 +116,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-07",
       "estimatedMinutes": 90,
-      "digestDay": 2
+      "digestDay": 10
     },
     {
       "id": "2026-04-04-008",
@@ -130,7 +130,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-07",
       "estimatedMinutes": 10,
-      "digestDay": 2
+      "digestDay": 10
     },
     {
       "id": "2026-04-04-009",
@@ -146,7 +146,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-08",
       "estimatedMinutes": 15,
-      "digestDay": 3
+      "digestDay": 11
     },
     {
       "id": "2026-04-07-001",
@@ -162,7 +162,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-07",
       "estimatedMinutes": 25,
-      "digestDay": 2
+      "digestDay": 10
     },
     {
       "id": "2026-04-07-002",
@@ -177,7 +177,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-07",
       "estimatedMinutes": 4,
-      "digestDay": 2
+      "digestDay": 10
     },
     {
       "id": "2026-04-07-003",
@@ -193,7 +193,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-07",
       "estimatedMinutes": 5,
-      "digestDay": 2
+      "digestDay": 10
     },
     {
       "id": "2026-04-07-004",
@@ -209,7 +209,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-07",
       "estimatedMinutes": 3,
-      "digestDay": 2
+      "digestDay": 10
     },
     {
       "id": "2026-04-07-005",
@@ -223,7 +223,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-07",
       "estimatedMinutes": 180,
-      "digestDay": 2
+      "digestDay": 10
     },
     {
       "id": "2026-04-08-001",
@@ -240,7 +240,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-08",
       "estimatedMinutes": 25,
-      "digestDay": 3
+      "digestDay": 11
     },
     {
       "id": "2026-04-08-002",
@@ -255,7 +255,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-08",
       "estimatedMinutes": 3,
-      "digestDay": 3
+      "digestDay": 11
     },
     {
       "id": "2026-04-08-003",
@@ -271,7 +271,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-08",
       "estimatedMinutes": 3,
-      "digestDay": 3
+      "digestDay": 11
     },
     {
       "id": "2026-04-08-004",
@@ -287,7 +287,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-08",
       "estimatedMinutes": 5,
-      "digestDay": 3
+      "digestDay": 11
     },
     {
       "id": "2026-04-08-005",
@@ -302,7 +302,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-08",
       "estimatedMinutes": 4,
-      "digestDay": 3
+      "digestDay": 11
     },
     {
       "id": "2026-04-08-006",
@@ -318,7 +318,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-08",
       "estimatedMinutes": 15,
-      "digestDay": 3
+      "digestDay": 11
     },
     {
       "id": "2026-04-10-001",
@@ -335,7 +335,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-10",
       "estimatedMinutes": 25,
-      "digestDay": 4
+      "digestDay": 12
     },
     {
       "id": "2026-04-10-002",
@@ -351,7 +351,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-10",
       "estimatedMinutes": 5,
-      "digestDay": 4
+      "digestDay": 12
     },
     {
       "id": "2026-04-10-003",
@@ -367,7 +367,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-10",
       "estimatedMinutes": 4,
-      "digestDay": 4
+      "digestDay": 12
     },
     {
       "id": "2026-04-10-004",
@@ -383,7 +383,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-10",
       "estimatedMinutes": 3,
-      "digestDay": 4
+      "digestDay": 12
     },
     {
       "id": "2026-04-10-005",
@@ -398,7 +398,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-10",
       "estimatedMinutes": 3,
-      "digestDay": 4
+      "digestDay": 12
     },
     {
       "id": "2026-04-10-006",
@@ -414,7 +414,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-10",
       "estimatedMinutes": 123,
-      "digestDay": 4
+      "digestDay": 12
     },
     {
       "id": "2026-04-11-001",
@@ -430,7 +430,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-11",
       "estimatedMinutes": 25,
-      "digestDay": 5
+      "digestDay": 13
     },
     {
       "id": "2026-04-11-002",
@@ -445,7 +445,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-11",
       "estimatedMinutes": 5,
-      "digestDay": 5
+      "digestDay": 13
     },
     {
       "id": "2026-04-11-003",
@@ -461,7 +461,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-11",
       "estimatedMinutes": 3,
-      "digestDay": 5
+      "digestDay": 13
     },
     {
       "id": "2026-04-11-004",
@@ -476,7 +476,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-11",
       "estimatedMinutes": 7,
-      "digestDay": 5
+      "digestDay": 13
     },
     {
       "id": "2026-04-11-005",
@@ -490,7 +490,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-11",
       "estimatedMinutes": 180,
-      "digestDay": 5
+      "digestDay": 13
     },
     {
       "id": "2026-04-11-006",
@@ -507,7 +507,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-11",
       "estimatedMinutes": 25,
-      "digestDay": 5
+      "digestDay": 13
     },
     {
       "id": "2026-04-11-007",
@@ -523,7 +523,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-11",
       "estimatedMinutes": 5,
-      "digestDay": 5
+      "digestDay": 13
     },
     {
       "id": "2026-04-11-008",
@@ -538,7 +538,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-11",
       "estimatedMinutes": 5,
-      "digestDay": 5
+      "digestDay": 13
     },
     {
       "id": "2026-04-11-009",
@@ -555,7 +555,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-11",
       "estimatedMinutes": 4,
-      "digestDay": 5
+      "digestDay": 13
     },
     {
       "id": "2026-04-11-010",
@@ -570,7 +570,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-13",
       "estimatedMinutes": 5,
-      "digestDay": 6
+      "digestDay": 14
     },
     {
       "id": "2026-04-13-001",
@@ -586,7 +586,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-13",
       "estimatedMinutes": 25,
-      "digestDay": 6
+      "digestDay": 14
     },
     {
       "id": "2026-04-13-002",
@@ -602,7 +602,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-13",
       "estimatedMinutes": 5,
-      "digestDay": 6
+      "digestDay": 14
     },
     {
       "id": "2026-04-13-003",
@@ -618,7 +618,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-13",
       "estimatedMinutes": 4,
-      "digestDay": 6
+      "digestDay": 14
     },
     {
       "id": "2026-04-13-004",
@@ -632,7 +632,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-13",
       "estimatedMinutes": 90,
-      "digestDay": 6
+      "digestDay": 14
     },
     {
       "id": "2026-04-13-005",
@@ -647,7 +647,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-14",
       "estimatedMinutes": 8,
-      "digestDay": 7
+      "digestDay": 15
     },
     {
       "id": "2026-04-13-006",
@@ -662,7 +662,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-15",
       "estimatedMinutes": 25,
-      "digestDay": 8
+      "digestDay": 16
     },
     {
       "id": "2026-04-14-001",
@@ -678,7 +678,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-14",
       "estimatedMinutes": 25,
-      "digestDay": 7
+      "digestDay": 15
     },
     {
       "id": "2026-04-14-002",
@@ -694,7 +694,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-14",
       "estimatedMinutes": 4,
-      "digestDay": 7
+      "digestDay": 15
     },
     {
       "id": "2026-04-14-003",
@@ -710,7 +710,7 @@
       "status": "assigned",
       "assignedDate": "2026-04-14",
       "estimatedMinutes": 3,
-      "digestDay": 7
+      "digestDay": 15
     },
     {
       "id": "2026-04-14-004",
@@ -727,19 +727,23 @@
       "status": "assigned",
       "assignedDate": "2026-04-14",
       "estimatedMinutes": 4,
-      "digestDay": 7
+      "digestDay": 15
     },
     {
       "id": "2026-04-15-001",
       "title": "Mining Beyond the Bools: Learning Data Transformations and Temporal Specifications",
       "url": "https://arxiv.org/abs/2603.06710",
-      "source": "arXiv · Yale & Columbia",
+      "source": "arXiv \u00b7 Yale & Columbia",
       "date": "2026-03-05",
-      "tags": ["FORMAL METHODS", "TRENDING", "READ"],
+      "tags": [
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-15",
       "estimatedMinutes": 5,
-      "digestDay": 8
+      "digestDay": 16
     },
     {
       "id": "2026-04-15-002",
@@ -747,23 +751,30 @@
       "url": "https://arxiv.org/abs/2602.09305",
       "source": "arXiv",
       "date": "2026-02-10",
-      "tags": ["RLVR", "TRENDING", "READ"],
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-15",
       "estimatedMinutes": 8,
-      "digestDay": 8
+      "digestDay": 16
     },
     {
       "id": "2026-04-15-003",
-      "title": "Trusted Access for the Next Era of Cyber Defense — OpenAI's GPT-5.4-Cyber",
+      "title": "Trusted Access for the Next Era of Cyber Defense \u2014 OpenAI's GPT-5.4-Cyber",
       "url": "https://simonwillison.net/2026/Apr/14/trusted-access-openai/",
       "source": "simonwillison.net",
       "date": "2026-04-14",
-      "tags": ["TRENDING", "READ"],
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-15",
       "estimatedMinutes": 3,
-      "digestDay": 8
+      "digestDay": 16
     },
     {
       "id": "2026-04-15-004",
@@ -771,35 +782,43 @@
       "url": "https://techbriefly.com/2026/04/15/anthropic-to-launch-claude-opus-4-7-and-new-ai-design-tool-this-week/",
       "source": "TechBriefly",
       "date": "2026-04-15",
-      "tags": ["TRENDING", "READ"],
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-15",
       "estimatedMinutes": 2,
-      "digestDay": 8
+      "digestDay": 16
     },
     {
       "id": "2026-04-15-005",
       "title": "Advice for New PhD Students: Your Research Career is a Long Game",
       "url": "https://cfiesler.medium.com/advice-for-new-phd-students-your-research-career-is-a-long-game-4721abbd80ac",
-      "source": "Casey Fiesler · Medium",
+      "source": "Casey Fiesler \u00b7 Medium",
       "date": "2020-08-01",
-      "tags": ["RESEARCH ADVICE", "READ"],
+      "tags": [
+        "RESEARCH ADVICE",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-15",
       "estimatedMinutes": 5,
-      "digestDay": 8
+      "digestDay": 16
     },
     {
       "id": "2026-04-15-006",
-      "title": "Dwarkesh × Elon Musk — \"In 36 months, the cheapest place to put AI will be space\"",
+      "title": "Dwarkesh \u00d7 Elon Musk \u2014 \"In 36 months, the cheapest place to put AI will be space\"",
       "url": "https://www.dwarkesh.com/p/elon-musk",
       "source": "Dwarkesh Podcast",
       "date": "2026-02-05",
-      "tags": ["LISTEN"],
+      "tags": [
+        "LISTEN"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-15",
       "estimatedMinutes": 90,
-      "digestDay": 8
+      "digestDay": 16
     },
     {
       "id": "2026-04-15-007",
@@ -807,23 +826,32 @@
       "url": "https://arxiv.org/abs/2506.03469",
       "source": "arXiv",
       "date": "2025-06-01",
-      "tags": ["FORMAL METHODS", "TRENDING", "READ"],
+      "tags": [
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-16",
       "estimatedMinutes": 15,
-      "digestDay": 9
+      "digestDay": 17
     },
     {
       "id": "2026-04-16-001",
       "title": "Emotion Concepts and their Function in a Large Language Model",
       "url": "https://transformer-circuits.pub/2026/emotions/index.html",
-      "source": "transformer-circuits.pub · Anthropic",
+      "source": "transformer-circuits.pub \u00b7 Anthropic",
       "date": "2026-04-03",
-      "tags": ["DEEP DIVE", "TRENDING", "INTERPRETABILITY", "READ"],
+      "tags": [
+        "DEEP DIVE",
+        "TRENDING",
+        "INTERPRETABILITY",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-16",
       "estimatedMinutes": 25,
-      "digestDay": 9
+      "digestDay": 17
     },
     {
       "id": "2026-04-16-002",
@@ -831,11 +859,14 @@
       "url": "https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report",
       "source": "Stanford HAI",
       "date": "2026-04-01",
-      "tags": ["TRENDING", "READ"],
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-16",
       "estimatedMinutes": 5,
-      "digestDay": 9
+      "digestDay": 17
     },
     {
       "id": "2026-04-16-003",
@@ -843,11 +874,16 @@
       "url": "https://arxiv.org/abs/2604.09459",
       "source": "arXiv",
       "date": "2026-04-13",
-      "tags": ["TRENDING", "RLVR", "AGENTS", "READ"],
+      "tags": [
+        "TRENDING",
+        "RLVR",
+        "AGENTS",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-16",
       "estimatedMinutes": 4,
-      "digestDay": 9
+      "digestDay": 17
     },
     {
       "id": "2026-04-16-004",
@@ -855,23 +891,29 @@
       "url": "https://arxiv.org/abs/2602.05311",
       "source": "arXiv",
       "date": "2026-02-05",
-      "tags": ["FORMAL METHODS", "READ"],
+      "tags": [
+        "FORMAL METHODS",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-16",
       "estimatedMinutes": 3,
-      "digestDay": 9
+      "digestDay": 17
     },
     {
       "id": "2026-04-16-005",
-      "title": "MLST — How AI Could Be A Mathematician's Co-Pilot by 2026 (Prof. Swarat Chaudhuri)",
+      "title": "MLST \u2014 How AI Could Be A Mathematician's Co-Pilot by 2026 (Prof. Swarat Chaudhuri)",
       "url": "https://open.spotify.com/episode/0EF43Uk3Kpl9lIG7C1VuxX",
       "source": "Machine Learning Street Talk",
       "date": "2024-11-25",
-      "tags": ["LISTEN", "FORMAL METHODS"],
+      "tags": [
+        "LISTEN",
+        "FORMAL METHODS"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-16",
       "estimatedMinutes": 90,
-      "digestDay": 9
+      "digestDay": 17
     },
     {
       "id": "2026-04-16-006",
@@ -879,7 +921,11 @@
       "url": "https://arxiv.org/abs/2602.23997",
       "source": "arXiv",
       "date": "2026-02-27",
-      "tags": ["FORMAL METHODS", "AGENTS", "READ"],
+      "tags": [
+        "FORMAL METHODS",
+        "AGENTS",
+        "READ"
+      ],
       "status": "bookmarked",
       "assignedDate": null,
       "estimatedMinutes": 20,
@@ -891,11 +937,15 @@
       "url": "https://arxiv.org/abs/2512.01047",
       "source": "arXiv",
       "date": "2025-11-30",
-      "tags": ["FORMAL METHODS", "READ", "PROMOTED"],
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "PROMOTED"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-17",
       "estimatedMinutes": 15,
-      "digestDay": 10
+      "digestDay": 18
     },
     {
       "id": "2026-04-17-001",
@@ -903,11 +953,16 @@
       "url": "https://arxiv.org/abs/2604.08477",
       "source": "arXiv",
       "date": "2026-04-09",
-      "tags": ["DEEP DIVE", "RLVR", "TRENDING", "READ"],
+      "tags": [
+        "DEEP DIVE",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-17",
       "estimatedMinutes": 25,
-      "digestDay": 10
+      "digestDay": 18
     },
     {
       "id": "2026-04-17-002",
@@ -915,11 +970,15 @@
       "url": "https://arxiv.org/abs/2604.14142",
       "source": "arXiv",
       "date": "2026-04-15",
-      "tags": ["RLVR", "TRENDING", "READ"],
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-17",
       "estimatedMinutes": 5,
-      "digestDay": 10
+      "digestDay": 18
     },
     {
       "id": "2026-04-17-003",
@@ -927,11 +986,14 @@
       "url": "https://www.technologyreview.com/2026/04/13/1135720/why-opinion-on-ai-is-so-divided/",
       "source": "MIT Technology Review",
       "date": "2026-04-13",
-      "tags": ["TRENDING", "READ"],
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-17",
       "estimatedMinutes": 4,
-      "digestDay": 10
+      "digestDay": 18
     },
     {
       "id": "2026-04-17-004",
@@ -939,23 +1001,876 @@
       "url": "https://dynomight.substack.com/p/automated",
       "source": "Dynomight",
       "date": "2026-04-01",
-      "tags": ["RESEARCH ADVICE", "READ"],
+      "tags": [
+        "RESEARCH ADVICE",
+        "READ"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-17",
       "estimatedMinutes": 5,
-      "digestDay": 10
+      "digestDay": 18
     },
     {
       "id": "2026-04-17-005",
-      "title": "Dwarkesh × Jensen Huang — TPU Competition, Why We Should Sell Chips to China, & Nvidia's Supply Chain Moat",
+      "title": "Dwarkesh \u00d7 Jensen Huang \u2014 TPU Competition, Why We Should Sell Chips to China, & Nvidia's Supply Chain Moat",
       "url": "https://www.dwarkesh.com/p/jensen-huang",
       "source": "Dwarkesh Podcast",
       "date": "2026-04-15",
-      "tags": ["LISTEN", "TRENDING"],
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
       "status": "assigned",
       "assignedDate": "2026-04-17",
       "estimatedMinutes": 103,
-      "digestDay": 10
+      "digestDay": 18
+    },
+    {
+      "title": "An Opinionated Guide to ML Research",
+      "url": "http://joschu.net/blog/opinionated-guide-ml-research.html",
+      "source": "John Schulman",
+      "date": "2026-03-18",
+      "tags": [
+        "READ",
+        "DEEP DIVE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": 25,
+      "id": "2026-03-18-001",
+      "digestDay": 1
+    },
+    {
+      "title": "\"The Karpathy Loop\": 700 Experiments, 2 Days, and the Future of AI Research",
+      "url": "https://fortune.com/2026/03/17/andrej-karpathy-loop-autonomous-ai-agents-future/",
+      "source": "Fortune",
+      "date": "2026-03-17",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": 5,
+      "id": "2026-03-18-002",
+      "digestDay": 1
+    },
+    {
+      "title": "Ilya Sutskever: From the Age of Scaling to the Age of Research",
+      "url": "https://www.dwarkesh.com/p/ilya-sutskever-2",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-03-18",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": 5,
+      "id": "2026-03-18-003",
+      "digestDay": 1
+    },
+    {
+      "title": "Four AI Research Trends to Watch in 2026",
+      "url": "https://venturebeat.com/technology/four-ai-research-trends-enterprise-teams-should-watch-in-2026/",
+      "source": "VentureBeat",
+      "date": "2026-03-18",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": 5,
+      "id": "2026-03-18-004",
+      "digestDay": 1
+    },
+    {
+      "title": "You and Your Research \u2014 Richard Hamming (1986)",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+      "source": "Full transcript",
+      "date": "2026-03-18",
+      "tags": [
+        "READ",
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": 45,
+      "id": "2026-03-18-005",
+      "digestDay": 1
+    },
+    {
+      "title": "A Survival Guide to a PhD \u2014 Andrej Karpathy",
+      "url": "http://karpathy.github.io/2016/09/07/phd/",
+      "source": "karpathy.github.io",
+      "date": "2026-03-18",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": 20,
+      "id": "2026-03-18-006",
+      "digestDay": 1
+    },
+    {
+      "title": "How to Get Rich (Without Getting Lucky) \u2014 Naval Ravikant",
+      "url": "https://nav.al/rich",
+      "source": "Tweetstorm + essays",
+      "date": "2026-03-18",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": 30,
+      "id": "2026-03-18-007",
+      "digestDay": 1
+    },
+    {
+      "title": "autoresearch \u2014 Karpathy's Open Source Agent Loop",
+      "url": "https://github.com/karpathy/autoresearch",
+      "source": "GitHub \u00b7 Mar 2026",
+      "date": "2026-03-18",
+      "tags": [
+        "CODE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": null,
+      "id": "2026-03-18-008",
+      "digestDay": 1
+    },
+    {
+      "title": "State of AI in 2026 \u2014 Lex Fridman #490",
+      "url": "https://lexfridman.com/ai-sota-2026-transcript/",
+      "source": "Lex Fridman Podcast",
+      "date": "2026-03-18",
+      "tags": [
+        "WATCH"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": null,
+      "id": "2026-03-18-009",
+      "digestDay": 1
+    },
+    {
+      "title": "State of AI 2026 \u2014 Sebastian Raschka's Blog Companion",
+      "url": "https://sebastianraschka.com/blog/2026/state-of-ai-interview.html",
+      "source": "Blog post version of the podcast discussion",
+      "date": "2026-03-18",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-18",
+      "estimatedMinutes": null,
+      "id": "2026-03-18-010",
+      "digestDay": 1
+    },
+    {
+      "title": "You and Your Research \u2014 Day 2 of 3",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+      "source": "Richard Hamming",
+      "date": "2026-03-19",
+      "tags": [
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-19",
+      "estimatedMinutes": 15,
+      "id": "2026-03-19-001",
+      "digestDay": 2
+    },
+    {
+      "title": "A Survival Guide to a PhD",
+      "url": "http://karpathy.github.io/2016/09/07/phd/",
+      "source": "Andrej Karpathy",
+      "date": "2026-03-19",
+      "tags": [
+        "READ",
+        "DEEP DIVE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-19",
+      "estimatedMinutes": 20,
+      "id": "2026-03-19-002",
+      "digestDay": 2
+    },
+    {
+      "title": "Karpathy Scored Every U.S. Job for AI Exposure \u2014 The Pattern Is Striking",
+      "url": "https://fortune.com/2026/03/15/andrej-karpathy-openai-cofounder-us-labor-market-exposure-ai-white-collar-jobs-professionals/",
+      "source": "Fortune",
+      "date": "2026-03-15",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-19",
+      "estimatedMinutes": 5,
+      "id": "2026-03-19-003",
+      "digestDay": 2
+    },
+    {
+      "title": "What Comes Next with Open Models",
+      "url": "https://www.interconnects.ai/p/the-next-phase-of-open-models",
+      "source": "Nathan Lambert \u00b7 Interconnects \u00b7 Mar 2026",
+      "date": "2026-03-19",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-19",
+      "estimatedMinutes": 5,
+      "id": "2026-03-19-004",
+      "digestDay": 2
+    },
+    {
+      "title": "The LLM Architecture Gallery",
+      "url": "https://sebastianraschka.com/blog/2026/llm-architecture-gallery.html",
+      "source": "Sebastian Raschka",
+      "date": "2026-03-14",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-19",
+      "estimatedMinutes": 5,
+      "id": "2026-03-19-005",
+      "digestDay": 2
+    },
+    {
+      "title": "Yann LeCun's AMI Labs Raises $1.03B to Build World Models",
+      "url": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+      "source": "TechCrunch",
+      "date": "2026-03-09",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-19",
+      "estimatedMinutes": 10,
+      "id": "2026-03-19-006",
+      "digestDay": 2
+    },
+    {
+      "title": "State of AI 2026 \u2014 Raschka's Blog Companion to Lex Fridman #490",
+      "url": "https://sebastianraschka.com/blog/2026/state-of-ai-interview.html",
+      "source": "Sebastian Raschka \u00b7 Feb 2026",
+      "date": "2026-03-19",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-19",
+      "estimatedMinutes": 15,
+      "id": "2026-03-19-007",
+      "digestDay": 2
+    },
+    {
+      "title": "Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute",
+      "url": "https://www.dwarkesh.com/podcast/archive",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-03-13",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-19",
+      "estimatedMinutes": null,
+      "id": "2026-03-19-008",
+      "digestDay": 2
+    },
+    {
+      "title": "You and Your Research \u2014 Day 3 of 3 (Final)",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+      "source": "Richard Hamming",
+      "date": "2026-03-20",
+      "tags": [
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": 10,
+      "id": "2026-03-20-001",
+      "digestDay": 3
+    },
+    {
+      "title": "AlphaProof: Olympiad-Level Formal Mathematical Reasoning with Reinforcement Learning",
+      "url": "https://www.nature.com/articles/s41586-025-09833-y",
+      "source": "Google DeepMind \u00b7 Nature, Nov 2025",
+      "date": "2026-03-20",
+      "tags": [
+        "READ",
+        "DEEP DIVE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": 25,
+      "id": "2026-03-20-002",
+      "digestDay": 3
+    },
+    {
+      "title": "Meta's Rogue AI Agent Triggers Sev-1 Security Incident",
+      "url": "https://techcrunch.com/2026/03/18/meta-is-having-trouble-with-rogue-ai-agents/",
+      "source": "TechCrunch",
+      "date": "2026-03-18",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": 4,
+      "id": "2026-03-20-003",
+      "digestDay": 3
+    },
+    {
+      "title": "GPT-5.4 Is a Big Step for Codex",
+      "url": "https://www.interconnects.ai/p/gpt-54-is-a-big-step-for-codex",
+      "source": "Nathan Lambert \u00b7 Interconnects",
+      "date": "2026-03-18",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": 4,
+      "id": "2026-03-20-004",
+      "digestDay": 3
+    },
+    {
+      "title": "Alternating Reinforcement Learning with Contextual Rubric Rewards",
+      "url": "https://arxiv.org/abs/2603.15646",
+      "source": "arXiv \u00b7 Mar 2026",
+      "date": "2026-03-20",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": 4,
+      "id": "2026-03-20-005",
+      "digestDay": 3
+    },
+    {
+      "title": "Yann LeCun's AMI Labs: $1.03B to Build World Models",
+      "url": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+      "source": "TechCrunch",
+      "date": "2026-03-09",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": 3,
+      "id": "2026-03-20-006",
+      "digestDay": 3
+    },
+    {
+      "title": "Decoupling Reasoning and Confidence: Resurrecting Calibration in RLVR",
+      "url": "https://arxiv.org/abs/2603.09117",
+      "source": "arXiv \u00b7 Mar 2026",
+      "date": "2026-03-20",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": 20,
+      "id": "2026-03-20-007",
+      "digestDay": 3
+    },
+    {
+      "title": "RLVR Explained: Reinforcement Learning with Verifiable Rewards",
+      "url": "https://www.promptfoo.dev/blog/rlvr-explained/",
+      "source": "Promptfoo Blog \u00b7 2026",
+      "date": "2026-03-20",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": 10,
+      "id": "2026-03-20-008",
+      "digestDay": 3
+    },
+    {
+      "title": "Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute",
+      "url": "https://www.dwarkesh.com/podcast/archive",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-03-13",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": null,
+      "id": "2026-03-20-009",
+      "digestDay": 3
+    },
+    {
+      "title": "State of AI in 2026 \u2014 Lex Fridman #490 (continued)",
+      "url": "https://lexfridman.com/ai-sota-2026-transcript/",
+      "source": "Lex Fridman \u00b7 4.5 hours total",
+      "date": "2026-03-20",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-20",
+      "estimatedMinutes": null,
+      "id": "2026-03-20-010",
+      "digestDay": 3
+    },
+    {
+      "title": "You and Your Research \u2014 Day 3 of 3 (Final)",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+      "source": "Richard Hamming",
+      "date": "2026-03-26",
+      "tags": [
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-26",
+      "estimatedMinutes": 10,
+      "id": "2026-03-26-001",
+      "digestDay": 4
+    },
+    {
+      "title": "Decoupling Reasoning and Confidence: Resurrecting Calibration in RLVR",
+      "url": "https://arxiv.org/abs/2603.09117",
+      "source": "arXiv \u00b7 Mar 2026",
+      "date": "2026-03-26",
+      "tags": [
+        "READ",
+        "DEEP DIVE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-26",
+      "estimatedMinutes": 20,
+      "id": "2026-03-26-002",
+      "digestDay": 4
+    },
+    {
+      "title": "Karpathy: Humans Are the Bottleneck in AI Research",
+      "url": "https://winbuzzer.com/2026/03/23/karpathy-humans-bottleneck-ai-research-xcxwbn/",
+      "source": "WinBuzzer",
+      "date": "2026-03-23",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-26",
+      "estimatedMinutes": 4,
+      "id": "2026-03-26-003",
+      "digestDay": 4
+    },
+    {
+      "title": "Anthropic Launches Claude Code Auto Mode with Safety Gates",
+      "url": "https://techcrunch.com/2026/03/24/anthropic-hands-claude-code-more-control-but-keeps-it-on-a-leash/",
+      "source": "TechCrunch",
+      "date": "2026-03-24",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-26",
+      "estimatedMinutes": 4,
+      "id": "2026-03-26-004",
+      "digestDay": 4
+    },
+    {
+      "title": "MCP Hits 97 Million Downloads: The Agentic Infrastructure Moment",
+      "url": "https://www.digitalapplied.com/blog/mcp-97-million-downloads-model-context-protocol-mainstream",
+      "source": "Digital Applied",
+      "date": "2026-03-25",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-26",
+      "estimatedMinutes": 3,
+      "id": "2026-03-26-006",
+      "digestDay": 4
+    },
+    {
+      "title": "Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute (continued)",
+      "url": "https://www.dwarkesh.com/podcast/archive",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-03-13",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-26",
+      "estimatedMinutes": null,
+      "id": "2026-03-26-010",
+      "digestDay": 4
+    },
+    {
+      "title": "You and Your Research \u2014 Day 3 of 3 (Final)",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+      "source": "Richard Hamming",
+      "date": "2026-03-27",
+      "tags": [
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-27",
+      "estimatedMinutes": 5,
+      "id": "2026-03-27-001",
+      "digestDay": 5
+    },
+    {
+      "title": "LeWorldModel: LeCun's JEPA That Finally Trains End-to-End from Raw Pixels",
+      "url": "https://www.marktechpost.com/2026/03/23/yann-lecuns-new-leworldmodel-lewm-research-targets-jepa-collapse-in-pixel-based-predictive-world-modeling/",
+      "source": "MarkTechPost",
+      "date": "2026-03-23",
+      "tags": [
+        "READ",
+        "DEEP DIVE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-27",
+      "estimatedMinutes": 25,
+      "id": "2026-03-27-002",
+      "digestDay": 5
+    },
+    {
+      "title": "Amazon's 90-Day Code Safety Reset After AI Agent Causes 6.3M Lost Orders",
+      "url": "https://creati.ai/ai-news/2026-03-13/amazon-90-day-code-safety-reset-ai-agent-retail-outages-2026/",
+      "source": "Creati.ai",
+      "date": "2026-03-13",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-27",
+      "estimatedMinutes": 4,
+      "id": "2026-03-27-003",
+      "digestDay": 5
+    },
+    {
+      "title": "RL with Conditional Expectation Reward: Beyond Binary Verification",
+      "url": "https://arxiv.org/abs/2603.10624",
+      "source": "arXiv",
+      "date": "2026-03-11",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-27",
+      "estimatedMinutes": 4,
+      "id": "2026-03-27-004",
+      "digestDay": 5
+    },
+    {
+      "title": "Microsoft's Zero Trust for AI: Securing Agents End-to-End",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/20/secure-agentic-ai-end-to-end/",
+      "source": "Microsoft Security Blog",
+      "date": "2026-03-20",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-27",
+      "estimatedMinutes": 4,
+      "id": "2026-03-27-005",
+      "digestDay": 5
+    },
+    {
+      "title": "NIST Launches AI Agent Standards Initiative",
+      "url": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+      "source": "NIST \u00b7 Feb 2026",
+      "date": "2026-03-27",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-27",
+      "estimatedMinutes": 10,
+      "id": "2026-03-27-007",
+      "digestDay": 5
+    },
+    {
+      "title": "LeWorldModel: Deep Dive into JEPA Architecture",
+      "url": "https://howaiworks.ai/blog/le-world-model-jepa-architecture",
+      "source": "HowAIWorks.ai \u00b7 Mar 2026",
+      "date": "2026-03-27",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-27",
+      "estimatedMinutes": 15,
+      "id": "2026-03-27-008",
+      "digestDay": 5
+    },
+    {
+      "title": "Dylan Patel: 3 Big Bottlenecks to Scaling AI Compute",
+      "url": "https://www.dwarkesh.com/podcast/archive",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-03-13",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-27",
+      "estimatedMinutes": null,
+      "id": "2026-03-27-010",
+      "digestDay": 5
+    },
+    {
+      "title": "You and Your Research \u2014 Day 3 of 3 (Final)",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+      "source": "Richard Hamming",
+      "date": "2026-03-28",
+      "tags": [
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-28",
+      "estimatedMinutes": 5,
+      "id": "2026-03-28-001",
+      "digestDay": 6
+    },
+    {
+      "title": "How to Get Rich (Without Getting Lucky)",
+      "url": "https://nav.al/rich",
+      "source": "Naval Ravikant",
+      "date": "2026-03-28",
+      "tags": [
+        "DEEP DIVE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-28",
+      "estimatedMinutes": 30,
+      "id": "2026-03-28-002",
+      "digestDay": 6
+    },
+    {
+      "title": "International AI Safety Report 2026: Executive Summary",
+      "url": "https://internationalaisafetyreport.org/publication/2026-report-executive-summary",
+      "source": "Yoshua Bengio et al. / 100+ AI Experts",
+      "date": "2026-03-28",
+      "tags": [
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-28",
+      "estimatedMinutes": 5,
+      "id": "2026-03-28-003",
+      "digestDay": 6
+    },
+    {
+      "title": "DeepSeek-R1: RL Incentivizes Reasoning in LLMs \u2014 Now in Nature",
+      "url": "https://www.nature.com/articles/s41586-025-09422-z",
+      "source": "DeepSeek-AI / Nature Vol. 645",
+      "date": "2026-03-28",
+      "tags": [
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-28",
+      "estimatedMinutes": 4,
+      "id": "2026-03-28-004",
+      "digestDay": 6
+    },
+    {
+      "title": "Lossy Self-Improvement \u2014 The Skeptic's Take on Recursive AI Progress",
+      "url": "https://www.interconnects.ai/p/lossy-self-improvement",
+      "source": "Nathan Lambert / Interconnects AI",
+      "date": "2026-03-28",
+      "tags": [
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-28",
+      "estimatedMinutes": 5,
+      "id": "2026-03-28-005",
+      "digestDay": 6
+    },
+    {
+      "title": "RLVR Explained: Reinforcement Learning with Verifiable Rewards",
+      "url": "https://www.promptfoo.dev/blog/rlvr-explained/",
+      "source": "Promptfoo",
+      "date": "2026-03-28",
+      "tags": [
+        "PROMOTED"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-28",
+      "estimatedMinutes": 10,
+      "id": "2026-03-28-006",
+      "digestDay": 6
+    },
+    {
+      "title": "Karpathy's Next Vision: SETI@home-Style Distributed AI Research",
+      "url": "https://www.nextbigfuture.com/2026/03/andrej-karpathy-on-code-agents-autoresearch-and-the-self-improvement-loopy-era-of-ai.html",
+      "source": "NextBigFuture / Andrej Karpathy",
+      "date": "2026-03-28",
+      "tags": [
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-28",
+      "estimatedMinutes": 4,
+      "id": "2026-03-28-007",
+      "digestDay": 6
+    },
+    {
+      "title": "You and Your Research \u2014 Day 3 of 3 (Final)",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+      "source": "Richard Hamming",
+      "date": "2026-03-29",
+      "tags": [
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-29",
+      "estimatedMinutes": 5,
+      "id": "2026-03-29-001",
+      "digestDay": 7
+    },
+    {
+      "title": "AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents",
+      "url": "https://arxiv.org/abs/2503.18666",
+      "source": "ICSE 2026 (April, Rio de Janeiro)",
+      "date": "2026-03-29",
+      "tags": [
+        "DEEP DIVE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-29",
+      "estimatedMinutes": 20,
+      "id": "2026-03-29-002",
+      "digestDay": 7
+    },
+    {
+      "title": "Karpathy: \"I've Never Felt This Behind as a Programmer\"",
+      "url": "https://x.com/karpathy/status/2004607146781278521",
+      "source": "Andrej Karpathy / X",
+      "date": "2026-03-29",
+      "tags": [
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-29",
+      "estimatedMinutes": 4,
+      "id": "2026-03-29-003",
+      "digestDay": 7
+    },
+    {
+      "title": "NASA Perseverance Completes First AI-Planned Drive on Mars",
+      "url": "https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-perseverance-rover-completes-first-ai-planned-drive-on-mars/",
+      "source": "NASA / JPL \u00d7 Anthropic",
+      "date": "2026-03-29",
+      "tags": [
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-29",
+      "estimatedMinutes": 4,
+      "id": "2026-03-29-004",
+      "digestDay": 7
+    },
+    {
+      "title": "Shields for Safe Reinforcement Learning",
+      "url": "https://cacm.acm.org/research/shields-for-safe-reinforcement-learning/",
+      "source": "K\u00f6nighofer, Bloem, Jansen, Junges & Pranger / CACM 68(11)",
+      "date": "2026-03-29",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-29",
+      "estimatedMinutes": 5,
+      "id": "2026-03-29-005",
+      "digestDay": 7
+    },
+    {
+      "title": "NIST Launches AI Agent Standards Initiative",
+      "url": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+      "source": "NIST",
+      "date": "2026-03-29",
+      "tags": [
+        "PROMOTED"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-29",
+      "estimatedMinutes": 7,
+      "id": "2026-03-29-006",
+      "digestDay": 7
+    },
+    {
+      "title": "You and Your Research \u2014 Day 3 of 3 (Wrap-Up)",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+      "source": "Richard Hamming",
+      "date": "2026-03-30",
+      "tags": [
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-30",
+      "estimatedMinutes": 5,
+      "id": "2026-03-30-001",
+      "digestDay": 8
+    },
+    {
+      "title": "Safe Multi-Agent RL Using Formal Runtime Enforcement: A Case Study",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-032-11176-0_28",
+      "source": "Mohapatra, Anand & Pinisetty / Springer LNCS (2026)",
+      "date": "2026-03-30",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-30",
+      "estimatedMinutes": 5,
+      "id": "2026-03-30-003",
+      "digestDay": 8
+    },
+    {
+      "title": "AI and Bots Have Officially Taken Over the Internet",
+      "url": "https://www.cnbc.com/2026/03/26/ai-bots-humans-internet.html",
+      "source": "CNBC / Human Security Report",
+      "date": "2026-03-30",
+      "tags": [
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-30",
+      "estimatedMinutes": 4,
+      "id": "2026-03-30-004",
+      "digestDay": 8
+    },
+    {
+      "title": "Mistral Small 4: Open-Source Reasoning, Vision & Code in One Model",
+      "url": "https://mistral.ai/news/mistral-small-4",
+      "source": "Mistral AI",
+      "date": "2026-03-30",
+      "tags": [
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-03-30",
+      "estimatedMinutes": 4,
+      "id": "2026-03-30-005",
+      "digestDay": 8
     }
   ],
   "feeds": [
