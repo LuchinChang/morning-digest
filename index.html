@@ -1,690 +1,874 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Morning Digest — LC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <style>
 /* ============================================================
-   DESIGN SYSTEM — Martian Dusk / Daylight
+   NOCTURNAL EDITORIAL — a daily edition of one
    ============================================================ */
 :root {
-  /* Dark theme (default) */
-  --bg-canvas: #120F0E;
-  --bg-html: #080604;
-  --color-sun: #FFA030;
-  --accent-copper: #C87A2E;
-  --accent-amber: #E8A050;
-  --accent-coral: #E8472C;
-  --accent-teal: #2DD4BF;
-  --text-primary: rgba(235, 210, 180, 0.93);
-  --text-secondary: rgba(175, 138, 95, 0.75);
-  --text-dim: rgba(120, 88, 55, 0.58);
-  --glass-bg: rgba(20, 13, 11, 0.78);
-  --glass-border: rgba(194, 118, 46, 0.22);
-  --glass-border-hover: rgba(194, 118, 46, 0.55);
-  --glass-shadow: rgba(0,0,0,0.60);
-  --tag-read: #C87A2E;
-  --tag-watch: #E8A050;
-  --tag-listen: #2DD4BF;
-  --tag-trending: #E8472C;
-  --tag-deep: #FFA030;
-  --tag-code: #a78bfa;
-  --note-bg: rgba(30, 22, 18, 0.9);
-  --dur-fast: 150ms;
-  --dur-base: 240ms;
-  --dur-slow: 320ms;
-  --ease: cubic-bezier(0.25, 1, 0.5, 1);
-  --radius-panel: 16px;
-  --radius-tile: 12px;
-  --radius-pill: 6px;
+  --ink-canvas:    #0E0A07;
+  --ink-paper:     #15100C;
+  --ink-rule:      #2A2118;
+  --ink-rule-soft: #1E1712;
+  --parchment:     #ECE0C9;
+  --parchment-dim: #A8957A;
+  --parchment-mute:#6B5D4B;
+  --red-masthead:  #C43A2E;
+  --red-masthead-soft: rgba(196, 58, 46, 0.22);
+  --gold-star:     #D4A04B;
+  --slate-deep:    #6B8B9E;
+  --teal-link:     #6FB3A8;
+  --ease-print:    cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 160ms;
+  --dur-base: 260ms;
+  --dur-slow: 520ms;
+  --col-max: 1280px;
+  --read-max: 720px;
 }
 [data-theme="light"] {
-  --bg-canvas: #EDE9E0;
-  --bg-html: #E5E0D6;
-  --color-sun: #FFA030;
-  --accent-copper: #E03C31;
-  --accent-amber: #C87A2E;
-  --accent-coral: #E8472C;
-  --accent-teal: #0d9488;
-  --text-primary: rgba(35, 18, 6, 0.92);
-  --text-secondary: rgba(100, 70, 40, 0.72);
-  --text-dim: rgba(130, 95, 60, 0.50);
-  --glass-bg: rgba(252, 250, 246, 0.88);
-  --glass-border: rgba(194, 118, 46, 0.18);
-  --glass-border-hover: rgba(194, 118, 46, 0.45);
-  --glass-shadow: rgba(0,0,0,0.08);
-  --note-bg: rgba(252, 250, 246, 0.95);
+  --ink-canvas:    #F4ECD8;
+  --ink-paper:     #EEE4CB;
+  --ink-rule:      #C9B995;
+  --ink-rule-soft: #D8C9A5;
+  --parchment:     #1A1410;
+  --parchment-dim: #4E3F2D;
+  --parchment-mute:#7E6B4F;
+  --red-masthead:  #8B1A0E;
+  --red-masthead-soft: rgba(139, 26, 14, 0.15);
+  --gold-star:     #9A6B18;
+  --slate-deep:    #3E5A6E;
+  --teal-link:     #2E6F63;
 }
 
-/* ============================================================
-   BASE
-   ============================================================ */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { font-size: 13px; -webkit-font-smoothing: antialiased; }
+* , *::before , *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 body {
-  font-family: 'JetBrains Mono', monospace;
-  background: var(--bg-html);
-  color: var(--text-primary);
+  font-family: 'Newsreader', ui-serif, Georgia, serif;
+  font-variation-settings: "opsz" 16;
+  font-weight: 400;
+  font-feature-settings: "onum" 1, "ss01" 1;
+  background: var(--ink-canvas);
+  color: var(--parchment);
   min-height: 100vh;
   overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Paper-grain + column-rule overlays (non-interactive) */
+.grain, .col-grid {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+}
+.grain {
+  opacity: 0.055;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.92  0 0 0 0 0.78  0 0 0 0.65 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+[data-theme="light"] .grain { opacity: 0.08; mix-blend-mode: multiply; }
+
+.col-grid {
+  opacity: 0.035;
+  background-image:
+    linear-gradient(to right, var(--parchment) 1px, transparent 1px);
+  background-size: calc((min(1280px, 100vw) - 48px) / 12) 100%;
+  background-position: 24px 0;
+}
+@media (max-width: 1100px) { .col-grid { display: none; } }
+
+/* Signature LC — bottom-left, ghost weight */
+.lc-signature {
+  position: fixed; bottom: 22px; left: 24px; z-index: 5;
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-size: 22px; color: var(--parchment-mute); opacity: 0.55;
+  letter-spacing: -0.04em; pointer-events: none;
+  user-select: none;
 }
 
 /* ============================================================
-   AMBIENT CANVAS (background particles + sun glow)
+   SHELL & LAYOUT
    ============================================================ */
-#ambient-canvas {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+.app-shell {
+  position: relative; z-index: 1;
+  max-width: var(--col-max); margin: 0 auto;
+  padding: 36px 32px 120px;
 }
+@media (max-width: 720px) { .app-shell { padding: 20px 18px 96px; } }
 
 /* ============================================================
-   LAYOUT
+   MASTHEAD
    ============================================================ */
-.app-shell { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
-.top-bar {
-  position: sticky; top: 0; z-index: 100;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px) saturate(160%);
-  border-bottom: 1px solid var(--glass-border);
-  padding: 14px 24px;
-  display: flex; align-items: center; gap: 16px;
-  transition: border-color var(--dur-fast) var(--ease);
+.masthead {
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--parchment);
+  margin-bottom: 4px;
 }
-.top-bar:hover { border-color: var(--glass-border-hover); }
+.masthead::after {
+  content: ""; display: block;
+  border-bottom: 1px solid var(--parchment);
+  margin-top: 3px;
+}
+.masthead-row {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+}
+.nameplate {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-size: clamp(44px, 9.2vw, 128px);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  color: var(--parchment);
+  text-transform: uppercase;
+  font-feature-settings: "ss01" 1, "swsh" 1;
+  /* first-paint reveal */
+  animation: nameplate-ink 900ms var(--ease-print) 0ms both;
+}
+@keyframes nameplate-ink {
+  from { font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 300; opacity: 0; letter-spacing: 0.01em; }
+  to   { font-variation-settings: "opsz" 144, "SOFT" 50,  "wght" 500; opacity: 1; letter-spacing: -0.035em; }
+}
+.nameplate .amp {
+  color: var(--red-masthead);
+  font-style: italic;
+  font-weight: 400;
+  font-feature-settings: "swsh" 1, "ss01" 1;
+}
+.mast-actions { display: flex; align-items: center; gap: 14px; padding-bottom: 8px; }
+.glyph-btn {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  background: transparent; border: none; cursor: pointer;
+  color: var(--parchment-dim);
+  font-size: 22px; line-height: 1;
+  padding: 4px 6px;
+  transition: color var(--dur-fast) var(--ease-print), transform var(--dur-fast) var(--ease-print);
+}
+.glyph-btn:hover { color: var(--red-masthead); transform: translateY(-1px); }
+.glyph-btn.active { color: var(--red-masthead); }
 
-.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.logo-mark {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: linear-gradient(135deg, var(--accent-copper), var(--color-sun));
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 600; font-size: 12px; color: #080604;
-  box-shadow: 0 0 16px rgba(255,160,48,0.25);
+.issue-line {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 18px; flex-wrap: wrap;
+  padding: 10px 0 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--parchment-dim);
 }
-.logo-text { font-weight: 600; font-size: 14px; letter-spacing: 0.04em; }
-.logo-sub { font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.17em; font-weight: 600; }
+.issue-line .dot { color: var(--ink-rule); margin: 0 8px; }
+.issue-line .today { color: var(--red-masthead); }
+.issue-line .weather { font-style: normal; color: var(--parchment-mute); letter-spacing: 0.18em; }
+.issue-line .weather em { font-style: italic; color: var(--parchment-dim); font-family: 'Newsreader', serif; text-transform: none; letter-spacing: 0; font-size: 13px; }
 
-/* Search */
-.search-wrap {
-  flex: 1; max-width: 480px; position: relative;
+/* Search — expands inline */
+.search-field {
+  display: none;
+  padding: 12px 0 14px;
+  border-bottom: 1px solid var(--ink-rule);
+  margin-bottom: 18px;
+  position: relative;
 }
-.search-input {
-  width: 100%; padding: 9px 14px 9px 36px;
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  border-radius: var(--radius-tile); color: var(--text-primary);
-  font-family: inherit; font-size: 12px; outline: none;
-  backdrop-filter: blur(12px);
-  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+.search-field.open { display: block; animation: search-open 320ms var(--ease-print); }
+@keyframes search-open { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.search-field input {
+  width: 100%;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  font-size: clamp(22px, 3.5vw, 40px);
+  background: transparent; border: none; outline: none;
+  color: var(--parchment);
+  caret-color: var(--red-masthead);
+  padding: 4px 0;
+  letter-spacing: -0.01em;
 }
-.search-input::placeholder { color: var(--text-dim); }
-.search-input:focus {
-  border-color: var(--accent-copper);
-  box-shadow: 0 0 0 3px rgba(200,122,46,0.15);
+.search-field input::placeholder { color: var(--parchment-mute); font-style: italic; }
+.search-results-inline {
+  position: absolute; top: 100%; left: 0; right: 0; z-index: 50;
+  background: var(--ink-canvas);
+  border: 1px solid var(--ink-rule);
+  max-height: 56vh; overflow-y: auto;
+  display: none;
 }
-.search-icon {
-  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
-  width: 16px; height: 16px; color: var(--text-dim);
+.search-results-inline.active { display: block; }
+.sri {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--ink-rule-soft);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-print);
 }
-.search-results {
-  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
-  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--glass-border); border-radius: var(--radius-tile);
-  box-shadow: 0 12px 40px var(--glass-shadow);
-  max-height: 420px; overflow-y: auto; display: none; z-index: 200;
-}
-.search-results.active { display: block; }
-.search-result-item {
-  padding: 12px 16px; border-bottom: 1px solid var(--glass-border);
-  cursor: pointer; transition: background var(--dur-fast) var(--ease);
-}
-.search-result-item:hover { background: rgba(200,122,46,0.08); }
-.search-result-item:last-child { border-bottom: none; }
-.sr-title { font-size: 12px; font-weight: 500; margin-bottom: 3px; }
-.sr-meta { font-size: 9.5px; color: var(--text-secondary); }
-.sr-snippet { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; }
-.sr-snippet mark { background: rgba(232,160,80,0.3); color: var(--text-primary); border-radius: 2px; padding: 0 2px; }
-
-/* Theme toggle */
-.theme-toggle {
-  width: 44px; height: 24px; border-radius: 999px; cursor: pointer;
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  position: relative; flex-shrink: 0;
-  transition: border-color var(--dur-fast) var(--ease);
-}
-.theme-toggle:hover { border-color: var(--glass-border-hover); }
-.theme-toggle .knob {
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--color-sun);
-  position: absolute; top: 2px; left: 2px;
-  transition: transform var(--dur-base) var(--ease);
-  box-shadow: 0 0 8px rgba(255,160,48,0.4);
-}
-[data-theme="light"] .theme-toggle .knob { transform: translateX(20px); }
-
-/* Nav pills */
-.nav-pills { display: flex; gap: 4px; flex-shrink: 0; }
-.nav-pill {
-  padding: 6px 14px; border-radius: var(--radius-pill);
-  font-size: 9.5px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.14em; cursor: pointer; border: 1px solid transparent;
-  color: var(--text-secondary); background: transparent;
-  transition: all var(--dur-fast) var(--ease);
-}
-.nav-pill:hover { color: var(--text-primary); border-color: var(--glass-border); }
-.nav-pill.active {
-  color: #080604; background: var(--accent-amber);
-  border-color: var(--accent-amber);
-  box-shadow: 0 0 12px rgba(232,160,80,0.3);
-}
-
-/* Main content */
-.main { flex: 1; padding: 24px; max-width: 960px; margin: 0 auto; width: 100%; }
+.sri:last-child { border-bottom: none; }
+.sri:hover { background: var(--ink-paper); }
+.sri-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; letter-spacing: -0.01em; margin-bottom: 4px; color: var(--parchment); }
+.sri-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--parchment-mute); }
+.sri-snippet { font-size: 14px; color: var(--parchment-dim); margin-top: 6px; font-style: italic; line-height: 1.5; }
 
 /* ============================================================
-   VIEW: DIGEST LIST
+   GRID: main column + marginalia rail
    ============================================================ */
+.edition {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 48px;
+  margin-top: 28px;
+}
+@media (max-width: 980px) { .edition { grid-template-columns: 1fr; gap: 32px; } }
+
 .view { display: none; }
 .view.active { display: block; }
 
-.digest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.digest-card {
-  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--glass-border); border-radius: var(--radius-panel);
-  padding: 20px; cursor: pointer;
-  box-shadow: 0 4px 20px var(--glass-shadow);
-  transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+/* ============================================================
+   TODAY label + Featured lede
+   ============================================================ */
+.dept-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--parchment-mute);
+  display: flex; align-items: center; gap: 12px;
+  margin: 36px 0 16px;
 }
-.digest-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--glass-border-hover);
-  box-shadow: 0 8px 32px var(--glass-shadow), 0 0 20px rgba(200,122,46,0.08);
+.dept-label::after {
+  content: ""; flex: 1; height: 1px; background: var(--ink-rule);
 }
-.digest-card:active { transform: scale(0.97); }
-.dc-day { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.17em; color: var(--accent-copper); margin-bottom: 8px; }
-.dc-date { font-size: 18px; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 6px; }
-.dc-quote { font-size: 11px; color: var(--text-secondary); font-style: italic; margin-bottom: 12px; line-height: 1.5; }
-.dc-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-.tag {
-  font-size: 8.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
-  padding: 3px 8px; border-radius: 999px; color: #080604;
-}
-.tag-read { background: var(--tag-read); }
-.tag-watch { background: var(--tag-watch); }
-.tag-listen { background: var(--tag-listen); }
-.tag-trending { background: var(--tag-trending); }
-.tag-deep { background: var(--tag-deep); }
-.tag-code { background: var(--tag-code); }
-.tag-multi { background: var(--text-dim); color: var(--text-primary); }
+.dept-label .dept-mark { color: var(--red-masthead); font-size: 13px; letter-spacing: 0; }
+.dept-label[data-dept="deep"] .dept-mark,
+.dept-label[data-dept="deep-dive"] .dept-mark { color: var(--slate-deep); }
 
-/* Article count badge */
-.dc-count { font-size: 9px; color: var(--text-dim); margin-top: 10px; }
+.lede {
+  padding: 20px 0 28px;
+  border-bottom: 1px solid var(--ink-rule);
+  margin-bottom: 8px;
+}
+.lede-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--red-masthead);
+  margin-bottom: 14px;
+}
+.lede-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-size: clamp(30px, 4.6vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+  max-width: var(--read-max);
+}
+.lede-title a { color: var(--parchment); text-decoration: none; background-image: linear-gradient(var(--red-masthead), var(--red-masthead)); background-size: 0 1.5px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size var(--dur-base) var(--ease-print); padding-bottom: 2px; }
+.lede-title a:hover { background-size: 100% 1.5px; }
+.lede-italic {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.lede-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--parchment-dim); margin-bottom: 16px;
+}
+.lede-meta .sep { color: var(--ink-rule); margin: 0 10px; }
+.lede-summary {
+  font-family: 'Newsreader', serif;
+  font-variation-settings: "opsz" 22;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--parchment-dim);
+  max-width: var(--read-max);
+  font-feature-settings: "onum" 1;
+}
+.lede-summary::first-letter {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-size: 3.3em;
+  float: left;
+  line-height: 0.88;
+  padding: 4px 10px 0 0;
+  color: var(--red-masthead);
+}
 
 /* ============================================================
-   VIEW: SINGLE DIGEST (article list)
+   ARTICLE ROW — editorial TOC entry
    ============================================================ */
-.back-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 10px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.14em; color: var(--text-secondary);
-  cursor: pointer; margin-bottom: 20px; padding: 6px 12px;
-  border: 1px solid var(--glass-border); border-radius: var(--radius-pill);
-  background: transparent;
-  transition: all var(--dur-fast) var(--ease);
-}
-.back-btn:hover { color: var(--text-primary); border-color: var(--glass-border-hover); }
-
-.digest-header { margin-bottom: 28px; }
-.standalone-link { font-size: 11px; color: var(--accent-teal); text-decoration: none; letter-spacing: 0.05em; opacity: 0.7; transition: opacity var(--dur-fast) var(--ease); }
-.standalone-link:hover { opacity: 1; text-decoration: underline; }
-.dh-day { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.17em; color: var(--accent-copper); }
-.dh-title { font-size: 22px; font-weight: 300; letter-spacing: -0.02em; margin: 6px 0; }
-.dh-quote {
-  border-left: 2px solid var(--accent-copper);
-  padding: 10px 16px; margin: 16px 0;
-  font-size: 12px; font-style: italic; color: var(--text-secondary); line-height: 1.6;
-}
-.dh-quote .author { display: block; font-style: normal; font-weight: 500; margin-top: 6px; font-size: 10px; color: var(--accent-copper); }
-
-.section-label {
-  font-size: 9px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.17em; color: var(--text-dim);
-  margin: 28px 0 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--glass-border);
-}
-
-/* Article card */
-.article-card {
-  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--glass-border); border-radius: var(--radius-panel);
-  margin-bottom: 14px; overflow: hidden;
-  box-shadow: 0 4px 16px var(--glass-shadow);
-  transition: border-color var(--dur-fast) var(--ease);
-}
-.article-card:hover { border-color: var(--glass-border-hover); }
-.article-card.deep-dive { border-left: 3px solid var(--color-sun); }
-
-.ac-header {
-  padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
-}
-.ac-title { font-size: 13px; font-weight: 500; line-height: 1.5; flex: 1; }
-.ac-title a { color: var(--text-primary); text-decoration: none; transition: color var(--dur-fast); }
-.ac-title a:hover { color: var(--accent-amber); }
-.ac-meta { font-size: 9.5px; color: var(--text-secondary); margin-top: 5px; display: flex; flex-wrap: wrap; gap: 4px 10px; }
-.ac-summary { font-size: 11.5px; color: var(--text-secondary); line-height: 1.6; margin-top: 8px; }
-.ac-why { font-size: 10.5px; color: var(--accent-copper); font-style: italic; margin-top: 8px; }
-.ac-tags { display: flex; gap: 4px; flex-shrink: 0; align-self: flex-start; }
-
-/* Expand/collapse for notes */
-.ac-expand { font-size: 18px; color: var(--text-dim); cursor: pointer; padding: 4px; transition: transform var(--dur-base) var(--ease); }
-.ac-expand.open { transform: rotate(180deg); }
-
-/* Feedback buttons */
-.ac-feedback {
-  padding: 0 20px 10px;
-  display: flex; gap: 6px;
-}
-.fb-btn {
-  width: 28px; height: 28px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--glass-border);
-  background: transparent;
-  color: var(--text-dim);
-  font-size: 11px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all var(--dur-fast) var(--ease);
-  font-family: inherit;
-}
-.fb-btn:hover {
-  border-color: var(--glass-border-hover);
-  color: var(--text-secondary);
-}
-.fb-btn.fb-up.active {
-  background: rgba(200, 122, 46, 0.2);
-  border-color: var(--accent-copper);
-  color: var(--accent-amber);
-}
-.fb-btn.fb-down.active {
-  background: rgba(232, 71, 44, 0.15);
-  border-color: var(--accent-coral);
-  color: var(--accent-coral);
-}
-.fb-btn.fb-bookmark.active {
-  background: rgba(232, 160, 80, 0.2);
-  border-color: var(--accent-amber);
-  color: var(--accent-amber);
-}
-
-/* Quick-add URL */
-.quick-add {
-  display: flex; gap: 8px; margin-bottom: 20px;
-}
-.quick-add-input {
-  flex: 1; padding: 9px 14px;
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  border-radius: var(--radius-tile); color: var(--text-primary);
-  font-family: inherit; font-size: 12px; outline: none;
-  backdrop-filter: blur(12px);
-  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
-}
-.quick-add-input::placeholder { color: var(--text-dim); }
-.quick-add-input:focus {
-  border-color: var(--accent-copper);
-  box-shadow: 0 0 0 3px rgba(200,122,46,0.15);
-}
-.quick-add-btn {
-  padding: 7px 18px; border-radius: var(--radius-pill);
-  font-family: inherit; font-size: 9.5px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.12em; cursor: pointer; border: none;
-  background: var(--accent-copper); color: #080604;
-  box-shadow: 0 0 12px rgba(200,122,46,0.2);
-  transition: all var(--dur-fast) var(--ease);
-  flex-shrink: 0;
-}
-.quick-add-btn:hover { background: var(--accent-amber); transform: translateY(-1px); }
-.quick-add-btn:active { transform: scale(0.95); }
-
-/* Queue item (pending URL) */
-.queue-item {
-  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--glass-border); border-radius: var(--radius-panel);
-  padding: 14px 20px; margin-bottom: 10px;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  transition: border-color var(--dur-fast) var(--ease);
-}
-.queue-item:hover { border-color: var(--glass-border-hover); }
-.queue-item-url {
-  font-size: 12px; color: var(--accent-teal); text-decoration: none;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1;
-}
-.queue-item-url:hover { text-decoration: underline; }
-.queue-item-time { font-size: 8.5px; color: var(--text-dim); flex-shrink: 0; }
-.queue-item-remove {
-  width: 22px; height: 22px; border-radius: 4px; border: none; cursor: pointer;
-  background: var(--glass-bg); color: var(--text-secondary); font-size: 13px;
-  display: flex; align-items: center; justify-content: center;
-  transition: all var(--dur-fast); flex-shrink: 0;
-}
-.queue-item-remove:hover { background: var(--accent-coral); color: #080604; }
-.queue-item-edit {
-  width: 22px; height: 22px; border-radius: 4px; border: none; cursor: pointer;
-  background: var(--glass-bg); color: var(--text-secondary); font-size: 13px;
-  display: flex; align-items: center; justify-content: center;
-  transition: all var(--dur-fast); flex-shrink: 0;
-}
-.queue-item-edit:hover { background: var(--accent-copper); color: #080604; }
-.queue-edit-row {
-  display: flex; gap: 8px; flex: 1; align-items: center;
-}
-.queue-edit-input {
-  flex: 1; padding: 6px 10px;
-  background: var(--note-bg); border: 1px solid var(--accent-copper);
-  border-radius: var(--radius-pill); color: var(--text-primary);
-  font-family: inherit; font-size: 12px; outline: none;
-}
-.queue-edit-save, .queue-edit-cancel {
-  padding: 4px 12px; border-radius: var(--radius-pill);
-  font-family: inherit; font-size: 9px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.1em; cursor: pointer; border: none;
-  transition: all var(--dur-fast) var(--ease);
-}
-.queue-edit-save { background: var(--accent-copper); color: #080604; }
-.queue-edit-save:hover { background: var(--accent-amber); }
-.queue-edit-cancel { background: transparent; border: 1px solid var(--glass-border); color: var(--text-secondary); }
-.queue-edit-cancel:hover { border-color: var(--glass-border-hover); color: var(--text-primary); }
-
-/* Export button */
-.export-btn {
-  padding: 5px 12px; border-radius: var(--radius-pill);
-  font-family: inherit; font-size: 8.5px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.1em; cursor: pointer;
-  background: transparent; border: 1px solid var(--glass-border);
-  color: var(--text-secondary); flex-shrink: 0;
-  transition: all var(--dur-fast) var(--ease);
-}
-.export-btn:hover { border-color: var(--accent-copper); color: var(--text-primary); }
-
-/* Toast notification */
-.toast {
-  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
-  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--accent-copper); border-radius: var(--radius-tile);
-  padding: 12px 20px; font-size: 11px; color: var(--text-primary);
-  box-shadow: 0 8px 32px var(--glass-shadow);
-  transform: translateY(20px); opacity: 0;
-  transition: all var(--dur-base) var(--ease);
-  pointer-events: none;
-}
-.toast.show { transform: translateY(0); opacity: 1; }
-
-/* ============================================================
-   ANNOTATION / NOTES PANEL
-   ============================================================ */
-.notes-panel {
-  max-height: 0; overflow: hidden;
-  transition: max-height var(--dur-slow) var(--ease);
-  border-top: 1px solid transparent;
-}
-.notes-panel.open {
-  max-height: 2000px;
-  border-top-color: var(--glass-border);
-}
-.notes-inner { padding: 16px 20px; }
-
-.note-item {
-  background: var(--note-bg); border: 1px solid var(--glass-border);
-  border-radius: var(--radius-tile); padding: 14px; margin-bottom: 10px;
+.article-row {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--ink-rule-soft);
   position: relative;
 }
-.note-item .note-time { font-size: 8.5px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
-.note-item .note-body { font-size: 12px; line-height: 1.65; color: var(--text-primary); }
-.note-item .note-body a { color: var(--accent-teal); text-decoration: none; }
-.note-item .note-body a:hover { text-decoration: underline; }
-.note-item .note-actions {
+.article-row:last-child { border-bottom: none; }
+.ar-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.04em;
+  color: var(--parchment-mute);
+  font-variant-numeric: tabular-nums;
+  padding-top: 6px;
+}
+.ar-body { min-width: 0; }
+.ar-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-variation-settings: "opsz" 72, "SOFT" 30;
+  font-size: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.012em;
+  margin-bottom: 6px;
+}
+.ar-title a {
+  color: var(--parchment); text-decoration: none;
+  background-image: linear-gradient(var(--red-masthead), var(--red-masthead));
+  background-size: 0 1px; background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size var(--dur-base) var(--ease-print), color var(--dur-fast) var(--ease-print);
+  padding-bottom: 2px;
+}
+.ar-title a:hover { background-size: 100% 1px; color: var(--parchment); }
+.ar-title.deep { font-style: italic; }
+.ar-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--parchment-mute);
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.ar-meta .sep { color: var(--ink-rule); margin: 0 8px; }
+.ar-summary {
+  font-family: 'Newsreader', serif;
+  font-variation-settings: "opsz" 16";
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--parchment-dim);
+  font-feature-settings: "onum" 1;
+  max-width: var(--read-max);
+}
+.ar-why {
+  display: block;
+  font-style: italic;
+  margin-top: 6px;
+  color: var(--red-masthead);
+  font-size: 14px;
+}
+
+/* right-aligned rating + marks */
+.ar-marks {
+  display: flex; align-items: flex-start; gap: 6px;
+  padding-top: 6px;
+}
+.ar-marks button {
+  font-family: 'Fraunces', serif;
+  background: transparent; border: none;
+  color: var(--parchment-mute); cursor: pointer;
+  font-size: 18px; line-height: 1;
+  padding: 2px 4px;
+  transition: color var(--dur-fast) var(--ease-print), transform var(--dur-fast) var(--ease-print);
+}
+.ar-marks button:hover { color: var(--parchment); transform: translateY(-1px); }
+.ar-marks .m-up.active { color: var(--red-masthead); }
+.ar-marks .m-down.active { color: var(--slate-deep); }
+.ar-marks .m-bm.active { color: var(--gold-star); }
+.ar-marks .m-note { font-size: 15px; }
+.ar-marks .m-note.has-notes { color: var(--gold-star); }
+
+/* notes panel */
+.notes-panel {
+  grid-column: 2 / -1;
+  max-height: 0; overflow: hidden;
+  transition: max-height var(--dur-slow) var(--ease-print);
+}
+.notes-panel.open { max-height: 2400px; }
+.notes-inner {
+  padding: 18px 0 10px;
+  border-top: 1px dashed var(--ink-rule);
+  margin-top: 14px;
+}
+.note-item {
+  padding: 14px 16px 14px 22px;
+  background: var(--ink-paper);
+  border-left: 2px solid var(--red-masthead);
+  margin-bottom: 10px; position: relative;
+}
+.note-time {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--parchment-mute); margin-bottom: 6px;
+}
+.note-body {
+  font-family: 'Newsreader', serif; font-size: 15px; line-height: 1.65;
+  color: var(--parchment); font-feature-settings: "onum" 1;
+}
+.note-body a { color: var(--teal-link); text-decoration: none; border-bottom: 1px solid var(--ink-rule); }
+.note-body a:hover { border-bottom-color: var(--teal-link); }
+.note-actions {
   position: absolute; top: 10px; right: 10px;
   display: flex; gap: 4px; opacity: 0; transition: opacity var(--dur-fast);
 }
 .note-item:hover .note-actions { opacity: 1; }
 .note-action-btn {
-  width: 22px; height: 22px; border-radius: 4px; border: none; cursor: pointer;
-  background: var(--glass-bg); color: var(--text-secondary); font-size: 11px;
-  display: flex; align-items: center; justify-content: center;
-  transition: all var(--dur-fast);
+  background: transparent; border: none; cursor: pointer;
+  color: var(--parchment-mute); font-size: 16px;
+  padding: 2px 6px;
 }
-.note-action-btn:hover { background: var(--accent-copper); color: #080604; }
+.note-action-btn:hover { color: var(--red-masthead); }
 
-/* Note editor */
-.note-editor {
-  margin-top: 10px; display: flex; flex-direction: column; gap: 8px;
-}
-.note-toolbar {
-  display: flex; gap: 4px; flex-wrap: wrap;
-}
+.note-editor { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.note-toolbar { display: flex; gap: 4px; flex-wrap: wrap; }
 .note-toolbar button {
-  padding: 4px 10px; border-radius: var(--radius-pill);
-  font-family: inherit; font-size: 9px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  color: var(--text-secondary); cursor: pointer;
-  transition: all var(--dur-fast) var(--ease);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 4px 10px; background: transparent;
+  border: 1px solid var(--ink-rule); color: var(--parchment-mute);
+  cursor: pointer;
+  transition: border-color var(--dur-fast), color var(--dur-fast);
 }
-.note-toolbar button:hover { border-color: var(--accent-copper); color: var(--text-primary); }
+.note-toolbar button:hover { border-color: var(--red-masthead); color: var(--parchment); }
 .note-textarea {
-  width: 100%; min-height: 80px; padding: 12px;
-  background: var(--note-bg); border: 1px solid var(--glass-border);
-  border-radius: var(--radius-tile); color: var(--text-primary);
-  font-family: inherit; font-size: 11.5px; line-height: 1.65;
-  resize: vertical; outline: none;
-  transition: border-color var(--dur-fast) var(--ease);
+  width: 100%; min-height: 96px; padding: 14px 16px;
+  background: var(--ink-paper);
+  border: 1px solid var(--ink-rule);
+  font-family: 'Newsreader', serif; font-size: 15px; line-height: 1.65;
+  color: var(--parchment); resize: vertical; outline: none;
+  transition: border-color var(--dur-fast);
 }
-.note-textarea::placeholder { color: var(--text-dim); }
-.note-textarea:focus { border-color: var(--accent-copper); }
-.note-hint { font-size: 9px; color: var(--text-dim); line-height: 1.5; }
+.note-textarea:focus { border-color: var(--red-masthead); }
+.note-textarea::placeholder { color: var(--parchment-mute); font-style: italic; }
+.note-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--parchment-mute);
+}
 .note-submit {
-  align-self: flex-end; padding: 7px 18px; border-radius: var(--radius-pill);
-  font-family: inherit; font-size: 9.5px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.12em; cursor: pointer; border: none;
-  background: var(--accent-copper); color: #080604;
-  box-shadow: 0 0 12px rgba(200,122,46,0.2);
-  transition: all var(--dur-fast) var(--ease);
+  align-self: flex-end;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+  padding: 8px 16px;
+  background: var(--red-masthead); color: #F4ECD8;
+  border: none; cursor: pointer;
+  transition: background var(--dur-fast), transform var(--dur-fast);
 }
-.note-submit:hover { background: var(--accent-amber); transform: translateY(-1px); }
-.note-submit:active { transform: scale(0.95); }
+.note-submit:hover { background: #A12C21; transform: translateY(-1px); }
 
 /* ============================================================
-   VIEW: ALL NOTES (notebook)
+   BACK ISSUES SPINE
+   ============================================================ */
+.back-issues {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--parchment);
+  position: relative;
+}
+.back-issues::before {
+  content: ""; display: block;
+  border-top: 1px solid var(--parchment);
+  margin-top: -21px; margin-bottom: 18px;
+}
+.back-issues .dept-label { margin-top: 0; }
+.issues-strip {
+  display: flex; gap: 4px;
+  overflow-x: auto;
+  padding: 6px 0 14px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.issues-strip::-webkit-scrollbar { height: 4px; }
+.issues-strip::-webkit-scrollbar-thumb { background: var(--ink-rule); }
+.issue-chip {
+  flex-shrink: 0; scroll-snap-align: start;
+  min-width: 92px;
+  padding: 12px 14px;
+  cursor: pointer;
+  border-right: 1px solid var(--ink-rule-soft);
+  transition: background var(--dur-fast) var(--ease-print);
+  position: relative;
+}
+.issue-chip:last-child { border-right: none; }
+.issue-chip:hover { background: var(--ink-paper); }
+.issue-chip.current {
+  background: var(--red-masthead-soft);
+}
+.issue-chip.current::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px;
+  height: 2px; background: var(--red-masthead);
+}
+.issue-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-variation-settings: "opsz" 72, "SOFT" 30;
+  font-size: 28px; line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--parchment);
+  margin-bottom: 4px;
+}
+.issue-num .hash { color: var(--red-masthead); font-style: italic; font-weight: 400; margin-right: 2px; }
+.issue-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--parchment-mute);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   MARGINALIA RAIL
+   ============================================================ */
+.marginalia {
+  position: sticky;
+  top: 28px;
+  align-self: start;
+  padding-left: 22px;
+  border-left: 1px solid var(--ink-rule);
+  max-height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+@media (max-width: 980px) {
+  .marginalia { position: static; border-left: none; border-top: 1px solid var(--ink-rule); padding: 22px 0 0; margin-top: 28px; }
+}
+.mg-head {
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-size: 22px; letter-spacing: -0.01em;
+  color: var(--parchment);
+  margin-bottom: 4px;
+}
+.mg-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--parchment-mute); margin-bottom: 20px;
+}
+.mg-section { margin-bottom: 24px; }
+.mg-section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--red-masthead);
+  margin-bottom: 10px;
+  display: flex; align-items: baseline; justify-content: space-between;
+}
+.mg-section-title .ct {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 14px; letter-spacing: 0;
+  color: var(--parchment-mute);
+  text-transform: none;
+}
+.mg-item {
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--ink-rule-soft);
+  font-family: 'Newsreader', serif;
+  font-size: 14px; line-height: 1.4;
+  color: var(--parchment);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-print);
+}
+.mg-item:last-child { border-bottom: none; }
+.mg-item:hover { color: var(--red-masthead); }
+.mg-item .mg-meta {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--parchment-mute);
+  margin-top: 3px;
+}
+.mg-empty {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 13px; color: var(--parchment-mute); line-height: 1.5;
+}
+
+/* quick-add + export in marginalia */
+.mg-quick {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-top: 10px;
+}
+.mg-quick input {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; padding: 8px 10px;
+  background: transparent; border: 1px solid var(--ink-rule);
+  color: var(--parchment); outline: none;
+  transition: border-color var(--dur-fast);
+}
+.mg-quick input:focus { border-color: var(--red-masthead); }
+.mg-quick button {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  padding: 7px 10px; background: transparent;
+  border: 1px solid var(--ink-rule); color: var(--parchment-dim);
+  cursor: pointer;
+  transition: border-color var(--dur-fast), color var(--dur-fast);
+}
+.mg-quick button:hover { border-color: var(--red-masthead); color: var(--parchment); }
+
+/* ============================================================
+   QUEUE items (in bookmarks view, not rail)
+   ============================================================ */
+.queue-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ink-rule-soft);
+}
+.queue-item a {
+  flex: 1; font-family: 'Newsreader', serif; font-size: 15px;
+  color: var(--teal-link); text-decoration: none;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.queue-item a:hover { text-decoration: underline; }
+.queue-item .qi-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--parchment-mute); flex-shrink: 0;
+}
+.queue-item button {
+  background: transparent; border: none; cursor: pointer;
+  color: var(--parchment-mute); font-size: 16px; padding: 4px 6px;
+  transition: color var(--dur-fast);
+}
+.queue-item button:hover { color: var(--red-masthead); }
+.queue-edit-row { display: flex; gap: 8px; flex: 1; align-items: center; }
+.queue-edit-row input {
+  flex: 1; padding: 8px 10px;
+  background: var(--ink-paper); border: 1px solid var(--red-masthead);
+  color: var(--parchment); font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  outline: none;
+}
+.queue-edit-row button {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid var(--ink-rule); background: transparent;
+  color: var(--parchment-dim); cursor: pointer;
+}
+.queue-edit-row button:hover { border-color: var(--red-masthead); color: var(--parchment); }
+
+/* ============================================================
+   NOTEBOOK VIEW
    ============================================================ */
 .notebook-item {
-  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--glass-border); border-radius: var(--radius-panel);
-  padding: 18px 20px; margin-bottom: 12px;
-  transition: border-color var(--dur-fast) var(--ease);
+  padding: 24px 0;
+  border-bottom: 1px solid var(--ink-rule);
 }
-.notebook-item:hover { border-color: var(--glass-border-hover); }
-.nb-article-title { font-size: 11px; font-weight: 600; color: var(--accent-copper); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
-.nb-note { font-size: 12px; line-height: 1.65; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--glass-border); }
-.nb-note:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-.nb-note-time { font-size: 8.5px; color: var(--text-dim); margin-bottom: 4px; }
-
-/* ============================================================
-   LC SIGNATURE
-   ============================================================ */
-.lc-signature {
-  position: fixed; bottom: 16px; left: 20px; z-index: 50;
-  opacity: 0.25; transition: opacity var(--dur-base);
-  pointer-events: none;
+.nb-article-title {
+  font-family: 'Fraunces', serif; font-weight: 400;
+  font-variation-settings: "opsz" 72, "SOFT" 30;
+  font-size: 22px; letter-spacing: -0.012em;
+  margin-bottom: 14px;
+  color: var(--parchment);
 }
-.lc-signature svg { width: 36px; height: 36px; }
-
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent-copper); }
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 640px) {
-  .top-bar { padding: 10px 14px; gap: 10px; flex-wrap: wrap; }
-  .search-wrap { max-width: 100%; order: 10; flex-basis: 100%; }
-  .nav-pills { gap: 2px; }
-  .nav-pill { padding: 5px 10px; font-size: 8.5px; }
-  .main { padding: 16px 12px; }
-  .digest-grid { grid-template-columns: 1fr; }
-  .logo-text { display: none; }
+.nb-note {
+  padding: 10px 0 10px 18px;
+  border-left: 2px solid var(--ink-rule);
+  margin-bottom: 8px;
+}
+.nb-note-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--parchment-mute); margin-bottom: 4px;
 }
 
 /* ============================================================
    EMPTY STATE
    ============================================================ */
 .empty-state {
-  text-align: center; padding: 60px 20px;
-  color: var(--text-dim);
+  padding: 80px 20px;
+  text-align: center;
+  font-family: 'Newsreader', serif; font-style: italic;
+  color: var(--parchment-mute); font-size: 18px;
+  line-height: 1.6;
 }
-.empty-state .icon { font-size: 36px; margin-bottom: 12px; opacity: 0.3; }
-.empty-state p { font-size: 12px; line-height: 1.6; }
+.empty-state .icon {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-size: 72px; color: var(--red-masthead); opacity: 0.6;
+  display: block; margin-bottom: 18px; line-height: 1;
+}
 
 /* ============================================================
-   STATS BAR
+   COLOPHON
    ============================================================ */
-.stats-bar {
-  display: flex; gap: 20px; margin-bottom: 24px; flex-wrap: wrap;
+.colophon {
+  margin-top: 72px;
+  padding-top: 22px;
+  border-top: 1px solid var(--parchment);
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 24px; flex-wrap: wrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--parchment-mute);
 }
-.stat-item {
-  background: var(--glass-bg); backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--glass-border); border-radius: var(--radius-tile);
-  padding: 14px 18px; flex: 1; min-width: 120px;
+.colophon::before {
+  content: ""; position: absolute; left: 32px; right: 32px;
+  border-top: 1px solid var(--parchment); margin-top: -24px;
 }
-.stat-value { font-size: 22px; font-weight: 300; letter-spacing: -0.02em; color: var(--accent-amber); }
-.stat-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.17em; color: var(--text-dim); margin-top: 4px; }
+.colophon strong {
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+  color: var(--parchment); font-size: 15px;
+  text-transform: none; letter-spacing: -0.01em;
+}
 
-/* KaTeX overrides */
-.katex { font-size: 1em !important; color: var(--accent-teal) !important; }
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  background: var(--ink-paper);
+  border: 1px solid var(--red-masthead);
+  padding: 12px 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--parchment);
+  transform: translateY(16px); opacity: 0;
+  transition: transform var(--dur-base) var(--ease-print), opacity var(--dur-base) var(--ease-print);
+  pointer-events: none;
+}
+.toast.show { transform: none; opacity: 1; }
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 8px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--ink-rule); }
+::-webkit-scrollbar-thumb:hover { background: var(--red-masthead); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 720px) {
+  .issue-line { font-size: 9.5px; letter-spacing: 0.18em; }
+  .issue-line .weather { display: none; }
+  .dept-label { letter-spacing: 0.24em; }
+  .article-row { grid-template-columns: 24px minmax(0, 1fr); }
+  .ar-marks { grid-column: 2 / -1; justify-content: flex-start; padding-top: 4px; }
+  .notes-panel { grid-column: 1 / -1; }
+}
+
+/* KaTeX — keep math readable in cream */
+.katex { font-size: 1em !important; color: var(--red-masthead) !important; }
+[data-theme="light"] .katex { color: var(--red-masthead) !important; }
 </style>
 </head>
 <body>
 
-<!-- Ambient canvas -->
-<canvas id="ambient-canvas"></canvas>
+<!-- Grain + column grid overlays -->
+<div class="col-grid" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
-<!-- LC Signature -->
-<div class="lc-signature">
-  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 8 L8 32 L22 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-copper)"/>
-    <path d="M38 12 C34 8, 28 8, 26 12 C24 16, 24 26, 26 30 C28 34, 34 34, 38 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" style="color:var(--accent-copper)"/>
-  </svg>
-</div>
+<!-- LC signature -->
+<div class="lc-signature" aria-hidden="true">℃</div>
 
-<!-- App shell -->
 <div class="app-shell">
-  <!-- Top bar -->
-  <div class="top-bar">
-    <div class="logo">
-      <div class="logo-mark">LC</div>
-      <div>
-        <div class="logo-text">Morning Digest</div>
-        <div class="logo-sub">PhD Reading Log</div>
+
+  <!-- ==== MASTHEAD ==== -->
+  <header class="masthead">
+    <div class="masthead-row">
+      <h1 class="nameplate">Morning<span class="amp"> &amp; </span>Digest</h1>
+      <div class="mast-actions">
+        <button class="glyph-btn" id="btnSearch" title="Search (⌘K)" aria-label="Search">⌕</button>
+        <button class="glyph-btn" id="btnNotebook" title="Notebook" aria-label="Notebook">✎</button>
+        <button class="glyph-btn" id="btnBookmarks" title="Bookmarks" aria-label="Bookmarks">☆</button>
+        <button class="glyph-btn" id="btnExport" title="Export feedback + queue" aria-label="Export">⎘</button>
+        <button class="glyph-btn" id="btnTheme" title="Toggle theme" aria-label="Theme">◐</button>
       </div>
     </div>
-
-    <div class="search-wrap">
-      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input class="search-input" id="searchInput" type="text" placeholder="Search articles, authors, tags... (Ctrl+K)">
-      <div class="search-results" id="searchResults"></div>
+    <div class="issue-line" id="issueLine">
+      <span><span class="today">Today</span><span class="dot">·</span>Vol. I<span class="dot">·</span>Issue №—<span class="dot">·</span>—</span>
+      <span class="weather"><em>Formal methods &amp; reinforcement learning, curated nightly.</em></span>
     </div>
-
-    <div class="nav-pills">
-      <div class="nav-pill active" data-view="digests">Digests</div>
-      <div class="nav-pill" data-view="notebook">Notebook</div>
-      <div class="nav-pill" data-view="bookmarks">Bookmarks</div>
+    <div class="search-field" id="searchField">
+      <input id="searchInput" type="text" placeholder="Search the archive — titles, authors, tags…" autocomplete="off">
+      <div class="search-results-inline" id="searchResults"></div>
     </div>
+  </header>
 
-    <button class="export-btn" onclick="exportData()" title="Copy feedback summary + queued URLs to clipboard">Export Data</button>
+  <!-- ==== EDITION: main column + marginalia rail ==== -->
+  <div class="edition">
+    <main>
+      <!-- Issue view (default) -->
+      <section class="view active" id="view-issue">
+        <div id="issueContent"></div>
+        <div class="back-issues" id="backIssuesBlock"></div>
+      </section>
 
-    <div class="theme-toggle" id="themeToggle" title="Toggle theme">
-      <div class="knob"></div>
-    </div>
+      <!-- Notebook view -->
+      <section class="view" id="view-notebook">
+        <div class="dept-label"><span class="dept-mark">¶</span>The Notebook</div>
+        <div id="notebookContent"></div>
+      </section>
+
+      <!-- Bookmarks view -->
+      <section class="view" id="view-bookmarks">
+        <div class="dept-label"><span class="dept-mark">✦</span>Saved &amp; Queued</div>
+        <div class="mg-quick" style="max-width:520px; flex-direction:row; margin: 12px 0 28px;">
+          <input id="quickAddInput" type="url" placeholder="Paste a URL to read later…">
+          <button id="quickAddBtn">+ Save</button>
+        </div>
+        <div id="bookmarksContent"></div>
+      </section>
+    </main>
+
+    <!-- Marginalia rail -->
+    <aside class="marginalia" id="marginalia"></aside>
   </div>
 
-  <!-- Main content -->
-  <div class="main">
-    <!-- Digest list view -->
-    <div class="view active" id="view-digests">
-      <div class="stats-bar" id="statsBar"></div>
-      <div class="digest-grid" id="digestGrid"></div>
-    </div>
+  <!-- ==== COLOPHON ==== -->
+  <footer class="colophon">
+    <div><strong>℃</strong> &nbsp; Morning Digest · A daily edition of one</div>
+    <div>Set in <em style="font-family:'Fraunces',serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:13px;color:var(--parchment-dim)">Fraunces</em>, <em style="font-family:'Newsreader',serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:13px;color:var(--parchment-dim)">Newsreader</em> &amp; JetBrains Mono. Printed nightly from Atlanta.</div>
+  </footer>
 
-    <!-- Single digest view -->
-    <div class="view" id="view-single">
-      <button class="back-btn" id="backBtn">&larr; All Digests</button>
-      <div id="singleContent"></div>
-    </div>
-
-    <!-- Notebook view -->
-    <div class="view" id="view-notebook">
-      <div class="digest-header">
-        <div class="dh-day">All Notes</div>
-        <div class="dh-title">Your Notebook</div>
-      </div>
-      <div id="notebookContent"></div>
-    </div>
-
-    <!-- Bookmarks view -->
-    <div class="view" id="view-bookmarks">
-      <div class="digest-header">
-        <div class="dh-day">Saved</div>
-        <div class="dh-title">Your Bookmarks</div>
-      </div>
-      <div class="quick-add">
-        <input class="quick-add-input" id="quickAddInput" type="url" placeholder="Paste a URL to save for later...">
-        <button class="quick-add-btn" id="quickAddBtn">+ Save</button>
-      </div>
-      <div id="bookmarksContent"></div>
-    </div>
-  </div>
 </div>
 
-<!-- Toast notification -->
 <div class="toast" id="toast"></div>
 
 <script>
 /* ============================================================
-   DATA STORE
+   STATE
    ============================================================ */
-const STORAGE_KEY = 'lc-digest-notes';
-const THEME_KEY = 'lc-digest-theme';
+const STORAGE_KEY  = 'lc-digest-notes';
+const THEME_KEY    = 'lc-digest-theme';
+const RATINGS_KEY  = 'lc-digest-ratings';
+const QUEUE_KEY    = 'lc-digest-queue';
+const BOOKMARKS_KEY= 'lc-digest-bookmarks';
 
-// Load reading log from embedded data or fetch
 let readingLog = null;
 let fuse = null;
+let currentView = 'issue';
+let currentIssueDate = null;   // the date string being rendered in the issue view
 
-// Notes stored in localStorage
-function loadNotes() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-  catch { return {}; }
-}
-function saveNotes(notes) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
-}
+/* ============================================================
+   STORAGE
+   ============================================================ */
+function loadJSON(key, fallback) { try { return JSON.parse(localStorage.getItem(key) || '') ?? fallback; } catch { return fallback; } }
+function saveJSON(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+
+function loadNotes()     { return loadJSON(STORAGE_KEY, {}); }
+function saveNotes(v)    { saveJSON(STORAGE_KEY, v); }
+function loadRatings()   { return loadJSON(RATINGS_KEY, {}); }
+function saveRatings(v)  { saveJSON(RATINGS_KEY, v); }
+function loadQueue()     { return loadJSON(QUEUE_KEY, []); }
+function saveQueue(v)    { saveJSON(QUEUE_KEY, v); }
+function loadBookmarks() { return loadJSON(BOOKMARKS_KEY, {}); }
+function saveBookmarks(v){ saveJSON(BOOKMARKS_KEY, v); }
+
 function addNote(articleId, text) {
   const notes = loadNotes();
   if (!notes[articleId]) notes[articleId] = [];
-  notes[articleId].push({
-    id: Date.now().toString(36),
-    text: text,
-    created: new Date().toISOString()
-  });
-  saveNotes(notes);
-  return notes;
+  notes[articleId].push({ id: Date.now().toString(36), text, created: new Date().toISOString() });
+  saveNotes(notes); return notes;
 }
 function deleteNote(articleId, noteId) {
   const notes = loadNotes();
@@ -692,211 +876,104 @@ function deleteNote(articleId, noteId) {
     notes[articleId] = notes[articleId].filter(n => n.id !== noteId);
     if (notes[articleId].length === 0) delete notes[articleId];
   }
-  saveNotes(notes);
-  return notes;
+  saveNotes(notes); return notes;
 }
-
-/* ============================================================
-   RATINGS (thumbs up/down) stored in localStorage
-   ============================================================ */
-const RATINGS_KEY = 'lc-digest-ratings';
-
-function loadRatings() {
-  try { return JSON.parse(localStorage.getItem(RATINGS_KEY) || '{}'); }
-  catch { return {}; }
-}
-function saveRatings(ratings) {
-  localStorage.setItem(RATINGS_KEY, JSON.stringify(ratings));
-}
-function getRating(articleId) {
-  const ratings = loadRatings();
-  return ratings[articleId] ? ratings[articleId].rating : null;
-}
+function getRating(id) { return loadRatings()[id]?.rating ?? null; }
 function setRating(articleId, value) {
   const ratings = loadRatings();
-  const current = ratings[articleId] ? ratings[articleId].rating : null;
-  if (current === value) {
-    delete ratings[articleId];
-  } else {
-    ratings[articleId] = { rating: value, ts: new Date().toISOString() };
-  }
+  if (ratings[articleId]?.rating === value) delete ratings[articleId];
+  else ratings[articleId] = { rating: value, ts: new Date().toISOString() };
   saveRatings(ratings);
-  // Re-render current view
-  if (currentView === 'single') {
-    const date = articleDate(readingLog.articles.find(a => a.id === articleId));
-    if (date) renderSingleDigest(date);
-  } else if (currentView === 'bookmarks') {
-    renderBookmarks();
-  }
+  rerenderCurrentView();
 }
-
-/* ============================================================
-   URL QUEUE stored in localStorage
-   ============================================================ */
-const QUEUE_KEY = 'lc-digest-queue';
-
-function loadQueue() {
-  try { return JSON.parse(localStorage.getItem(QUEUE_KEY) || '[]'); }
-  catch { return []; }
-}
-function saveQueue(queue) {
-  localStorage.setItem(QUEUE_KEY, JSON.stringify(queue));
-}
-function addToQueue(url) {
-  if (!url) return;
-  try { new URL(url); } catch { return; }
-  const queue = loadQueue();
-  if (queue.some(q => q.url === url)) return; // no duplicates
-  queue.unshift({ url: url, addedAt: new Date().toISOString() });
-  saveQueue(queue);
-  renderBookmarks();
-}
-function removeFromQueue(index) {
-  const queue = loadQueue();
-  queue.splice(index, 1);
-  saveQueue(queue);
-  renderBookmarks();
-}
-function editQueueItem(index) {
-  const queue = loadQueue();
-  const item = queue[index];
-  if (!item) return;
-  const container = document.getElementById('bookmarksContent');
-  const queueItems = container.querySelectorAll('.queue-item');
-  const el = queueItems[index];
-  if (!el) return;
-  el.innerHTML = `
-    <div class="queue-edit-row">
-      <input class="queue-edit-input" type="url" value="${item.url}">
-      <button class="queue-edit-save" onclick="saveQueueEdit(${index})">Save</button>
-      <button class="queue-edit-cancel" onclick="renderBookmarks()">Cancel</button>
-    </div>
-  `;
-  const input = el.querySelector('.queue-edit-input');
-  input.focus();
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') saveQueueEdit(index);
-    if (e.key === 'Escape') renderBookmarks();
-  });
-}
-function saveQueueEdit(index) {
-  const input = document.querySelector('.queue-edit-input');
-  if (!input) return;
-  const newUrl = input.value.trim();
-  if (!newUrl) return;
-  try { new URL(newUrl); } catch { showToast('Invalid URL'); return; }
-  const queue = loadQueue();
-  if (queue.some((q, i) => i !== index && q.url === newUrl)) {
-    showToast('URL already exists');
-    return;
-  }
-  queue[index].url = newUrl;
-  saveQueue(queue);
-  renderBookmarks();
-  showToast('URL updated');
-}
-
-/* ============================================================
-   BOOKMARKS stored in localStorage
-   ============================================================ */
-const BOOKMARKS_KEY = 'lc-digest-bookmarks';
-
-function loadBookmarks() {
-  try { return JSON.parse(localStorage.getItem(BOOKMARKS_KEY) || '{}'); }
-  catch { return {}; }
-}
-function saveBookmarks(bm) {
-  localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bm));
-}
-function isBookmarked(articleId) {
+function isBookmarked(id) {
   const bm = loadBookmarks();
-  if (bm[articleId]) return true;
-  const article = readingLog?.articles.find(a => a.id === articleId);
-  return article?.status === 'bookmarked';
+  if (bm[id]) return true;
+  const a = readingLog?.articles.find(x => x.id === id);
+  return a?.status === 'bookmarked';
 }
 function toggleBookmark(articleId) {
   const bm = loadBookmarks();
-  if (bm[articleId]) {
-    delete bm[articleId];
-    showToast('Bookmark removed');
-  } else {
-    bm[articleId] = { bookmarked: true, ts: new Date().toISOString() };
-    showToast('Bookmarked');
-  }
+  if (bm[articleId]) { delete bm[articleId]; showToast('Bookmark removed'); }
+  else { bm[articleId] = { bookmarked: true, ts: new Date().toISOString() }; showToast('Bookmarked'); }
   saveBookmarks(bm);
-  // Re-render current view
-  if (currentView === 'single') {
-    const date = articleDate(readingLog.articles.find(a => a.id === articleId));
-    if (date) renderSingleDigest(date);
-  } else if (currentView === 'bookmarks') {
-    renderBookmarks();
-  }
+  rerenderCurrentView();
+}
+
+function addToQueue(url) {
+  if (!url) return;
+  try { new URL(url); } catch { showToast('Invalid URL'); return; }
+  const q = loadQueue();
+  if (q.some(x => x.url === url)) return;
+  q.unshift({ url, addedAt: new Date().toISOString() });
+  saveQueue(q);
+  if (currentView === 'bookmarks') renderBookmarks();
+  renderMarginalia();
+  showToast('Saved to queue');
+}
+function removeFromQueue(i) { const q = loadQueue(); q.splice(i, 1); saveQueue(q); renderBookmarks(); renderMarginalia(); }
+function editQueueItem(i) {
+  const q = loadQueue(); const item = q[i]; if (!item) return;
+  const items = document.querySelectorAll('#bookmarksContent .queue-item');
+  const el = items[i]; if (!el) return;
+  el.innerHTML = `
+    <div class="queue-edit-row">
+      <input type="url" value="${escapeAttr(item.url)}">
+      <button onclick="saveQueueEdit(${i})">Save</button>
+      <button onclick="renderBookmarks()">Cancel</button>
+    </div>`;
+  const input = el.querySelector('input');
+  input.focus();
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') saveQueueEdit(i); if (e.key === 'Escape') renderBookmarks(); });
+}
+function saveQueueEdit(i) {
+  const input = document.querySelector('#bookmarksContent .queue-edit-row input');
+  if (!input) return;
+  const u = input.value.trim(); if (!u) return;
+  try { new URL(u); } catch { showToast('Invalid URL'); return; }
+  const q = loadQueue();
+  if (q.some((x, j) => j !== i && x.url === u)) { showToast('URL already exists'); return; }
+  q[i].url = u; saveQueue(q); renderBookmarks(); showToast('URL updated');
 }
 
 /* ============================================================
-   FEEDBACK SUMMARY GENERATION + EXPORT
+   EXPORT + FEEDBACK SUMMARY
    ============================================================ */
 function generateFeedbackSummary() {
   const ratings = loadRatings();
-  const ratedIds = Object.keys(ratings);
-  if (ratedIds.length === 0) return null;
-
+  const ids = Object.keys(ratings);
+  if (ids.length === 0) return null;
   const byTag = {}, byAuthor = {}, byType = {};
-  for (const id of ratedIds) {
-    const article = readingLog?.articles.find(a => a.id === id);
-    if (!article) continue;
+  for (const id of ids) {
+    const a = readingLog?.articles.find(x => x.id === id); if (!a) continue;
     const dir = ratings[id].rating === 'up' ? 0 : 1;
-    // Tags
-    for (const tag of article.tags) {
-      if (!byTag[tag]) byTag[tag] = [0, 0];
-      byTag[tag][dir]++;
-    }
-    // Author
-    const author = articleSource(article);
-    if (!byAuthor[author]) byAuthor[author] = [0, 0];
-    byAuthor[author][dir]++;
-    // Type
-    if (!byType[article.type]) byType[article.type] = [0, 0];
-    byType[article.type][dir]++;
+    for (const t of a.tags) { (byTag[t] ??= [0,0])[dir]++; }
+    const au = articleSource(a);
+    (byAuthor[au] ??= [0,0])[dir]++;
+    (byType[a.type] ??= [0,0])[dir]++;
   }
-
-  // Generate signals: top liked tags, top disliked tags
   const signals = [];
-  const tagEntries = Object.entries(byTag);
-  const topLiked = tagEntries.filter(([,v]) => v[0] > 0).sort((a,b) => b[1][0] - a[1][0]).slice(0, 2);
-  const topDisliked = tagEntries.filter(([,v]) => v[1] > 0).sort((a,b) => b[1][1] - a[1][1]).slice(0, 2);
-  if (topLiked.length) signals.push('Likes: ' + topLiked.map(([t]) => t).join(', ') + ' content');
-  if (topDisliked.length) signals.push('Dislikes: ' + topDisliked.map(([t]) => t).join(', ') + ' content');
-
-  return {
-    generatedAt: new Date().toISOString(),
-    totalRated: ratedIds.length,
-    byTag, byAuthor, byType, signals
-  };
+  const te = Object.entries(byTag);
+  const liked = te.filter(([,v]) => v[0] > 0).sort((a,b) => b[1][0] - a[1][0]).slice(0,2);
+  const disliked = te.filter(([,v]) => v[1] > 0).sort((a,b) => b[1][1] - a[1][1]).slice(0,2);
+  if (liked.length)    signals.push('Likes: '    + liked.map(([t]) => t).join(', ') + ' content');
+  if (disliked.length) signals.push('Dislikes: ' + disliked.map(([t]) => t).join(', ') + ' content');
+  return { generatedAt: new Date().toISOString(), totalRated: ids.length, byTag, byAuthor, byType, signals };
 }
-
 function exportData() {
   const summary = generateFeedbackSummary();
   const queue = loadQueue();
-  const exportObj = {};
-  if (summary) exportObj.feedbackSummary = summary;
-  if (queue.length) exportObj.pendingUrls = queue.map(q => q.url);
-
-  if (Object.keys(exportObj).length === 0) {
-    showToast('Nothing to export yet — rate some articles or add URLs.');
-    return;
-  }
-
-  navigator.clipboard.writeText(JSON.stringify(exportObj, null, 2)).then(() => {
-    showToast('Copied feedback + queue to clipboard');
-  });
+  const obj = {};
+  if (summary) obj.feedbackSummary = summary;
+  if (queue.length) obj.pendingUrls = queue.map(q => q.url);
+  if (Object.keys(obj).length === 0) { showToast('Nothing to export yet'); return; }
+  navigator.clipboard.writeText(JSON.stringify(obj, null, 2)).then(() => showToast('Copied to clipboard'));
 }
 
 function showToast(msg) {
-  const toast = document.getElementById('toast');
-  toast.textContent = msg;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2500);
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
 }
 
 /* ============================================================
@@ -907,419 +984,396 @@ function initTheme() {
   if (saved) document.documentElement.setAttribute('data-theme', saved);
 }
 function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem(THEME_KEY, next);
+  const cur = document.documentElement.getAttribute('data-theme');
+  const nxt = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', nxt);
+  localStorage.setItem(THEME_KEY, nxt);
 }
 initTheme();
-document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
 /* ============================================================
-   AMBIENT PARTICLES
+   HELPERS
    ============================================================ */
-function initAmbient() {
-  const canvas = document.getElementById('ambient-canvas');
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let w, h;
-
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Create particles
-  for (let i = 0; i < 35; i++) {
-    particles.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 1.5 + 0.5,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.2,
-      alpha: Math.random() * 0.3 + 0.05
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-
-    // Sun glow
-    if (isDark) {
-      const sunX = w * 0.5;
-      const sunY = h * 0.15;
-      const t = Date.now() / 4000;
-      const pulse = Math.sin(t) * 8;
-      const grad = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, 120 + pulse);
-      grad.addColorStop(0, 'rgba(255,160,48,0.12)');
-      grad.addColorStop(0.5, 'rgba(200,122,46,0.04)');
-      grad.addColorStop(1, 'rgba(200,122,46,0)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-    }
-
-    // Particles
-    for (const p of particles) {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0) p.x = w;
-      if (p.x > w) p.x = 0;
-      if (p.y < 0) p.y = h;
-      if (p.y > h) p.y = 0;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = isDark
-        ? `rgba(200,122,46,${p.alpha})`
-        : `rgba(200,122,46,${p.alpha * 0.4})`;
-      ctx.fill();
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-}
-initAmbient();
-
-/* ============================================================
-   NAVIGATION
-   ============================================================ */
-let currentView = 'digests';
-
-function showView(name) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
-
-  if (name === 'single') {
-    document.getElementById('view-single').classList.add('active');
-  } else {
-    document.getElementById('view-' + name).classList.add('active');
-    document.querySelector(`.nav-pill[data-view="${name}"]`)?.classList.add('active');
-  }
-  currentView = name;
-}
-
-document.querySelectorAll('.nav-pill').forEach(pill => {
-  pill.addEventListener('click', () => showView(pill.dataset.view));
-});
-document.getElementById('backBtn').addEventListener('click', () => showView('digests'));
-
-/* ============================================================
-   RENDER HELPERS
-   ============================================================ */
-function tagHTML(type) {
-  const map = {
-    'read': 'tag-read', 'watch': 'tag-watch', 'listen': 'tag-listen',
-    'trending': 'tag-trending', 'deep-dive': 'tag-deep', 'deep dive': 'tag-deep',
-    'code': 'tag-code', 'multi-day': 'tag-multi'
-  };
-  const cls = map[type.toLowerCase()] || 'tag-read';
-  return `<span class="tag ${cls}">${type}</span>`;
-}
-
-function formatDate(dateStr) {
-  if (!dateStr) return 'Unscheduled';
-  const d = new Date(dateStr + 'T00:00:00');
-  if (isNaN(d.getTime())) return 'Unscheduled';
-  return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-}
-
-// Tolerate field-name drift in the generator output.
-function articleDate(a) { return a && (a.assignedDate || a.dateAdded) || null; }
+function articleDate(a)   { return a && (a.assignedDate || a.dateAdded) || null; }
 function articleSource(a) { return a && (a.source || a.author) || ''; }
 
-function formatNoteTime(isoStr) {
-  const d = new Date(isoStr);
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' at ' +
-    d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+function escapeHTML(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escapeAttr(s) { return escapeHTML(s); }
+
+function romanNum(n) {
+  if (n <= 0) return '';
+  const map = [[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];
+  let r = ''; for (const [v, s] of map) { while (n >= v) { r += s; n -= v; } } return r;
 }
 
-// Render markdown-like text: **bold**, *italic*, [link](url), `code`, $math$
+function formatIssueDate(dateStr) {
+  if (!dateStr) return { short: '—', long: '—' };
+  const d = new Date(dateStr + 'T00:00:00');
+  if (isNaN(d.getTime())) return { short: dateStr, long: dateStr };
+  const short = d.toLocaleDateString('en-US', { weekday: 'short', day: '2-digit', month: 'short' }).toUpperCase();
+  const long  = d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  return { short, long };
+}
+function formatNoteTime(iso) {
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' · ' +
+         d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+}
 function renderNoteText(text) {
-  let html = text
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/`(.+?)`/g, '<code style="background:var(--glass-bg);padding:1px 5px;border-radius:3px;font-size:11px;">$1</code>')
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank">$1</a>')
-    .replace(/\n/g, '<br>');
-  return html;
+  return text
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g,'<em>$1</em>')
+    .replace(/`(.+?)`/g,'<code style="background:var(--ink-paper);padding:2px 6px;font-family:\'JetBrains Mono\',monospace;font-size:0.85em;color:var(--parchment);border:1px solid var(--ink-rule);">$1</code>')
+    .replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank">$1</a>')
+    .replace(/\n/g,'<br>');
+}
+
+function deptLabel(tag) {
+  const m = {
+    'read': 'Dispatches', 'watch': 'Screening Room', 'listen': 'Audio',
+    'trending': 'Currents', 'deep-dive': 'Long Read', 'deep dive': 'Long Read',
+    'code': 'Workshop', 'multi-day': 'Continued'
+  };
+  return m[(tag || '').toLowerCase()] || tag;
+}
+function primaryTag(article) {
+  const order = ['deep-dive','deep dive','read','code','watch','listen','trending','multi-day'];
+  for (const t of order) if (article.tags.some(x => x.toLowerCase() === t)) return t;
+  return article.tags[0] || 'read';
 }
 
 /* ============================================================
-   RENDER: DIGEST GRID
+   VIEW SWITCHING
    ============================================================ */
-function renderDigestGrid() {
-  if (!readingLog) return;
-  const grid = document.getElementById('digestGrid');
-  const stats = document.getElementById('statsBar');
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + name)?.classList.add('active');
+  document.querySelectorAll('.glyph-btn').forEach(b => b.classList.remove('active'));
+  if (name === 'notebook') document.getElementById('btnNotebook').classList.add('active');
+  if (name === 'bookmarks') document.getElementById('btnBookmarks').classList.add('active');
+  currentView = name;
+  if (name === 'notebook') renderNotebook();
+  if (name === 'bookmarks') renderBookmarks();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function rerenderCurrentView() {
+  if (currentView === 'issue' && currentIssueDate) renderIssue(currentIssueDate);
+  else if (currentView === 'notebook') renderNotebook();
+  else if (currentView === 'bookmarks') renderBookmarks();
+  renderMarginalia();
+}
 
-  // Group articles by assignedDate (tolerate legacy field name `dateAdded`).
-  // Skip articles that have no assigned date yet — those are queued bookmarks.
-  const byDate = {};
-  for (const a of readingLog.articles) {
-    const d = a.assignedDate || a.dateAdded;
+/* ============================================================
+   RENDER: ISSUE (featured lede + departments + back issues)
+   ============================================================ */
+function groupByDate(articles) {
+  const m = {};
+  for (const a of articles) {
+    const d = articleDate(a);
     if (!d) continue;
-    if (!byDate[d]) byDate[d] = [];
-    byDate[d].push(a);
+    (m[d] ??= []).push(a);
   }
-
-  const dates = Object.keys(byDate).sort().reverse();
-  const totalArticles = readingLog.articles.length;
-  const allNotes = loadNotes();
-  const totalNotes = Object.values(allNotes).reduce((s, arr) => s + arr.length, 0);
-
-  stats.innerHTML = `
-    <div class="stat-item">
-      <div class="stat-value">${readingLog.meta.dayCount}</div>
-      <div class="stat-label">Days Tracked</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value">${totalArticles}</div>
-      <div class="stat-label">Articles Curated</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value">${totalNotes}</div>
-      <div class="stat-label">Notes Taken</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value">${readingLog.meta.dailyMinutes}</div>
-      <div class="stat-label">Min / Day</div>
-    </div>
-  `;
-
-  grid.innerHTML = dates.map((date, i) => {
-    const articles = byDate[date];
-    const tags = [...new Set(articles.flatMap(a => a.tags))].slice(0, 5);
-    const dayNum = readingLog.meta.dayCount - i;
-    return `
-      <div class="digest-card" data-date="${date}">
-        <div class="dc-day">Day ${dayNum}</div>
-        <div class="dc-date">${formatDate(date)}</div>
-        <div class="dc-tags">${tags.map(t => tagHTML(t)).join('')}</div>
-        <div class="dc-count">${articles.length} articles</div>
-      </div>
-    `;
-  }).join('');
-
-  grid.querySelectorAll('.digest-card').forEach(card => {
-    card.addEventListener('click', () => renderSingleDigest(card.dataset.date));
-  });
+  return m;
 }
 
-/* ============================================================
-   RENDER: SINGLE DIGEST
-   ============================================================ */
-function renderSingleDigest(date) {
-  const articles = readingLog.articles.filter(a => articleDate(a) === date);
-  const container = document.getElementById('singleContent');
+function renderIssue(dateStr) {
+  if (!readingLog) return;
+  currentIssueDate = dateStr;
+  const all = readingLog.articles.filter(a => articleDate(a) === dateStr);
   const notes = loadNotes();
 
-  // Group: deep-dive, assigned, bookmarked
-  const deepDives = articles.filter(a => a.tags.includes('deep-dive'));
-  const quick = articles.filter(a => !a.tags.includes('deep-dive') && a.status !== 'bookmarked' && !a.tags.includes('multi-day'));
-  const bookmarked = articles.filter(a => a.status === 'bookmarked' || a.tags.includes('multi-day'));
-
-  container.innerHTML = `
-    <div class="digest-header">
-      <div class="dh-day">Day ${readingLog.meta.dayCount}</div>
-      <div class="dh-title">${formatDate(date)}</div>
-      <a href="digests/morning-digest-${date}.html" target="_blank" class="standalone-link">Open standalone digest &rarr;</a>
-    </div>
-    ${deepDives.length ? '<div class="section-label">Deep Dive</div>' + deepDives.map(a => articleCardHTML(a, notes)).join('') : ''}
-    ${quick.length ? '<div class="section-label">Quick Reads</div>' + quick.map(a => articleCardHTML(a, notes)).join('') : ''}
-    ${bookmarked.length ? '<div class="section-label">Bookmarks &amp; Multi-Day</div>' + bookmarked.map(a => articleCardHTML(a, notes)).join('') : ''}
+  // update issue-line
+  const byDate = groupByDate(readingLog.articles);
+  const allDates = Object.keys(byDate).sort();
+  const issueIdx = allDates.indexOf(dateStr);
+  const issueNum = issueIdx >= 0 ? (allDates.length - (allDates.length - 1 - issueIdx)) : 1;
+  // issueNum should count oldest=1, newest=N
+  const n = issueIdx >= 0 ? (issueIdx + 1) : 1;
+  const { short } = formatIssueDate(dateStr);
+  const isLatest = dateStr === allDates[allDates.length - 1];
+  document.getElementById('issueLine').innerHTML = `
+    <span>
+      ${isLatest ? '<span class="today">Today</span><span class="dot">·</span>' : ''}
+      Vol. ${romanNum(Math.ceil(n / 30)) || 'I'}<span class="dot">·</span>Issue №${n}<span class="dot">·</span>${short}
+    </span>
+    <span class="weather"><em>${weatherFor(all)}</em></span>
   `;
 
-  bindArticleEvents(container);
-  showView('single');
+  // pick featured lede: highest-rated deep, else first deep, else first article
+  const deepTagged = all.filter(a => a.tags.some(t => t.toLowerCase().includes('deep')));
+  const ratings = loadRatings();
+  const scored = all.slice().sort((a, b) => {
+    const ra = ratings[a.id]?.rating === 'up' ? 2 : 0;
+    const rb = ratings[b.id]?.rating === 'up' ? 2 : 0;
+    const da = a.tags.some(t => t.toLowerCase().includes('deep')) ? 1 : 0;
+    const db = b.tags.some(t => t.toLowerCase().includes('deep')) ? 1 : 0;
+    return (rb + db) - (ra + da);
+  });
+  const featured = deepTagged[0] || scored[0] || all[0];
+  const rest = all.filter(a => a !== featured);
+
+  // group rest by primary tag
+  const groups = {};
+  for (const a of rest) {
+    const t = primaryTag(a);
+    (groups[t] ??= []).push(a);
+  }
+  const groupOrder = ['deep-dive','deep dive','read','code','watch','listen','trending','multi-day'];
+  const orderedKeys = Object.keys(groups).sort((a,b) => groupOrder.indexOf(a) - groupOrder.indexOf(b));
+
+  let html = '';
+  html += `<div class="dept-label"><span class="dept-mark">§</span>In Today's Issue</div>`;
+  if (featured) html += featuredHTML(featured);
+  for (const key of orderedKeys) {
+    const isDeep = key.toLowerCase().includes('deep');
+    html += `<div class="dept-label" data-dept="${escapeAttr(key)}"><span class="dept-mark">${isDeep ? '¶' : '§'}</span>${escapeHTML(deptLabel(key))}</div>`;
+    html += groups[key].map((a, i) => articleRowHTML(a, i + 1, notes)).join('');
+  }
+
+  document.getElementById('issueContent').innerHTML = html;
+
+  // Back issues spine
+  renderBackIssues(allDates, dateStr);
+
+  bindArticleEvents(document.getElementById('issueContent'));
+
+  // KaTeX pass over whole issue (for .ar-summary + .note-body)
+  typesetMath(document.getElementById('issueContent'));
+
+  renderMarginalia();
+  showView('issue');
 }
 
-function articleCardHTML(article, notes) {
-  const articleNotes = notes[article.id] || [];
-  const isDeep = article.tags.includes('deep-dive');
-  const rating = getRating(article.id);
+function weatherFor(articles) {
+  if (!articles || !articles.length) return '';
+  const total = articles.reduce((s, a) => s + (a.estimatedMinutes || 0), 0);
+  const deep = articles.filter(a => a.tags.some(t => t.toLowerCase().includes('deep'))).length;
+  const bits = [];
+  bits.push(`${articles.length} item${articles.length === 1 ? '' : 's'}`);
+  if (total) bits.push(`${total} min read`);
+  if (deep) bits.push(`${deep} long read${deep === 1 ? '' : 's'}`);
+  return bits.join(' · ');
+}
+
+function featuredHTML(a) {
+  const rating = getRating(a.id);
+  const bm = isBookmarked(a.id);
+  const summary = a.notes || a.summary || '';
   return `
-    <div class="article-card ${isDeep ? 'deep-dive' : ''}" data-id="${article.id}">
-      <div class="ac-header">
-        <div style="flex:1">
-          <div class="ac-title"><a href="${article.url}" target="_blank">${article.title}</a></div>
-          <div class="ac-meta">
-            <span>${articleSource(article)}</span>
-            ${article.estimatedMinutes ? `<span>${article.estimatedMinutes} min</span>` : ''}
-            <span>${article.status}</span>
-          </div>
-          ${article.notes ? `<div class="ac-summary">${article.notes}</div>` : ''}
+    <article class="lede" data-id="${escapeAttr(a.id)}">
+      <div class="lede-kicker">The Lede</div>
+      <h2 class="lede-title"><a href="${escapeAttr(a.url)}" target="_blank">${escapeHTML(a.title)}</a></h2>
+      <div class="lede-meta">
+        ${escapeHTML(articleSource(a))}
+        ${a.estimatedMinutes ? `<span class="sep">·</span>${a.estimatedMinutes} min` : ''}
+        <span class="sep">·</span>${escapeHTML(a.tags.join(' · '))}
+      </div>
+      ${summary ? `<p class="lede-summary">${renderNoteText(summary)}</p>` : ''}
+      <div class="ar-marks" style="margin-top:14px">
+        <button class="m-up ${rating==='up'?'active':''}" data-id="${escapeAttr(a.id)}" data-act="up" title="More like this">▲</button>
+        <button class="m-down ${rating==='down'?'active':''}" data-id="${escapeAttr(a.id)}" data-act="down" title="Less like this">▼</button>
+        <button class="m-bm ${bm?'active':''}" data-id="${escapeAttr(a.id)}" data-act="bm" title="${bm?'Unbookmark':'Bookmark'}">${bm?'★':'☆'}</button>
+        <button class="m-note ${(loadNotes()[a.id]||[]).length?'has-notes':''}" data-id="${escapeAttr(a.id)}" data-act="note" title="Annotate">¶</button>
+      </div>
+      <div class="notes-panel" data-article-id="${escapeAttr(a.id)}">
+        ${notesPanelHTML(a.id, loadNotes())}
+      </div>
+    </article>`;
+}
+
+function articleRowHTML(a, num, notes) {
+  const rating = getRating(a.id);
+  const bm = isBookmarked(a.id);
+  const hasNotes = (notes[a.id] || []).length;
+  const isDeep = a.tags.some(t => t.toLowerCase().includes('deep'));
+  const summary = a.notes || a.summary || '';
+  return `
+    <div class="article-row" data-id="${escapeAttr(a.id)}">
+      <div class="ar-num">${String(num).padStart(2,'0')}</div>
+      <div class="ar-body">
+        <h3 class="ar-title ${isDeep?'deep':''}"><a href="${escapeAttr(a.url)}" target="_blank">${escapeHTML(a.title)}</a></h3>
+        <div class="ar-meta">
+          ${escapeHTML(articleSource(a))}
+          ${a.estimatedMinutes ? `<span class="sep">·</span>${a.estimatedMinutes} min` : ''}
+          ${a.status && a.status !== 'unread' ? `<span class="sep">·</span>${escapeHTML(a.status)}` : ''}
         </div>
-        <div class="ac-tags">
-          ${article.tags.map(t => tagHTML(t)).join('')}
-        </div>
+        ${summary ? `<div class="ar-summary">${renderNoteText(summary)}</div>` : ''}
       </div>
-      <div class="ac-feedback">
-        <button class="fb-btn fb-up ${rating === 'up' ? 'active' : ''}" onclick="setRating('${article.id}', 'up')" title="More like this">&#9650;</button>
-        <button class="fb-btn fb-down ${rating === 'down' ? 'active' : ''}" onclick="setRating('${article.id}', 'down')" title="Less like this">&#9660;</button>
-        <button class="fb-btn fb-bookmark ${isBookmarked(article.id) ? 'active' : ''}" onclick="toggleBookmark('${article.id}')" title="${isBookmarked(article.id) ? 'Remove bookmark' : 'Bookmark'}">${isBookmarked(article.id) ? '&#9733;' : '&#9734;'}</button>
+      <div class="ar-marks">
+        <button class="m-up ${rating==='up'?'active':''}" data-id="${escapeAttr(a.id)}" data-act="up">▲</button>
+        <button class="m-down ${rating==='down'?'active':''}" data-id="${escapeAttr(a.id)}" data-act="down">▼</button>
+        <button class="m-bm ${bm?'active':''}" data-id="${escapeAttr(a.id)}" data-act="bm">${bm?'★':'☆'}</button>
+        <button class="m-note ${hasNotes?'has-notes':''}" data-id="${escapeAttr(a.id)}" data-act="note">¶</button>
       </div>
-      <div class="ac-header" style="padding-top:0; cursor:pointer;" onclick="toggleNotes(this)">
-        <span style="font-size:9px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.14em;font-weight:600;">
-          Notes (${articleNotes.length})
-        </span>
-        <span class="ac-expand">&#9662;</span>
+      <div class="notes-panel" data-article-id="${escapeAttr(a.id)}">
+        ${notesPanelHTML(a.id, notes)}
       </div>
-      <div class="notes-panel" data-article-id="${article.id}">
-        <div class="notes-inner">
-          <div class="notes-list">
-            ${articleNotes.map(n => `
-              <div class="note-item" data-note-id="${n.id}">
-                <div class="note-time">${formatNoteTime(n.created)}</div>
-                <div class="note-body">${renderNoteText(n.text)}</div>
-                <div class="note-actions">
-                  <button class="note-action-btn delete-note" title="Delete">&times;</button>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-          <div class="note-editor">
-            <div class="note-toolbar">
-              <button onclick="insertNoteSnippet(this, '**', '**')">Bold</button>
-              <button onclick="insertNoteSnippet(this, '*', '*')">Italic</button>
-              <button onclick="insertNoteSnippet(this, '[', '](url)')">Link</button>
-              <button onclick="insertNoteSnippet(this, '$', '$')">Math</button>
-              <button onclick="insertNoteSnippet(this, '\`', '\`')">Code</button>
+    </div>`;
+}
+
+function notesPanelHTML(articleId, notes) {
+  const list = notes[articleId] || [];
+  return `
+    <div class="notes-inner">
+      <div class="notes-list">
+        ${list.map(n => `
+          <div class="note-item" data-note-id="${n.id}">
+            <div class="note-time">${formatNoteTime(n.created)}</div>
+            <div class="note-body">${renderNoteText(n.text)}</div>
+            <div class="note-actions">
+              <button class="note-action-btn delete-note" title="Delete">×</button>
             </div>
-            <textarea class="note-textarea" placeholder="Add a note... Supports **bold**, *italic*, [links](url), $LaTeX$, and \`code\`."></textarea>
-            <div class="note-hint">Ctrl+Enter to save &middot; $...$ for inline math &middot; [text](url) for links</div>
-            <button class="note-submit">Save Note</button>
-          </div>
-        </div>
+          </div>`).join('')}
       </div>
-    </div>
-  `;
+      <div class="note-editor">
+        <div class="note-toolbar">
+          <button type="button" onclick="insertNoteSnippet(this,'**','**')">Bold</button>
+          <button type="button" onclick="insertNoteSnippet(this,'*','*')">Italic</button>
+          <button type="button" onclick="insertNoteSnippet(this,'[','](url)')">Link</button>
+          <button type="button" onclick="insertNoteSnippet(this,'$','$')">Math</button>
+          <button type="button" onclick="insertNoteSnippet(this,'\`','\`')">Code</button>
+        </div>
+        <textarea class="note-textarea" placeholder="Marginalia — *italic*, **bold**, $\\LaTeX$, [links](url), \`code\`…"></textarea>
+        <div class="note-hint">⌘⏎ to save · $ $ for math · [text](url) for links</div>
+        <button class="note-submit" type="button">Mark it down</button>
+      </div>
+    </div>`;
+}
+
+function renderBackIssues(allDates, current) {
+  const el = document.getElementById('backIssuesBlock');
+  if (!allDates.length) { el.innerHTML = ''; return; }
+  const chips = allDates.slice().reverse().map((d) => {
+    const idx = allDates.indexOf(d) + 1; // 1..N oldest..newest
+    const { short } = formatIssueDate(d);
+    const isCur = d === current;
+    return `
+      <div class="issue-chip ${isCur?'current':''}" data-date="${escapeAttr(d)}">
+        <div class="issue-num"><span class="hash">№</span>${idx}</div>
+        <div class="issue-date">${short}</div>
+      </div>`;
+  }).join('');
+  el.innerHTML = `
+    <div class="dept-label"><span class="dept-mark">❡</span>Back Issues</div>
+    <div class="issues-strip">${chips}</div>`;
+  el.querySelectorAll('.issue-chip').forEach(c => {
+    c.addEventListener('click', () => renderIssue(c.dataset.date));
+  });
 }
 
 /* ============================================================
    ARTICLE EVENTS
    ============================================================ */
-function toggleNotes(el) {
-  const card = el.closest('.article-card');
-  const panel = card.querySelector('.notes-panel');
-  const arrow = card.querySelector('.ac-expand');
+function toggleNotesPanel(articleId) {
+  const panel = document.querySelector(`.notes-panel[data-article-id="${CSS.escape(articleId)}"]`);
+  if (!panel) return;
   panel.classList.toggle('open');
-  arrow.classList.toggle('open');
+  if (panel.classList.contains('open')) {
+    setTimeout(() => panel.querySelector('.note-textarea')?.focus(), 260);
+  }
 }
-
 function insertNoteSnippet(btn, before, after) {
-  const editor = btn.closest('.note-editor');
-  const textarea = editor.querySelector('.note-textarea');
-  const start = textarea.selectionStart;
-  const end = textarea.selectionEnd;
-  const text = textarea.value;
-  const selected = text.substring(start, end) || 'text';
-  textarea.value = text.substring(0, start) + before + selected + after + text.substring(end);
-  textarea.focus();
-  textarea.setSelectionRange(start + before.length, start + before.length + selected.length);
+  const ed = btn.closest('.note-editor');
+  const ta = ed.querySelector('.note-textarea');
+  const s = ta.selectionStart, e = ta.selectionEnd;
+  const sel = ta.value.substring(s, e) || 'text';
+  ta.value = ta.value.substring(0, s) + before + sel + after + ta.value.substring(e);
+  ta.focus();
+  ta.setSelectionRange(s + before.length, s + before.length + sel.length);
 }
 
 function bindArticleEvents(container) {
-  // Save note
+  container.querySelectorAll('.ar-marks button, .lede .ar-marks button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.id, act = btn.dataset.act;
+      if (act === 'up') setRating(id, 'up');
+      else if (act === 'down') setRating(id, 'down');
+      else if (act === 'bm') toggleBookmark(id);
+      else if (act === 'note') toggleNotesPanel(id);
+    });
+  });
+
   container.querySelectorAll('.note-submit').forEach(btn => {
     btn.addEventListener('click', () => {
       const panel = btn.closest('.notes-panel');
-      const articleId = panel.dataset.articleId;
-      const textarea = panel.querySelector('.note-textarea');
-      const text = textarea.value.trim();
+      const id = panel.dataset.articleId;
+      const ta = panel.querySelector('.note-textarea');
+      const text = ta.value.trim();
       if (!text) return;
-      addNote(articleId, text);
-      textarea.value = '';
-      // Re-render
-      const date = articleDate(readingLog.articles.find(a => a.id === articleId));
-      if (date) renderSingleDigest(date);
+      addNote(id, text);
+      ta.value = '';
+      rerenderCurrentView();
     });
   });
 
-  // Delete note
   container.querySelectorAll('.delete-note').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const noteItem = btn.closest('.note-item');
-      const noteId = noteItem.dataset.noteId;
+      const ni = btn.closest('.note-item');
+      const noteId = ni.dataset.noteId;
       const panel = btn.closest('.notes-panel');
-      const articleId = panel.dataset.articleId;
-      deleteNote(articleId, noteId);
-      const date = articleDate(readingLog.articles.find(a => a.id === articleId));
-      if (date) renderSingleDigest(date);
+      deleteNote(panel.dataset.articleId, noteId);
+      rerenderCurrentView();
     });
   });
 
-  // Ctrl+Enter in textarea
   container.querySelectorAll('.note-textarea').forEach(ta => {
     ta.addEventListener('keydown', (e) => {
-      if (e.ctrlKey && e.key === 'Enter') {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
         ta.closest('.note-editor').querySelector('.note-submit').click();
       }
     });
   });
+}
 
-  // Render KaTeX in notes
-  container.querySelectorAll('.note-body').forEach(el => {
-    renderMathInElement(el, {
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false }
-      ],
-      throwOnError: false
-    });
+function typesetMath(el) {
+  if (!el || !window.renderMathInElement) return;
+  el.querySelectorAll('.note-body, .ar-summary, .lede-summary').forEach(n => {
+    try {
+      renderMathInElement(n, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$',  right: '$',  display: false }
+        ],
+        throwOnError: false
+      });
+    } catch {}
   });
 }
 
 /* ============================================================
-   RENDER: NOTEBOOK VIEW
+   NOTEBOOK VIEW
    ============================================================ */
 function renderNotebook() {
   const notes = loadNotes();
   const container = document.getElementById('notebookContent');
-
-  const articleIds = Object.keys(notes).filter(id => notes[id].length > 0);
-  if (articleIds.length === 0) {
-    container.innerHTML = `<div class="empty-state"><div class="icon">&#9998;</div><p>No notes yet. Open a digest and start annotating articles.</p></div>`;
+  const ids = Object.keys(notes).filter(id => notes[id].length > 0);
+  if (ids.length === 0) {
+    container.innerHTML = `<div class="empty-state"><span class="icon">¶</span>The notebook is empty. Open an issue and mark the margins.</div>`;
     return;
   }
-
-  container.innerHTML = articleIds.map(id => {
-    const article = readingLog.articles.find(a => a.id === id);
-    const title = article ? article.title : id;
+  container.innerHTML = ids.map(id => {
+    const a = readingLog?.articles.find(x => x.id === id);
+    const title = a ? a.title : id;
     return `
       <div class="notebook-item">
-        <div class="nb-article-title">${title}</div>
+        <div class="nb-article-title">${escapeHTML(title)}</div>
         ${notes[id].map(n => `
           <div class="nb-note">
             <div class="nb-note-time">${formatNoteTime(n.created)}</div>
             <div class="note-body">${renderNoteText(n.text)}</div>
-          </div>
-        `).join('')}
-      </div>
-    `;
+          </div>`).join('')}
+      </div>`;
   }).join('');
-
-  // KaTeX
-  container.querySelectorAll('.note-body').forEach(el => {
-    renderMathInElement(el, {
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false }
-      ],
-      throwOnError: false
-    });
-  });
+  typesetMath(container);
 }
 
-// Re-render notebook when switching to it
-document.querySelector('.nav-pill[data-view="notebook"]').addEventListener('click', renderNotebook);
-
 /* ============================================================
-   RENDER: BOOKMARKS VIEW
+   BOOKMARKS VIEW
    ============================================================ */
 function renderBookmarks() {
   if (!readingLog) return;
@@ -1327,148 +1381,241 @@ function renderBookmarks() {
   const notes = loadNotes();
   const queue = loadQueue();
   const userBm = loadBookmarks();
-  const bookmarkedIds = new Set([
+  const bmIds = new Set([
     ...readingLog.articles.filter(a => a.status === 'bookmarked').map(a => a.id),
     ...Object.keys(userBm)
   ]);
-  const bookmarked = readingLog.articles.filter(a => bookmarkedIds.has(a.id));
-
+  const bookmarked = readingLog.articles.filter(a => bmIds.has(a.id));
   let html = '';
-
-  // Pending URLs section
-  if (queue.length > 0) {
-    html += '<div class="section-label">Pending URLs</div>';
+  if (queue.length) {
+    html += `<div class="dept-label"><span class="dept-mark">→</span>In the queue</div>`;
     html += queue.map((q, i) => `
       <div class="queue-item">
-        <a class="queue-item-url" href="${q.url}" target="_blank">${q.url}</a>
-        <span class="queue-item-time">${formatNoteTime(q.addedAt)}</span>
-        <button class="queue-item-edit" onclick="editQueueItem(${i})" title="Edit">&#9998;</button>
-        <button class="queue-item-remove" onclick="removeFromQueue(${i})" title="Remove">&times;</button>
-      </div>
-    `).join('');
+        <a href="${escapeAttr(q.url)}" target="_blank">${escapeHTML(q.url)}</a>
+        <span class="qi-time">${formatNoteTime(q.addedAt)}</span>
+        <button onclick="editQueueItem(${i})" title="Edit">✎</button>
+        <button onclick="removeFromQueue(${i})" title="Remove">×</button>
+      </div>`).join('');
   }
-
-  // Bookmarked articles section
-  if (bookmarked.length > 0) {
-    html += '<div class="section-label">Bookmarked Articles</div>';
-    html += bookmarked.map(a => articleCardHTML(a, notes)).join('');
+  if (bookmarked.length) {
+    html += `<div class="dept-label"><span class="dept-mark">★</span>Kept for reference</div>`;
+    html += bookmarked.map((a, i) => articleRowHTML(a, i + 1, notes)).join('');
   }
-
   if (!queue.length && !bookmarked.length) {
-    html = `<div class="empty-state"><div class="icon">&#9734;</div><p>No bookmarks yet. Save articles or paste a URL to read later.</p></div>`;
+    html = `<div class="empty-state"><span class="icon">☆</span>Nothing saved yet. Paste a URL above or star an article.</div>`;
   }
-
   container.innerHTML = html;
   bindArticleEvents(container);
+  typesetMath(container);
 }
 
-// Re-render bookmarks when switching to it
-document.querySelector('.nav-pill[data-view="bookmarks"]').addEventListener('click', renderBookmarks);
+/* ============================================================
+   MARGINALIA RAIL
+   ============================================================ */
+function renderMarginalia() {
+  if (!readingLog) return;
+  const rail = document.getElementById('marginalia');
+  const notes = loadNotes();
+  const ratings = loadRatings();
+  const bmMap = loadBookmarks();
 
-// Quick-add URL events
-document.getElementById('quickAddBtn').addEventListener('click', () => {
-  const input = document.getElementById('quickAddInput');
-  const url = input.value.trim();
-  if (url) {
-    addToQueue(url);
-    input.value = '';
+  const totalNotes = Object.values(notes).reduce((s, a) => s + a.length, 0);
+  const bmIds = new Set([
+    ...readingLog.articles.filter(a => a.status === 'bookmarked').map(a => a.id),
+    ...Object.keys(bmMap)
+  ]);
+  const bookmarked = readingLog.articles.filter(a => bmIds.has(a.id)).slice(0, 6);
+  const liked = Object.entries(ratings)
+    .filter(([,v]) => v.rating === 'up')
+    .sort((a,b) => new Date(b[1].ts) - new Date(a[1].ts))
+    .slice(0, 6)
+    .map(([id]) => readingLog.articles.find(x => x.id === id))
+    .filter(Boolean);
+
+  const recentNotes = [];
+  for (const id of Object.keys(notes)) {
+    for (const n of notes[id]) recentNotes.push({ id, n });
   }
-});
-document.getElementById('quickAddInput').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    document.getElementById('quickAddBtn').click();
-  }
-});
+  recentNotes.sort((a,b) => new Date(b.n.created) - new Date(a.n.created));
+  const topNotes = recentNotes.slice(0, 4);
+
+  rail.innerHTML = `
+    <div class="mg-head">Marginalia</div>
+    <div class="mg-sub">The edge of the page</div>
+
+    <div class="mg-section">
+      <div class="mg-section-title">Bookmarks <span class="ct">${bookmarked.length}</span></div>
+      ${bookmarked.length
+        ? bookmarked.map(a => `
+            <a class="mg-item" href="${escapeAttr(a.url)}" target="_blank">
+              ${escapeHTML(a.title)}
+              <span class="mg-meta">${escapeHTML(articleSource(a))}</span>
+            </a>`).join('')
+        : `<div class="mg-empty">Star an article to pin it here.</div>`}
+    </div>
+
+    <div class="mg-section">
+      <div class="mg-section-title">Recent Notes <span class="ct">${totalNotes}</span></div>
+      ${topNotes.length
+        ? topNotes.map(({ id, n }) => {
+            const a = readingLog.articles.find(x => x.id === id);
+            const title = a ? a.title : 'Untitled';
+            const snippet = n.text.replace(/[*`$\[\]()]/g,'').substring(0, 70);
+            return `
+              <a class="mg-item" data-issue-date="${escapeAttr(articleDate(a) || '')}">
+                <em style="font-style:italic;color:var(--parchment-dim)">${escapeHTML(snippet)}${n.text.length > 70 ? '…' : ''}</em>
+                <span class="mg-meta">${escapeHTML(title.substring(0, 48))}${title.length > 48 ? '…' : ''}</span>
+              </a>`;
+          }).join('')
+        : `<div class="mg-empty">Mark the margins of what you read.</div>`}
+    </div>
+
+    <div class="mg-section">
+      <div class="mg-section-title">Top-Rated <span class="ct">${liked.length}</span></div>
+      ${liked.length
+        ? liked.map(a => `
+            <a class="mg-item" data-issue-date="${escapeAttr(articleDate(a) || '')}">
+              ${escapeHTML(a.title)}
+              <span class="mg-meta">${escapeHTML(articleSource(a))}</span>
+            </a>`).join('')
+        : `<div class="mg-empty">Rate items ▲ to surface favourites.</div>`}
+    </div>
+
+    <div class="mg-section">
+      <div class="mg-section-title">Quick Save</div>
+      <div class="mg-quick">
+        <input type="url" id="mgQuickInput" placeholder="https://…">
+        <button id="mgQuickBtn">+ To the queue</button>
+      </div>
+    </div>
+  `;
+
+  rail.querySelectorAll('.mg-item[data-issue-date]').forEach(el => {
+    el.addEventListener('click', () => {
+      const d = el.dataset.issueDate;
+      if (d) renderIssue(d);
+    });
+  });
+  const mgIn = document.getElementById('mgQuickInput');
+  const mgBt = document.getElementById('mgQuickBtn');
+  if (mgBt) mgBt.addEventListener('click', () => { if (mgIn.value.trim()) { addToQueue(mgIn.value.trim()); mgIn.value = ''; } });
+  if (mgIn) mgIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') mgBt.click(); });
+}
 
 /* ============================================================
-   SEARCH (Fuse.js)
+   SEARCH (Fuse.js, inline)
    ============================================================ */
 function initSearch() {
   if (!readingLog) return;
   fuse = new Fuse(readingLog.articles, {
     keys: [
-      { name: 'title', weight: 3 },
+      { name: 'title',  weight: 3 },
       { name: 'author', weight: 2 },
-      { name: 'tags', weight: 1.5 },
-      { name: 'notes', weight: 1 }
+      { name: 'source', weight: 2 },
+      { name: 'tags',   weight: 1.5 },
+      { name: 'notes',  weight: 1 }
     ],
-    threshold: 0.35,
-    includeMatches: true,
-    minMatchCharLength: 2
+    threshold: 0.35, includeMatches: true, minMatchCharLength: 2
   });
 }
 
-const searchInput = document.getElementById('searchInput');
-const searchResults = document.getElementById('searchResults');
+/* ============================================================
+   WIRING
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('btnTheme').addEventListener('click', toggleTheme);
+  document.getElementById('btnNotebook').addEventListener('click', () => showView('notebook'));
+  document.getElementById('btnBookmarks').addEventListener('click', () => showView('bookmarks'));
+  document.getElementById('btnExport').addEventListener('click', exportData);
 
-searchInput.addEventListener('input', () => {
-  const q = searchInput.value.trim();
-  if (!q || !fuse) { searchResults.classList.remove('active'); return; }
+  const field = document.getElementById('searchField');
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+  document.getElementById('btnSearch').addEventListener('click', () => {
+    field.classList.toggle('open');
+    if (field.classList.contains('open')) input.focus();
+    else { input.value = ''; results.classList.remove('active'); }
+  });
 
-  const results = fuse.search(q).slice(0, 8);
-  if (results.length === 0) {
-    searchResults.innerHTML = '<div style="padding:16px;font-size:11px;color:var(--text-dim);">No results found.</div>';
-    searchResults.classList.add('active');
-    return;
-  }
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    if (!q || !fuse) { results.classList.remove('active'); return; }
+    const r = fuse.search(q).slice(0, 10);
+    if (!r.length) {
+      results.innerHTML = `<div class="sri"><div class="sri-title" style="font-style:italic;color:var(--parchment-mute)">No matches in the archive.</div></div>`;
+      results.classList.add('active');
+      return;
+    }
+    results.innerHTML = r.map(x => {
+      const a = x.item;
+      return `
+        <div class="sri" data-date="${escapeAttr(articleDate(a) || '')}" data-id="${escapeAttr(a.id)}">
+          <div class="sri-title">${escapeHTML(a.title)}</div>
+          <div class="sri-meta">${escapeHTML(articleSource(a))} · ${articleDate(a) || 'unscheduled'} · ${escapeHTML(a.tags.join(' · '))}</div>
+          ${a.notes ? `<div class="sri-snippet">${escapeHTML(a.notes.substring(0, 140))}…</div>` : ''}
+        </div>`;
+    }).join('');
+    results.classList.add('active');
 
-  searchResults.innerHTML = results.map(r => {
-    const a = r.item;
-    return `
-      <div class="search-result-item" data-date="${articleDate(a) || ''}" data-id="${a.id}">
-        <div class="sr-title">${a.title}</div>
-        <div class="sr-meta">${articleSource(a)} &middot; ${articleDate(a) || 'unscheduled'} &middot; ${a.tags.join(', ')}</div>
-        ${a.notes ? `<div class="sr-snippet">${a.notes.substring(0, 120)}...</div>` : ''}
-      </div>
-    `;
-  }).join('');
-  searchResults.classList.add('active');
-
-  searchResults.querySelectorAll('.search-result-item').forEach(item => {
-    item.addEventListener('click', () => {
-      renderSingleDigest(item.dataset.date);
-      searchResults.classList.remove('active');
-      searchInput.value = '';
-      // Scroll to article
-      setTimeout(() => {
-        const card = document.querySelector(`.article-card[data-id="${item.dataset.id}"]`);
-        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 100);
+    results.querySelectorAll('.sri').forEach(it => {
+      it.addEventListener('click', () => {
+        const d = it.dataset.date;
+        if (d) renderIssue(d);
+        results.classList.remove('active');
+        field.classList.remove('open');
+        input.value = '';
+        setTimeout(() => {
+          const card = document.querySelector(`.article-row[data-id="${CSS.escape(it.dataset.id)}"], .lede[data-id="${CSS.escape(it.dataset.id)}"]`);
+          if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 160);
+      });
     });
   });
-});
 
-// Close search on click outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.search-wrap')) searchResults.classList.remove('active');
-});
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      field.classList.add('open');
+      input.focus();
+    }
+    if (e.key === 'Escape' && field.classList.contains('open')) {
+      field.classList.remove('open'); results.classList.remove('active'); input.value = '';
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-field') && !e.target.closest('#btnSearch')) results.classList.remove('active');
+  });
 
-// Ctrl+K shortcut
-document.addEventListener('keydown', (e) => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-    e.preventDefault();
-    searchInput.focus();
-  }
+  // Quick-add (bookmarks view)
+  const qai = document.getElementById('quickAddInput');
+  const qab = document.getElementById('quickAddBtn');
+  qab.addEventListener('click', () => { if (qai.value.trim()) { addToQueue(qai.value.trim()); qai.value = ''; } });
+  qai.addEventListener('keydown', (e) => { if (e.key === 'Enter') qab.click(); });
+
+  loadData();
 });
 
 /* ============================================================
-   DATA LOADING
+   DATA
    ============================================================ */
 async function loadData() {
   try {
     const res = await fetch('digests/reading-log.json');
     readingLog = await res.json();
   } catch {
-    // Fallback: try embedded data
     readingLog = window.__DIGEST_DATA || null;
   }
-  if (readingLog) {
-    renderDigestGrid();
-    initSearch();
+  if (!readingLog) return;
+  initSearch();
+  const byDate = groupByDate(readingLog.articles);
+  const dates = Object.keys(byDate).sort();
+  const latest = dates[dates.length - 1];
+  if (latest) renderIssue(latest);
+  else {
+    document.getElementById('issueContent').innerHTML = `<div class="empty-state"><span class="icon">§</span>No issues yet.</div>`;
+    renderMarginalia();
   }
 }
-
-loadData();
 </script>
 </body>
 </html>
