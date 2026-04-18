@@ -23,33 +23,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: reading-log.json — parse & duplicate check
-        run: |
-          python3 - <<'EOF'
-          import json, sys
-
-          with open("digests/reading-log.json") as f:
-              data = json.load(f)
-
-          arts  = data["articles"]
-          urls  = [a["url"] for a in arts]
-          dupes = {u for u in urls if urls.count(u) > 1}
-
-          if dupes:
-              print("❌  Duplicate article URLs found in reading-log.json:")
-              for u in sorted(dupes):
-                  print(f"   {u}")
-              sys.exit(1)
-
-          statuses = {a["status"] for a in arts}
-          valid    = {"assigned", "in-progress", "bookmarked", "completed"}
-          bad      = statuses - valid
-          if bad:
-              print(f"❌  Unknown status values: {bad}")
-              sys.exit(1)
-
-          print(f"✅  reading-log.json OK — {len(arts)} articles, day {data['meta']['dayCount']}")
-          EOF
+      - name: reading-log.json — validate via normalize-log.py
+        run: python3 normalize-log.py --check digests/reading-log.json
 
       - name: HTML digest files — basic sanity check
         run: |
