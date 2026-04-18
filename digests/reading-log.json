@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 18,
+    "dayCount": 19,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -922,14 +922,16 @@
       "source": "arXiv",
       "date": "2026-02-27",
       "tags": [
-        "FORMAL METHODS",
         "AGENTS",
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "PROMOTED",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 20,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-04-18",
+      "estimatedMinutes": 25,
+      "digestDay": 19
     },
     {
       "id": "2026-04-16-007",
@@ -1871,6 +1873,83 @@
       "estimatedMinutes": 4,
       "id": "2026-03-30-005",
       "digestDay": 8
+    },
+    {
+      "id": "2026-04-18-001",
+      "title": "Shielded Reinforcement Learning Under Dynamic Temporal Logic Constraints",
+      "url": "https://arxiv.org/abs/2603.17152",
+      "source": "Y\u00fcksel, Buyukkocak & Aksaray / Northeastern ECE",
+      "date": "2026-03-22",
+      "tags": [
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-18",
+      "estimatedMinutes": 5,
+      "digestDay": 19
+    },
+    {
+      "id": "2026-04-18-002",
+      "title": "Multi-Turn Reinforcement Learning for Tool-Calling Agents with Iterative Reward Calibration",
+      "url": "https://arxiv.org/abs/2604.02869",
+      "source": "arXiv",
+      "date": "2026-04-03",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-18",
+      "estimatedMinutes": 5,
+      "digestDay": 19
+    },
+    {
+      "id": "2026-04-18-003",
+      "title": "AI and the PhD student: friend or foe?",
+      "url": "https://www.nature.com/articles/d41586-026-00843-y",
+      "source": "Nature",
+      "date": "2026-03-16",
+      "tags": [
+        "RESEARCH ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-18",
+      "estimatedMinutes": 5,
+      "digestDay": 19
+    },
+    {
+      "id": "2026-04-18-004",
+      "title": "MLST \u2014 When AI Discovers the Next Transformer (Robert Lange, Sakana AI)",
+      "url": "https://www.youtube.com/watch?v=EInEmGaMRLc",
+      "source": "Machine Learning Street Talk",
+      "date": "2026-03-13",
+      "tags": [
+        "LISTEN",
+        "FORMAL METHODS"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-18",
+      "estimatedMinutes": 90,
+      "digestDay": 19
+    },
+    {
+      "id": "2026-04-18-005",
+      "title": "Automated Conjecture Resolution with Formal Verification",
+      "url": "https://arxiv.org/abs/2604.03789",
+      "source": "arXiv (Ju, Gao et al.)",
+      "date": "2026-04-04",
+      "tags": [
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 20,
+      "digestDay": null
     }
   ],
   "feeds": [

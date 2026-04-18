@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 18, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '→ ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .podcast-card a:hover {
+      text-decoration: underline;
+    }
+
+    .podcast-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .podcast-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .podcast-desc {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 20px 16px 28px;
+      border-top: 1px solid var(--divider);
+      margin-top: 8px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 420px) {
+      .device-section {
+        grid-template-columns: 1fr;
+      }
+      header h1 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-meta">Saturday · April 18, 2026 · Day 19</div>
+  <h1>☀️ Morning Digest</h1>
+  <div class="subtitle">Formal Methods + Reinforcement Learning · 45 min plan</div>
+</header>
+
+<!-- ── QUOTE ── -->
+<div class="quote-block">
+  <p>"Program testing can be used to show the presence of bugs, but never to show their absence."</p>
+  <cite>— Edsger W. Dijkstra</cite>
+</div>
+
+<!-- ── PROMOTED BOOKMARK CALLOUT ── -->
+<div style="padding: 0 16px;">
+  <div class="promoted-callout">
+    <span class="callout-icon">📌</span>
+    <span><strong>Promoting your last bookmark:</strong> Foundation World Models has been waiting in the queue — it's the only item there, and it sits right at the formal-methods / agents intersection you care about. Today's a calm Saturday morning — good moment to dig in.</span>
+  </div>
+</div>
+
+<!-- ── YOUR 45-MINUTE PLAN ── -->
+<div class="plan-banner">
+  <h2>⏱ Your 45-Minute Plan</h2>
+  <div class="plan-row">
+    <span class="plan-time">0–25 min</span>
+    <span class="plan-label">📖 <strong>Deep Dive:</strong> Foundation World Models — verify-and-adapt agents (promoted)</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">25–30 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> Shielded RL under Dynamic STL Constraints — CBFs + temporal logic</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">30–35 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> Multi-Turn RL for Tool-Calling Agents — iterative reward calibration</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">35–40 min</span>
+    <span class="plan-label">💭 <strong>Research advice:</strong> Nature — AI and the PhD student: friend or foe?</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">40–45 min</span>
+    <span class="plan-label">📚 Queue check + line up the Robert Lange MLST episode for commute</span>
+  </div>
+</div>
+
+<!-- ── DEEP DIVE ── -->
+<section>
+  <div class="section-title">🔬 Deep Dive · 25 min</div>
+
+  <div class="card deep promoted">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2602.23997" target="_blank" rel="noopener">
+        Foundation World Models for Agents that Learn, Verify, and Adapt Reliably Beyond Static Environments
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Feb 2026</span>
+      <span class="dot">·</span>
+      <span>Promoted from bookmarks</span>
+      <span class="dot">·</span>
+      <span>~25 min</span>
+    </div>
+    <div class="card-body">
+      A timely synthesis of where "world models" sit in the agent stack — and crucially, what it takes to move past static benchmark evaluation into continual adaptation with verification in the loop. The paper argues for <em>foundation world models</em> as the right abstraction for agents that must learn online, certify decisions before acting, and adapt when their environment changes. Pay attention to the section on verification interfaces — it's where formal methods and RL meet, and it's the angle most closely aligned with your thesis direction. Skim equations on a first pass; plan a deeper return for Section 3–4.
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-promoted">Promoted</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK READS ── -->
+<section>
+  <div class="section-title">⚡ Quick Reads · ~15 min total</div>
+
+  <!-- Quick Read 1: Core formal methods -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2603.17152" target="_blank" rel="noopener">
+        Shielded Reinforcement Learning Under Dynamic Temporal Logic Constraints
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Mar 2026</span>
+      <span class="dot">·</span>
+      <span>Yüksel, Buyukkocak &amp; Aksaray (Northeastern ECE)</span>
+      <span class="dot">·</span>
+      <span>~5 min</span>
+    </div>
+    <div class="card-body">
+      A clean entry point into STL-conditioned shielding. The authors compose <em>sequential control barrier functions</em> with model-free RL to keep agents inside dynamic STL specifications throughout training — not just at convergence. Real systems need spatio-temporal constraints like "revisit the charging station every 30 minutes," and the standard "keep the reward below a threshold" framing breaks down fast. Worth skimming for how they handle the dynamism (constraints that shift over time) — that's where most shielding work punts.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Quick Read 2: Trending / agents -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.02869" target="_blank" rel="noopener">
+        Multi-Turn Reinforcement Learning for Tool-Calling Agents with Iterative Reward Calibration
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 2026</span>
+      <span class="dot">·</span>
+      <span>~5 min</span>
+    </div>
+    <div class="card-body">
+      A practical find: naively dense per-turn rewards on multi-turn tool-calling agents <em>hurt</em> performance by up to 14 points. The authors introduce Iterative Reward Calibration — using discriminative analysis of rollout data to shape per-turn rewards without breaking advantage direction — and lift Qwen3.5-4B from 63.8% → 66.7% on Tau-Bench Airline. The 4B model ends up outperforming GPT-4.1 and GPT-4o at 50× the efficiency. Nice complement to yesterday's credit-assignment survey — this is a working instance of the problems that survey frames.
+    </div>
+    <div class="tags">
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <!-- Quick Read 3: Research Philosophy -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.nature.com/articles/d41586-026-00843-y" target="_blank" rel="noopener">
+        AI and the PhD student: friend or foe?
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>Nature · Mar 16, 2026</span>
+      <span class="dot">·</span>
+      <span>~5 min</span>
+    </div>
+    <div class="card-body">
+      Nature's careful take on a question you probably turn over weekly: do LLM tools sharpen or dull the skills a PhD is meant to build? The reporting is balanced — featuring students who use AI to accelerate lit search and coding while fact-checking every reference, alongside supervisors worried that "going the extra mile to build the skill" is quietly eroding. Sets a useful bar for self-assessment: which parts of your workflow are you offloading, and are you still building the muscle underneath?
+    </div>
+    <div class="tags">
+      <span class="tag tag-advice">Research Advice</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKMARKS FOR LATER ── -->
+<section>
+  <div class="section-title">📚 Bookmarks &amp; Queue</div>
+
+  <div class="bookmark-section">
+    <h3>Queued for a quieter day</h3>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.03789" target="_blank" rel="noopener">
+        Automated Conjecture Resolution with Formal Verification (Rethlas + Archon; Lean 4 resolution of Anderson's conjecture)
+      </a>
+      <span class="bookmark-time">~20 min</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHONE VS LAPTOP ── -->
+<section>
+  <div class="section-title">📱 Phone vs. Laptop Strategy</div>
+
+  <div class="device-section">
+    <div class="device-col">
+      <h3>📱 Phone / Weekend</h3>
+      <ul>
+        <li>Nature piece on AI &amp; PhD students</li>
+        <li>Skim the Tool-Calling RL abstract + results table</li>
+        <li>Podcast queue below for a walk</li>
+      </ul>
+    </div>
+    <div class="device-col">
+      <h3>💻 Laptop / Desk</h3>
+      <ul>
+        <li>Foundation World Models (grab PDF, annotate §3–4)</li>
+        <li>STL Shielding paper — trace the CBF composition</li>
+        <li>Bookmark Archon paper for later lean-4 inspection</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── PODCAST QUEUE ── -->
+<section>
+  <div class="section-title">🎧 Podcast / Commute Queue</div>
+
+  <div class="podcast-card">
+    <div class="podcast-title">
+      <a href="https://www.youtube.com/watch?v=EInEmGaMRLc" target="_blank" rel="noopener">
+        MLST — When AI Discovers the Next Transformer (Robert Lange, Sakana AI)
+      </a>
+    </div>
+    <div class="podcast-meta">Machine Learning Street Talk · Mar 13, 2026 · ~90 min</div>
+    <div class="podcast-desc">
+      Robert Lange on <em>Shinka Evolve</em>: LLMs as mutation operators over a program archive, with a UCB bandit adaptively switching between GPT-5, Sonnet 4.5, and Gemini mid-run. Concrete wins: state-of-the-art circle packing with dramatically fewer evaluations, a 2nd-place AtCoder finish, and evolved MoE load-balancing losses. Relevant to you: the framing of <em>search over specifications</em>, not just solutions — an idea that maps naturally onto specification-driven RL.
+    </div>
+    <div class="tags" style="margin-top: 8px;">
+      <span class="tag tag-listen">Listen</span>
+      <span class="tag tag-formal">Formal Methods</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <strong>Day 19</strong> of your reading streak · Formal Methods + Reinforcement Learning<br />
+  <span style="margin-top: 4px; display: inline-block;">Generated by your morning digest scheduler · April 18, 2026</span>
+</footer>
+
+</body>
+</html>
