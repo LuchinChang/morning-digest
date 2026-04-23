@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 20,
+    "dayCount": 22,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -2049,6 +2049,230 @@
       "assignedDate": "2026-04-21",
       "estimatedMinutes": 80,
       "digestDay": 20
+    },
+    {
+      "id": "2026-04-22-001",
+      "title": "Neuro-Symbolic Generation and Validation of Memory-Aware Formal Function Specifications",
+      "url": "https://arxiv.org/abs/2603.13414",
+      "source": "arXiv (Jaffal, Kosmatov et al.)",
+      "date": "2026-03-18",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-22",
+      "estimatedMinutes": 25,
+      "digestDay": 21
+    },
+    {
+      "id": "2026-04-22-002",
+      "title": "Qwen3.6-27B: Flagship-Level Coding in a 27B Dense Model",
+      "url": "https://simonwillison.net/2026/Apr/22/qwen36-27b/",
+      "source": "simonwillison.net",
+      "date": "2026-04-22",
+      "tags": [
+        "TRENDING",
+        "AGENTS",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-22",
+      "estimatedMinutes": 4,
+      "digestDay": 21
+    },
+    {
+      "id": "2026-04-22-003",
+      "title": "GAR: Generative Adversarial Reinforcement Learning for Formal Theorem Proving",
+      "url": "https://arxiv.org/abs/2510.11769",
+      "source": "arXiv (Ruida Wang et al.)",
+      "date": "2025-10-13",
+      "tags": [
+        "FORMAL METHODS",
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-22",
+      "estimatedMinutes": 4,
+      "digestDay": 21
+    },
+    {
+      "id": "2026-04-22-004",
+      "title": "Changes to GitHub Copilot Individual plans",
+      "url": "https://simonwillison.net/2026/Apr/22/changes-to-github-copilot/",
+      "source": "simonwillison.net",
+      "date": "2026-04-22",
+      "tags": [
+        "TRENDING",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-22",
+      "estimatedMinutes": 3,
+      "digestDay": 21
+    },
+    {
+      "id": "2026-04-22-005",
+      "title": "Graphify: someone shipped Karpathy's LLM Wiki idea in 48 hours",
+      "url": "https://x.com/socialwithaayan/status/2041192946369007924",
+      "source": "X (Muhammad Ayan)",
+      "date": "2026-04-06",
+      "tags": [
+        "TRENDING",
+        "AGENTS",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-22",
+      "estimatedMinutes": 3,
+      "digestDay": 21
+    },
+    {
+      "id": "2026-04-22-006",
+      "title": "SymCode: A Neurosymbolic Approach to Mathematical Reasoning via Verifiable Code Generation",
+      "url": "https://arxiv.org/abs/2510.25975",
+      "source": "arXiv",
+      "date": "2025-10-30",
+      "tags": [
+        "DEEP DIVE",
+        "PROMOTED",
+        "FORMAL METHODS",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-23",
+      "estimatedMinutes": 25,
+      "digestDay": 22
+    },
+    {
+      "id": "2026-04-22-007",
+      "title": "Safe Reinforcement Learning via Recovery-based Shielding with Gaussian Process Dynamics Models",
+      "url": "https://arxiv.org/abs/2602.12444",
+      "source": "arXiv",
+      "date": "2026-02-15",
+      "tags": [
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 20,
+      "digestDay": null
+    },
+    {
+      "id": "2026-04-22-008",
+      "title": "MLST \u2014 How AI Could Be A Mathematician's Co-Pilot by 2026 (Prof. Swarat Chaudhuri)",
+      "url": "https://open.spotify.com/episode/0EF43Uk3Kpl9lIG7C1VuxX",
+      "source": "Machine Learning Street Talk",
+      "date": "2026-04-01",
+      "tags": [
+        "LISTEN",
+        "FORMAL METHODS",
+        "ADVICE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-22",
+      "estimatedMinutes": 75,
+      "digestDay": 21
+    },
+    {
+      "id": "2026-04-23-001",
+      "title": "Preguss: A Tale of 1001 LoC \u2014 Potential Runtime Error-Guided Specification Synthesis for Verifying Large-Scale Programs",
+      "url": "https://arxiv.org/abs/2512.24594",
+      "source": "arXiv",
+      "date": "2026-04-01",
+      "tags": [
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-23",
+      "estimatedMinutes": 4,
+      "digestDay": 22
+    },
+    {
+      "id": "2026-04-23-002",
+      "title": "Ax-Prover: A Deep Reasoning Agentic Framework for Theorem Proving in Mathematics and Quantum Physics",
+      "url": "https://arxiv.org/abs/2510.12787",
+      "source": "arXiv",
+      "date": "2025-10-14",
+      "tags": [
+        "FORMAL METHODS",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-23",
+      "estimatedMinutes": 4,
+      "digestDay": 22
+    },
+    {
+      "id": "2026-04-23-003",
+      "title": "My bets on open models, mid-2026",
+      "url": "https://www.interconnects.ai/p/my-bets-on-open-models-mid-2026",
+      "source": "Interconnects (Nathan Lambert)",
+      "date": "2026-04-16",
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-23",
+      "estimatedMinutes": 4,
+      "digestDay": 22
+    },
+    {
+      "id": "2026-04-23-004",
+      "title": "Two Hundred Weeks: Productivity for Mortal PhD Students (book extract)",
+      "url": "https://ahappyphd.org/posts/productivity-mortal-phds/",
+      "source": "A Happy PhD",
+      "date": "2026-02-10",
+      "tags": [
+        "ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-23",
+      "estimatedMinutes": 3,
+      "digestDay": 22
+    },
+    {
+      "id": "2026-04-23-005",
+      "title": "Dwarkesh \u00d7 Jensen Huang \u2014 TPU competition, why NVIDIA sells chips",
+      "url": "https://www.dwarkesh.com/podcast",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-04-15",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-23",
+      "estimatedMinutes": 103,
+      "digestDay": 22
+    },
+    {
+      "id": "2026-04-23-006",
+      "title": "Reward Hacking Mitigation using Verifiable Composite Rewards",
+      "url": "https://arxiv.org/abs/2509.15557",
+      "source": "arXiv",
+      "date": "2025-09-19",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 15,
+      "digestDay": null
     }
   ],
   "feeds": [

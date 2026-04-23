@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 23, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '→ ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .podcast-card a:hover {
+      text-decoration: underline;
+    }
+
+    .podcast-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .podcast-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .podcast-desc {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 20px 16px 28px;
+      border-top: 1px solid var(--divider);
+      margin-top: 8px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 420px) {
+      .device-section {
+        grid-template-columns: 1fr;
+      }
+      header h1 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-meta">Thursday · April 23, 2026 · Day 22</div>
+  <h1>☀️ Morning Digest</h1>
+  <div class="subtitle">Formal Methods + Reinforcement Learning · 45 min plan</div>
+</header>
+
+<!-- ── QUOTE ── -->
+<div class="quote-block">
+  <p>"If you're thinking without writing, you only think you're thinking."</p>
+  <cite>— Leslie Lamport, <em>Thinking for Programmers</em> (2015)</cite>
+</div>
+
+<!-- ── YOUR 45-MINUTE PLAN ── -->
+<div class="plan-banner">
+  <h2>⏱ Your 45-Minute Plan</h2>
+  <div class="plan-row">
+    <span class="plan-time">0–25 min</span>
+    <span class="plan-label">📖 <strong>Deep Dive (promoted):</strong> SymCode — neurosymbolic math reasoning via verifiable SymPy code</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">25–29 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> Preguss — RTE-guided spec synthesis that scales past 1 kLoC</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">29–33 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> Ax-Prover — MCP-backed agent for Lean theorem proving</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">33–37 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> Nathan Lambert — My bets on open models, mid-2026</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">37–40 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> A Happy PhD — Two Hundred Weeks: productivity for mortal PhDs</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">40–45 min</span>
+    <span class="plan-label">📚 Keep the GP-shielded RL bookmark queued, add reward-hacking-mitigation for next week, and cue Dwarkesh × Jensen Huang for the commute</span>
+  </div>
+</div>
+
+<!-- ── PROMOTED CALLOUT ── -->
+<section>
+  <div class="promoted-callout">
+    <span class="callout-icon">🎯</span>
+    <div>
+      <strong>Promoted from bookmarks:</strong> SymCode was parked on Apr 22 while you ran the Neuro-Symbolic Specs paper. Pulling it to the front today — the verifiable-code angle pairs tightly with yesterday's ACSL refinement loop.
+    </div>
+  </div>
+</section>
+
+<!-- ── DEEP DIVE ── -->
+<section>
+  <div class="section-title">🔬 Deep Dive · 25 min</div>
+
+  <div class="card deep promoted">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2510.25975" target="_blank" rel="noopener">
+        SymCode: A Neurosymbolic Approach to Mathematical Reasoning via Verifiable Code Generation
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Oct 2025</span>
+      <span class="dot">·</span>
+      <span>Neurosymbolic + SymPy</span>
+      <span class="dot">·</span>
+      <span>~25 min</span>
+    </div>
+    <div class="card-body">
+      SymCode has an LLM emit <em>verifiable SymPy code</em> instead of raw chain-of-thought: the Python runtime plus SymPy's symbolic engine becomes the judge, which gives you an externally-checkable execution trace rather than plausible prose. Reported gains are big — <strong>+13.6 pp on MATH-500 and OlympiadBench</strong> vs. CoT baselines — and the design is a near-perfect rehearsal for what you want in the shielded-agent setting: a <em>symbolic artifact</em> sitting between the LLM and the reward signal so failures surface as verifier errors, not silent reasoning slips. Read it with two questions: (1) how brittle is the extraction step that turns SymPy output back into a checked answer, and (2) can you port their "reject-trace" loss shape to RLVR where the verifier is a Frama-C obligation rather than a SymPy equation?
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-promoted">Promoted</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-code">Code</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK READS ── -->
+<section>
+  <div class="section-title">⚡ Quick Reads · 15 min total</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2512.24594" target="_blank" rel="noopener">
+        Preguss: A Tale of 1001 LoC — RTE-Guided Spec Synthesis for Large-Scale Programs
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · PACMPL (OOPSLA) Apr 2026</span>
+      <span class="dot">·</span>
+      <span>Static analysis × LLM</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      Right next door to yesterday's Neuro-Symbolic Specs paper, but the "trick" is orthogonal: Preguss uses <em>runtime-error analysis</em> (from static analysis) to pick <strong>where</strong> the LLM should synthesize specs, then refines interprocedural obligations unit-by-unit. The headline is operational — <strong>80.6%–88.9% reduction in human verification effort</strong> on real programs over 1 kLoC. Skim the evaluation: their "divide-and-conquer by RTE unit" is a cheap heuristic that might let you bound the LLM's scope in the shielded-spec pipeline you've been sketching.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2510.12787" target="_blank" rel="noopener">
+        Ax-Prover: A Deep Reasoning Agentic Framework for Theorem Proving in Mathematics and Quantum Physics
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Axiom</span>
+      <span class="dot">·</span>
+      <span>Lean + MCP</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      The new-ish pattern keeps showing up: general LLM + Lean tools wired through <strong>MCP</strong>, with the kernel as the reward oracle. What's interesting is the <em>QuantumTheorems</em> benchmark they ship alongside — proving Ax-Prover generalizes beyond contest math into a domain where background axioms aren't saturated. Competitive with specialized provers on the public benches, and clearly ahead on the new algebra & quantum sets. Useful reference shape for your "specialize a general reasoner with verifier tools" agenda.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.interconnects.ai/p/my-bets-on-open-models-mid-2026" target="_blank" rel="noopener">
+        My bets on open models, mid-2026
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>interconnects.ai · Apr 2026</span>
+      <span class="dot">·</span>
+      <span>Nathan Lambert</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      Lambert lays out where he thinks the open-model stack goes as funding structures realign away from single-vendor dependencies. Worth 4 minutes as strategic context: if you're building RL+verifier pipelines that have to consume a base model, the supply-side question ("which open weights will I be able to fine-tune in 6 months") is increasingly load-bearing. Pairs well with yesterday's Qwen3.6-27B release note — that's one of the concrete bets.
+    </div>
+    <div class="tags">
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://ahappyphd.org/posts/productivity-mortal-phds/" target="_blank" rel="noopener">
+        Two Hundred Weeks: Productivity for Mortal PhD Students
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>ahappyphd.org · Book extract</span>
+      <span class="dot">·</span>
+      <span>PhD productivity</span>
+      <span class="dot">·</span>
+      <span>~3 min</span>
+    </div>
+    <div class="card-body">
+      A counterweight to the "80% agent coding" zeitgeist: a candid piece on running a PhD at human pace, planning around the ~200 weeks you actually get, and defending protected thinking time. The practical bit — a weekly "pay yourself first" block for dissertation work before anything else touches the calendar — is worth 3 minutes to steal. Pairs with the Hamming re-reads you did in March.
+    </div>
+    <div class="tags">
+      <span class="tag tag-advice">Research Advice</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKMARKS FOR LATER ── -->
+<section>
+  <div class="section-title">📚 Bookmarks &amp; Queue</div>
+
+  <div class="bookmark-section">
+    <h3>Queued for a quieter day</h3>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2602.12444" target="_blank" rel="noopener">
+        Safe RL via Recovery-based Shielding with GP Dynamics Models — provable safety lower bound for unknown non-linear systems (AAMAS 2026)
+      </a>
+      <span class="bookmark-time">~20 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2509.15557" target="_blank" rel="noopener">
+        Reward Hacking Mitigation using Verifiable Composite Rewards — penalties for RLVR reward-format gaming in the medical-QA setting
+      </a>
+      <span class="bookmark-time">~15 min</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHONE VS LAPTOP ── -->
+<section>
+  <div class="section-title">📱 Phone vs. Laptop Strategy</div>
+
+  <div class="device-section">
+    <div class="device-col">
+      <h3>📱 Phone / Transit</h3>
+      <ul>
+        <li>Lambert's open-models bets — skimmable</li>
+        <li>A Happy PhD — read on the walk in</li>
+        <li>Ax-Prover abstract + evaluation table</li>
+        <li>Dwarkesh × Jensen Huang on the commute</li>
+      </ul>
+    </div>
+    <div class="device-col">
+      <h3>💻 Laptop / Desk</h3>
+      <ul>
+        <li>SymCode — margin notes on the reject-trace loop</li>
+        <li>Preguss — diagram their unit-selection heuristic</li>
+        <li>If time: cross-reference SymCode's verifier-as-judge with yesterday's ACSL pipeline</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── PODCAST QUEUE ── -->
+<section>
+  <div class="section-title">🎧 Podcast / Commute Queue</div>
+
+  <div class="podcast-card">
+    <div class="podcast-title">
+      <a href="https://www.dwarkesh.com/podcast" target="_blank" rel="noopener">
+        Dwarkesh × Jensen Huang — TPU competition, why NVIDIA sells chips, and the 2026 compute picture
+      </a>
+    </div>
+    <div class="podcast-meta">Dwarkesh Podcast · Apr 15, 2026 · 1h 43m</div>
+    <div class="podcast-desc">
+      Not a formal-methods episode, but unusually candid on the <em>systems</em> layer underneath everything you're training on: pricing, TPU competition, and why Jensen thinks selling chips to rivals is the right long-run move. Useful background when the Lambert piece above hits the supply-side question. Good commute listen — no note-taking required.
+    </div>
+    <div class="tags">
+      <span class="tag tag-listen">Listen</span>
+      <span class="tag tag-trending">Trending</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p><strong>Day 22</strong> · Morning Digest · 45-minute research plan</p>
+  <p>Formal Methods + Reinforcement Learning · Generated Apr 23, 2026</p>
+</footer>
+
+</body>
+</html>
