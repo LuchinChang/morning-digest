@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 24,
+    "dayCount": 25,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -2473,14 +2473,16 @@
       "source": "arXiv",
       "date": "2026-04-02",
       "tags": [
-        "FORMAL METHODS",
         "AGENTS",
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "PROMOTED",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 15,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-04-27",
+      "estimatedMinutes": 25,
+      "digestDay": 25
     },
     {
       "id": "2026-04-26-007",
@@ -2496,6 +2498,101 @@
       "assignedDate": null,
       "estimatedMinutes": 20,
       "digestDay": null
+    },
+    {
+      "title": "Mythos and the Unverified Cage: Z3-Based Pre-Deployment Verification for Frontier-Model Sandbox Infrastructure",
+      "url": "https://arxiv.org/abs/2604.20496",
+      "source": "arXiv (Dominik Blain)",
+      "date": "2026-04-22",
+      "tags": [
+        "TRENDING",
+        "FORMAL METHODS",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-27",
+      "estimatedMinutes": 4,
+      "digestDay": 25,
+      "id": "2026-04-27-001"
+    },
+    {
+      "title": "Outcome Rewards Do Not Guarantee Verifiable or Causally Important Reasoning",
+      "url": "https://arxiv.org/abs/2604.22074",
+      "source": "arXiv",
+      "date": "2026-04-30",
+      "tags": [
+        "RLVR",
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-27",
+      "estimatedMinutes": 4,
+      "digestDay": 25,
+      "id": "2026-04-27-002"
+    },
+    {
+      "title": "Rethinking Token-Level Credit Assignment in RLVR: A Polarity-Entropy Analysis",
+      "url": "https://arxiv.org/abs/2604.11056",
+      "source": "arXiv (HKUST(GZ) + Huawei)",
+      "date": "2026-04-13",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-27",
+      "estimatedMinutes": 4,
+      "digestDay": 25,
+      "id": "2026-04-27-003"
+    },
+    {
+      "title": "GPT-5.5 prompting guide \u2014 Simon Willison's notes on the official OpenAI advice",
+      "url": "https://simonwillison.net/2026/Apr/25/gpt-5-5-prompting-guide/",
+      "source": "Simon Willison",
+      "date": "2026-04-25",
+      "tags": [
+        "TRENDING",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-27",
+      "estimatedMinutes": 3,
+      "digestDay": 25,
+      "id": "2026-04-27-004"
+    },
+    {
+      "title": "Learning-Infused Formal Reasoning (LIFR) \u2014 Contract Synthesis, Artifact Reuse, Semantic Foundations",
+      "url": "https://arxiv.org/abs/2604.12747",
+      "source": "arXiv",
+      "date": "2026-04-27",
+      "tags": [
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 15,
+      "digestDay": null,
+      "id": "2026-04-27-005"
+    },
+    {
+      "title": "AIE Europe Debrief + Agent Labs Thesis \u2014 Unsupervised Learning \u00d7 Latent Space crossover (2026)",
+      "url": "https://www.latent.space/p/unsupervised-learning-2026",
+      "source": "Latent Space (swyx + Alessio)",
+      "date": "2026-04-27",
+      "tags": [
+        "LISTEN",
+        "TRENDING",
+        "RLVR"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-27",
+      "estimatedMinutes": 80,
+      "digestDay": 25,
+      "id": "2026-04-27-006"
     }
   ],
   "feeds": [
