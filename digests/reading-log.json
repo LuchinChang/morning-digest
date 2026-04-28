@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 25,
+    "dayCount": 26,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -2158,13 +2158,16 @@
       "source": "arXiv",
       "date": "2026-02-15",
       "tags": [
+        "DEEP DIVE",
         "FORMAL METHODS",
-        "READ"
+        "PROMOTED",
+        "READ",
+        "RL"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 20,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-04-28",
+      "estimatedMinutes": 25,
+      "digestDay": 26
     },
     {
       "id": "2026-04-22-008",
@@ -2593,6 +2596,102 @@
       "estimatedMinutes": 80,
       "digestDay": 25,
       "id": "2026-04-27-006"
+    },
+    {
+      "id": "2026-04-28-001",
+      "title": "On Tackling Complex Tasks with Reward Machines and Signal Temporal Logics",
+      "url": "https://arxiv.org/abs/2604.14440",
+      "source": "arXiv",
+      "date": "2026-04-15",
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "RL",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-28",
+      "estimatedMinutes": 4,
+      "digestDay": 26
+    },
+    {
+      "id": "2026-04-28-002",
+      "title": "FormalEvolve: Neuro-Symbolic Evolutionary Search for Diverse and Prover-Effective Autoformalization",
+      "url": "https://arxiv.org/abs/2603.19828",
+      "source": "arXiv",
+      "date": "2026-03-31",
+      "tags": [
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-28",
+      "estimatedMinutes": 4,
+      "digestDay": 26
+    },
+    {
+      "id": "2026-04-28-003",
+      "title": "AdverMCTS: Combating Pseudo-Correctness in Code Generation via Adversarial Monte Carlo Tree Search",
+      "url": "https://arxiv.org/abs/2604.10449",
+      "source": "arXiv",
+      "date": "2026-04-12",
+      "tags": [
+        "AGENTS",
+        "CODE",
+        "READ",
+        "RLVR"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-28",
+      "estimatedMinutes": 4,
+      "digestDay": 26
+    },
+    {
+      "id": "2026-04-28-004",
+      "title": "interwhen: A Generalizable Framework for Verifiable Reasoning with Test-time Monitors",
+      "url": "https://arxiv.org/abs/2602.11202",
+      "source": "arXiv",
+      "date": "2026-02-15",
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "RLVR"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-28",
+      "estimatedMinutes": 3,
+      "digestDay": 26
+    },
+    {
+      "id": "2026-04-28-005",
+      "title": "An AI State of the Union \u2014 Simon Willison on Lenny's Podcast (April 2026)",
+      "url": "https://www.lennysnewsletter.com/p/an-ai-state-of-the-union",
+      "source": "Lenny's Newsletter (Simon Willison)",
+      "date": "2026-04-02",
+      "tags": [
+        "LISTEN",
+        "TRENDING",
+        "AGENTS"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-28",
+      "estimatedMinutes": 90,
+      "digestDay": 26
+    },
+    {
+      "id": "2026-04-28-006",
+      "title": "The Urgency of Interpretability \u2014 Dario Amodei (essay)",
+      "url": "https://www.darioamodei.com/post/the-urgency-of-interpretability",
+      "source": "Dario Amodei",
+      "date": "2025-04-25",
+      "tags": [
+        "INTERPRETABILITY",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 30,
+      "digestDay": null
     }
   ],
   "feeds": [

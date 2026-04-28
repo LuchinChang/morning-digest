@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 28, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '→ ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .podcast-card a:hover {
+      text-decoration: underline;
+    }
+
+    .podcast-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .podcast-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .podcast-desc {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 20px 16px 28px;
+      border-top: 1px solid var(--divider);
+      margin-top: 8px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 420px) {
+      .device-section {
+        grid-template-columns: 1fr;
+      }
+      header h1 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-meta">Tuesday · April 28, 2026 · Day 26</div>
+  <h1>☀️ Morning Digest</h1>
+  <div class="subtitle">Formal Methods + Reinforcement Learning · 45 min plan</div>
+</header>
+
+<!-- ── QUOTE ── -->
+<div class="quote-block">
+  <p>"The unavoidable price of reliability is simplicity."</p>
+  <cite>— C. A. R. Hoare, <em>The Emperor's Old Clothes</em>, 1980 Turing Award Lecture — the implicit motto of every shield-style safety construction</cite>
+</div>
+
+<!-- ── YOUR 45-MINUTE PLAN ── -->
+<div class="plan-banner">
+  <h2>⏱ Your 45-Minute Plan</h2>
+  <div class="plan-row">
+    <span class="plan-time">0–25 min</span>
+    <span class="plan-label">📖 <strong>Deep Dive (promoted):</strong> Recovery-Based Shielding with GP Dynamics — the AAMAS&nbsp;2026 paper sitting in your bookmarks since Apr 22; reading it back-to-back with yesterday's Lean&nbsp;4 type-checked compliance gives you the full "shield-as-recovery-policy" vs "shield-as-type" axis</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">25–29 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> Reward Machines × Signal Temporal Logic — STL formulas as the event language a Reward Machine reads; the cleanest 2026 instance of "the spec is the reward" you've seen</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">29–33 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> FormalEvolve — autoformalization as compilation-gated evolutionary search; LLM mutation + AST rewrites under a strict generator-call budget. Citation-map material for your proposal's autoformalization section</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">33–37 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> AdverMCTS — code generation as a Solver-vs-Attacker minimax, with adversarial test discovery inside the search tree. The "adversarial verifier" framing you keep coming back to</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">37–40 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> interwhen — single-trajectory verifiable reasoning with test-time monitors; up to +15&nbsp;pp accuracy by steering on intermediate verifier feedback. The framing your own shielded-codegen proposal is converging on</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">40–45 min</span>
+    <span class="plan-label">📚 Update queue: file Dario Amodei's "Urgency of Interpretability" for the proposal-philosophy folder, then tee up Simon Willison on Lenny's Podcast for the gym walk</span>
+  </div>
+</div>
+
+<!-- ── PROMOTED CALLOUT ── -->
+<section>
+  <div class="promoted-callout">
+    <span class="callout-icon">🎯</span>
+    <div>
+      <strong>Promoted from bookmarks:</strong> Recovery-Based Shielding with GP Dynamics has been queued since Apr&nbsp;22 — it's now AAMAS&nbsp;2026, and it slots in <em>perfectly</em> after yesterday's Type-Checked Compliance read. Same problem (a formal envelope around a learned policy), opposite solution stack: yesterday's was discrete-and-symbolic (Lean&nbsp;4 dependent types as the spec, terms must inhabit them); today's is continuous-and-probabilistic (a GP dynamics model gives you a probabilistic safe set, and the shield only intervenes when the policy threatens to leave it). Read together you've got the two endpoints of the "what is a shield, really?" spectrum your proposal has been circling around.
+    </div>
+  </div>
+</section>
+
+<!-- ── DEEP DIVE ── -->
+<section>
+  <div class="section-title">🔬 Deep Dive · 25 min</div>
+
+  <div class="card deep promoted">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2602.12444" target="_blank" rel="noopener">
+        Safe Reinforcement Learning via Recovery-based Shielding with Gaussian Process Dynamics Models
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Feb 2026 · AAMAS 2026</span>
+      <span class="dot">·</span>
+      <span>GP dynamics · recovery policy · safety probability lower bound</span>
+      <span class="dot">·</span>
+      <span>~25 min</span>
+    </div>
+    <div class="card-body">
+      The paper's contribution is a <strong>recovery-based shield</strong> that wraps a learned RL policy: at each step the shield consults a Gaussian-process model of the dynamics, asks "if I let this action through, what is the probability the system enters an unsafe set within&nbsp;<em>k</em>&nbsp;steps?" and, if that probability exceeds a threshold, swaps in a backup <em>recovery policy</em> trained to bring the system back to a known-safe region. The whole construction admits a provable lower bound on safety probability that's easy to read off in terms of the GP's calibration. The thing worth dwelling on for your proposal: this is the cleanest 2026 instance of a shield that <em>doesn't</em> require a hand-built model of the environment — the safety guarantee is parametric on the GP's epistemic uncertainty, which means the shield gets <em>safer</em> as data accumulates, not <em>laxer</em>. Read in conjunction with yesterday's Type-Checked Compliance, it gives you the two extreme points on the shield-design axis: "shield as a refinement type that won't elaborate" (Lean&nbsp;4) vs "shield as a recovery controller backed by epistemic uncertainty" (this paper). Both can be cast as constraints on the RL policy's action distribution; what differs is <em>which side</em> of the feasibility check carries the proof obligation. Three concrete things to lift: (i) the calibration-conditional lower bound is a much better template for your proposal's "soundness" claim than the SMT-based bounds you'd been drafting; (ii) the recovery-policy idea generalizes to your shielded-codegen setting if you re-read "the unsafe set" as "configurations where the verifier discharges <em>fewer</em> obligations than before"; (iii) the GP becomes the explicit place where exploration cost shows up — useful for the section of your proposal that has to argue verification-aware exploration isn't strictly more expensive.
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-promoted">Promoted</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-rlvr">RL</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK READS ── -->
+<section>
+  <div class="section-title">⚡ Quick Reads · 15 min total</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.14440" target="_blank" rel="noopener">
+        On Tackling Complex Tasks with Reward Machines and Signal Temporal Logics
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 15, 2026</span>
+      <span class="dot">·</span>
+      <span>Reward Machines · STL · event-driven RL</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      Reward Machines have been around since 2018 — finite-state automata that encode the temporal structure of a reward signal — but the long-standing weak link is the <em>event language</em> they consume: usually hand-rolled propositional predicates over the state. The contribution here is to slot <strong>Signal Temporal Logic</strong> formulas in as the event-generator: each Reward Machine transition fires when an STL formula is satisfied on the trajectory so far. You get continuous, time-quantified events for free, and the Reward Machine stays small because it doesn't have to carry timing logic. For your proposal: this is the cleanest "the spec is the reward" instance you'll cite — the policy is rewarded <em>exactly when</em> the STL obligation is discharged, and the Reward Machine is the structural object that lets you compose obligations across phases. Pair with the deep-dive shielding paper: shield = "don't violate the STL formula"; reward = "discharge the STL formula." Same logical object, two roles.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-rlvr">RL</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2603.19828" target="_blank" rel="noopener">
+        FormalEvolve: Neuro-Symbolic Evolutionary Search for Diverse and Prover-Effective Autoformalization
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Mar 2026</span>
+      <span class="dot">·</span>
+      <span>autoformalization · compilation gating · AST rewrites</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      Treats autoformalization as a <em>compilation-gated, budgeted</em> test-time search: the LLM proposes candidate formalizations, the compiler is the fitness function, and a small set of symbolic AST rewrite operators inject structural diversity that pure LLM mutation misses. Under a generator-call budget of T = 100, FormalEvolve hits 58% / 84.9% semantic-hit rates on CombiBench / ProofNet — strong relative to budget-matched baselines. The interesting structural idea: the AST mutators give you <em>guaranteed</em> syntactic diversity even when the LLM has collapsed onto a single template, which is the failure mode you've seen most often in your own Dafny experiments. File this with the LIFR paper from Sunday — both are pointing at the same shape of system (LLM proposer + symbolic critic + budgeted search), but FormalEvolve is the empirical artifact, LIFR is the research-vision write-up.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.10449" target="_blank" rel="noopener">
+        AdverMCTS: Combating Pseudo-Correctness in Code Generation via Adversarial Monte Carlo Tree Search
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 12, 2026</span>
+      <span class="dot">·</span>
+      <span>MCTS · adversarial verifier · minimax codegen</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      The "pseudo-correctness" failure mode — code that passes the visible tests but harbors latent bugs the test suite never exercised — is reframed here as a minimax game between a Solver agent (proposing programs) and an Attacker agent (proposing inputs that should expose bugs). The two are interleaved inside a single MCTS tree: each Solver action expands into Attacker responses, and the verdict is the Attacker's best counter-test, not the visible test set. For your work this is interesting precisely because it makes the verifier <em>active</em> rather than reactive — the system spends compute generating the negative tests that would otherwise have to be authored by hand. Ties cleanly to SpecRL (which uses negative tests as a completeness signal for spec synthesis) and to the CIR/SR framing from the Apr 27 critique paper: the Attacker is essentially asking "is the candidate's reasoning <em>causally</em> grounded enough to survive an adversarial re-test?"
+    </div>
+    <div class="tags">
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-code">Code</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2602.11202" target="_blank" rel="noopener">
+        interwhen: A Generalizable Framework for Verifiable Reasoning with Test-time Monitors
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Feb 2026 · v2 (Mar 2026)</span>
+      <span class="dot">·</span>
+      <span>test-time monitor · single-trajectory steering · +15 pp</span>
+      <span class="dot">·</span>
+      <span>~3 min</span>
+    </div>
+    <div class="card-body">
+      A single-trajectory verification framework: instead of sampling many rollouts and re-ranking with a verifier, interwhen runs <em>one</em> rollout and steers it on the fly using feedback from a verifier that checks intermediate verifiable properties. Up to +15 pp accuracy over standard chain-of-thought execution on the benchmarks they pick. The reason this matters for the formal-methods + RL bridge you're constructing: interwhen formalizes "the verifier is part of the policy, not part of the post-hoc filter," which is precisely the stance you keep arriving at from the other direction (start with a verifier and ask what the policy must look like). The "intermediate verifiable property" is exactly the obligation a partial proof or partially-elaborated Lean term can already discharge, so the construction lifts cleanly into your shielded-codegen setting.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKMARKS FOR LATER ── -->
+<section>
+  <div class="section-title">📚 Bookmarks &amp; Queue</div>
+
+  <div class="bookmark-section">
+    <h3>New bookmark (file for a quieter day)</h3>
+    <div class="bookmark-item">
+      <a href="https://www.darioamodei.com/post/the-urgency-of-interpretability" target="_blank" rel="noopener">
+        Dario Amodei — "The Urgency of Interpretability". Anthropic's CEO essay arguing interpretability is moving from a research curiosity to a precondition for deploying anything that matters. Useful philosophical anchor for the "why does verification need to be legible to humans?" paragraph in your introduction
+      </a>
+      <span class="bookmark-time">~30 min</span>
+    </div>
+  </div>
+
+  <div class="bookmark-section">
+    <h3>Still queued (carrying forward)</h3>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.16278" target="_blank" rel="noopener">
+        Learning to Reason with Insight for Informal Theorem Proving — DeepInsightTheorem dataset + multi-stage SFT to instill technique-level pattern recognition (queued from Apr 26)
+      </a>
+      <span class="bookmark-time">~20 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.12172" target="_blank" rel="noopener">
+        COBALT-TLA: Neuro-Symbolic Verification Loop for Cross-Chain Bridge Vulnerabilities — LLM + TLC model checker in an automated REPL (queued from Apr 24)
+      </a>
+      <span class="bookmark-time">~12 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.12747" target="_blank" rel="noopener">
+        Learning-Infused Formal Reasoning (LIFR) — research-vision paper on contract synthesis, semantic artifact reuse, and learned proof tactics (queued from Apr 27)
+      </a>
+      <span class="bookmark-time">~15 min</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHONE VS LAPTOP ── -->
+<section>
+  <div class="section-title">📱 Phone vs. Laptop Strategy</div>
+
+  <div class="device-section">
+    <div class="device-col">
+      <h3>📱 Phone / Transit</h3>
+      <ul>
+        <li>Reward Machines × STL — abstract + the figure with the FSA-with-STL-guards; the structural idea fits a phone screen</li>
+        <li>FormalEvolve abstract + the AST mutator schematic — skim for vocabulary, not internals</li>
+        <li>interwhen — read the test-time-monitor protocol; the +15 pp number is the headline</li>
+        <li>Simon Willison on Lenny's Podcast for the gym walk</li>
+      </ul>
+    </div>
+    <div class="device-col">
+      <h3>💻 Laptop / Desk</h3>
+      <ul>
+        <li>Recovery-Based Shielding — work the safety-probability bound in §3 by hand; sketch the analogous bound for verifier-discharge rate</li>
+        <li>AdverMCTS — read the minimax tree-policy in §4 carefully; this is the reusable structural idea</li>
+        <li>If time: pull the FormalEvolve repo and run the 100-call benchmark on one of your own Dafny target specs as a sanity check</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── PODCAST QUEUE ── -->
+<section>
+  <div class="section-title">🎧 Podcast / Commute Queue</div>
+
+  <div class="podcast-card">
+    <div class="podcast-title">
+      <a href="https://www.lennysnewsletter.com/p/an-ai-state-of-the-union" target="_blank" rel="noopener">
+        Simon Willison — An AI State of the Union: We've Passed the Inflection Point
+      </a>
+    </div>
+    <div class="podcast-meta">Lenny's Podcast · Apr 2, 2026 · ~1h 30m</div>
+    <div class="podcast-desc">
+      Willison's argument — that November 2025 was the moment AI coding agents crossed from "mostly works" to "actually works" — is best read as a frame for what the verification stack is now <em>obligated</em> to do. His "lethal trifecta" framing of prompt injection is the negative case (verification absent, agent compromised), and his "dark factory" pattern (nobody writing or reviewing code) is what your shielded-codegen proposal has to be designed against. The compact takeaway for your work: when creation becomes nearly free, judgment, verification, and lived experience become priceless — that line is the value proposition you've been struggling to articulate for the proposal's introduction.
+    </div>
+    <div class="tags">
+      <span class="tag tag-listen">Listen</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-agents">Agents</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p><strong>Day 26</strong> · Morning Digest · 45-minute research plan</p>
+  <p>Formal Methods + Reinforcement Learning · Generated Apr 28, 2026</p>
+</footer>
+
+</body>
+</html>
