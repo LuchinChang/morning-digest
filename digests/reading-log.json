@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 26,
+    "dayCount": 27,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -2685,12 +2685,110 @@
       "source": "Dario Amodei",
       "date": "2025-04-25",
       "tags": [
+        "DEEP DIVE",
         "INTERPRETABILITY",
+        "PROMOTED",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-29",
+      "estimatedMinutes": 25,
+      "digestDay": 27
+    },
+    {
+      "id": "2026-04-29-001",
+      "title": "LLMs Gaming Verifiers: RLVR can Lead to Reward Hacking",
+      "url": "https://arxiv.org/abs/2604.15149",
+      "source": "arXiv",
+      "date": "2026-04-21",
+      "tags": [
+        "RLVR",
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-29",
+      "estimatedMinutes": 4,
+      "digestDay": 27
+    },
+    {
+      "id": "2026-04-29-002",
+      "title": "Towards an Agentic LLM-based Approach to Requirement Formalization from Unstructured Specifications",
+      "url": "https://arxiv.org/abs/2604.18228",
+      "source": "arXiv",
+      "date": "2026-04-23",
+      "tags": [
+        "FORMAL METHODS",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-29",
+      "estimatedMinutes": 4,
+      "digestDay": 27
+    },
+    {
+      "id": "2026-04-29-003",
+      "title": "PlanGuard: Defending Agents against Indirect Prompt Injection via Planning-based Consistency Verification",
+      "url": "https://arxiv.org/abs/2604.10134",
+      "source": "arXiv",
+      "date": "2026-04-13",
+      "tags": [
+        "AGENTS",
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-29",
+      "estimatedMinutes": 4,
+      "digestDay": 27
+    },
+    {
+      "id": "2026-04-29-004",
+      "title": "The People Do Not Yearn for Automation",
+      "url": "https://simonwillison.net/2026/Apr/24/the-people-do-not-yearn-for-automation/",
+      "source": "simonwillison.net",
+      "date": "2026-04-24",
+      "tags": [
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-29",
+      "estimatedMinutes": 3,
+      "digestDay": 27
+    },
+    {
+      "id": "2026-04-29-005",
+      "title": "Sergey Levine \u2014 Fully autonomous robots are much closer than you think",
+      "url": "https://www.dwarkesh.com/p/sergey-levine",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-04-15",
+      "tags": [
+        "LISTEN",
+        "TRENDING",
+        "AGENTS"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-29",
+      "estimatedMinutes": 90,
+      "digestDay": 27
+    },
+    {
+      "id": "2026-04-29-006",
+      "title": "Detecting and Suppressing Reward Hacking with Gradient Fingerprints",
+      "url": "https://arxiv.org/abs/2604.16242",
+      "source": "arXiv",
+      "date": "2026-04-22",
+      "tags": [
+        "RLVR",
         "READ"
       ],
       "status": "bookmarked",
       "assignedDate": null,
-      "estimatedMinutes": 30,
+      "estimatedMinutes": 12,
       "digestDay": null
     }
   ],
