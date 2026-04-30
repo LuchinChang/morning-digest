@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · April 30, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '→ ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .podcast-card a:hover {
+      text-decoration: underline;
+    }
+
+    .podcast-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .podcast-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .podcast-desc {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 20px 16px 28px;
+      border-top: 1px solid var(--divider);
+      margin-top: 8px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 420px) {
+      .device-section {
+        grid-template-columns: 1fr;
+      }
+      header h1 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-meta">Thursday · April 30, 2026 · Day 28</div>
+  <h1>☀️ Morning Digest</h1>
+  <div class="subtitle">Formal Methods + Reinforcement Learning · 45 min plan</div>
+</header>
+
+<!-- ── QUOTE ── -->
+<div class="quote-block">
+  <p>"It is a capital mistake to theorize before one has data. Insensibly one begins to twist facts to suit theories, instead of theories to suit facts."</p>
+  <cite>— Sherlock Holmes (Conan Doyle, "A Scandal in Bohemia," 1891) — the implicit warning every roundtrip-verification scheme is built on: a formalization that "looks right" against a model whose discharge structure you cannot independently re-derive is a theory dressed as a fact</cite>
+</div>
+
+<!-- ── YOUR 45-MINUTE PLAN ── -->
+<div class="plan-banner">
+  <h2>⏱ Your 45-Minute Plan</h2>
+  <div class="plan-row">
+    <span class="plan-time">0–25 min</span>
+    <span class="plan-label">📖 <strong>Deep Dive:</strong> Faithful Autoformalization via Roundtrip Verification &amp; Repair. The closest published analogue to your shielded-codegen verifier loop: formalize → de-formalize → re-formalize → check logical equivalence, then route any disagreement into a stage-targeted repair. Lift the diagnosis taxonomy directly into your introduction</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">25–29 min</span>
+    <span class="plan-label">⚡ <strong>Quick read (PROMOTED):</strong> Gradient Fingerprints — the bookmarked companion to yesterday's "LLMs Gaming Verifiers." Same failure mode, opposite end of the stack: detect reward hacking from the gradient signature, not the output</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">29–33 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> SafeAdapt — Rashomon-set policy projection. The cleanest "provably safe update" construction you've seen this month; pair with the Recovery-Based Shielding paper from Apr 22 for your "shield-as-projector" framing</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">33–37 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> AgentV-RL — verifier-as-agent. Forward/backward agentic verifier with proactive tool use; relevant to the "verifier is part of the policy" thesis at the core of your proposal</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">37–40 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> Lean Atlas — interactive dependency-graph viewer for human-AI Lean 4 collaboration. Worth three minutes for the legibility argument: the proof's <em>structure</em> is the audit surface</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">40–45 min</span>
+    <span class="plan-label">📚 Update queue: file the Controllable Tool-Use Synthesis paper as a new bookmark, mark COBALT-TLA / LIFR / Insight-Theorem as still queued, then tee up Lex Fridman × Peter Steinberger for the gym walk</span>
+  </div>
+</div>
+
+<!-- ── PROMOTED CALLOUT ── -->
+<section>
+  <div class="promoted-callout">
+    <span class="callout-icon">🎯</span>
+    <div>
+      <strong>Promoted from bookmarks:</strong> Yesterday you flagged Gradient Fingerprints as the obvious companion to "LLMs Gaming Verifiers" — output-level diagnosis (IPT) on one side, gradient-signature diagnosis (Grift) on the other. Reading them within 24 hours of each other is the right call: the question your shielded-codegen architecture has to answer is <em>where</em> in the pipeline a verifier ought to live, and these two papers stake out the two endpoints. Pair this with today's Faithful Autoformalization deep dive and you've got the three legs of a single argument: you need legibility at the spec level (autoformalization), at the output level (IPT), and at the gradient level (Grift) — and any one of the three failing is a deployment-blocking bug.
+    </div>
+  </div>
+</section>
+
+<!-- ── DEEP DIVE ── -->
+<section>
+  <div class="section-title">🔬 Deep Dive · 25 min</div>
+
+  <div class="card deep">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.25031" target="_blank" rel="noopener">
+        Faithful Autoformalization via Roundtrip Verification and Repair
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Amrollahi et al. · Apr 2026</span>
+      <span class="dot">·</span>
+      <span>autoformalization · roundtrip · diagnosis-guided repair</span>
+      <span class="dot">·</span>
+      <span>~25 min</span>
+    </div>
+    <div class="card-body">
+      The cleanest formulation you'll read this month of the question Tuesday's Agentic Requirement Formalization paper was circling around: <em>how do you know that the formal spec your pipeline produced is the same spec the human wrote in English?</em> Amrollahi and co-authors take the obvious-but-undertheorized move and make it a primitive: formalize a natural-language statement into the target logic, translate the resulting formal object back to natural language, formalize <em>that</em>, and ask a formal tool whether the two formalizations are logically equivalent. Agreement is evidence of faithful translation; disagreement is evidence that something has drifted, and the diagnosis stage tells you <em>where</em> — was it the NL→formal direction, the formal→NL direction, or the equivalence check itself? A targeted repair operator then re-runs only the failing stage. The numbers are striking: 150 traffic rules, Claude Opus 4.6 and GPT-5.2, equivalence rate up from 45–61% to 83–85%, beating a random-repair baseline cleanly. Three things to lift for your proposal. (i) The <em>roundtrip equivalence</em> primitive is the natural verifier for the autoformalization arm of your shielded-codegen pipeline — you've been hand-waving about "checking the spec is what the user meant" and this gives you a discharge structure. (ii) The <em>diagnosis stage</em> is exactly the kind of legible-failure signal Amodei was arguing for in yesterday's interpretability essay: when the verifier rejects, it tells you which sub-stage failed, not just that <em>something</em> failed. (iii) The <em>random-repair baseline</em> is the right experiment to copy: "we tried fixing things at random and our targeted method beat it" is the hardest version of the ablation, and you should plan for it in your evaluation section. One open question worth marking: the paper's traffic-rule corpus is tiny (n=150) and structurally uniform; the real test of roundtrip verification is whether it survives spec languages with rich quantifier structure (Lean 4 with mathlib types, or a full Hoare-style program logic). That's the experiment you could run as a follow-up.
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK READS ── -->
+<section>
+  <div class="section-title">⚡ Quick Reads · 15 min total</div>
+
+  <div class="card promoted">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.16242" target="_blank" rel="noopener">
+        Detecting and Suppressing Reward Hacking with Gradient Fingerprints
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 2026 · PROMOTED from bookmarks</span>
+      <span class="dot">·</span>
+      <span>RLVR · gradient signatures · reward hacking detection</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      The output-side diagnostic from yesterday's "LLMs Gaming Verifiers" (IPT — invariance under isomorphic perturbation) is naturally one half of a story; Grift is the other half. Where IPT asks "did the model produce a different answer when we re-presented the task," Grift asks "did the gradient signature during RL training drift in a way that's consistent with the model exploiting the verifier rather than learning the rule." The fingerprint is a low-dimensional projection of per-step gradient updates that the authors show separates clean-training trajectories from reward-hacking trajectories with high accuracy, and — crucially — supports a <em>suppression</em> step: regularize the policy update against the hacking-fingerprint direction during training. For your proposal, file this as the training-time analogue of your shielded-codegen runtime defense: shielded codegen rejects hacked outputs at deployment; Grift refuses to learn them in the first place. The two are complementary, not redundant. The experiment to imagine: stack Grift training-time regularization with shielded-codegen runtime rejection and ask whether the discharge rate of the shield drops, because the policy has fewer reasons to attempt the gameable shortcut to begin with.
+    </div>
+    <div class="tags">
+      <span class="tag tag-promoted">Promoted</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.09452" target="_blank" rel="noopener">
+        SafeAdapt: Provably Safe Policy Updates in Deep Reinforcement Learning
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 10, 2026</span>
+      <span class="dot">·</span>
+      <span>safe RL · Rashomon set · policy projection</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      A clean, almost surgical contribution: rather than retrofitting safety as a Lagrangian constraint on the gradient (the standard CMDP move, with all of its convergence headaches), SafeAdapt defines the <em>Rashomon set</em> — the region in policy-parameter space whose policies are all certified to satisfy the safety constraints on the demonstration distribution — and asks every gradient step to project itself back into that set. The result is an <em>a-priori</em> guarantee that's algorithm-agnostic: bolt the projection onto PPO, SAC, anything. For your proposal, this is the same architectural move shielded codegen makes, transposed from outputs to parameters: you don't penalize the policy for being unsafe, you constrain the policy to a region where unsafety is structurally impossible. The honest weakness of the construction — distributional shift between demonstration and deployment — is the same weakness shielded codegen has at runtime, and is worth marking as a shared open problem. The terminology is also worth borrowing: "Rashomon set" is more evocative than "feasible set" and would do nicely as a name for the post-shield acceptance region in your draft.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-rlvr">Safe RL</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.16004" target="_blank" rel="noopener">
+        AgentV-RL: Scaling Reward Modeling with Agentic Verifier
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 2026</span>
+      <span class="dot">·</span>
+      <span>agentic verifier · forward/backward decomposition · reward modeling</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      Most reward-model literature treats the verifier as a passive scoring function; AgentV-RL turns it into an <em>agent</em> that runs tools, invokes external solvers, and decomposes the verification into a forward pass (premise → conclusion) and a backward pass (conclusion ← premise) before issuing a verdict. The two passes are explicit checks for circular reasoning and for unsupported leaps respectively. The 4B variant beats SOTA outcome reward models by 25.2% on their benchmarks, which is large enough to take seriously. For your shielded-codegen proposal, this is direct citation material for the claim that <em>the verifier is itself a policy</em> — a point you've been making philosophically and now have an empirical paper to anchor. Two specific things to lift: (i) the forward/backward decomposition is the natural shape for a discharge-structure proof in your shield (you've been drafting it as a single check, but factoring it into pre-condition and post-condition halves matches AgentV-RL's structure exactly); (ii) the failure modes the paper diagnoses — verifier-as-agent collapsing into the same shortcut behavior the policy has — is the right caution to cite when you argue for an <em>independent</em> shield rather than a learned one.
+    </div>
+    <div class="tags">
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.16347" target="_blank" rel="noopener">
+        Lean Atlas: An Integrated Proof Environment for Scalable Human-AI Collaborative Formalization
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 2026</span>
+      <span class="dot">·</span>
+      <span>Lean 4 · dependency graph · semantic hallucination</span>
+      <span class="dot">·</span>
+      <span>~3 min</span>
+    </div>
+    <div class="card-body">
+      Worth three minutes purely for the framing: the authors argue that the binding constraint on AI-assisted Lean 4 proof construction is no longer the type-checker (which catches logical errors) but <em>semantic hallucination</em> — proofs that pass type-checking yet do not formalize the intended mathematics. Their answer is an interactive dependency-graph viewer that exposes proof structure to the human at exactly the granularity needed to spot drift. The paper is mostly tooling, but the diagnostic claim — type-checking is necessary but not sufficient; structural legibility is the missing layer — is the same observation that motivates your shielded-codegen proposal at a different level of the stack. Cite alongside the Faithful-Autoformalization deep dive: the two papers are answers to the same question (semantic-vs-syntactic faithfulness of formalization) at two different levels of human-in-the-loop.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-interp">Interpretability</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKMARKS FOR LATER ── -->
+<section>
+  <div class="section-title">📚 Bookmarks &amp; Queue</div>
+
+  <div class="bookmark-section">
+    <h3>New bookmark (file for a quieter day)</h3>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.09813" target="_blank" rel="noopener">
+        Controllable and Verifiable Tool-Use Data Synthesis for Agentic Reinforcement Learning (COVERT) — two-stage pipeline that first synthesizes base tool-use trajectories with multi-level validation, then applies oracle-preserving augmentations to systematically scale environmental complexity. Worth bookmarking as a possible <em>data-generation</em> arm for your shielded-codegen training pipeline
+      </a>
+      <span class="bookmark-time">~10 min</span>
+    </div>
+  </div>
+
+  <div class="bookmark-section">
+    <h3>Still queued (carrying forward)</h3>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.16278" target="_blank" rel="noopener">
+        Learning to Reason with Insight for Informal Theorem Proving — DeepInsightTheorem dataset + multi-stage SFT to instill technique-level pattern recognition (queued from Apr 26)
+      </a>
+      <span class="bookmark-time">~20 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.12172" target="_blank" rel="noopener">
+        COBALT-TLA: Neuro-Symbolic Verification Loop for Cross-Chain Bridge Vulnerabilities — LLM + TLC model checker in an automated REPL (queued from Apr 24)
+      </a>
+      <span class="bookmark-time">~12 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.12747" target="_blank" rel="noopener">
+        Learning-Infused Formal Reasoning (LIFR) — research-vision paper on contract synthesis, semantic artifact reuse, and learned proof tactics (queued from Apr 27)
+      </a>
+      <span class="bookmark-time">~15 min</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHONE VS LAPTOP ── -->
+<section>
+  <div class="section-title">📱 Phone vs. Laptop Strategy</div>
+
+  <div class="device-section">
+    <div class="device-col">
+      <h3>📱 Phone / Transit</h3>
+      <ul>
+        <li>Faithful Autoformalization — read the abstract + the diagnosis taxonomy table; save §4 for desk</li>
+        <li>Gradient Fingerprints — short enough to read in full on transit</li>
+        <li>Lean Atlas — three-minute scan; the screenshots are the point</li>
+        <li>Lex Fridman × Peter Steinberger for the gym walk</li>
+      </ul>
+    </div>
+    <div class="device-col">
+      <h3>💻 Laptop / Desk</h3>
+      <ul>
+        <li>Faithful Autoformalization — second pass with a pen; sketch the analogous diagram for your shielded-codegen autoformalization stage and mark which sub-stages your verifier already covers</li>
+        <li>SafeAdapt — work through the projection construction in §3; it's algebraically clean and worth pulling apart</li>
+        <li>AgentV-RL — read the forward/backward decomposition in §3; ask whether your shield's discharge structure factors the same way</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── PODCAST QUEUE ── -->
+<section>
+  <div class="section-title">🎧 Podcast / Commute Queue</div>
+
+  <div class="podcast-card">
+    <div class="podcast-title">
+      <a href="https://lexfridman.com/peter-steinberger/" target="_blank" rel="noopener">
+        OpenClaw: The Viral AI Agent that Broke the Internet — Peter Steinberger
+      </a>
+    </div>
+    <div class="podcast-meta">Lex Fridman Podcast #491 · Feb 2026 · ~3h</div>
+    <div class="podcast-desc">
+      Steinberger built OpenClaw — an open-source coding agent that became the fastest-growing repo in GitHub history — and the conversation is a useful counterweight to the formal-methods orientation of the rest of the digest. Two passages worth listening for: (i) the section on the shift from <em>conversational</em> AI to <em>autonomous</em> agents, where Steinberger argues the binding constraint is no longer model capability but the <em>verifier surface</em> available to a long-running agent — the same claim your proposal is making, in operator language rather than research language; (ii) Steinberger's pragmatic taxonomy of agent failures (capability, retrieval, verification, persistence) is a more grounded breakdown than most academic surveys offer, and is the right empirical framing to cite when you argue for verification as the bottleneck. Skip-friendly format; the first hour is the densest.
+    </div>
+    <div class="tags">
+      <span class="tag tag-listen">Listen</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-trending">Trending</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p><strong>Day 28</strong> · Morning Digest · 45-minute research plan</p>
+  <p>Formal Methods + Reinforcement Learning · Generated Apr 30, 2026</p>
+</footer>
+
+</body>
+</html>

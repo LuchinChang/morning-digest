@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 27,
+    "dayCount": 28,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -2783,12 +2783,113 @@
       "source": "arXiv",
       "date": "2026-04-22",
       "tags": [
+        "FORMAL METHODS",
+        "PROMOTED",
+        "READ",
+        "RLVR"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-30",
+      "estimatedMinutes": 12,
+      "digestDay": 28
+    },
+    {
+      "id": "2026-04-30-001",
+      "title": "Faithful Autoformalization via Roundtrip Verification and Repair",
+      "url": "https://arxiv.org/abs/2604.25031",
+      "source": "arXiv (Amrollahi et al.)",
+      "date": "2026-04-25",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-30",
+      "estimatedMinutes": 25,
+      "digestDay": 28
+    },
+    {
+      "id": "2026-04-30-002",
+      "title": "SafeAdapt: Provably Safe Policy Updates in Deep Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2604.09452",
+      "source": "arXiv",
+      "date": "2026-04-10",
+      "tags": [
+        "FORMAL METHODS",
+        "SAFE RL",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-30",
+      "estimatedMinutes": 4,
+      "digestDay": 28
+    },
+    {
+      "id": "2026-04-30-003",
+      "title": "AgentV-RL: Scaling Reward Modeling with Agentic Verifier",
+      "url": "https://arxiv.org/abs/2604.16004",
+      "source": "arXiv",
+      "date": "2026-04-19",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "FORMAL METHODS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-30",
+      "estimatedMinutes": 4,
+      "digestDay": 28
+    },
+    {
+      "id": "2026-04-30-004",
+      "title": "Lean Atlas: An Integrated Proof Environment for Scalable Human-AI Collaborative Formalization",
+      "url": "https://arxiv.org/abs/2604.16347",
+      "source": "arXiv",
+      "date": "2026-04-19",
+      "tags": [
+        "FORMAL METHODS",
+        "INTERPRETABILITY",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-30",
+      "estimatedMinutes": 3,
+      "digestDay": 28
+    },
+    {
+      "id": "2026-04-30-005",
+      "title": "OpenClaw: The Viral AI Agent that Broke the Internet \u2014 Peter Steinberger",
+      "url": "https://lexfridman.com/peter-steinberger/",
+      "source": "Lex Fridman Podcast #491",
+      "date": "2026-02-12",
+      "tags": [
+        "LISTEN",
+        "AGENTS",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-04-30",
+      "estimatedMinutes": 60,
+      "digestDay": 28
+    },
+    {
+      "id": "2026-04-30-006",
+      "title": "Controllable and Verifiable Tool-Use Data Synthesis for Agentic Reinforcement Learning (COVERT)",
+      "url": "https://arxiv.org/abs/2604.09813",
+      "source": "arXiv",
+      "date": "2026-04-13",
+      "tags": [
+        "AGENTS",
         "RLVR",
         "READ"
       ],
       "status": "bookmarked",
       "assignedDate": null,
-      "estimatedMinutes": 12,
+      "estimatedMinutes": 10,
       "digestDay": null
     }
   ],
