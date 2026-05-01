@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 28,
+    "dayCount": 29,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -2368,14 +2368,16 @@
       "source": "arXiv",
       "date": "2026-04-13",
       "tags": [
-        "FORMAL METHODS",
+        "AGENTS",
         "CODE",
+        "DEEP DIVE",
+        "FORMAL METHODS",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-01",
       "estimatedMinutes": 12,
-      "digestDay": null
+      "digestDay": 29
     },
     {
       "id": "2026-04-24-007",
@@ -2891,6 +2893,102 @@
       "assignedDate": null,
       "estimatedMinutes": 10,
       "digestDay": null
+    },
+    {
+      "id": "2026-05-01-001",
+      "title": "Verify Before You Commit: Towards Faithful Reasoning in LLM Agents via Self-Auditing",
+      "url": "https://arxiv.org/abs/2604.08401",
+      "source": "arXiv",
+      "date": "2026-04-09",
+      "tags": [
+        "FORMAL METHODS",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-01",
+      "estimatedMinutes": 4,
+      "digestDay": 29
+    },
+    {
+      "id": "2026-05-01-002",
+      "title": "From Language to Logic: Bridging LLMs & Formal Representations for RTL Assertion Generation (ProofLoop)",
+      "url": "https://arxiv.org/abs/2604.23100",
+      "source": "arXiv",
+      "date": "2026-04-24",
+      "tags": [
+        "FORMAL METHODS",
+        "AGENTS",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-01",
+      "estimatedMinutes": 4,
+      "digestDay": 29
+    },
+    {
+      "id": "2026-05-01-003",
+      "title": "A Robust Reasoning Benchmark: 14-Perturbation Pipeline for Reasoning Model Stress-Testing",
+      "url": "https://arxiv.org/abs/2604.08571",
+      "source": "arXiv",
+      "date": "2026-04-09",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-01",
+      "estimatedMinutes": 3,
+      "digestDay": 29
+    },
+    {
+      "id": "2026-05-01-004",
+      "title": "The Surprising Universality of LLM Outputs: A Real-Time Verification Primitive",
+      "url": "https://arxiv.org/abs/2604.25634",
+      "source": "arXiv",
+      "date": "2026-04-27",
+      "tags": [
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-01",
+      "estimatedMinutes": 4,
+      "digestDay": 29
+    },
+    {
+      "id": "2026-05-01-005",
+      "title": "Logic-Based Verification of Task Allocation for LLM-Enabled Multi-Agent Manufacturing Systems",
+      "url": "https://arxiv.org/abs/2604.17142",
+      "source": "arXiv",
+      "date": "2026-04-19",
+      "tags": [
+        "FORMAL METHODS",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 12,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-01-006",
+      "title": "Every Agent Needs a Box \u2014 Aaron Levie (Box) \u00d7 Latent Space",
+      "url": "https://www.latent.space/p/box",
+      "source": "Latent Space (swyx + Alessio)",
+      "date": "2026-04-15",
+      "tags": [
+        "LISTEN",
+        "AGENTS",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-01",
+      "estimatedMinutes": 75,
+      "digestDay": 29
     }
   ],
   "feeds": [
