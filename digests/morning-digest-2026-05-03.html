@@ -304,6 +304,25 @@
       flex-shrink: 0;
     }
 
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
     .bookmark-section {
       background: var(--card);
       border: 1px solid var(--border);
@@ -398,340 +417,205 @@
       margin-bottom: 12px;
     }
 
-    .podcast-card a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .podcast-card a:hover {
-      text-decoration: underline;
-    }
-
-    .podcast-title {
+    .podcast-card .card-title {
       font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      line-height: 1.4;
-    }
-
-    .podcast-meta {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .podcast-desc {
-      font-size: 13px;
-      line-height: 1.5;
     }
 
     footer {
       text-align: center;
+      padding: 22px 16px 30px;
       font-size: 12px;
       color: var(--muted);
-      padding: 20px 16px 28px;
       border-top: 1px solid var(--divider);
-      margin-top: 8px;
+      margin-top: 12px;
     }
 
-    footer strong {
-      color: var(--text);
-    }
-
-    @media (max-width: 420px) {
-      .device-section {
-        grid-template-columns: 1fr;
-      }
-      header h1 { font-size: 19px; }
+    footer p {
+      margin: 2px 0;
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="header-meta">Morning Digest · Day 30 · Refresh</div>
+    <h1>Sunday, May 3, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
 
-<!-- ── HEADER ── -->
-<header>
-  <div class="header-meta">Sunday · May 3, 2026 · Day 30</div>
-  <h1>☀️ Morning Digest</h1>
-  <div class="subtitle">Formal Methods + Reinforcement Learning · 45 min plan</div>
-</header>
-
-<!-- ── QUOTE ── -->
-<div class="quote-block">
-  <p>"In mathematics you don't understand things. You just get used to them."</p>
-  <cite>— John von Neumann (paraphrased by Gary Zukav, 1979) — a useful reframing on Day 30. The COBALT-TLA convergence theorem you sketched on Friday won't <em>click</em> the first time you write it down; it'll click around the third revision, when the notation has stopped fighting you. Plan accordingly.</cite>
-</div>
-
-<!-- ── YOUR 45-MINUTE PLAN ── -->
-<div class="plan-banner">
-  <h2>⏱ Your 45-Minute Plan</h2>
-  <div class="plan-row">
-    <span class="plan-time">0–25 min</span>
-    <span class="plan-label">📖 <strong>Deep Dive (PROMOTED):</strong> Learning to Reason with Insight for Informal Theorem Proving — your oldest open bookmark, queued since Apr 26. Friday's COBALT-TLA reframing was about <em>convergence</em>; this week's complement is about the <em>policy</em> the loop is converging on. The DeepInsightTheorem dataset + multi-stage SFT pipeline is the cleanest published account of "what does technique-level pattern recognition look like as a training objective?" — a question your shielded-codegen proposal currently sidesteps</span>
-  </div>
-  <div class="plan-row">
-    <span class="plan-time">25–29 min</span>
-    <span class="plan-label">⚡ <strong>Quick read:</strong> Self-Distilled RLVR (RLSD) — on-policy distillation as a denser signal than vanilla RLVR. The teacher-trace signal is the natural complement to a deterministic shield: the shield gives you sound rejection, RLSD gives you informative acceptance</span>
-  </div>
-  <div class="plan-row">
-    <span class="plan-time">29–33 min</span>
-    <span class="plan-label">⚡ <strong>Quick read:</strong> KnowRL — minimal-sufficient knowledge guidance as a fix for reward sparsity on hard RLVR problems. Treat the "hint as minimal-sufficient guidance" framing as a candidate for the obligation-recognition layer of your decomposition</span>
-  </div>
-  <div class="plan-row">
-    <span class="plan-time">33–37 min</span>
-    <span class="plan-label">⚡ <strong>Quick read:</strong> On Reasoning-Centric LLM-based ATP — the position-paper companion to today's deep dive. The argument that proof agents should reason about <em>plans</em> and <em>critiques</em>, not just emit tactics, is the right vocabulary to import into §3 of your draft</span>
-  </div>
-  <div class="plan-row">
-    <span class="plan-time">37–40 min</span>
-    <span class="plan-label">⚡ <strong>Quick read:</strong> Simon Willison — "The Zig project's rationale for their firm anti-AI contribution policy." Three-minute palette cleanser on community-level AI-tooling governance. Useful counterweight to the technical diet</span>
-  </div>
-  <div class="plan-row">
-    <span class="plan-time">40–45 min</span>
-    <span class="plan-label">📚 Update queue: log Insight-Theorem as completed, file ProofSketcher / LongCoT / PRMs-Meet-Planning as new bookmarks, then queue the Cognitive Revolution Live Show for the Sunday afternoon walk</span>
-  </div>
-</div>
-
-<!-- ── PROMOTED CALLOUT ── -->
-<section>
-  <div class="promoted-callout">
-    <span class="callout-icon">🎯</span>
-    <div>
-      <strong>Promoted from bookmarks:</strong> Insight-Theorem has been on your queue for 7 days — long enough that the right move on Day 30 is to clear the oldest bookmark before reaching for new content. The paper also pairs well with Friday's COBALT-TLA deep dive: COBALT-TLA gave you a <em>convergence</em> story for the outer loop (LLM ↔ symbolic checker); Insight-Theorem gives you a <em>training-signal</em> story for the inner policy (what makes one proof attempt qualitatively better than another). Together they bracket the two halves of the shielded-codegen architecture — outer-loop convergence and inner-policy improvement — and reading them in sequence is a meaningful choice, not a coincidence.
-    </div>
-  </div>
-</section>
-
-<!-- ── DEEP DIVE ── -->
-<section>
-  <div class="section-title">🔬 Deep Dive · 25 min</div>
-
-  <div class="card deep">
-    <div class="card-title">
-      <a href="https://arxiv.org/abs/2604.16278" target="_blank" rel="noopener">
-        Learning to Reason with Insight for Informal Theorem Proving
-      </a>
-    </div>
-    <div class="card-meta">
-      <span>arXiv · Apr 21, 2026 · PROMOTED from bookmarks (Apr 26)</span>
-      <span class="dot">·</span>
-      <span>DeepInsightTheorem · multi-stage SFT · technique-level pattern recognition</span>
-      <span class="dot">·</span>
-      <span>~25 min</span>
-    </div>
-    <div class="card-body">
-      The framing claim of this paper — and the reason to give it a careful read rather than a skim — is that informal theorem proving has been treated empirically (does the model find a proof?) when it should be treated <em>pedagogically</em> (does the model recognize <em>which technique</em> applies?). Concretely, the authors curate DeepInsightTheorem, a dataset of ~14k informal-proof problems annotated with the canonical solution technique (induction variant, contradiction setup, generating-function trick, pigeonhole, telescoping, etc.), and design a three-stage SFT curriculum: (1) technique-classification pretraining, (2) technique-conditioned proof generation, (3) joint fine-tuning with both signals. The empirical result is roughly a 9-point bump on miniF2F-style benchmarks over technique-blind SFT baselines — modest but defensible. What's worth lifting for your proposal is not the technique vocabulary itself but the <em>structural move</em>: the authors decompose what was previously a single black-box objective ("emit a valid proof") into two composable signals ("recognize the technique" + "execute the technique"), and they show the decomposition is empirically helpful. Translate that to your domain. Shielded codegen currently treats "emit code that passes the shield" as a single black-box objective. The Insight-Theorem decomposition suggests a parallel: "recognize the discharge obligation" + "emit code that satisfies it." If you grant that decomposition, two consequences follow that are worth writing down. (i) <strong>The training signal becomes denser.</strong> A model that fails the shield can fail in two distinguishable ways — wrong obligation (the model misread the spec) or wrong execution (the model read the spec correctly but emitted incorrect code) — and these failures ought to receive different reward shapes. Current shielded-codegen literature collapses them into a single binary signal; Insight-Theorem is empirical evidence that the collapse is leaving training signal on the floor. (ii) <strong>The proposal's contribution sentence has a new candidate form.</strong> "We decompose the shielded-codegen training objective into obligation-recognition and obligation-discharge components, and show that the decomposition matches or exceeds end-to-end training under fixed compute." That's defensible, falsifiable, and lets you piggyback on Insight-Theorem's experimental methodology rather than reinventing it. Note the honest caveat the authors raise in §6 — the technique annotations require expert labor, which is why the dataset is 14k and not 140k — and the parallel caveat for your work: discharge-obligation labels also require expert (or at least specification-author) input, and your evaluation should be honest about that cost. Good paper, well worth the 25 minutes, and the decomposition idea is the load-bearing one.
-    </div>
-    <div class="tags">
-      <span class="tag tag-deep">Deep Dive</span>
-      <span class="tag tag-promoted">Promoted</span>
-      <span class="tag tag-formal">Formal Methods</span>
-      <span class="tag tag-rlvr">RLVR</span>
-      <span class="tag tag-read">Read</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── QUICK READS ── -->
-<section>
-  <div class="section-title">⚡ Quick Reads · 15 min total</div>
-
-  <div class="card">
-    <div class="card-title">
-      <a href="https://arxiv.org/abs/2604.03128" target="_blank" rel="noopener">
-        Self-Distilled RLVR (RLSD): On-Policy Distillation Meets Verifiable Rewards
-      </a>
-    </div>
-    <div class="card-meta">
-      <span>arXiv · Apr 4, 2026</span>
-      <span class="dot">·</span>
-      <span>on-policy distillation · teacher-traces · denser-than-RLVR signal</span>
-      <span class="dot">·</span>
-      <span>~4 min</span>
-    </div>
-    <div class="card-body">
-      A useful complement to today's deep dive: where Insight-Theorem decomposes the <em>training signal</em> into recognize-then-execute, RLSD decomposes the <em>reward source</em> into "outcome-verifiable" (RLVR's binary signal) and "trajectory-verifiable" (the larger teacher's per-step distribution). The construction itself is unsurprising — a stronger teacher gives the student step-level signals when the verifier returns sparse outcome rewards — but the framing is the keeper. For shielded codegen, the parallel is direct: the shield gives you sound, sparse <em>rejection</em>; you can compose that with a separate dense <em>acceptance</em> signal (e.g., from a stronger code-generation model serving as teacher) without weakening the shield's soundness guarantees. Cite this paper when arguing that the shield's binary discharge signal does not need to bear the entire training-signal load.
-    </div>
-    <div class="tags">
-      <span class="tag tag-rlvr">RLVR</span>
-      <span class="tag tag-trending">Trending</span>
-      <span class="tag tag-read">Read</span>
-    </div>
+  <div class="quote-block">
+    <p>&ldquo;Perhaps I can best describe my experience of doing mathematics in terms of a journey through a dark unexplored mansion. You enter the first room, and it&rsquo;s completely dark. You stumble around, bumping into the furniture. Gradually, you learn where each piece is. Finally, after six months or so, you find the light switch and suddenly it&rsquo;s all illuminated.&rdquo;</p>
+    <cite>&mdash; Andrew Wiles, on the long arc of proving Fermat&rsquo;s Last Theorem</cite>
   </div>
 
-  <div class="card">
-    <div class="card-title">
-      <a href="https://arxiv.org/abs/2604.12627" target="_blank" rel="noopener">
-        KnowRL: Boosting LLM Reasoning via RL with Minimal-Sufficient Knowledge Guidance
-      </a>
-    </div>
-    <div class="card-meta">
-      <span>arXiv · Apr 13, 2026</span>
-      <span class="dot">·</span>
-      <span>reward-sparsity fix · hint as minimal-sufficient guidance · curriculum design</span>
-      <span class="dot">·</span>
-      <span>~4 min</span>
-    </div>
-    <div class="card-body">
-      The diagnosis is the cleanest published statement of an issue your proposal needs to address head-on: vanilla RLVR collapses on hard problems because the reward signal is binary and the success rate is too low for the policy to bootstrap. KnowRL's fix is to inject <em>minimal-sufficient hints</em> — just enough domain knowledge to nudge the rollout into a region where the verifier sometimes succeeds, then taper the hint-budget as the policy improves. Two things to lift. (i) The "minimal-sufficient" framing is a more disciplined way to talk about hint design than the typical "scaffolding" or "prompt engineering" vocabulary; it has an information-theoretic flavor (you're trying to find the smallest hint that flips the success-rate cliff). (ii) The curriculum is a candidate baseline for the obligation-recognition layer of your decomposition — a system that learns to read the discharge obligation from a minimal-sufficient summary of the spec, rather than from the full spec, is operationally useful and has clean evaluation hooks.
-    </div>
-    <div class="tags">
-      <span class="tag tag-rlvr">RLVR</span>
-      <span class="tag tag-formal">Formal Methods</span>
-      <span class="tag tag-read">Read</span>
-    </div>
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x21A9;</span>
+    <span><strong>Refresh of today&rsquo;s digest.</strong> The morning batch (RLSD, KnowRL, On Reasoning-Centric ATP, Zig vs. AI, Cognitive Revolution Live) is still in <code>reading-log.json</code> as Day 30. This afternoon refresh promotes a bookmarked Process-Reward-Models paper to the deep dive, and adds four fresh quick reads. Open the morning digest if you want last-night&rsquo;s plan; the items below are net new.</span>
   </div>
 
-  <div class="card">
-    <div class="card-title">
-      <a href="https://arxiv.org/abs/2604.19558" target="_blank" rel="noopener">
-        On Reasoning-Centric LLM-based Automated Theorem Proving
-      </a>
-    </div>
-    <div class="card-meta">
-      <span>arXiv · Apr 24, 2026</span>
-      <span class="dot">·</span>
-      <span>position paper · proof plans · critique loops · ATP agents</span>
-      <span class="dot">·</span>
-      <span>~4 min</span>
-    </div>
-    <div class="card-body">
-      The position-paper companion to today's deep dive, and short enough to read in full. The argument: most LLM-ATP systems treat the LLM as a tactic generator and the proof assistant as an evaluator, leaving the LLM's reasoning capacity underused. The authors argue that proof agents should instead reason <em>strategically</em> — propose a plan, critique their own proposals, and revise — before emitting tactics. This is a position paper, so the contribution is the framework, not the experiments. Two takeaways for your proposal. (i) The "plan / critique / emit" three-phase decomposition maps neatly onto the obligation-recognition / obligation-discharge decomposition you'll lift from Insight-Theorem; together they suggest a four-phase pipeline (plan → recognize obligation → discharge → critique) that is more principled than what's currently in your draft. (ii) The vocabulary the paper introduces ("strategic reasoning," "self-critique," "tactic-as-output-not-as-objective") is borrowable; it's the kind of language that turns a methods paper into a position paper, which is what you eventually want §1 of your proposal to read like.
-    </div>
-    <div class="tags">
-      <span class="tag tag-formal">Formal Methods</span>
-      <span class="tag tag-agents">Agents</span>
-      <span class="tag tag-read">Read</span>
-    </div>
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; Process Reward Models meet Planning (promoted from bookmark &mdash; RL + step-level verifier crossover)</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; AutoRocq: an LLM agent that learns Coq proofs <em>on-the-fly</em></span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; Karpathy at Sequoia Ascent &mdash; &ldquo;verifiability is the moat&rdquo;</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; Simon Willison &mdash; the new working definition of &ldquo;agent&rdquo;</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Dwarkesh &mdash; verification in science &amp; parallel discovery</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; Sample-efficient neurosymbolic deep RL (saved for later)</span></div>
   </div>
 
-  <div class="card">
-    <div class="card-title">
-      <a href="https://simonwillison.net/2026/Apr/30/zig-anti-ai/" target="_blank" rel="noopener">
-        The Zig project's rationale for their firm anti-AI contribution policy — Simon Willison
-      </a>
-    </div>
-    <div class="card-meta">
-      <span>simonwillison.net · Apr 30, 2026</span>
-      <span class="dot">·</span>
-      <span>community governance · contribution-quality economics · palette cleanser</span>
-      <span class="dot">·</span>
-      <span>~3 min</span>
-    </div>
-    <div class="card-body">
-      A short link-and-comment post on the Zig Software Foundation's newly-published rationale for banning LLM-assisted contributions. The argument worth keeping is not the AI-skeptic position itself but the underlying economic claim: successful open-source projects eventually receive more PRs than they can review, and the binding constraint is reviewer-time, not contribution-volume. AI-assisted PRs disproportionately consume reviewer-time relative to their accepted-contribution rate, so the optimal policy for a maintainer is to refuse them upstream rather than triage downstream. For a research-program-level read, this is a useful corrective to the tendency in verification/automation papers to treat "more output" as obviously desirable; if the bottleneck is review, automation that produces unreviewed-but-plausible artifacts can be net-negative. The shielded-codegen analogue is direct: a shield that produces "passes" without producing reviewable <em>justifications for why it passed</em> shifts the review burden downstream rather than reducing it. Worth three minutes for the framing.
-    </div>
-    <div class="tags">
-      <span class="tag tag-advice">Advice</span>
-      <span class="tag tag-trending">Trending</span>
-      <span class="tag tag-read">Read</span>
-    </div>
-  </div>
-</section>
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
 
-<!-- ── BOOKMARKS FOR LATER ── -->
-<section>
-  <div class="section-title">📚 Bookmarks &amp; Queue</div>
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks.</strong> You saved this earlier today &mdash; moving it into a reading slot because it sits squarely on your formal-methods &times; RLVR axis.</span>
+    </div>
 
-  <div class="bookmark-section">
-    <h3>New bookmarks (file for a quieter day)</h3>
-    <div class="bookmark-item">
-      <a href="https://arxiv.org/abs/2604.06401" target="_blank" rel="noopener">
-        ProofSketcher — Hybrid LLM + Lightweight Proof Checker for Reliable Math/Logic Reasoning. Closer cousin of COBALT-TLA but with a smaller trusted kernel; useful as a counterpoint when arguing the shield needs to be deep, not just present
-      </a>
-      <span class="bookmark-time">~10 min</span>
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.17957">Process Reward Models Meet Planning: Generating Precise &amp; Scalable Datasets for Step-Level Rewards</a></div>
+      <div class="card-meta">
+        <span>arXiv (Apr 22, 2026)</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Process Reward Models (PRMs) are the step-level cousins of outcome-only RLVR &mdash; they score each reasoning step rather than only the final answer. The chronic problem has been data: how do you label step-level correctness at scale without a verifier in the loop? This paper closes the loop by treating <em>planning search trees</em> as the labelling oracle: every node&rsquo;s value is bootstrapped from rollouts under a fixed planner, and the resulting (state, advantage) dataset trains a PRM that generalizes back to free-form reasoning. Read this with one eye on its analogy to your own agenda &mdash; &ldquo;a planner is a temporary verifier.&rdquo;
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
     </div>
-    <div class="bookmark-item">
-      <a href="https://arxiv.org/abs/2604.14140" target="_blank" rel="noopener">
-        LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning — 2,500-problem expert-designed benchmark. Useful as an evaluation-design reference if your evaluation section ends up needing a long-horizon component
-      </a>
-      <span class="bookmark-time">~12 min</span>
-    </div>
-    <div class="bookmark-item">
-      <a href="https://arxiv.org/abs/2604.17957" target="_blank" rel="noopener">
-        Process Reward Models Meet Planning — PRM dataset generation grounded in PDDL planning problems; ~1M reasoning steps. Useful as a methodology reference if your proposal ends up needing a PRM-style intermediate-reward signal
-      </a>
-      <span class="bookmark-time">~12 min</span>
-    </div>
-  </div>
+  </section>
 
-  <div class="bookmark-section">
-    <h3>Still queued (carrying forward)</h3>
-    <div class="bookmark-item">
-      <a href="https://arxiv.org/abs/2604.12747" target="_blank" rel="noopener">
-        Learning-Infused Formal Reasoning (LIFR) — research-vision paper on contract synthesis, semantic artifact reuse, and learned proof tactics (queued from Apr 27)
-      </a>
-      <span class="bookmark-time">~15 min</span>
-    </div>
-    <div class="bookmark-item">
-      <a href="https://arxiv.org/abs/2604.09813" target="_blank" rel="noopener">
-        Controllable and Verifiable Tool-Use Data Synthesis (COVERT) — two-stage pipeline that synthesizes base tool-use trajectories then applies oracle-preserving augmentations (queued from Apr 30)
-      </a>
-      <span class="bookmark-time">~10 min</span>
-    </div>
-    <div class="bookmark-item">
-      <a href="https://arxiv.org/abs/2604.17142" target="_blank" rel="noopener">
-        Logic-Based Verification of Task Allocation for LLM-Enabled Multi-Agent Manufacturing Systems — temporal-logic verification of multi-agent behavior (queued from May 1)
-      </a>
-      <span class="bookmark-time">~12 min</span>
-    </div>
-  </div>
-</section>
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
 
-<!-- ── PHONE VS LAPTOP ── -->
-<section>
-  <div class="section-title">📱 Phone vs. Laptop Strategy</div>
-
-  <div class="device-section">
-    <div class="device-col">
-      <h3>📱 Phone / Transit</h3>
-      <ul>
-        <li>Insight-Theorem — read the abstract + §3 (the three-stage curriculum); save the experiments for desk</li>
-        <li>RLSD — short enough to read in full on transit; the framing is the point</li>
-        <li>KnowRL — the "minimal-sufficient hint" curriculum is the headline; rest is ablation</li>
-        <li>Reasoning-Centric ATP — position paper, fine to read on a phone</li>
-        <li>Simon Willison's Zig-policy link-post — three minutes</li>
-        <li>Cognitive Revolution Live Show for the Sunday walk</li>
-      </ul>
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2511.17330">Agentic Verification of Software Systems (AutoRocq)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; revised Apr 11, 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        First LLM agent for full-on program verification: AutoRocq doesn&rsquo;t fine-tune on proof corpora &mdash; it converses with Rocq (the new name for Coq) inside an iterative refinement loop, asking the kernel for context and feedback after every failed step. Evaluated on SV-COMP and Linux kernel modules. Skim the architecture diagram and the failure-mode taxonomy in &sect;5; that&rsquo;s where the formal-methods bones are.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
     </div>
-    <div class="device-col">
-      <h3>💻 Laptop / Desk</h3>
-      <ul>
-        <li>Insight-Theorem — second pass; draft the obligation-recognition / obligation-discharge decomposition table for §3 of your proposal</li>
-        <li>Cross-reference Friday's COBALT-TLA convergence sketch with today's Insight-Theorem decomposition; the unified picture is "outer loop converges, inner policy decomposes" — write that paragraph while it's fresh</li>
-        <li>RLSD — note the teacher-trace signal as the dense complement to the shield's sparse rejection; one paragraph in §4</li>
-        <li>KnowRL — sketch the obligation-recognition layer as a "minimal-sufficient summary of the spec" learner; this is the place where the layered-shield argument needs an experimental hook</li>
-      </ul>
-    </div>
-  </div>
-</section>
 
-<!-- ── PODCAST QUEUE ── -->
-<section>
-  <div class="section-title">🎧 Podcast / Commute Queue</div>
-
-  <div class="podcast-card">
-    <div class="podcast-title">
-      <a href="https://www.cognitiverevolution.ai/ai-2025-2026-live-show-part-1/" target="_blank" rel="noopener">
-        AI 2025 → 2026 Live Show, Part 1 — The Cognitive Revolution
-      </a>
+    <div class="card">
+      <div class="card-title"><a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/">Sequoia Ascent 2026 summary &mdash; Andrej Karpathy</a></div>
+      <div class="card-meta">
+        <span>karpathy.bearblog.dev &middot; Apr 30, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Karpathy&rsquo;s own writeup of his fireside. Two takeaways for you: (1) &ldquo;Traditional software automates what you can <em>specify</em>; AI automates what you can <em>verify</em>.&rdquo; That&rsquo;s a one-line motivation for why RLVR exists at all. (2) <em>Jagged intelligence</em> &mdash; capability spikes wherever there are data, rewards, and verification loops, which is exactly the regime formal methods can manufacture for under-served domains.
+      </div>
+      <div class="tags">
+        <span class="tag tag-advice">Advice</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
     </div>
-    <div class="podcast-meta">The Cognitive Revolution (Nathan Labenz) · Apr 2026 · ~90 min</div>
-    <div class="podcast-desc">
-      A different register from the Lex / Dwarkesh house style: Labenz hosts a live, panel-format retrospective on what actually shipped between mid-2025 and mid-2026, with rotating panelists covering frontier-lab releases, open-weights progress, agent deployments, and verification/safety work. The two segments worth your attention specifically: (i) the post-training segment, which gives a useful complement to the Insight-Theorem decomposition you're working on today — the panel's running disagreement about whether RLVR's outcome-binary signal is fundamentally bottlenecked or merely needs better reward shaping is the live version of the Self-Distilled-RLVR vs. KnowRL debate; (ii) the agents segment, where the discussion of "verification is the binding constraint, not capability" lines up with your shielded-codegen framing and is the right kind of independent confirmation to cite informally in your introduction. Save for the Sunday afternoon walk; the live-show format is forgiving of intermittent attention.
-    </div>
-    <div class="tags">
-      <span class="tag tag-listen">Listen</span>
-      <span class="tag tag-rlvr">RLVR</span>
-      <span class="tag tag-agents">Agents</span>
-      <span class="tag tag-trending">Trending</span>
-    </div>
-  </div>
-</section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <p><strong>Day 30</strong> · Morning Digest · 45-minute research plan</p>
-  <p>Formal Methods + Reinforcement Learning · Generated May 3, 2026</p>
-</footer>
+    <div class="card">
+      <div class="card-title"><a href="https://simonw.substack.com/p/i-think-agent-may-finally-have-a">I think &ldquo;agent&rdquo; may finally have a widely enough agreed upon definition to be useful jargon now &mdash; Simon Willison</a></div>
+      <div class="card-meta">
+        <span>simonw.substack.com &middot; Apr 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        After years of mutual incomprehension, Simon argues the field has converged on a working operationalization: <em>an LLM running tools in a loop toward a goal</em>. He walks through how that compresses last year&rsquo;s competing definitions and where it still leaks. Worth pairing with the AutoRocq paper above &mdash; both treat the proof assistant or compiler as &ldquo;just another tool&rdquo; the agent loops with.
+      </div>
+      <div class="tags">
+        <span class="tag tag-advice">Advice</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
 
+    <div class="card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/p/what-ive-been-thinking-april-27">What I&rsquo;ve been thinking about this weekend &mdash; Dwarkesh Patel</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; Apr 27, 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        Loose notes from after his Michael Nielsen interview: open questions around intelligence vs. power, the problem of <em>verification in science</em>, and the surprising frequency of parallel discovery in mathematics and biology. The verification-in-science thread is the one to chew on &mdash; it&rsquo;s the same blocker, one level up, that PRMs and RLVR try to dissolve at the model level.
+      </div>
+      <div class="tags">
+        <span class="tag tag-advice">Advice</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for tomorrow / next week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2601.02850">Sample-Efficient Neurosymbolic Deep Reinforcement Learning</a>
+        <span class="bookmark-time">~22 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Symbolic priors injected into the value-function approximator; reports faster convergence in sparse-reward and long-horizon settings. Natural follow-up read once you&rsquo;ve worked through Process Reward Models &mdash; both are about <em>imposing structure</em> on the credit-assignment problem.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/p/reiner-pope">Reiner Pope &mdash; The math behind how LLMs are trained and served (Dwarkesh Podcast)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; Apr 29, 2026</span><span class="dot">&middot;</span><span>2h 14m</span>
+      </div>
+      <div class="card-body">
+        Two-hour technical deep dive with Reiner Pope (ex-Google Brain, MatX) on the actual arithmetic of training and inference: rooflines, KV-cache economics, where MoE earns its keep. Useful background when you&rsquo;re reasoning about why RLVR rollout costs are what they are &mdash; and why step-level rewards (today&rsquo;s deep dive) are expensive but tractable.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Karpathy Sequoia summary (skim on commute)</li>
+          <li>Simon Willison&rsquo;s &ldquo;agent&rdquo; post</li>
+          <li>Dwarkesh weekend notes</li>
+          <li>Reiner Pope podcast &mdash; gym/walk</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>Process Reward Models (deep dive &mdash; open the planning-tree figure)</li>
+          <li>AutoRocq &mdash; diagram + &sect;5 failure modes</li>
+          <li>Bookmark: Neurosymbolic Deep RL (later)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 30 &middot; Refresh</strong> &middot; 6 items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Morning batch is preserved in the reading log; this refresh adds new items only.</p>
+  </footer>
 </body>
 </html>

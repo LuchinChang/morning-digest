@@ -3095,14 +3095,16 @@
       "source": "arXiv",
       "date": "2026-04-22",
       "tags": [
+        "DEEP DIVE",
         "FORMAL METHODS",
-        "RLVR",
-        "READ"
+        "PROMOTED",
+        "READ",
+        "RLVR"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 12,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-05-03",
+      "estimatedMinutes": 25,
+      "digestDay": 30
     },
     {
       "id": "2026-05-03-008",
@@ -3120,6 +3122,105 @@
       "assignedDate": "2026-05-03",
       "estimatedMinutes": 90,
       "digestDay": 30
+    },
+    {
+      "title": "Agentic Verification of Software Systems (AutoRocq)",
+      "url": "https://arxiv.org/abs/2511.17330",
+      "source": "arXiv",
+      "date": "2026-04-11",
+      "tags": [
+        "FORMAL METHODS",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-03",
+      "estimatedMinutes": 4,
+      "digestDay": 30,
+      "id": "2026-05-03-009"
+    },
+    {
+      "title": "Sequoia Ascent 2026 summary \u2014 Andrej Karpathy",
+      "url": "https://karpathy.bearblog.dev/sequoia-ascent-2026/",
+      "source": "Andrej Karpathy",
+      "date": "2026-04-30",
+      "tags": [
+        "ADVICE",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-03",
+      "estimatedMinutes": 4,
+      "digestDay": 30,
+      "id": "2026-05-03-010"
+    },
+    {
+      "title": "I think \"agent\" may finally have a widely enough agreed upon definition to be useful jargon now",
+      "url": "https://simonw.substack.com/p/i-think-agent-may-finally-have-a",
+      "source": "Simon Willison",
+      "date": "2026-04-29",
+      "tags": [
+        "ADVICE",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-03",
+      "estimatedMinutes": 4,
+      "digestDay": 30,
+      "id": "2026-05-03-011"
+    },
+    {
+      "title": "What I've been thinking about this weekend \u2014 open questions, verification in science, parallel discovery",
+      "url": "https://www.dwarkesh.com/p/what-ive-been-thinking-april-27",
+      "source": "Dwarkesh Patel",
+      "date": "2026-04-27",
+      "tags": [
+        "ADVICE",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-03",
+      "estimatedMinutes": 3,
+      "digestDay": 30,
+      "id": "2026-05-03-012"
+    },
+    {
+      "title": "Sample-Efficient Neurosymbolic Deep Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2601.02850",
+      "source": "arXiv",
+      "date": "2026-01-15",
+      "tags": [
+        "FORMAL METHODS",
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 22,
+      "digestDay": null,
+      "id": "2026-05-03-013"
+    },
+    {
+      "title": "Reiner Pope \u2014 The Math Behind How LLMs are Trained and Served (Dwarkesh Podcast)",
+      "url": "https://www.dwarkesh.com/p/reiner-pope",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-04-29",
+      "tags": [
+        "LISTEN",
+        "RLVR",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-03",
+      "estimatedMinutes": 134,
+      "digestDay": 30,
+      "id": "2026-05-03-014"
     }
   ],
   "feeds": [
