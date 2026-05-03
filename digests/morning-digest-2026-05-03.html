@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · May 3, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '→ ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .podcast-card a:hover {
+      text-decoration: underline;
+    }
+
+    .podcast-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .podcast-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .podcast-desc {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 20px 16px 28px;
+      border-top: 1px solid var(--divider);
+      margin-top: 8px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 420px) {
+      .device-section {
+        grid-template-columns: 1fr;
+      }
+      header h1 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-meta">Sunday · May 3, 2026 · Day 30</div>
+  <h1>☀️ Morning Digest</h1>
+  <div class="subtitle">Formal Methods + Reinforcement Learning · 45 min plan</div>
+</header>
+
+<!-- ── QUOTE ── -->
+<div class="quote-block">
+  <p>"In mathematics you don't understand things. You just get used to them."</p>
+  <cite>— John von Neumann (paraphrased by Gary Zukav, 1979) — a useful reframing on Day 30. The COBALT-TLA convergence theorem you sketched on Friday won't <em>click</em> the first time you write it down; it'll click around the third revision, when the notation has stopped fighting you. Plan accordingly.</cite>
+</div>
+
+<!-- ── YOUR 45-MINUTE PLAN ── -->
+<div class="plan-banner">
+  <h2>⏱ Your 45-Minute Plan</h2>
+  <div class="plan-row">
+    <span class="plan-time">0–25 min</span>
+    <span class="plan-label">📖 <strong>Deep Dive (PROMOTED):</strong> Learning to Reason with Insight for Informal Theorem Proving — your oldest open bookmark, queued since Apr 26. Friday's COBALT-TLA reframing was about <em>convergence</em>; this week's complement is about the <em>policy</em> the loop is converging on. The DeepInsightTheorem dataset + multi-stage SFT pipeline is the cleanest published account of "what does technique-level pattern recognition look like as a training objective?" — a question your shielded-codegen proposal currently sidesteps</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">25–29 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> Self-Distilled RLVR (RLSD) — on-policy distillation as a denser signal than vanilla RLVR. The teacher-trace signal is the natural complement to a deterministic shield: the shield gives you sound rejection, RLSD gives you informative acceptance</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">29–33 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> KnowRL — minimal-sufficient knowledge guidance as a fix for reward sparsity on hard RLVR problems. Treat the "hint as minimal-sufficient guidance" framing as a candidate for the obligation-recognition layer of your decomposition</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">33–37 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> On Reasoning-Centric LLM-based ATP — the position-paper companion to today's deep dive. The argument that proof agents should reason about <em>plans</em> and <em>critiques</em>, not just emit tactics, is the right vocabulary to import into §3 of your draft</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">37–40 min</span>
+    <span class="plan-label">⚡ <strong>Quick read:</strong> Simon Willison — "The Zig project's rationale for their firm anti-AI contribution policy." Three-minute palette cleanser on community-level AI-tooling governance. Useful counterweight to the technical diet</span>
+  </div>
+  <div class="plan-row">
+    <span class="plan-time">40–45 min</span>
+    <span class="plan-label">📚 Update queue: log Insight-Theorem as completed, file ProofSketcher / LongCoT / PRMs-Meet-Planning as new bookmarks, then queue the Cognitive Revolution Live Show for the Sunday afternoon walk</span>
+  </div>
+</div>
+
+<!-- ── PROMOTED CALLOUT ── -->
+<section>
+  <div class="promoted-callout">
+    <span class="callout-icon">🎯</span>
+    <div>
+      <strong>Promoted from bookmarks:</strong> Insight-Theorem has been on your queue for 7 days — long enough that the right move on Day 30 is to clear the oldest bookmark before reaching for new content. The paper also pairs well with Friday's COBALT-TLA deep dive: COBALT-TLA gave you a <em>convergence</em> story for the outer loop (LLM ↔ symbolic checker); Insight-Theorem gives you a <em>training-signal</em> story for the inner policy (what makes one proof attempt qualitatively better than another). Together they bracket the two halves of the shielded-codegen architecture — outer-loop convergence and inner-policy improvement — and reading them in sequence is a meaningful choice, not a coincidence.
+    </div>
+  </div>
+</section>
+
+<!-- ── DEEP DIVE ── -->
+<section>
+  <div class="section-title">🔬 Deep Dive · 25 min</div>
+
+  <div class="card deep">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.16278" target="_blank" rel="noopener">
+        Learning to Reason with Insight for Informal Theorem Proving
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 21, 2026 · PROMOTED from bookmarks (Apr 26)</span>
+      <span class="dot">·</span>
+      <span>DeepInsightTheorem · multi-stage SFT · technique-level pattern recognition</span>
+      <span class="dot">·</span>
+      <span>~25 min</span>
+    </div>
+    <div class="card-body">
+      The framing claim of this paper — and the reason to give it a careful read rather than a skim — is that informal theorem proving has been treated empirically (does the model find a proof?) when it should be treated <em>pedagogically</em> (does the model recognize <em>which technique</em> applies?). Concretely, the authors curate DeepInsightTheorem, a dataset of ~14k informal-proof problems annotated with the canonical solution technique (induction variant, contradiction setup, generating-function trick, pigeonhole, telescoping, etc.), and design a three-stage SFT curriculum: (1) technique-classification pretraining, (2) technique-conditioned proof generation, (3) joint fine-tuning with both signals. The empirical result is roughly a 9-point bump on miniF2F-style benchmarks over technique-blind SFT baselines — modest but defensible. What's worth lifting for your proposal is not the technique vocabulary itself but the <em>structural move</em>: the authors decompose what was previously a single black-box objective ("emit a valid proof") into two composable signals ("recognize the technique" + "execute the technique"), and they show the decomposition is empirically helpful. Translate that to your domain. Shielded codegen currently treats "emit code that passes the shield" as a single black-box objective. The Insight-Theorem decomposition suggests a parallel: "recognize the discharge obligation" + "emit code that satisfies it." If you grant that decomposition, two consequences follow that are worth writing down. (i) <strong>The training signal becomes denser.</strong> A model that fails the shield can fail in two distinguishable ways — wrong obligation (the model misread the spec) or wrong execution (the model read the spec correctly but emitted incorrect code) — and these failures ought to receive different reward shapes. Current shielded-codegen literature collapses them into a single binary signal; Insight-Theorem is empirical evidence that the collapse is leaving training signal on the floor. (ii) <strong>The proposal's contribution sentence has a new candidate form.</strong> "We decompose the shielded-codegen training objective into obligation-recognition and obligation-discharge components, and show that the decomposition matches or exceeds end-to-end training under fixed compute." That's defensible, falsifiable, and lets you piggyback on Insight-Theorem's experimental methodology rather than reinventing it. Note the honest caveat the authors raise in §6 — the technique annotations require expert labor, which is why the dataset is 14k and not 140k — and the parallel caveat for your work: discharge-obligation labels also require expert (or at least specification-author) input, and your evaluation should be honest about that cost. Good paper, well worth the 25 minutes, and the decomposition idea is the load-bearing one.
+    </div>
+    <div class="tags">
+      <span class="tag tag-deep">Deep Dive</span>
+      <span class="tag tag-promoted">Promoted</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK READS ── -->
+<section>
+  <div class="section-title">⚡ Quick Reads · 15 min total</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.03128" target="_blank" rel="noopener">
+        Self-Distilled RLVR (RLSD): On-Policy Distillation Meets Verifiable Rewards
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 4, 2026</span>
+      <span class="dot">·</span>
+      <span>on-policy distillation · teacher-traces · denser-than-RLVR signal</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      A useful complement to today's deep dive: where Insight-Theorem decomposes the <em>training signal</em> into recognize-then-execute, RLSD decomposes the <em>reward source</em> into "outcome-verifiable" (RLVR's binary signal) and "trajectory-verifiable" (the larger teacher's per-step distribution). The construction itself is unsurprising — a stronger teacher gives the student step-level signals when the verifier returns sparse outcome rewards — but the framing is the keeper. For shielded codegen, the parallel is direct: the shield gives you sound, sparse <em>rejection</em>; you can compose that with a separate dense <em>acceptance</em> signal (e.g., from a stronger code-generation model serving as teacher) without weakening the shield's soundness guarantees. Cite this paper when arguing that the shield's binary discharge signal does not need to bear the entire training-signal load.
+    </div>
+    <div class="tags">
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.12627" target="_blank" rel="noopener">
+        KnowRL: Boosting LLM Reasoning via RL with Minimal-Sufficient Knowledge Guidance
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 13, 2026</span>
+      <span class="dot">·</span>
+      <span>reward-sparsity fix · hint as minimal-sufficient guidance · curriculum design</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      The diagnosis is the cleanest published statement of an issue your proposal needs to address head-on: vanilla RLVR collapses on hard problems because the reward signal is binary and the success rate is too low for the policy to bootstrap. KnowRL's fix is to inject <em>minimal-sufficient hints</em> — just enough domain knowledge to nudge the rollout into a region where the verifier sometimes succeeds, then taper the hint-budget as the policy improves. Two things to lift. (i) The "minimal-sufficient" framing is a more disciplined way to talk about hint design than the typical "scaffolding" or "prompt engineering" vocabulary; it has an information-theoretic flavor (you're trying to find the smallest hint that flips the success-rate cliff). (ii) The curriculum is a candidate baseline for the obligation-recognition layer of your decomposition — a system that learns to read the discharge obligation from a minimal-sufficient summary of the spec, rather than from the full spec, is operationally useful and has clean evaluation hooks.
+    </div>
+    <div class="tags">
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2604.19558" target="_blank" rel="noopener">
+        On Reasoning-Centric LLM-based Automated Theorem Proving
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>arXiv · Apr 24, 2026</span>
+      <span class="dot">·</span>
+      <span>position paper · proof plans · critique loops · ATP agents</span>
+      <span class="dot">·</span>
+      <span>~4 min</span>
+    </div>
+    <div class="card-body">
+      The position-paper companion to today's deep dive, and short enough to read in full. The argument: most LLM-ATP systems treat the LLM as a tactic generator and the proof assistant as an evaluator, leaving the LLM's reasoning capacity underused. The authors argue that proof agents should instead reason <em>strategically</em> — propose a plan, critique their own proposals, and revise — before emitting tactics. This is a position paper, so the contribution is the framework, not the experiments. Two takeaways for your proposal. (i) The "plan / critique / emit" three-phase decomposition maps neatly onto the obligation-recognition / obligation-discharge decomposition you'll lift from Insight-Theorem; together they suggest a four-phase pipeline (plan → recognize obligation → discharge → critique) that is more principled than what's currently in your draft. (ii) The vocabulary the paper introduces ("strategic reasoning," "self-critique," "tactic-as-output-not-as-objective") is borrowable; it's the kind of language that turns a methods paper into a position paper, which is what you eventually want §1 of your proposal to read like.
+    </div>
+    <div class="tags">
+      <span class="tag tag-formal">Formal Methods</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://simonwillison.net/2026/Apr/30/zig-anti-ai/" target="_blank" rel="noopener">
+        The Zig project's rationale for their firm anti-AI contribution policy — Simon Willison
+      </a>
+    </div>
+    <div class="card-meta">
+      <span>simonwillison.net · Apr 30, 2026</span>
+      <span class="dot">·</span>
+      <span>community governance · contribution-quality economics · palette cleanser</span>
+      <span class="dot">·</span>
+      <span>~3 min</span>
+    </div>
+    <div class="card-body">
+      A short link-and-comment post on the Zig Software Foundation's newly-published rationale for banning LLM-assisted contributions. The argument worth keeping is not the AI-skeptic position itself but the underlying economic claim: successful open-source projects eventually receive more PRs than they can review, and the binding constraint is reviewer-time, not contribution-volume. AI-assisted PRs disproportionately consume reviewer-time relative to their accepted-contribution rate, so the optimal policy for a maintainer is to refuse them upstream rather than triage downstream. For a research-program-level read, this is a useful corrective to the tendency in verification/automation papers to treat "more output" as obviously desirable; if the bottleneck is review, automation that produces unreviewed-but-plausible artifacts can be net-negative. The shielded-codegen analogue is direct: a shield that produces "passes" without producing reviewable <em>justifications for why it passed</em> shifts the review burden downstream rather than reducing it. Worth three minutes for the framing.
+    </div>
+    <div class="tags">
+      <span class="tag tag-advice">Advice</span>
+      <span class="tag tag-trending">Trending</span>
+      <span class="tag tag-read">Read</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKMARKS FOR LATER ── -->
+<section>
+  <div class="section-title">📚 Bookmarks &amp; Queue</div>
+
+  <div class="bookmark-section">
+    <h3>New bookmarks (file for a quieter day)</h3>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.06401" target="_blank" rel="noopener">
+        ProofSketcher — Hybrid LLM + Lightweight Proof Checker for Reliable Math/Logic Reasoning. Closer cousin of COBALT-TLA but with a smaller trusted kernel; useful as a counterpoint when arguing the shield needs to be deep, not just present
+      </a>
+      <span class="bookmark-time">~10 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.14140" target="_blank" rel="noopener">
+        LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning — 2,500-problem expert-designed benchmark. Useful as an evaluation-design reference if your evaluation section ends up needing a long-horizon component
+      </a>
+      <span class="bookmark-time">~12 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.17957" target="_blank" rel="noopener">
+        Process Reward Models Meet Planning — PRM dataset generation grounded in PDDL planning problems; ~1M reasoning steps. Useful as a methodology reference if your proposal ends up needing a PRM-style intermediate-reward signal
+      </a>
+      <span class="bookmark-time">~12 min</span>
+    </div>
+  </div>
+
+  <div class="bookmark-section">
+    <h3>Still queued (carrying forward)</h3>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.12747" target="_blank" rel="noopener">
+        Learning-Infused Formal Reasoning (LIFR) — research-vision paper on contract synthesis, semantic artifact reuse, and learned proof tactics (queued from Apr 27)
+      </a>
+      <span class="bookmark-time">~15 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.09813" target="_blank" rel="noopener">
+        Controllable and Verifiable Tool-Use Data Synthesis (COVERT) — two-stage pipeline that synthesizes base tool-use trajectories then applies oracle-preserving augmentations (queued from Apr 30)
+      </a>
+      <span class="bookmark-time">~10 min</span>
+    </div>
+    <div class="bookmark-item">
+      <a href="https://arxiv.org/abs/2604.17142" target="_blank" rel="noopener">
+        Logic-Based Verification of Task Allocation for LLM-Enabled Multi-Agent Manufacturing Systems — temporal-logic verification of multi-agent behavior (queued from May 1)
+      </a>
+      <span class="bookmark-time">~12 min</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHONE VS LAPTOP ── -->
+<section>
+  <div class="section-title">📱 Phone vs. Laptop Strategy</div>
+
+  <div class="device-section">
+    <div class="device-col">
+      <h3>📱 Phone / Transit</h3>
+      <ul>
+        <li>Insight-Theorem — read the abstract + §3 (the three-stage curriculum); save the experiments for desk</li>
+        <li>RLSD — short enough to read in full on transit; the framing is the point</li>
+        <li>KnowRL — the "minimal-sufficient hint" curriculum is the headline; rest is ablation</li>
+        <li>Reasoning-Centric ATP — position paper, fine to read on a phone</li>
+        <li>Simon Willison's Zig-policy link-post — three minutes</li>
+        <li>Cognitive Revolution Live Show for the Sunday walk</li>
+      </ul>
+    </div>
+    <div class="device-col">
+      <h3>💻 Laptop / Desk</h3>
+      <ul>
+        <li>Insight-Theorem — second pass; draft the obligation-recognition / obligation-discharge decomposition table for §3 of your proposal</li>
+        <li>Cross-reference Friday's COBALT-TLA convergence sketch with today's Insight-Theorem decomposition; the unified picture is "outer loop converges, inner policy decomposes" — write that paragraph while it's fresh</li>
+        <li>RLSD — note the teacher-trace signal as the dense complement to the shield's sparse rejection; one paragraph in §4</li>
+        <li>KnowRL — sketch the obligation-recognition layer as a "minimal-sufficient summary of the spec" learner; this is the place where the layered-shield argument needs an experimental hook</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── PODCAST QUEUE ── -->
+<section>
+  <div class="section-title">🎧 Podcast / Commute Queue</div>
+
+  <div class="podcast-card">
+    <div class="podcast-title">
+      <a href="https://www.cognitiverevolution.ai/ai-2025-2026-live-show-part-1/" target="_blank" rel="noopener">
+        AI 2025 → 2026 Live Show, Part 1 — The Cognitive Revolution
+      </a>
+    </div>
+    <div class="podcast-meta">The Cognitive Revolution (Nathan Labenz) · Apr 2026 · ~90 min</div>
+    <div class="podcast-desc">
+      A different register from the Lex / Dwarkesh house style: Labenz hosts a live, panel-format retrospective on what actually shipped between mid-2025 and mid-2026, with rotating panelists covering frontier-lab releases, open-weights progress, agent deployments, and verification/safety work. The two segments worth your attention specifically: (i) the post-training segment, which gives a useful complement to the Insight-Theorem decomposition you're working on today — the panel's running disagreement about whether RLVR's outcome-binary signal is fundamentally bottlenecked or merely needs better reward shaping is the live version of the Self-Distilled-RLVR vs. KnowRL debate; (ii) the agents segment, where the discussion of "verification is the binding constraint, not capability" lines up with your shielded-codegen framing and is the right kind of independent confirmation to cite informally in your introduction. Save for the Sunday afternoon walk; the live-show format is forgiving of intermittent attention.
+    </div>
+    <div class="tags">
+      <span class="tag tag-listen">Listen</span>
+      <span class="tag tag-rlvr">RLVR</span>
+      <span class="tag tag-agents">Agents</span>
+      <span class="tag tag-trending">Trending</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p><strong>Day 30</strong> · Morning Digest · 45-minute research plan</p>
+  <p>Formal Methods + Reinforcement Learning · Generated May 3, 2026</p>
+</footer>
+
+</body>
+</html>
