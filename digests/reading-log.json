@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 30,
+    "dayCount": 31,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3197,13 +3197,14 @@
       "date": "2026-01-15",
       "tags": [
         "FORMAL METHODS",
-        "RLVR",
-        "READ"
+        "DEEP DIVE",
+        "READ",
+        "RLVR"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-04",
       "estimatedMinutes": 22,
-      "digestDay": null,
+      "digestDay": 31,
       "id": "2026-05-03-013"
     },
     {
@@ -3221,6 +3222,100 @@
       "estimatedMinutes": 134,
       "digestDay": 30,
       "id": "2026-05-03-014"
+    },
+    {
+      "id": "2026-05-04-001",
+      "title": "Uniform-Correct Policy Optimization: Breaking RLVR's Indifference to Diversity",
+      "url": "https://arxiv.org/abs/2605.00365",
+      "source": "arXiv",
+      "date": "2026-05-01",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-04",
+      "estimatedMinutes": 4,
+      "digestDay": 31
+    },
+    {
+      "id": "2026-05-04-002",
+      "title": "Latent-GRPO: Group Relative Policy Optimization for Latent Reasoning",
+      "url": "https://arxiv.org/abs/2604.27998",
+      "source": "arXiv",
+      "date": "2026-04-29",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-04",
+      "estimatedMinutes": 4,
+      "digestDay": 31
+    },
+    {
+      "id": "2026-05-04-003",
+      "title": "The State of Reinforcement Learning for LLM Reasoning",
+      "url": "https://magazine.sebastianraschka.com/p/the-state-of-llm-reasoning-model-training",
+      "source": "Sebastian Raschka (Ahead of AI)",
+      "date": "2026-05-04",
+      "tags": [
+        "ADVICE",
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-04",
+      "estimatedMinutes": 4,
+      "digestDay": 31
+    },
+    {
+      "id": "2026-05-04-004",
+      "title": "Sightings",
+      "url": "https://simonwillison.net/2026/May/2/sightings/",
+      "source": "Simon Willison",
+      "date": "2026-05-02",
+      "tags": [
+        "ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-04",
+      "estimatedMinutes": 3,
+      "digestDay": 31
+    },
+    {
+      "id": "2026-05-04-005",
+      "title": "Lex Fridman #490 \u2014 State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI (with Nathan Lambert & Sebastian Raschka)",
+      "url": "https://lexfridman.com/podcast/",
+      "source": "Lex Fridman Podcast",
+      "date": "2026-05-01",
+      "tags": [
+        "LISTEN",
+        "RLVR",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-04",
+      "estimatedMinutes": 240,
+      "digestDay": 31
+    },
+    {
+      "id": "2026-05-04-006",
+      "title": "Are complicated loss functions necessary for teaching LLMs to reason?",
+      "url": "https://arxiv.org/abs/2603.18756",
+      "source": "arXiv",
+      "date": "2026-03-19",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 12,
+      "digestDay": null
     }
   ],
   "feeds": [
