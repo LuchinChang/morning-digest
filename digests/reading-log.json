@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 31,
+    "dayCount": 32,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -2889,13 +2889,16 @@
       "date": "2026-04-13",
       "tags": [
         "AGENTS",
-        "RLVR",
-        "READ"
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "PROMOTED",
+        "READ",
+        "RLVR"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 10,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-05-11",
+      "estimatedMinutes": 25,
+      "digestDay": 32
     },
     {
       "id": "2026-05-01-001",
@@ -3065,12 +3068,14 @@
       "date": "2026-04-07",
       "tags": [
         "FORMAL METHODS",
+        "FORMAT METHODS",
+        "PROMOTED",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 10,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-05-11",
+      "estimatedMinutes": 3,
+      "digestDay": 32
     },
     {
       "id": "2026-05-03-006",
@@ -3315,6 +3320,116 @@
       "status": "bookmarked",
       "assignedDate": null,
       "estimatedMinutes": 12,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-11-001",
+      "title": "Binary Rewards and Reinforcement Learning: Fundamental Challenges",
+      "url": "https://arxiv.org/abs/2605.02375",
+      "source": "arXiv",
+      "date": "2026-05-04",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-11",
+      "estimatedMinutes": 4,
+      "digestDay": 32
+    },
+    {
+      "id": "2026-05-11-002",
+      "title": "Your Language Model is Its Own Critic: Reinforcement Learning with Value Estimation from Actor's Internal States (POISE)",
+      "url": "https://arxiv.org/abs/2605.07579",
+      "source": "arXiv",
+      "date": "2026-05-08",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-11",
+      "estimatedMinutes": 4,
+      "digestDay": 32
+    },
+    {
+      "id": "2026-05-11-003",
+      "title": "Beyond Negative Rollouts: Positive-Only Policy Optimization with Implicit Negative Gradients (POPO)",
+      "url": "https://arxiv.org/abs/2605.06650",
+      "source": "arXiv",
+      "date": "2026-05-07",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-11",
+      "estimatedMinutes": 4,
+      "digestDay": 32
+    },
+    {
+      "id": "2026-05-11-004",
+      "title": "State of LLMs 2026: RLVR, GRPO, Inference Scaling \u2014 Sebastian Raschka",
+      "url": "https://www.youtube.com/watch?v=K5WPr5dtne0",
+      "source": "Sebastian Raschka (YouTube)",
+      "date": "2026-04-15",
+      "tags": [
+        "WATCH",
+        "RLVR",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-11",
+      "estimatedMinutes": 75,
+      "digestDay": 32
+    },
+    {
+      "id": "2026-05-11-005",
+      "title": "OPSD Compresses What RLVR Teaches: A Post-RL Compaction Stage for Reasoning Models",
+      "url": "https://arxiv.org/abs/2605.06188",
+      "source": "arXiv",
+      "date": "2026-05-07",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 14,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-11-006",
+      "title": "Reference-Sampled Boltzmann Projection for KL-Regularized RLVR: Target-Matched Weighted SFT",
+      "url": "https://arxiv.org/abs/2605.02469",
+      "source": "arXiv",
+      "date": "2026-05-04",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 18,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-11-007",
+      "title": "CktFormalizer: Autoformalization of Natural Language into Circuit Representations",
+      "url": "https://arxiv.org/abs/2605.07782",
+      "source": "arXiv",
+      "date": "2026-05-08",
+      "tags": [
+        "FORMAL METHODS",
+        "CODE",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 16,
       "digestDay": null
     }
   ],

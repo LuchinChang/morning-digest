@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · May 11, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 32</div>
+    <h1>Monday, May 11, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;If you can&rsquo;t solve a problem, then there is an easier problem you can solve: find it.&rdquo;</p>
+    <cite>&mdash; George P&oacute;lya, <em>How to Solve It</em> (1945). Today&rsquo;s thread: RLVR keeps finding easier problems &mdash; the question is whether the verifier should let it.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; COVERT &mdash; Controllable &amp; Verifiable Tool-Use Data Synthesis (promoted from your April 30 bookmark; the data-generation half of last week&rsquo;s verifier story)</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; Binary Rewards: Fundamental Challenges &mdash; the diversity-collapse case against pass@1 optimization</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; POISE &mdash; using the policy&rsquo;s own hidden states as the baseline</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; POPO &mdash; positive-only policy optimization (no negative rollouts at all)</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; ProofSketcher (promoted from your May 3 bookmark &mdash; the lightweight-checker side of hybrid reasoning)</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; OPSD, Reference-Sampled Boltzmann, CktFormalizer</span></div>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks (April 30).</strong> You shelved this eleven days ago, before the reward-hacking thread of May 7 sharpened the picture. Today it reads differently: COVERT is the upstream half of that argument &mdash; if verifiers are gameable, the synthesis pipeline that <em>produces</em> the verifier-checkable trajectories is where the leverage is.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.09813">Controllable and Verifiable Tool-Use Data Synthesis for Agentic Reinforcement Learning (COVERT)</a></div>
+      <div class="card-meta">
+        <span>arXiv (Apr 2026)</span><span class="dot">&middot;</span><span>~22 min read</span>
+      </div>
+      <div class="card-body">
+        Agentic RL is bottlenecked by training data: real-world tool-use trajectories are scarce, noisy, and rarely come with crisp success criteria. COVERT proposes a synthesis pipeline where each generated trajectory is paired with a <em>verifier specification</em> &mdash; a programmatic check that decides whether the trajectory&rsquo;s claimed outcome actually obtains in the simulated environment. The control knobs are explicit: tool-call schema, branching factor, failure-mode distribution, and a difficulty curriculum that grows the API surface monotonically. Two things to linger on. (1) The <em>verifier-trajectory pairing</em> is the formal-methods move: instead of inferring the spec from the data, the spec generates the data, which means every sample is self-checked at construction time. (2) The <em>controllability</em> argument is what justifies using the synthesized corpus for RL: if the synthesis distribution is parametrized, you can audit which regimes the policy is overfitting to. Read with paper out, and sketch the synthesis graph in &sect;3 &mdash; it&rsquo;s the dual of last week&rsquo;s LIFR contract-lattice picture (LIFR puts contracts into the inference loop; COVERT puts them into the data loop). Connect both back to your own RLVR-meets-formal-methods agenda: a unified pipeline would have the spec live in both places.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.02375">Binary Rewards and Reinforcement Learning: Fundamental Challenges</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 4, 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The diagnosis paper for RLVR&rsquo;s diversity-collapse problem. Claim: pass@1 reward functions are pathologically myopic &mdash; the optimal policy under a 0/1 outcome reward concentrates probability mass on whichever correct answer is closest to the base distribution, which means multi-sample coverage (pass@k for k&gt;1) often <em>decreases</em> below the base model. The authors formalize this as a tension between mode-seeking and mode-covering and derive a closed-form condition under which RLVR strictly reduces solution diversity. Skim &sect;3 (the formal statement) and &sect;5 (their proposed coverage-aware reweighting). The takeaway is structural: if your downstream system does verifier-on-top-of-sampling, RLVR may be quietly degrading the candidate set the verifier sees.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.07579">Your Language Model is Its Own Critic: Value Estimation from Actor&rsquo;s Internal States (POISE)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 8, 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The cleanest of this week&rsquo;s RLVR papers. Observation: in actor-critic RL on LLMs, the critic is usually a separate network trained alongside the policy, which doubles memory and creates training-time interference. POISE notices that the policy&rsquo;s own forward-pass hidden states already encode a usable value signal &mdash; a small linear probe on the last layer recovers the critic at negligible cost. Empirically the probe-as-baseline matches a full critic on MATH and HumanEval. The deeper point, worth pulling on: if the policy already &ldquo;knows&rdquo; its own value, what was the separate critic doing? &sect;4 has a nice ablation that suggests the critic was mostly fitting noise.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06650">Beyond Negative Rollouts: Positive-Only Policy Optimization (POPO)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 7, 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        A provocation, sibling to Friday&rsquo;s &ldquo;Are complicated loss functions necessary?&rdquo;: do we even need negative samples? POPO drops them entirely &mdash; only positive (verifier-passing) rollouts contribute gradient. The trick that makes this stable is an <em>implicit</em> negative gradient: the partition-function normalization in the policy update plays the role of the missing negative term. Match POPO to your reading of GRPO and you&rsquo;ll see the relationship: GRPO&rsquo;s group-normalization is doing implicit-negatives too, just less explicitly. The empirical claim is that POPO matches GRPO on math benchmarks with ~30% less compute. Worth a careful skim of &sect;3.2 (the implicit-gradient derivation).
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.06401">ProofSketcher: Hybrid LLM + Lightweight Proof Checker for Reliable Math/Logic Reasoning</a></div>
+      <div class="card-meta">
+        <span>arXiv (Apr 2026)</span><span class="dot">&middot;</span><span>~3 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        Promoted from your May 3 bookmark. The thesis: full Lean/Rocq backends are overkill for the &ldquo;is this chain-of-thought consistent&rdquo; question; a much smaller checker built on a fragment of first-order logic catches ~80% of CoT errors at ~5% of the compute. The architectural diagram is the part to internalize &mdash; ProofSketcher sits as a mid-tier verifier between the LLM and a heavyweight prover, only invoking the latter when the lightweight checker finds something it can&rsquo;t discharge. Connection to today&rsquo;s thread: this is the &ldquo;cheap verifier in the inner loop&rdquo; that COVERT&rsquo;s synthesis pipeline could use.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.06188">OPSD: On-Policy Self-Distillation Compresses What RLVR Teaches</a>
+        <span class="bookmark-time">~14 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.02469">Reference-Sampled Boltzmann Projection for KL-Regularized RLVR</a>
+        <span class="bookmark-time">~18 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.07782">CktFormalizer: Autoformalization of Natural Language into Circuit Representations (Lean)</a>
+        <span class="bookmark-time">~16 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Today&rsquo;s saves all sit on the verifier-design thread. OPSD asks what happens <em>after</em> RLVR (can a distilled model recover the same competence without the RL signal?); Reference-Sampled Boltzmann reframes KL-regularized RLVR as weighted SFT, which is the theoretical key to several recent results; CktFormalizer is the formal-methods-into-hardware-RTL angle, and pairs naturally with COVERT&rsquo;s data-synthesis story.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.youtube.com/watch?v=K5WPr5dtne0">State of LLMs 2026: RLVR, GRPO, Inference Scaling &mdash; Sebastian Raschka</a></div>
+      <div class="card-meta">
+        <span>YouTube &middot; Sebastian Raschka</span><span class="dot">&middot;</span><span>~75 min talk</span>
+      </div>
+      <div class="card-body">
+        The companion video to Raschka&rsquo;s February essay you&rsquo;ve been working through. He walks the whole 2025&ndash;2026 RLVR/GRPO arc end-to-end, with the inference-scaling section being the most useful part for your reading list &mdash; he ties the recent diversity-collapse results (today&rsquo;s &ldquo;Binary Rewards&rdquo; paper is exactly the failure mode he flags) directly to test-time-compute strategy. Ideal commute or gym listen.
+      </div>
+      <div class="tags">
+        <span class="tag tag-watch">Watch</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Binary Rewards &mdash; read the abstract and &sect;3 statement</li>
+          <li>POPO &mdash; the implicit-negative idea (one paragraph)</li>
+          <li>Raschka State-of-LLMs 2026 talk &mdash; commute / gym</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>COVERT (deep dive &mdash; sketch the synthesis graph)</li>
+          <li>POISE &mdash; ablation table in &sect;4</li>
+          <li>ProofSketcher &mdash; the mid-tier verifier diagram</li>
+          <li>Bookmarks: OPSD, Reference-Sampled Boltzmann, CktFormalizer</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 32</strong> &middot; 5 reading items + 3 bookmarks + 1 talk &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: &ldquo;where does the verifier live?&rdquo; &mdash; in the data pipeline (COVERT), in the inference loop (ProofSketcher), or implicit in the optimizer itself (POPO, POISE).</p>
+  </footer>
+</body>
+</html>
