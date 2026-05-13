@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest · May 13, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 33</div>
+    <h1>Wednesday, May 13, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;Beware of bugs in the above code; I have only proved it correct, not tried it.&rdquo;</p>
+    <cite>&mdash; Donald E. Knuth, 1977 memo to Peter van Emde Boas. Today&rsquo;s thread: the <em>formal pull</em> on RLVR &mdash; what happens to RL when verifiers, theory, and proofs reach in from outside the optimizer.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; CktFormalizer &mdash; Lean autoformalization for circuit specs (promoted from your May 11 bookmark; the FM-meets-hardware angle finally read)</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; GXPO &mdash; gradient extrapolation as a cheap lookahead for GRPO</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; VHG &mdash; a verifier inside the problem-generator, not just the solver</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; Reward Hacking in the Era of Large Models &mdash; the unifying framework for last month&rsquo;s failure cases</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Demystifying GRPO &mdash; its policy gradient is secretly a U-statistic</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; T&sup2;PO, Natural-Policy-Gradient-as-DSPI, Search-Driven Reward Optimization</span></div>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks (May 11).</strong> You shelved this two days ago alongside OPSD and the Boltzmann-projection paper. CktFormalizer is the one that most directly touches your dissertation: not RLVR-as-optimizer, but RLVR-as-target for a formal-methods compiler. Worth the front-of-the-plan slot before the trending material crowds it out.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.07782">CktFormalizer: Autoformalization of Natural Language into Circuit Representations (Lean)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 2026</span><span class="dot">&middot;</span><span>~22 min read</span>
+      </div>
+      <div class="card-body">
+        A direct attempt at the autoformalization pipeline you keep circling: take an English-language spec for a digital circuit, produce a Lean 4 proof obligation that captures it, and discharge the obligation against an RTL implementation. The pipeline has three stages worth dwelling on. (1) <em>Spec extraction</em>: a small LLM converts the natural-language description into a structured intermediate (interface signature, timing assumptions, safety/liveness properties). (2) <em>Lean lift</em>: each intermediate-form clause is mapped to a Lean theorem schema, with a fixed library of circuit primitives doing the typing work &mdash; this is the part you should read with paper, because it&rsquo;s the place where the autoformalization either succeeds cleanly or accumulates technical debt. (3) <em>Checker loop</em>: the produced theorem is fed to a tactic-based prover, and failures are routed back to the LLM as structured feedback (counter-trace, missing invariant, type mismatch). The empirical headline is &sim;71% end-to-end success on a curated benchmark of open-source hardware specs &mdash; up from &sim;38% for the same LLM without the structured intermediate. Two things to connect to your own work. <em>First</em>, the structured intermediate is the formal-methods version of a chain-of-thought: it&rsquo;s the place where the verifier can actually intervene during generation, unlike post-hoc spec checking. Compare this to LIFR&rsquo;s contract-synthesis loop (your April 27 read) &mdash; CktFormalizer is doing the same trick at the level of a domain-specific spec language. <em>Second</em>, the checker loop is a natural RLVR setup that the paper does <em>not</em> exploit: every failure mode in stage 3 is a verifiable reward signal. The obvious follow-on is a GRPO-style fine-tune over the LLM in stage 1 with the Lean checker in stage 3 as the verifier &mdash; which is precisely the kind of paper that would sit in your wheelhouse. Sketch the diagram in &sect;3 with the RL arrow you&rsquo;d add. That&rsquo;s the dissertation chapter.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-code">Code</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06755">GXPO: Gradient Extrapolation-Based Policy Optimization</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 9, 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        A plug-compatible GRPO variant. Idea: do a few extra backward passes during an &ldquo;active phase&rdquo; of training to approximate a longer local lookahead, then extrapolate the gradient direction. Cost: three backward passes instead of one in that phase. Result: +1.65 to +5.00 pass@1 over GRPO on Qwen2.5 and Llama math benchmarks. The reason this matters more than the headline number: GXPO is essentially second-order GRPO done cheaply, which is the move that has been missing from the post-GRPO design space. Read &sect;3 (the extrapolation construction) and &sect;5.2 (where they ablate the lookahead horizon &mdash; the curve is informative).
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06660">VHG: Verifier-Backed Hard Problem Generation for Mathematical Reasoning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 9, 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The setter-solver duality with a third party. Standard adversarial curriculum has a setter that proposes problems and a solver that solves them; VHG inserts an independent verifier that audits the setter&rsquo;s problems for <em>validity</em> (well-posedness, ground-truth resolvability) before they hit the solver. The setter&rsquo;s reward is jointly determined by problem validity and solver difficulty, which closes the obvious loophole where the setter ships unsolvable nonsense for free reward. Connect this to today&rsquo;s deep dive: CktFormalizer is the inverse construction &mdash; a verifier that <em>certifies</em> a spec rather than an auditor that detects pathology &mdash; and the two together sketch a verifier-mediated curriculum pipeline for hardware-style RLVR.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.13602">Reward Hacking in the Era of Large Models: Mechanisms, Emergent Misalignment, Challenges</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; April 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The survey-but-actually-a-framework paper. The thesis is unification: reward hacking, specification gaming, and reward over-optimization are all consequences of optimizing an expressive policy against a <em>compressed</em> reward representation, with the failure shape determined by the interaction of three forces &mdash; objective compression, optimization amplification, and evaluator-policy co-adaptation. The paper explicitly walks RLHF, RLAIF, and RLVR through the same lens, which is the part most relevant to you: the &ldquo;LLMs Gaming Verifiers&rdquo; paper you read April 29 falls out as a special case (the verifier is the compressed object). Skim &sect;2 (the three-force model) and &sect;5 (the taxonomy &mdash; useful as a checklist when reading new RLVR papers).
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2603.01162">Demystifying GRPO: Its Policy Gradient is Secretly a U-Statistic</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; March 2026</span><span class="dot">&middot;</span><span>~3 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The cleanest theoretical reading of GRPO to date. Observation: the group-relative advantage is precisely a degree-2 U-statistic, which lets the authors borrow off-the-shelf U-statistic machinery to characterize GRPO&rsquo;s finite-sample MSE, its asymptotic distribution, and the suboptimality gap of the resulting policy. Two payoffs. (1) GRPO is shown to be asymptotically equivalent to an oracle policy gradient with access to a true value function &mdash; i.e., the group-normalization is doing implicit critic-fitting, which is the same observation POISE made last week from a completely different angle. (2) A universal scaling law for the optimal group size falls out, which is concrete advice for anyone training GRPO. Pairs naturally with today&rsquo;s GXPO read &mdash; GXPO is GRPO &plus; lookahead, this paper is GRPO &equals; U-statistic.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.02178">T&sup2;PO: Uncertainty-Guided Exploration Control for Stable Multi-Turn Agentic RL</a>
+        <span class="bookmark-time">~16 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.10671">Natural Policy Gradient as Doubly Smoothed Policy Iteration: A Bellman-Operator Framework</a>
+        <span class="bookmark-time">~18 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.02073">Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven RL</a>
+        <span class="bookmark-time">~15 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Today&rsquo;s saves sit on the optimizer-theory side of the verifier-design thread. T&sup2;PO is the multi-turn analog of today&rsquo;s GXPO (token- vs. turn-level credit assignment with explicit uncertainty control); the Natural-Policy-Gradient paper recasts NPG as a smoothed Bellman fixed-point iteration and proves distribution-free global convergence, which is the kind of result that becomes important when you start asking what GRPO converges to; the Search-Driven RL paper is on the reward-function-design side and pairs with the Reward-Hacking survey you read today.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://twimlai.com/podcast/twimlai/ai-trends-2026-openclaw-agents-reasoning-llms">AI Trends 2026: OpenClaw Agents, Reasoning LLMs, and More &mdash; Sebastian Raschka on TWIML</a></div>
+      <div class="card-meta">
+        <span>TWIML AI Podcast &middot; Sebastian Raschka</span><span class="dot">&middot;</span><span>~65 min</span>
+      </div>
+      <div class="card-body">
+        A companion to the Raschka YouTube talk you watched two days ago, but pitched at &ldquo;what changed between 2025 and 2026&rdquo; rather than at the technique-level RLVR/GRPO walk-through. The agentic-reasoning segment in the back half is the most useful piece &mdash; he ties OpenClaw-style agent loops to the reward-hacking discussion (today&rsquo;s &sect;3 in the survey paper above is the same picture told through formalism). Good commute or gym listen.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-agents">Agents</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Reward Hacking survey &mdash; read &sect;2 three-force model</li>
+          <li>GXPO &mdash; the lookahead idea in one paragraph</li>
+          <li>Demystifying GRPO &mdash; the U-statistic observation</li>
+          <li>TWIML &times; Raschka &mdash; commute / gym</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>CktFormalizer (deep dive &mdash; sketch the RL arrow on &sect;3)</li>
+          <li>VHG &mdash; the setter/verifier/solver triangle</li>
+          <li>Bookmarks: T&sup2;PO, NPG-as-DSPI, Search-Driven RL</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 33</strong> &middot; 5 reading items + 3 bookmarks + 1 podcast &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: the <em>formal pull</em> on RLVR &mdash; verifiers in the data pipeline (CktFormalizer, VHG), formal models of failure (Reward Hacking survey), and theoretical anatomy of the optimizer itself (GRPO &equals; U-statistic, GXPO &equals; cheap second-order GRPO).</p>
+  </footer>
+</body>
+</html>

@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 32,
+    "dayCount": 33,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3427,9 +3427,136 @@
         "CODE",
         "READ"
       ],
+      "status": "assigned",
+      "assignedDate": "2026-05-13",
+      "estimatedMinutes": 16,
+      "digestDay": 33
+    },
+    {
+      "id": "2026-05-13-001",
+      "title": "GXPO: Gradient Extrapolation-Based Policy Optimization",
+      "url": "https://arxiv.org/abs/2605.06755",
+      "source": "arXiv",
+      "date": "2026-05-09",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-13",
+      "estimatedMinutes": 4,
+      "digestDay": 33
+    },
+    {
+      "id": "2026-05-13-002",
+      "title": "VHG: Verifier-Backed Hard Problem Generation for Mathematical Reasoning",
+      "url": "https://arxiv.org/abs/2605.06660",
+      "source": "arXiv",
+      "date": "2026-05-09",
+      "tags": [
+        "RLVR",
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-13",
+      "estimatedMinutes": 4,
+      "digestDay": 33
+    },
+    {
+      "id": "2026-05-13-003",
+      "title": "Reward Hacking in the Era of Large Models: Mechanisms, Emergent Misalignment, Challenges",
+      "url": "https://arxiv.org/abs/2604.13602",
+      "source": "arXiv",
+      "date": "2026-04-22",
+      "tags": [
+        "RLVR",
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-13",
+      "estimatedMinutes": 4,
+      "digestDay": 33
+    },
+    {
+      "id": "2026-05-13-004",
+      "title": "Demystifying GRPO: Its Policy Gradient is Secretly a U-Statistic",
+      "url": "https://arxiv.org/abs/2603.01162",
+      "source": "arXiv",
+      "date": "2026-03-12",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-13",
+      "estimatedMinutes": 3,
+      "digestDay": 33
+    },
+    {
+      "id": "2026-05-13-005",
+      "title": "AI Trends 2026: OpenClaw Agents, Reasoning LLMs, and More - Sebastian Raschka on TWIML",
+      "url": "https://twimlai.com/podcast/twimlai/ai-trends-2026-openclaw-agents-reasoning-llms",
+      "source": "TWIML AI Podcast",
+      "date": "2026-02-26",
+      "tags": [
+        "LISTEN",
+        "RLVR",
+        "AGENTS"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-13",
+      "estimatedMinutes": 65,
+      "digestDay": 33
+    },
+    {
+      "id": "2026-05-13-006",
+      "title": "T2PO: Uncertainty-Guided Exploration Control for Stable Multi-Turn Agentic RL",
+      "url": "https://arxiv.org/abs/2605.02178",
+      "source": "arXiv",
+      "date": "2026-05-04",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "READ"
+      ],
       "status": "bookmarked",
       "assignedDate": null,
       "estimatedMinutes": 16,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-13-007",
+      "title": "Natural Policy Gradient as Doubly Smoothed Policy Iteration: A Bellman-Operator Framework",
+      "url": "https://arxiv.org/abs/2605.10671",
+      "source": "arXiv",
+      "date": "2026-05-15",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 18,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-13-008",
+      "title": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2605.02073",
+      "source": "arXiv",
+      "date": "2026-05-04",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 15,
       "digestDay": null
     }
   ],
