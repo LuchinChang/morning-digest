@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 14, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 34</div>
+    <h1>Thursday, May 14, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;It is by logic that we prove, but by intuition that we discover.&rdquo;</p>
+    <cite>&mdash; Henri Poincar&eacute;, <em>Science et m&eacute;thode</em> (1908). Today&rsquo;s thread: the <em>reward model</em> as a research object &mdash; when verifiers become learnable, when RL is just selection, and when the proof itself is the score.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; FormalRewardBench &mdash; the first benchmark for <em>learned</em> reward models in Lean 4 theorem proving (a direct hit on your dissertation thread)</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Quick read &middot; ScaleLogic &mdash; RL training compute follows a power law in proof depth, and the exponent grows with logical expressiveness</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; ReasonMaxxer / sparse-policy-selection &mdash; the contrarian claim that RL doesn&rsquo;t teach reasoning, only redistributes it</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; NPG as Doubly Smoothed Policy Iteration (promoted from yesterday&rsquo;s bookmarks)</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Simon Willison &mdash; &ldquo;Unreasonable effectiveness of HTML&rdquo; with Claude Code</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; AutoTTS, EDO, Orchestration-Trace RL</span></div>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.10141">FormalRewardBench: A Benchmark for Formal Theorem Proving Reward Models</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 14, 2026</span><span class="dot">&middot;</span><span>~24 min read</span>
+      </div>
+      <div class="card-body">
+        The paper that sits exactly on your dissertation crossbar: <em>RLVR for theorem proving with a learned reward model instead of a binary verifier</em>. The motivation is the sparse-credit problem that&rsquo;s haunted every RLVR-for-Lean pipeline you&rsquo;ve read: Lean returns 0/1, partial progress is invisible, and as soon as the problem is harder than any rollout can solve the gradient signal vanishes. The authors&rsquo; response is the natural one &mdash; train a learned reward model that scores partial proofs &mdash; and the contribution is to actually build the benchmark needed to evaluate such a thing honestly. The construction is worth reading carefully. They take 250 verified Lean 4 proofs and produce a paired <em>incorrect</em> variant for each, using five expert-curated error-injection strategies: <em>forced mistakes</em> (introduce a tactic that doesn&rsquo;t close the goal), <em>minimal single-point variations</em> (swap one term so the proof type-checks locally but fails globally), <em>verbose incorrect proofs</em> (pad the proof with valid-looking but irrelevant work), <em>natural-language justification</em> (mix English &ldquo;therefore&rdquo;-style reasoning into a Lean script), and <em>Python-code injection</em> (a Trojan-horse test for reward models that learned to reward surface-level &ldquo;code-shaped&rdquo; output). The five strategies are themselves a contribution &mdash; they&rsquo;re a taxonomy of the failure modes you should expect any reward model in this domain to fall for. The empirical headline is the one that should make you stop and sketch: <em>frontier general LLMs reach 59.8% on the benchmark; specialized theorem-proving models reach 24.4%</em>. That gap is the punchline. It says proof-writing ability is largely orthogonal to proof-evaluation ability, which means the standard pipeline (use a strong prover&rsquo;s own logits as a value head) is the worst option available &mdash; it&rsquo;s the configuration most likely to reward-hack itself. Three things to chase. <em>First</em>, the dependency on the error-injection taxonomy: the benchmark is only as good as those five strategies, and the &ldquo;natural-language justification&rdquo; category is the one that most resembles real LLM proof attempts &mdash; the discriminator scores there are the most informative. <em>Second</em>, the &ldquo;Python-code injection&rdquo; trap is exactly the kind of distractor you should be designing in your own evaluation harness; copy the construction. <em>Third</em>, the obvious next paper &mdash; a learned reward model trained <em>on</em> FormalRewardBench, then used as the dense signal inside a GRPO loop over a Lean prover &mdash; is the right shape for a chapter, and the benchmark removes the &ldquo;but how do you evaluate it&rdquo; objection that has stalled this line of work for a year. The pair-up to your May 13 deep dive (CktFormalizer) is direct: CktFormalizer is autoformalization with the verifier outside the optimizer; this paper is the prerequisite for closing that loop.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06638">Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 7, 2026</span><span class="dot">&middot;</span><span>~5 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The headline result is a scaling law you should write down. The authors build <em>ScaleLogic</em>, a synthetic logical-reasoning environment with two independent difficulty axes &mdash; <em>proof depth D</em> and the <em>expressiveness</em> of the underlying logic (implication-only &rarr; conjunction &rarr; disjunction &rarr; negation &rarr; first-order universals). Across the axes, RL training compute follows a clean power law <em>T &prop; D<sup>&gamma;</sup></em> with <em>R<sup>2</sup> &gt; 0.99</em>, and crucially the exponent <em>&gamma;</em> rises monotonically from <em>1.04</em> in propositional logic to <em>2.60</em> in full first-order logic. The reading for your wheelhouse: this is the first paper to give you a defensible answer to &ldquo;how does RL training cost scale with the formal richness of the target language?&rdquo;, which is the question you&rsquo;d have to answer in any FM&times;RL chapter. The &gamma;&minus;1 gap is the &ldquo;extra cost of quantifiers&rdquo;.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06241">Rethinking RL for LLM Reasoning: It&rsquo;s Sparse Policy Selection, Not Capability Learning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 7, 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The contrarian read of the week. The thesis: RL doesn&rsquo;t teach the model anything new &mdash; it just <em>redistributes probability mass</em> across reasoning paths the base model already contains. Their evidence is token-level: across multiple model families and RL algorithms, only <em>1&ndash;3% of token positions</em> are materially affected by RL fine-tuning, and the promoted token is essentially always already in the base model&rsquo;s top-5. They turn this observation into <em>ReasonMaxxer</em>, an RL-free method that applies contrastive loss only at high-entropy decision points and matches or exceeds full RL with <em>roughly three orders of magnitude</em> less compute. Pair this with today&rsquo;s ScaleLogic: if RL is selection, ScaleLogic&rsquo;s scaling exponents are measuring how hard it is to <em>locate</em> the right path in the base model&rsquo;s prior, not how hard it is to learn one. That reframing is worth sitting with.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks (May 13).</strong> You shelved this alongside T&sup2;PO and the Search-Driven Reward paper; pulling it forward because the &ldquo;NPG as a smoothed Bellman fixed point&rdquo; framing is the cleanest existing answer to &ldquo;what does GRPO converge to?&rdquo; &mdash; and you&rsquo;ll want it indexed before this week&rsquo;s next GRPO paper lands.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.10671">Natural Policy Gradient as Doubly Smoothed Policy Iteration: A Bellman-Operator Framework</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 2026</span><span class="dot">&middot;</span><span>~3 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        Recasts natural policy gradient (NPG) as a fixed-point iteration of a <em>doubly smoothed</em> Bellman operator &mdash; one smoothing from the entropy regularizer, the other from the natural-gradient preconditioner. The payoff is a distribution-free global convergence proof that doesn&rsquo;t need the usual concentrability assumptions, plus a closed-form characterization of the limiting policy in terms of the Bellman operator&rsquo;s spectrum. Why it matters for your stack: when you ask &ldquo;what is GRPO actually converging to?&rdquo;, the cleanest answer goes through NPG (since GRPO is a natural-gradient method in disguise once you account for the U-statistic structure &mdash; cf. yesterday&rsquo;s Demystifying-GRPO read). Skim &sect;3 (the operator construction) and Theorem&nbsp;4.1.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/">Using Claude Code: The Unreasonable Effectiveness of HTML</a></div>
+      <div class="card-meta">
+        <span>simonwillison.net &middot; May 8, 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        Short, useful, and a nice palate-cleanser before you go back to the GRPO literature. Simon&rsquo;s observation: agentic coding tools quietly converged on plain HTML as their default deliverable for one-shot tools, dashboards, and report-style artifacts. Two things to take away. (1) The pragmatic reason is the same reason your digest pipeline is HTML &mdash; the format is universal, self-contained, and survives every transport channel; (2) the deeper reason is that HTML+inline-CSS is a target language with a verifier (the browser) that LLMs have seen <em>vastly</em> more of than any framework. That second point connects to today&rsquo;s thread: HTML is to coding agents what Lean is to FormalRewardBench &mdash; the substrate the model trusts because it has a deterministic checker.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-code">Code</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.08083">AutoTTS / LLMs Improving LLMs: Agentic Discovery for Test-Time Scaling</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.09853">Exploration-Driven Optimization (EDO) for Test-Time LLM Reasoning</a>
+        <span class="bookmark-time">~14 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.02801">RL for LLM-Based Multi-Agent Systems through Orchestration Traces</a>
+        <span class="bookmark-time">~16 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Today&rsquo;s saves all sit on the inference&minus;time / multi&minus;agent edge of the RLVR thread. <em>AutoTTS</em> is an automated search over test&minus;time-scaling strategies (the discovery costs them $39.90 &mdash; concrete enough to be reproducible). <em>EDO</em> directly addresses the RL/inference&minus;time tension that ScaleLogic&rsquo;s scaling exponents implicitly raise: post-training sharpens the policy, but inference&minus;time methods want diversity &mdash; EDO is a unified objective for that. The <em>Orchestration Traces</em> paper is the natural multi&minus;agent analog: when work is being spawned, delegated, and stopped across agents, the RL credit assignment lives on the trace, not the action.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.youtube.com/@MachineLearningStreetTalk">MLST &middot; Beth Barnes &amp; David Rein &mdash; &ldquo;The Graph That Ate AI Timelines&rdquo;</a></div>
+      <div class="card-meta">
+        <span>Machine Learning Street Talk &middot; early May 2026</span><span class="dot">&middot;</span><span>~70 min</span>
+      </div>
+      <div class="card-body">
+        METR&rsquo;s &ldquo;task-completion horizon doubles every N months&rdquo; chart did most of the timeline arguing for the first half of 2026. Barnes (METR) and Rein (HCAST) walk through the evaluation methodology, where they think the trend breaks, and which task categories are <em>least</em> well-captured by the horizon metric &mdash; the answer (long-horizon agentic work with verifiable, non-trivial state) is essentially the regime your dissertation cares about. Good commute or gym listen; the methodology discussion in the middle is the part to play at 1.0&times;.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Simon Willison &mdash; HTML / Claude Code (3 min, anywhere)</li>
+          <li>ReasonMaxxer &mdash; read the 1&ndash;3% claim and the entropy-gating recipe</li>
+          <li>ScaleLogic &mdash; just internalize the &gamma; numbers</li>
+          <li>MLST &times; Barnes / Rein &mdash; commute / gym</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>FormalRewardBench (deep dive &mdash; sketch the GRPO-over-RM loop on &sect;4)</li>
+          <li>NPG-as-DSPI &mdash; Theorem 4.1, then back to GRPO=U-statistic</li>
+          <li>Bookmarks: AutoTTS, EDO, Orchestration-Trace RL</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 34</strong> &middot; 5 reading items + 3 bookmarks + 1 podcast &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: the <em>reward model</em> as a research object. FormalRewardBench finally provides the harness to evaluate learned reward models for Lean proofs; ScaleLogic gives you the scaling law tying RL cost to formal expressiveness; ReasonMaxxer&rsquo;s contrarian reading reframes those scaling numbers as the cost of <em>locating</em> a capability rather than learning one; NPG-as-DSPI tells you what the optimizer converges to once you&rsquo;ve found it.</p>
+  </footer>
+</body>
+</html>

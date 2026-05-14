@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 33,
+    "dayCount": 34,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3537,12 +3537,13 @@
       "date": "2026-05-15",
       "tags": [
         "RLVR",
-        "READ"
+        "READ",
+        "PROMOTED"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-14",
       "estimatedMinutes": 18,
-      "digestDay": null
+      "digestDay": 34
     },
     {
       "id": "2026-05-13-008",
@@ -3558,6 +3559,136 @@
       "assignedDate": null,
       "estimatedMinutes": 15,
       "digestDay": null
+    },
+    {
+      "id": "2026-05-14-001",
+      "title": "FormalRewardBench: A Benchmark for Formal Theorem Proving Reward Models",
+      "url": "https://arxiv.org/abs/2605.10141",
+      "source": "arXiv",
+      "date": "2026-05-14",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-14",
+      "estimatedMinutes": 24,
+      "digestDay": 34
+    },
+    {
+      "id": "2026-05-14-002",
+      "title": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key (ScaleLogic)",
+      "url": "https://arxiv.org/abs/2605.06638",
+      "source": "arXiv",
+      "date": "2026-05-07",
+      "tags": [
+        "RLVR",
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-14",
+      "estimatedMinutes": 5,
+      "digestDay": 34
+    },
+    {
+      "id": "2026-05-14-003",
+      "title": "Rethinking RL for LLM Reasoning: It's Sparse Policy Selection, Not Capability Learning (ReasonMaxxer)",
+      "url": "https://arxiv.org/abs/2605.06241",
+      "source": "arXiv",
+      "date": "2026-05-07",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-14",
+      "estimatedMinutes": 4,
+      "digestDay": 34
+    },
+    {
+      "id": "2026-05-14-004",
+      "title": "Using Claude Code: The Unreasonable Effectiveness of HTML",
+      "url": "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/",
+      "source": "simonwillison.net",
+      "date": "2026-05-08",
+      "tags": [
+        "READ",
+        "CODE",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-14",
+      "estimatedMinutes": 3,
+      "digestDay": 34
+    },
+    {
+      "id": "2026-05-14-006",
+      "title": "LLMs Improving LLMs: Agentic Discovery for Test-Time Scaling (AutoTTS)",
+      "url": "https://arxiv.org/abs/2605.08083",
+      "source": "arXiv",
+      "date": "2026-05-12",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 12,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-14-007",
+      "title": "Exploration-Driven Optimization (EDO) for Test-Time LLM Reasoning",
+      "url": "https://arxiv.org/abs/2605.09853",
+      "source": "arXiv",
+      "date": "2026-05-13",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 14,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-14-008",
+      "title": "Reinforcement Learning for LLM-Based Multi-Agent Systems through Orchestration Traces",
+      "url": "https://arxiv.org/abs/2605.02801",
+      "source": "arXiv",
+      "date": "2026-05-03",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 16,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-14-005",
+      "title": "MLST \u2014 Beth Barnes & David Rein on the METR/HCAST task-horizon graph",
+      "url": "https://www.youtube.com/@MachineLearningStreetTalk/videos",
+      "source": "Machine Learning Street Talk",
+      "date": "2026-05-05",
+      "tags": [
+        "LISTEN",
+        "AGENTS",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-14",
+      "estimatedMinutes": 70,
+      "digestDay": 34
     }
   ],
   "feeds": [
