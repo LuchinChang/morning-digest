@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 34,
+    "dayCount": 35,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -2580,10 +2580,10 @@
         "FORMAL METHODS",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-15",
       "estimatedMinutes": 15,
-      "digestDay": null,
+      "digestDay": 35,
       "id": "2026-04-27-005"
     },
     {
@@ -3396,10 +3396,10 @@
         "RLVR",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-15",
       "estimatedMinutes": 14,
-      "digestDay": null
+      "digestDay": 35
     },
     {
       "id": "2026-05-11-006",
@@ -3689,6 +3689,115 @@
       "assignedDate": "2026-05-14",
       "estimatedMinutes": 70,
       "digestDay": 34
+    },
+    {
+      "id": "2026-05-15-001",
+      "title": "DGPO: Distribution-Guided Policy Optimization for Fine-Grained Credit Assignment",
+      "url": "https://arxiv.org/abs/2605.03327",
+      "source": "arXiv",
+      "date": "2026-05-05",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-15",
+      "estimatedMinutes": 5,
+      "digestDay": 35
+    },
+    {
+      "id": "2026-05-15-002",
+      "title": "AlphaGRPO: Unlocking Self-Reflective Multimodal Generation in UMMs via Decompositional Verifiable Reward",
+      "url": "https://arxiv.org/abs/2605.12495",
+      "source": "arXiv",
+      "date": "2026-05-13",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-15",
+      "estimatedMinutes": 4,
+      "digestDay": 35
+    },
+    {
+      "id": "2026-05-15-003",
+      "title": "Release: llm 0.32a2 \u2014 the migration to /v1/responses and interleaved reasoning",
+      "url": "https://simonwillison.net/2026/May/12/llm/",
+      "source": "simonwillison.net",
+      "date": "2026-05-12",
+      "tags": [
+        "READ",
+        "CODE",
+        "AGENTS",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-15",
+      "estimatedMinutes": 3,
+      "digestDay": 35
+    },
+    {
+      "id": "2026-05-15-004",
+      "title": "Dwarkesh \u00d7 David Reich \u2014 Why the Bronze Age was an inflection point in human evolution",
+      "url": "https://www.dwarkesh.com/p/david-reich-2",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-05-08",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-15",
+      "estimatedMinutes": 133,
+      "digestDay": 35
+    },
+    {
+      "id": "2026-05-15-005",
+      "title": "APMPO: Adaptive Power-Mean Policy Optimization for Improved LLM Reasoning",
+      "url": "https://arxiv.org/abs/2605.04066",
+      "source": "arXiv",
+      "date": "2026-05-06",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 12,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-15-006",
+      "title": "dGRPO: Combining On-Policy Optimization and Distillation for Long-Context Reasoning",
+      "url": "https://arxiv.org/abs/2605.12227",
+      "source": "arXiv",
+      "date": "2026-05-13",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 15,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-15-007",
+      "title": "Nonsense Helps: Prompt-Space Perturbation Broadens Reasoning Exploration (zero-advantage problem)",
+      "url": "https://arxiv.org/abs/2605.05566",
+      "source": "arXiv",
+      "date": "2026-05-09",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 10,
+      "digestDay": null
     }
   ],
   "feeds": [

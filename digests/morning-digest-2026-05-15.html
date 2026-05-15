@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 15, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 35</div>
+    <h1>Friday, May 15, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;The art of doing mathematics consists in finding that special case which contains all the germs of generality.&rdquo;</p>
+    <cite>&mdash; David Hilbert. Today&rsquo;s thread: <em>what is the right granularity of a verifiable reward?</em> &mdash; from program contracts (LIFR) to token-level credit (DGPO) to decompositional rubrics (AlphaGRPO).</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; LIFR &mdash; the research-vision paper for learning-infused formal reasoning (promoted from your April 27 bookmarks, the longest-shelved item in your queue)</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Quick read &middot; DGPO &mdash; replaces GRPO&rsquo;s coarse sequence-level credit with token-level Hellinger guidance</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; AlphaGRPO &mdash; decompositional verifiable reward (DVReward), GRPO for multimodal generation</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; OPSD &mdash; post-RL compaction (promoted from May 11 bookmarks; pairs with the &ldquo;RL as selection&rdquo; thesis)</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Simon Willison &mdash; the migration to <code>/v1/responses</code> and what interleaved reasoning means for tool-using agents</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; APMPO, dGRPO (long-context), &ldquo;Nonsense Helps&rdquo; (zero-advantage)</span></div>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks (April 27).</strong> This has been sitting in your queue for 18 days &mdash; the longest of any item. Pulling it forward now because the FormalRewardBench / CktFormalizer thread of the last week is exactly the &ldquo;contract synthesis&rdquo; leg of the LIFR vision, and reading the vision paper retrospectively will let you see which sub-problems you&rsquo;ve been making progress on without quite naming them.</span>
+    </div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.12747">Learning-Infused Formal Reasoning (LIFR): Contract Synthesis, Artifact Reuse, and Semantic Foundations</a></div>
+      <div class="card-meta">
+        <span>arXiv (VERIFAI 2026 short version) &middot; April 27, 2026</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Read this as a <em>map of your own research</em>, not as a paper with results. The authors&rsquo; thesis is the one you&rsquo;ve been quietly assembling all spring: formal verification has historically been an <em>isolated</em> activity &mdash; a one-program, one-proof effort &mdash; and the bottleneck to scaling it isn&rsquo;t the prover, it&rsquo;s the absence of any cumulative, reusable layer of specifications, contracts, and proof artifacts. LIFR proposes three concrete research directions, and the cleanest framing is to ask which one each paper you read this month belongs to. <em>Direction 1: automated contract synthesis from natural language requirements.</em> An LLM generates candidate logical predicates from informal text; an SMT solver or theorem prover then checks satisfiability and consistency; iterative feedback refines the contracts until the verifier accepts them. This is the exact loop that <strong>CktFormalizer</strong> (your May 13 deep dive) instantiated for hardware verification, and the exact loop that <strong>FormalRewardBench</strong> (your May 14 deep dive) is trying to evaluate when the &ldquo;feedback&rdquo; is a learned reward instead of an SMT solver. <em>Direction 2: graph-based semantic reuse of verification artifacts across projects.</em> This is the leg you&rsquo;ve done the least reading on, and it&rsquo;s also the most defensible &ldquo;novel contribution&rdquo; quadrant for a dissertation &mdash; the literature on artifact reuse in verification is unfashionably small, and matching/retrieval is having a renaissance via embeddings. <em>Direction 3: rigorous semantic foundations using Unifying Theories of Programming (Hoare &amp; He) and the Theory of Institutions (Goguen &amp; Burstall).</em> This is the &ldquo;why does any of this compose?&rdquo; leg, and it&rsquo;s the one most likely to feel slow when you read it but most likely to be load-bearing in the proposal. Three concrete actions after you read it. <em>(1)</em> Tag every paper in your reading log this month with which LIFR direction it belongs to &mdash; this is a free taxonomy for your literature review chapter. <em>(2)</em> Notice that the RLVR-for-Lean papers (FormalRewardBench, ScaleLogic, NPG-as-DSPI) are <em>all</em> in Direction 1 &mdash; that&rsquo;s a coverage gap in your reading, not an editorial choice. <em>(3)</em> The Theory-of-Institutions framing in Direction 3 is the right answer to the &ldquo;why can your method work on both Lean and Coq?&rdquo; question you&rsquo;ll be asked at your prelim; sketch a one-paragraph response on the back of this page when you&rsquo;re done reading.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.03327">DGPO: Distribution-Guided Policy Optimization for Fine-Grained Credit Assignment</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 5, 2026 (v2 May 8)</span><span class="dot">&middot;</span><span>~5 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        Two clean ideas worth pocketing. <em>First</em>, GRPO&rsquo;s sequence-level advantage is too coarse: when a 4,000-token CoT gets a single +1, every token gets the same gradient, and the &ldquo;which step actually mattered&rdquo; signal is washed out. DGPO replaces the sequence-level advantage with a token-level <em>distribution deviation</em> signal &mdash; the policy&rsquo;s deviation from a reference distribution measured pointwise, used as guidance rather than penalty. <em>Second</em> &mdash; and this is the part to remember &mdash; they replace the KL divergence with the <em>Hellinger distance</em>. KL is unbounded; under aggressive policy updates it can spike and induce gradient explosion or mode-seeking collapse. Hellinger is bounded in [0,1], so the same &ldquo;distance from reference&rdquo; signal becomes a safe quantitative guide instead of a destabilizing penalty. Pair this with yesterday&rsquo;s NPG-as-DSPI: if NPG converges to a doubly-smoothed Bellman fixed point and GRPO is NPG-in-disguise, then DGPO is best read as &ldquo;swap one of the two smoothings (the KL one) for a bounded surrogate&rdquo;. Critic-free, drop-in, and easy to ablate.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.12495">AlphaGRPO: Unlocking Self-Reflective Multimodal Generation via Decompositional Verifiable Reward</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 13, 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The reason this is in your digest even though it&rsquo;s a multimodal-generation paper: the <em>Decompositional Verifiable Reward (DVReward)</em> construction is exactly the move you should be considering for partial-proof rewards in Lean. The recipe: an LLM decomposes a complex user request into <em>atomic, verifiable semantic and quality questions</em> (&ldquo;does the image contain a red cube?&rdquo;, &ldquo;is the cube on the left of the sphere?&rdquo;); a general MLLM then evaluates each atom and returns an interpretable, structured reward. The analogy to your domain writes itself &mdash; replace &ldquo;atomic visual questions&rdquo; with &ldquo;atomic proof obligations&rdquo; (does this lemma type-check? does the goal state contain the desired hypothesis? is the induction variable fresh?), and DVReward becomes a recipe for a dense, decomposable, verifier-grounded reward signal for theorem proving. Skim Section 3 of the paper for the prompt structure they use for decomposition.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks (May 11).</strong> Pulled forward because OPSD&rsquo;s &ldquo;RL teaches less than you think&rdquo; framing is the natural sibling of yesterday&rsquo;s ReasonMaxxer / sparse-policy-selection paper &mdash; reading them together gives you the sharpest version of the &ldquo;RL is selection, not learning&rdquo; argument.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06188">OPSD Compresses What RLVR Teaches: A Post-RL Compaction Stage for Reasoning Models</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 7, 2026</span><span class="dot">&middot;</span><span>~3 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The empirical observation is the part to take away: after RLVR, you can distill the RL&minus;trained policy back into a much smaller (and shorter-CoT) student model and recover most of the reasoning gain &mdash; suggesting most of what RLVR actually &ldquo;learned&rdquo; was a small set of high-leverage decision rules, not a broad capability shift. Place this next to yesterday&rsquo;s <em>ReasonMaxxer</em> (only 1&ndash;3% of token positions are materially changed by RL) and the picture becomes coherent: RLVR is doing a small amount of work in a small number of places, and the rest is the base model. The methodological consequence is the part that matters for your work: if RLVR&rsquo;s contribution is compressible, then the FormalRewardBench&minus;style reward model only needs to be accurate at the small set of decision points where the policy actually changes &mdash; which lowers the bar for &ldquo;good enough&rdquo; reward modeling considerably.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/May/12/llm/">Simon Willison &mdash; Release: llm 0.32a2 &amp; the migration to <code>/v1/responses</code></a></div>
+      <div class="card-meta">
+        <span>simonwillison.net &middot; May 12, 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        OpenAI&rsquo;s reasoning-capable models have quietly moved off <code>/v1/chat/completions</code> and onto <code>/v1/responses</code>, which exposes <em>interleaved reasoning across tool calls</em> &mdash; the model can think, call a tool, think more, call another tool, and the summarized reasoning tokens are visible to the caller throughout. Simon&rsquo;s post is a release-note for his <code>llm</code> CLI, but the more interesting paragraph is the side observation that the new endpoint shape is essentially a streaming &ldquo;reasoning-aware&rdquo; protocol &mdash; the same shape an academic RL researcher would want for collecting trajectories with intermediate reward signals. The connection to today&rsquo;s thread: if the API itself surfaces a fine-grained record of where the model thought, decided, and acted, then the dense-reward / fine-grained-credit assignment problem moves from &ldquo;we have to infer where the work happened&rdquo; to &ldquo;the trace tells us&rdquo;. Worth noting for your tooling.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-code">Code</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.04066">APMPO: Adaptive Power-Mean Policy Optimization for Improved LLM Reasoning</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.12227">dGRPO: Distilled GRPO &mdash; On-Policy Optimization + Distillation for Long-Context Reasoning</a>
+        <span class="bookmark-time">~15 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.05566">Nonsense Helps: Prompt-Space Perturbation Broadens Reasoning Exploration (the &ldquo;zero-advantage problem&rdquo; paper)</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Today&rsquo;s saves are all on the GRPO-improvement edge of the week&rsquo;s thread. <em>APMPO</em> replaces GRPO&rsquo;s static aggregation with an adaptive power-mean over rollouts &mdash; one knob that interpolates between min, mean, and max, which lets you trade exploration for exploitation at the advantage-aggregation step. <em>dGRPO</em> is the long-context variant you&rsquo;ll want when you start running GRPO over Lean proofs that are themselves 4k+ tokens; the trick is augmenting the GRPO update with dense guidance from a stronger teacher (a distillation-RL hybrid). <em>Nonsense Helps</em> is the paper to keep on your desk &mdash; it gives you a one-line fix for the zero-advantage / failure-mode-collapse problem that <em>every</em> RLVR-for-Lean pipeline runs into: when every rollout fails, perturb the prompt with arbitrary noise to broaden the exploration distribution. Counter-intuitive and almost certainly cheap to try.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/p/david-reich-2">Dwarkesh &times; David Reich &mdash; Why the Bronze Age was an inflection point in human evolution</a></div>
+      <div class="card-meta">
+        <span>Dwarkesh Podcast &middot; May 8, 2026</span><span class="dot">&middot;</span><span>~2h 13m</span>
+      </div>
+      <div class="card-body">
+        A pure change-of-pace listen, and a methodological one. Reich and Ali Akbari have a new paper that overturns the standing consensus that natural selection in humans went dormant after agriculture; by scaling ancient DNA sequencing and developing a new statistical method, they find that selection has actually <em>sped up</em>, with the Bronze Age (~3,000 years ago) as the peak. The reason this is in your queue: the methodology section is the part to play at 1.0&times;. Reich walks through how the statistical method works &mdash; how you back out selection signals from gene-frequency shifts across time-resolved ancient genomes &mdash; and it&rsquo;s a clean example of the pattern you&rsquo;re trying to internalize for your own work: a domain in which the &ldquo;signal&rdquo; was assumed absent until someone built the right estimator. Good gym / long-walk listen.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Simon Willison &mdash; <code>/v1/responses</code> migration (3 min, anywhere)</li>
+          <li>AlphaGRPO &mdash; just internalize the DVReward decomposition recipe</li>
+          <li>OPSD &mdash; the &ldquo;RL teaches less than you think&rdquo; framing</li>
+          <li>Dwarkesh &times; David Reich &mdash; commute / gym, methodology segment at 1.0&times;</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>LIFR (deep dive &mdash; with a blank page for the &ldquo;which direction does each paper belong to?&rdquo; taxonomy)</li>
+          <li>DGPO &mdash; sketch the Hellinger-vs-KL swap, check &sect;3 for the token-level formula</li>
+          <li>Bookmarks: APMPO, dGRPO, Nonsense Helps</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 35</strong> &middot; 5 reading items + 3 bookmarks + 1 podcast &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the right granularity of a verifiable reward</em>. LIFR sets the vision (contracts as the unit of reuse); DGPO makes credit assignment token-level; AlphaGRPO decomposes a holistic reward into atomic verifiable questions; OPSD says most of what RLVR teaches lives in a tiny subset of decisions; Simon Willison&rsquo;s post is the API-layer story for collecting fine-grained reasoning traces. Reward granularity is the load-bearing variable of the week.</p>
+  </footer>
+</body>
+</html>
