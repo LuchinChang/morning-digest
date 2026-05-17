@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 35,
+    "dayCount": 36,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -2975,10 +2975,10 @@
         "AGENTS",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-17",
       "estimatedMinutes": 12,
-      "digestDay": null
+      "digestDay": 36
     },
     {
       "id": "2026-05-01-006",
@@ -3764,10 +3764,10 @@
         "RLVR",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-17",
       "estimatedMinutes": 12,
-      "digestDay": null
+      "digestDay": 36
     },
     {
       "id": "2026-05-15-006",
@@ -3797,6 +3797,117 @@
       "status": "bookmarked",
       "assignedDate": null,
       "estimatedMinutes": 10,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-17-001",
+      "title": "uPRM: Unsupervised Process Reward Models",
+      "url": "https://arxiv.org/abs/2605.10158",
+      "source": "arXiv",
+      "date": "2026-05-11",
+      "tags": [
+        "DEEP DIVE",
+        "RLVR",
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-17",
+      "estimatedMinutes": 25,
+      "digestDay": 36
+    },
+    {
+      "id": "2026-05-17-002",
+      "title": "CIPO: Learning from Failures \u2014 Correction-Oriented Policy Optimization with Verifiable Rewards",
+      "url": "https://arxiv.org/abs/2605.14539",
+      "source": "arXiv",
+      "date": "2026-05-14",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-17",
+      "estimatedMinutes": 4,
+      "digestDay": 36
+    },
+    {
+      "id": "2026-05-17-003",
+      "title": "Simon Willison \u2014 \"Not so locked in any more\"",
+      "url": "https://simonwillison.net/2026/May/14/not-so-locked-in/",
+      "source": "Simon Willison",
+      "date": "2026-05-14",
+      "tags": [
+        "READ",
+        "AGENTS",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-17",
+      "estimatedMinutes": 3,
+      "digestDay": 36
+    },
+    {
+      "id": "2026-05-17-004",
+      "title": "Lex Fridman #490 \u2014 State of AI in 2026 (Nathan Lambert & Sebastian Raschka)",
+      "url": "https://open.spotify.com/episode/4UBPQG2Z7s70DpRVD5kMbC",
+      "source": "Lex Fridman Podcast",
+      "date": "2026-05-15",
+      "tags": [
+        "LISTEN",
+        "RLVR",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-17",
+      "estimatedMinutes": 180,
+      "digestDay": 36
+    },
+    {
+      "id": "2026-05-17-005",
+      "title": "FEST: Boosting RLVR via Randomly Selected Few-Shot Guidance",
+      "url": "https://arxiv.org/abs/2605.15012",
+      "source": "arXiv",
+      "date": "2026-05-14",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 10,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-17-006",
+      "title": "PDCR: Perception-Decomposed Confidence Reward for Vision-Language Reasoning",
+      "url": "https://arxiv.org/abs/2605.13467",
+      "source": "arXiv",
+      "date": "2026-05-13",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 12,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-17-007",
+      "title": "TRACE: Distilling Where It Matters via Token-Routed Self On-Policy Alignment",
+      "url": "https://arxiv.org/abs/2605.10194",
+      "source": "arXiv",
+      "date": "2026-05-13",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 12,
       "digestDay": null
     }
   ],

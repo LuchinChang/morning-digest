@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 17, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 36</div>
+    <h1>Sunday, May 17, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;We think in generalities, but we live in details.&rdquo;</p>
+    <cite>&mdash; Alfred North Whitehead. Today&rsquo;s thread: <em>from sparse outcomes to dense process</em> &mdash; the PRM resurgence (uPRM removes the annotation bottleneck), CIPO turns failures into supervision, and an oldest-shelf formal-methods promotion brings the multi-agent contract-synthesis leg back into view.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; uPRM &mdash; Unsupervised Process Reward Models. The annotation-free PRM. Read against Friday&rsquo;s FormalRewardBench, which named the problem this paper plausibly solves.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; CIPO &mdash; Learning from Failures: failed rollouts become correction-oriented supervision, no external signals.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Quick read &middot; Logic-Based Verification of LLM Task Allocation (promoted from May 1 bookmarks &mdash; 16 days shelved; formal methods + agents).</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; APMPO &mdash; adaptive power-mean aggregation (promoted from May 15 bookmarks; pairs with today&rsquo;s &ldquo;dense signal from rollouts&rdquo; theme).</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Simon Willison &mdash; &ldquo;Not so locked in any more&rdquo;. Practical reflection on cross-model portability.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; CIPO&rsquo;s cousins: FEST (few-shot RLVR), PDCR (perception-decomposed reward), TRACE (token-routed alignment).</span></div>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.10158">uPRM: Unsupervised Process Reward Models</a></div>
+      <div class="card-meta">
+        <span>arXiv (EPFL &middot; Gadetsky et al.) &middot; May 11, 2026</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Read this paper paired in your mind with Friday&rsquo;s <strong>FormalRewardBench</strong>. FormalRewardBench did the diagnostic work &mdash; it named the problem precisely: RLVR&rsquo;s binary correctness signal is sparse, models get no learning signal from failed-but-partially-correct proofs, and step-level reward models are the obvious answer but they require expert annotation at every reasoning step. That bottleneck is what kills PRMs for formal methods: nobody is going to label tens of thousands of Lean proof steps by hand, and the existing automated approaches (Z3/Isabelle in FOVER, for instance) only cover narrow formal subsets. uPRM&rsquo;s thesis is the one that, if it holds up, removes that bottleneck. The construction is the part to read carefully. The authors define a scoring function derived purely from the LLM&rsquo;s own next-token probabilities &mdash; the intuition is that an LLM &ldquo;knows&rdquo; when its own reasoning is about to fall apart in a way that&rsquo;s detectable from local likelihoods, and the scoring function is engineered to surface that signal across a <em>batch</em> of trajectories jointly (so the candidate first-error position is calibrated against other rollouts on the same problem rather than scored in isolation). No human labels, no ground-truth final-answer verification, no SMT solver in the loop. The empirical claim is striking: up to <em>15% absolute accuracy improvement</em> over LLM-as-a-Judge in identifying first erroneous steps on ProcessBench; comparable to a <em>supervised</em> PRM as a test-time-scaling verifier; and &mdash; the line you should highlight &mdash; when used as a reward signal in RL, uPRM produces <em>more robust policy optimization</em> than a supervised PRM trained on ground-truth labels. That last result is worth a long pause. It suggests that the supervised-PRM gold standard may actually <em>overfit</em> to its labels in a way that produces a worse RL training signal than a noisier but more broadly-calibrated unsupervised one. Three concrete actions for your work. <em>(1)</em> Read Section 3 (the scoring-function definition) the way you read a derivation, not a method &mdash; if you can&rsquo;t state in one sentence why the cross-rollout joint scoring is doing the work, you haven&rsquo;t read it. <em>(2)</em> Ask yourself: does the batch-joint scoring assumption hold when your &ldquo;rollouts&rdquo; are Lean proofs with discrete tactic-level structure rather than free-form natural language? This is a non-trivial port and is exactly the &ldquo;novel contribution&rdquo; quadrant. <em>(3)</em> uPRM lands in <em>LIFR Direction 1</em> (automated contract synthesis / dense feedback for formal reasoning) &mdash; tag it in your reading log accordingly and note the coverage: your Direction 1 column is getting full, your Direction 2 (artifact reuse) column is still empty, your Direction 3 (semantic foundations) column has one paper. The reading log is doing its job; let it tell you what to read next.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.14539">CIPO: Learning from Failures &mdash; Correction-Oriented Policy Optimization with Verifiable Rewards</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 14, 2026</span><span class="dot">&middot;</span><span>~4 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        The complementary move to uPRM. Where uPRM tries to <em>densify</em> the reward by extracting a per-step signal from the model itself, CIPO leaves the reward sparse and instead converts the <em>failed trajectories themselves</em> into correction-oriented supervision. The trick: when a rollout fails, don&rsquo;t throw it out &mdash; ask the model to repair it given the verifier&rsquo;s rejection signal, and use the corrected trace as additional training data alongside the standard RLVR objective. No external signal needed, no extra verifier calls, just the failed rollouts you were going to discard anyway. The empirical claim worth pocketing is that CIPO improves <em>pass@K</em> (not just pass@1), which the authors argue is evidence that it&rsquo;s expanding the model&rsquo;s reasoning capacity rather than redistributing probability mass over already-correct answers. For your domain: this is the natural <em>cheap</em> alternative to a PRM &mdash; if you can&rsquo;t get a process reward signal, you can at least extract self-correction supervision from the failures the verifier rejects. Read this back-to-back with &ldquo;Nonsense Helps&rdquo; (your May 15 bookmark): both are zero-advantage-problem solutions, at the prompt level and trajectory level respectively.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks (May 1).</strong> 16 days shelved &mdash; now the oldest unread item in your queue. Pulling it forward because the coverage analysis on uPRM revealed your Direction-1 column is now top-heavy with RLVR; this paper is the formal-methods-meets-agents leg you&rsquo;ve been quietly skipping, and it gives the LIFR taxonomy a missing data point.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.17142">Logic-Based Verification of Task Allocation for LLM-Enabled Multi-Agent Manufacturing Systems</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; April 28, 2026</span><span class="dot">&middot;</span><span>~5 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        Skim, don&rsquo;t deep-read. The contribution is straightforward: the authors encode a multi-agent LLM-based task-allocation protocol as a temporal-logic specification, then check candidate allocations against the spec using a model checker before execution. The substantive piece for your work isn&rsquo;t the manufacturing application &mdash; it&rsquo;s the <em>encoding pattern</em>. They formalize agent commitments as LTL/CTL obligations and treat the LLM&rsquo;s allocation decision as a candidate trace to verify, not as a black-box action. This is exactly the &ldquo;verifier-in-the-loop&rdquo; pattern from FormalRewardBench, but pulled up a layer: the verifier checks <em>the agent system&rsquo;s plan</em> rather than <em>the agent&rsquo;s individual proof step</em>. Two questions to write in your margin while reading: (1) is the temporal-logic spec being <em>synthesized</em> by an LLM from natural-language requirements (LIFR Direction 1) or <em>handwritten</em> by domain experts (which would make this less novel than it looks)? (2) what would the analog look like in your domain &mdash; an LTL spec over <em>proof states</em> rather than over <em>manufacturing steps</em>?
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks (May 15).</strong> Only two days old but topically perfect &mdash; APMPO&rsquo;s adaptive aggregation is the same family of moves as uPRM&rsquo;s batch-joint scoring: both replace a static aggregation choice with a data-dependent one to extract a denser signal from the same rollouts.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.04066">APMPO: Adaptive Power-Mean Policy Optimization for Improved LLM Reasoning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 5, 2026</span><span class="dot">&middot;</span><span>~3 min read (skim)</span>
+      </div>
+      <div class="card-body">
+        GRPO aggregates rollout advantages by their <em>mean</em>; that&rsquo;s a static choice and a coarse one. APMPO replaces it with a <em>power-mean</em> with a learnable / scheduled exponent &mdash; one knob that smoothly interpolates between min (worst-case rollout), mean (GRPO), and max (best-case rollout). The exploration/exploitation reading is the right one to keep: low exponent biases toward the failing rollouts (more exploration pressure on the policy), high exponent biases toward the succeeding ones (lock in the wins). Today&rsquo;s connection: the static-aggregation problem APMPO names is the same one uPRM names from a different angle &mdash; both are saying GRPO&rsquo;s rollout-batch contains more signal than the mean extracts. APMPO recovers it by changing the aggregation operator; uPRM recovers it by scoring positions <em>within</em> the rollouts jointly across the batch. Drop-in modification to any GRPO/RLOO codebase; the experimental ablation table is the part to glance at to see whether it&rsquo;s worth your evening.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/May/14/not-so-locked-in/">Simon Willison &mdash; &ldquo;Not so locked in any more&rdquo;</a></div>
+      <div class="card-meta">
+        <span>simonwillison.net &middot; May 14, 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        A short, opinionated reflection on the state of model-portability in agentic tooling &mdash; the gist is that the vendor lock-in concerns that dominated 2024&ndash;2025 discourse have eroded faster than expected, largely because the <code>/v1/responses</code>-style endpoint shape (which you read about Friday) is becoming a de-facto standard rather than an OpenAI moat. The relevance to your work isn&rsquo;t the developer-tools angle: it&rsquo;s the methodological lesson. When the API surface for a problem standardizes, the research bottleneck moves up the stack &mdash; from &ldquo;how do we get a fine-grained trajectory at all&rdquo; to &ldquo;given that we now have one, what do we do with it&rdquo;. PRMs and CIPO-style failure-supervision are squarely the latter question. Worth three minutes; close the tab if it&rsquo;s the same point twice.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.15012">FEST: Boosting RLVR via Randomly Selected Few-Shot Guidance</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.13467">PDCR: Perception-Decomposed Confidence Reward for Vision-Language Reasoning</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.10194">TRACE: Distilling Where It Matters via Token-Routed Self On-Policy Alignment</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Today&rsquo;s saves cluster around the same &ldquo;extract more signal from the same rollouts&rdquo; theme as the digest. <em>FEST</em> shows that 128 demonstrations randomly drawn from your SFT dataset are enough to bootstrap RLVR &mdash; a sample-efficiency claim worth checking against your prover-finetuning pipeline. <em>PDCR</em> is vision-language but the construction is portable: decompose a holistic reward into per-component confidence signals, then use the decomposition as a denser supervision target (echoes AlphaGRPO&rsquo;s DVReward). <em>TRACE</em> is the most direct cousin of uPRM &mdash; it asks the question &ldquo;which tokens actually carry the alignment signal?&rdquo; and routes the distillation loss only through those, which is empirically the same observation as ReasonMaxxer&rsquo;s 1&ndash;3% claim from two weeks ago. Read TRACE first if you only get to one.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://open.spotify.com/episode/4UBPQG2Z7s70DpRVD5kMbC">Lex Fridman #490 &mdash; State of AI in 2026 (Nathan Lambert &amp; Sebastian Raschka)</a></div>
+      <div class="card-meta">
+        <span>Lex Fridman Podcast &middot; May 2026</span><span class="dot">&middot;</span><span>~3h+</span>
+      </div>
+      <div class="card-body">
+        Nathan Lambert (post-training lead at Ai2, author of <em>The RLHF Book</em>) and Sebastian Raschka (author of <em>Build a Reasoning Model From Scratch</em>) on the state of AI as of mid-2026. The reason this is in your queue is the post-training section &mdash; Lambert is the closest thing the field has to an &ldquo;encyclopedic reference&rdquo; on RL for LLMs as it&rsquo;s actually being practiced inside frontier labs, and the conversation reportedly spends meaningful time on pre/mid/post-training boundaries, where the RLVR / process-reward research community fits in industry pipelines, and what the next year of RL-for-reasoning work is likely to look like. Skip the AGI-timeline / GPU-cluster segments; pay attention when post-training comes up. Long episode &mdash; good for a multi-walk listen.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Simon Willison &mdash; &ldquo;Not so locked in&rdquo; (3 min, anywhere)</li>
+          <li>APMPO &mdash; just the power-mean knob and what it interpolates</li>
+          <li>Logic-Based Multi-Agent Verification &mdash; skim only, focus on encoding pattern</li>
+          <li>Lex Fridman #490 &mdash; post-training segments, walk / commute</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>uPRM (deep dive &mdash; read &sect;3 like a derivation; note the Lean-port question)</li>
+          <li>CIPO &mdash; pair with &ldquo;Nonsense Helps&rdquo; for the zero-advantage-problem pattern</li>
+          <li>Bookmarks: TRACE first, then PDCR, then FEST</li>
+          <li>Update reading log: tag papers by LIFR Direction (1/2/3); note the Direction-2 gap</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 36</strong> &middot; 5 reading items + 3 bookmarks + 1 podcast &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>from sparse outcomes to dense process</em>. uPRM removes the annotation cost that made PRMs infeasible for formal proofs; CIPO converts failed trajectories into supervision; APMPO replaces the static aggregation operator with a learned one; the multi-agent verification promotion brings the formal-methods-meets-agents leg back into the rotation. The week&rsquo;s arc: <em>reward granularity</em> (last week) &rarr; <em>where the granular signal comes from when you can&rsquo;t pay for it</em> (this week).</p>
+  </footer>
+</body>
+</html>
