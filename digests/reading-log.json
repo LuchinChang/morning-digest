@@ -3935,9 +3935,10 @@
       "source": "arXiv",
       "date": "2026-05-04",
       "tags": [
+        "MULTI-DAY",
+        "READ",
         "RLVR",
-        "TRENDING",
-        "READ"
+        "TRENDING"
       ],
       "status": "assigned",
       "assignedDate": "2026-05-18",
@@ -3997,8 +3998,9 @@
       "source": "arXiv",
       "date": "2026-05-01",
       "tags": [
-        "RLVR",
-        "READ"
+        "MULTI-DAY",
+        "READ",
+        "RLVR"
       ],
       "status": "bookmarked",
       "assignedDate": null,
