@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 36,
+    "dayCount": 37,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3902,6 +3902,116 @@
       "source": "arXiv",
       "date": "2026-05-13",
       "tags": [
+        "PROMOTED",
+        "READ",
+        "RLVR"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-18",
+      "estimatedMinutes": 5,
+      "digestDay": 37
+    },
+    {
+      "id": "2026-05-18-001",
+      "title": "GCPO: Breaking Winner-Takes-All \u2014 Cooperative Policy Optimization Improves Diverse LLM Reasoning",
+      "url": "https://arxiv.org/abs/2605.11461",
+      "source": "arXiv",
+      "date": "2026-05-12",
+      "tags": [
+        "DEEP DIVE",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-18",
+      "estimatedMinutes": 25,
+      "digestDay": 37
+    },
+    {
+      "id": "2026-05-18-002",
+      "title": "Binary Rewards and Reinforcement Learning: Fundamental Challenges",
+      "url": "https://arxiv.org/abs/2605.02375",
+      "source": "arXiv",
+      "date": "2026-05-04",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-18",
+      "estimatedMinutes": 4,
+      "digestDay": 37
+    },
+    {
+      "id": "2026-05-18-003",
+      "title": "Rebellious Student: Reversing Teacher Signals for Reasoning Exploration with Self-Distilled RLVR",
+      "url": "https://arxiv.org/abs/2605.10781",
+      "source": "arXiv",
+      "date": "2026-05-11",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-18",
+      "estimatedMinutes": 3,
+      "digestDay": 37
+    },
+    {
+      "id": "2026-05-18-004",
+      "title": "The distillation panic",
+      "url": "https://www.interconnects.ai/p/the-distillation-panic",
+      "source": "Nathan Lambert (Interconnects)",
+      "date": "2026-05-04",
+      "tags": [
+        "READ",
+        "RESEARCH ADVICE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-18",
+      "estimatedMinutes": 3,
+      "digestDay": 37
+    },
+    {
+      "id": "2026-05-18-005",
+      "title": "GAGPO: Generalized Advantage Grouped Policy Optimization",
+      "url": "https://arxiv.org/abs/2605.13217",
+      "source": "arXiv",
+      "date": "2026-05-13",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 10,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-18-006",
+      "title": "UCPO: Uniform-Correct Policy Optimization \u2014 Breaking RLVR's Indifference to Diversity",
+      "url": "https://arxiv.org/abs/2605.00365",
+      "source": "arXiv",
+      "date": "2026-05-01",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 10,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-18-007",
+      "title": "Controllable and Verifiable Process Data Synthesis for Process Reward Models",
+      "url": "https://arxiv.org/abs/2605.02395",
+      "source": "arXiv",
+      "date": "2026-05-04",
+      "tags": [
         "RLVR",
         "READ"
       ],
@@ -3909,6 +4019,21 @@
       "assignedDate": null,
       "estimatedMinutes": 12,
       "digestDay": null
+    },
+    {
+      "id": "2026-05-18-008",
+      "title": "Dwarkesh Podcast \u2014 David Reich on Ancient DNA and Natural Selection in Humans",
+      "url": "https://www.dwarkesh.com/p/david-reich",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-05-11",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-18",
+      "estimatedMinutes": 120,
+      "digestDay": 37
     }
   ],
   "feeds": [
