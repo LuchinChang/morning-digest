@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 19, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 38</div>
+    <h1>Tuesday, May 19, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;Among all distributions consistent with the constraints, choose the one with maximum entropy.&rdquo;</p>
+    <cite>&mdash; E. T. Jaynes (1957). Today&rsquo;s thread: <em>once you accept that &ldquo;maximize expected binary reward&rdquo; has an infinite optimum set, you need a selection principle</em>. GCPO picked the max-volume element. The Binary-Rewards paper picked the KL-closest. UCPO picks Jaynes&rsquo;: the max-entropy element conditioned on correctness. Same wound, third selection criterion &mdash; and the one with the cleanest closed form.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; UCPO (promoted from yesterday&rsquo;s bookmarks &mdash; the explicit max-entropy selector for the degenerate-optimum set, the cleanest of the diversity-collapse fixes you&rsquo;re tracking).</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Quick read &middot; GAGPO (promoted &mdash; the drop-in advantage-shaping cousin of GCPO, with a GAE-flavored construction).</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; EP-GRPO &mdash; a different angle on the same wound: dense, self-supervised credit assignment from entropy-progress signals.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Simon Willison&rsquo;s &ldquo;The last six months in LLMs in five minutes&rdquo; (posted <em>today</em> &mdash; the field-survey palate cleanser).</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Lean in-context proof learning &mdash; a fresh formal-methods item that lines up with the Direction-2 (artifact reuse) gap you flagged yesterday.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; Reference-Sampled Boltzmann Projection, Controllable Process Data Synthesis (carried), dGRPO.</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing yesterday&rsquo;s arc.</strong> Three selection principles for the degenerate &ldquo;maximize expected binary reward&rdquo; optimum set are now on the table: <em>GCPO</em> picks max determinantal volume in semantic embedding space; <em>Binary-Rewards / KL-control</em> picks the KL-closest element to the base; <em>UCPO</em> (today) picks the max-entropy element conditioned on correctness. The natural fourth &mdash; not yet a paper &mdash; is &ldquo;max-entropy in <em>artifact</em> space&rdquo; for formal-methods proofs, where the right entropy is over <em>tactic sequences</em> modulo the proof&rsquo;s equivalence class.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from yesterday&rsquo;s bookmarks.</strong> Your own note said: &ldquo;Read UCPO right after Binary Rewards &mdash; it&rsquo;s the explicit max-entropy selector from the degenerate optimum set.&rdquo; Done; here it is as today&rsquo;s deep dive.</span>
+    </div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.00365">UCPO: Uniform-Correct Policy Optimization &mdash; Breaking RLVR&rsquo;s Indifference to Diversity</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 1, 2026</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        This is the paper that closes the loop on the week&rsquo;s arc. The Binary-Rewards paper from Monday proved that the set of policies maximizing expected binary reward is infinite with no distinguished element; GCPO picked one by maximizing semantic-embedding volume; UCPO picks one by maximizing entropy <em>conditioned on the correct set</em> &mdash; and that, as far as RLVR is concerned, is the Jaynesian move. The construction in &sect;3 is the part to read like a measure-theory exercise. They define the &ldquo;correct support&rdquo; C(x) for prompt x as the set of completions earning reward 1, and the &ldquo;ideal&rdquo; policy as the one that places <em>uniform</em> mass on C(x) and zero elsewhere &mdash; this is the maximum-entropy element of the degenerate optimum set, and it&rsquo;s the maximum-entropy distribution under the constraint &ldquo;put all mass on correct.&rdquo; The training loss is then a conditional uniformity penalty: an additive term that pushes the policy&rsquo;s conditional distribution over correct rollouts toward uniform. Three things to internalize. <em>(1)</em> This is the right way to think about &ldquo;diversity-as-objective&rdquo; in RLVR. Most prior diversity work added entropy terms over the <em>full</em> policy distribution &mdash; which trades off correctness against exploration in a confusing way (you&rsquo;re paying entropy cost for wrong answers, which doesn&rsquo;t make sense if the reward is binary). UCPO&rsquo;s move is to add the entropy term only over the correct set, which decouples the two concerns: correctness still gets the binary reward, and entropy regularization gets the conditional distribution. That conditional-on-correctness formulation is the right one &mdash; once you see it you&rsquo;ll wonder why it took the field this long. <em>(2)</em> The connection to maximum-entropy estimation in statistical mechanics is exact, not metaphorical. Jaynes&rsquo; argument was: among all distributions satisfying a set of expectation constraints, the maximum-entropy distribution is the one that makes the fewest assumptions. Here the constraint is &ldquo;mass lies on C(x)&rdquo; (a hard constraint, not an expectation), and the max-entropy answer is uniform on C(x). This is the limit, as &beta;&rarr;0, of the Boltzmann distribution exp(-&beta;&middot;Loss)/Z restricted to C(x) &mdash; which is also exactly the construction your bookmarked &ldquo;Reference-Sampled Boltzmann Projection&rdquo; paper uses for KL-regularized RLVR, except that paper picks a non-uniform prior. The two papers are doing the <em>same math</em> with different priors; UCPO picks the uniform prior on C(x), Boltzmann Projection picks the base-model prior on C(x). Read them as a pair. <em>(3)</em> For your formal-methods work, this is the cleanest mathematical hook the diversity-collapse literature gives you. The question that sits unanswered &mdash; <em>what is the right diversity functional on Lean proofs?</em> &mdash; reduces, in the UCPO frame, to: <em>what equivalence relation do we want uniform mass over?</em> Two natural choices: equivalence modulo tactic permutation (gives uniform-over-distinct-tactic-traces), or equivalence modulo proof term up to &alpha;&beta;&eta; (gives uniform-over-essentially-distinct-proofs). The first is what current embedding-based methods approximate; the second is what you actually want and what GCPO&rsquo;s embedding can&rsquo;t see. UCPO with a proof-term-up-to-&alpha;&beta;&eta; equivalence is a real paper. Empirically the headline numbers are strong: up to +10% absolute Pass@64 on AIME24, up to 45% higher equation-level diversity within the correct set, Pass@1 competitive. The ablation in Table 3 is the one to study &mdash; their conditional-uniformity penalty alone explains most of the Pass@K gain, with the rest of the architectural choices contributing &lt;1% each.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.13217">GAGPO: Generalized Advantage Grouped Policy Optimization</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 12, 2026</span><span class="dot">&middot;</span><span>~5 min read</span>
+      </div>
+      <div class="card-body">
+        The drop-in cousin of GCPO. Where GCPO reframes credit assignment as a cooperative game and pulls in determinantal-volume machinery, GAGPO is a more conservative move: generalize GRPO&rsquo;s advantage estimator with a richer group-conditioned baseline &mdash; closer in spirit to GAE (the classical Generalized Advantage Estimator from Schulman&rsquo;s PPO line) than to anything cooperative-game-theoretic. The construction is &lambda;-weighted across a stack of group-level baselines at different temporal horizons, recovering vanilla GRPO when &lambda;=0 and approaching a full Monte Carlo estimate as &lambda;&rarr;1. The contribution is mostly empirical: gains over GRPO at fixed compute, the bias-variance tradeoff for &lambda; behaves like it does in vanilla GAE. Read this paper if you want a one-line patch to a GRPO codebase; read GCPO instead if you want the conceptual shift. Worth noting &mdash; the GAGPO authors are explicit that they are <em>not</em> trying to address diversity collapse, only variance in the advantage estimator. So this is the &ldquo;same wound, different surgical instrument&rdquo; member of the family: it patches the gradient-noise side of the problem, GCPO/UCPO patch the gradient-direction side.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.04960">EP-GRPO: Entropy-Progress Aligned GRPO with Implicit Process Guidance</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 7, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Another angle on the GRPO-credit-assignment problem, this time from the <em>process</em> side rather than the outcome side. EP-GRPO observes three failures in vanilla GRPO: (i) uniform token-level granularity that ignores heterogeneous informational value, (ii) uniform polarity that can penalize correct steps and reward incorrect ones, and (iii) zero-variance collapse, where if every rollout in a group is correct (or every one is wrong) the GRPO advantage estimate is exactly zero and the gradient signal vanishes. The fix: use the policy&rsquo;s own per-token entropy trajectory as an implicit process reward &mdash; positions where entropy drops substantially are evidence of decisive commitment, positions where it stays high are evidence of indecision. This is information-theoretically clean (entropy reduction = information gain, by definition) and it&rsquo;s a self-supervised signal that doesn&rsquo;t require a reward model or human labels. The (iii) failure mode &mdash; zero-variance collapse &mdash; is worth a margin note: it&rsquo;s structurally the same phenomenon UCPO is trying to prevent, but on the gradient side rather than the converged-policy side. Pair this with the uPRM paper from two weeks ago &mdash; both are using self-generated signals to densify the GRPO objective without supervision.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/May/19/5-minute-llms/">Simon Willison &mdash; The last six months in LLMs in five minutes</a></div>
+      <div class="card-meta">
+        <span>simonwillison.net &middot; May 19, 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        Posted <em>today</em>, from Simon&rsquo;s PyCon US 2026 lightning talk. Useful as a six-month sanity check while your nose is buried in the diversity-collapse subliterature. His framing: a &ldquo;November 2025 inflection point&rdquo; for coding, the &ldquo;best model&rdquo; title changed hands among the three big labs five times, Google&rsquo;s Gemma 4 became the most capable US open-weight family, and GLM-5.1 (a 1.5TB open-weight Chinese model) crashed the high end. Useful zoom-out: while you&rsquo;re reading UCPO this morning, the field at large has shifted again. The substantive line worth pocketing &mdash; he flags <em>convergence between &ldquo;vibe coding&rdquo; and &ldquo;agentic engineering&rdquo;</em> as the thing that&rsquo;s started to disturb him about his own workflow. That distinction matters for your work too: an agentic proof-search loop and an &ldquo;ask the model and trust it&rdquo; loop are <em>not</em> the same thing, and the literature is starting to elide the difference.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2509.14274">Discovering New Theorems via LLMs with In-Context Proof Learning in Lean</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; revised May 6, 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        Fresh formal-methods item, and the one that lines up directly with the Direction-2 (artifact reuse) gap you flagged in yesterday&rsquo;s GCPO note. The core finding is small but mechanically clean: when an LLM is searching for proofs in Lean, <em>reusing its own previously-verified proofs as in-context examples</em> for the next search consistently improves success rate &mdash; not because the new proofs reuse the same lemmas (they often don&rsquo;t), but because the model picks up <em>tactic-sequence patterns</em> from its own verified output. Two things to file. <em>(1)</em> This is empirical evidence that the embedding-vs-tactic-permutation question from yesterday is real: the verified artifacts carry transferable structure at the <em>tactic</em> level, not at the lemma level. <em>(2)</em> The in-context-learning loop they describe is essentially a lightweight RAG over proof artifacts, with the retrieval index being &ldquo;proofs we&rsquo;ve already verified.&rdquo; That&rsquo;s the artifact-reuse story made concrete, and it&rsquo;s a baseline you can beat &mdash; the natural next paper is a UCPO-flavored training objective that explicitly rewards <em>tactic-pattern diversity</em> within the verified set.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.02469">Reference-Sampled Boltzmann Projection for KL-Regularized RLVR</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.02395">Controllable and Verifiable Process Data Synthesis for Process Reward Models</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.12227">dGRPO: Combining On-Policy Optimization and Distillation for Long-Context Reasoning</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        <em>Reference-Sampled Boltzmann Projection</em> is the natural follow-up to UCPO &mdash; same construction (Boltzmann distribution restricted to the correct set), different prior (base-model rather than uniform). Read it Wednesday and you&rsquo;ll have all three selection principles &mdash; max-volume (GCPO), KL-closest-to-base (Binary-Rewards), max-entropy-on-correct (UCPO) &mdash; in a single conceptual frame. <em>Controllable Process Data Synthesis</em> stays on the queue; the symbolic-injection idea wants a careful read against your annotator-bottleneck problem. <em>dGRPO</em> is the long-context-reasoning piece &mdash; less central to the diversity-collapse arc, more important for the architectural picture once your training runs grow past the current context length.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://podcasts.apple.com/us/podcast/machine-learning-street-talk-mlst/id1510472996">MLST &mdash; Beth Barnes &amp; David Rein on &ldquo;the graph that ate the AI timelines discourse&rdquo;</a></div>
+      <div class="card-meta">
+        <span>Machine Learning Street Talk &middot; May 4, 2026</span><span class="dot">&middot;</span><span>~2h</span>
+      </div>
+      <div class="card-body">
+        Barnes (METR) and Rein (the two principal authors of the &ldquo;task-length frontier&rdquo; graph that&rsquo;s been everywhere on AI Twitter since March) sit down with Tim Scarfe and explain why the people who built the graph are the most cautious about how you read it. Useful for two reasons. <em>(1)</em> It&rsquo;s the most careful public discussion of what evaluation curves actually do and don&rsquo;t tell you about extrapolation &mdash; relevant to your &ldquo;pass@K vs pass@1&rdquo; intuitions, because the same epistemic mistakes appear at both scales. <em>(2)</em> The honest framing of &ldquo;we built this and it&rsquo;s being misread&rdquo; is a model for how to publish a curve and survive the discourse afterward &mdash; a skill you&rsquo;ll need when LIFR ships. Safe at 1.5x; the first 25 minutes are setup and you can skip them if you&rsquo;re short on time.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Simon Willison &mdash; 6-months-in-5-minutes (3 min, anywhere)</li>
+          <li>GAGPO &mdash; abstract + &sect;3 construction; the &lambda;-weighted baseline is one paragraph</li>
+          <li>EP-GRPO &mdash; the three-failures-of-GRPO diagram (it&rsquo;s good)</li>
+          <li>MLST &times; Beth Barnes &amp; David Rein &mdash; long walk / gym</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>UCPO (deep dive &mdash; &sect;3 like measure theory; write the Boltzmann-Projection connection in the margin)</li>
+          <li>Lean in-context proof learning &mdash; the tactic-sequence-transfer claim is the empirical hook for Direction 2</li>
+          <li>Reading log: tag UCPO and Boltzmann Projection both as <code>DIVERSITY-COLLAPSE</code>; the column is real now</li>
+          <li>Margin note: sketch &ldquo;UCPO on tactic-equivalence classes&rdquo; as a Direction-2 candidate paper</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 38</strong> &middot; 5 reading items + 3 bookmarks + 1 podcast &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the third selection principle for the degenerate RLVR optimum set</em>. Three selectors now sit on the table &mdash; max-volume (GCPO), KL-closest (Binary-Rewards), max-entropy-on-correct (UCPO). The latent fourth, &ldquo;max-entropy over proof-equivalence classes,&rdquo; is the Direction-2 paper that&rsquo;s been hovering in the margin of this week&rsquo;s arc. The Lean in-context paper is the empirical foothold; UCPO is the loss-function template; the only missing piece is the equivalence relation. Write it before someone else does.</p>
+  </footer>
+</body>
+</html>

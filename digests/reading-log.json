@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 37,
+    "dayCount": 38,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3983,13 +3983,14 @@
       "source": "arXiv",
       "date": "2026-05-13",
       "tags": [
-        "RLVR",
-        "READ"
+        "PROMOTED",
+        "READ",
+        "RLVR"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 10,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-05-19",
+      "estimatedMinutes": 5,
+      "digestDay": 38
     },
     {
       "id": "2026-05-18-006",
@@ -3998,14 +3999,16 @@
       "source": "arXiv",
       "date": "2026-05-01",
       "tags": [
+        "DEEP DIVE",
         "MULTI-DAY",
+        "PROMOTED",
         "READ",
         "RLVR"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 10,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-05-19",
+      "estimatedMinutes": 25,
+      "digestDay": 38
     },
     {
       "id": "2026-05-18-007",
@@ -4036,6 +4039,67 @@
       "assignedDate": "2026-05-18",
       "estimatedMinutes": 120,
       "digestDay": 37
+    },
+    {
+      "id": "2026-05-19-001",
+      "title": "EP-GRPO: Entropy-Progress Aligned Group Relative Policy Optimization with Implicit Process Guidance",
+      "url": "https://arxiv.org/abs/2605.04960",
+      "source": "arXiv",
+      "date": "2026-05-07",
+      "tags": [
+        "READ",
+        "RLVR",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-19",
+      "estimatedMinutes": 4,
+      "digestDay": 38
+    },
+    {
+      "id": "2026-05-19-002",
+      "title": "The last six months in LLMs in five minutes",
+      "url": "https://simonwillison.net/2026/May/19/5-minute-llms/",
+      "source": "Simon Willison",
+      "date": "2026-05-19",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-19",
+      "estimatedMinutes": 3,
+      "digestDay": 38
+    },
+    {
+      "id": "2026-05-19-003",
+      "title": "Discovering New Theorems via LLMs with In-Context Proof Learning in Lean",
+      "url": "https://arxiv.org/abs/2509.14274",
+      "source": "arXiv",
+      "date": "2026-05-06",
+      "tags": [
+        "READ",
+        "FORMAL METHODS"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-19",
+      "estimatedMinutes": 3,
+      "digestDay": 38
+    },
+    {
+      "id": "2026-05-19-004",
+      "title": "MLST \u2014 Beth Barnes & David Rein on the AI timelines graph (METR)",
+      "url": "https://podcasts.apple.com/us/podcast/machine-learning-street-talk-mlst/id1510472996",
+      "source": "Machine Learning Street Talk",
+      "date": "2026-05-04",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-19",
+      "estimatedMinutes": 120,
+      "digestDay": 38
     }
   ],
   "feeds": [
