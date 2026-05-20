@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 20, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 39</div>
+    <h1>Wednesday, May 20, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;The temperature is the Lagrange multiplier that enforces the average-energy constraint. As temperature drops, the Boltzmann distribution concentrates on the ground state; as it rises, it spreads to uniform on the support.&rdquo;</p>
+    <cite>&mdash; paraphrasing Gibbs / Jaynes. Today&rsquo;s arc: <em>UCPO and Reference-Sampled Boltzmann Projection are the same construction at two temperatures &mdash; uniform-on-correct vs. base-tilted-on-correct &mdash; differing only in which prior you pull through the exp(&beta;&middot;r)/Z restriction</em>. Yesterday you saw the &beta;&rarr;&infin; / max-entropy end. Today you see the finite-&beta; / KL-anchored end. The map between them is mirror descent.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; Reference-Sampled Boltzmann Projection (promoted from bookmarks &mdash; the KL-regularized cousin of UCPO; closes the diversity-collapse selection-principle triangle as Policy Mirror Descent).</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; FormalRewardBench &mdash; first benchmark for reward models in Lean RLVR theorem proving; sparse-credit-assignment quantified.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; OProver &mdash; agentic formal theorem proving in Lean 4, with retrieval over compiler-verified proofs as the failure-revision loop.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; Entropy Polarity (RL fine-tuning) &mdash; signed token-level quantity predicting when entropy expands vs. contracts; the missing diagnostic for diversity collapse.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Not All Tokens Learn Alike &mdash; attention-entropy reveals heterogeneous credit signals in RL reasoning; pairs with EP-GRPO.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; Controllable Process Data Synthesis (carried), dGRPO, K2V (knowledge-intensive RLVR).</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing the week&rsquo;s arc.</strong> The selection-principle triangle is now closed: <em>max-volume in semantic-embedding space</em> (GCPO), <em>max-entropy on the correct set</em> (UCPO, yesterday), and today <em>Boltzmann-tilt of the base policy restricted to the correct set</em> (Reference-Sampled Boltzmann Projection). The new vertex&rsquo;s contribution is the bridge: it shows refreshed BOLT-style training <em>is</em> KL Policy Mirror Descent with the verifier as the linear functional. Read this paper as the math glue between Monday&rsquo;s Binary-Rewards theorem and yesterday&rsquo;s UCPO loss.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks.</strong> You wrote in yesterday&rsquo;s footer: &ldquo;Read this Wednesday and you&rsquo;ll have all three selection principles in a single conceptual frame.&rdquo; Today is Wednesday; here it is.</span>
+    </div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.02469">Reference-Sampled Boltzmann Projection for KL-Regularized RLVR: Target-Matched Weighted SFT, Finite One-Shot Gaps, and Policy Mirror Descent</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 5, 2026</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        This is the paper that puts the diversity-collapse selection-principle triangle in a single frame. Where UCPO picks the <em>uniform</em> element of the correct set C(x) and GCPO picks the <em>max-determinantal-volume</em> element in semantic-embedding space, Boltzmann Projection picks the element obtained by <em>exponentially tilting the reference policy</em> by verifier reward &mdash; i.e. &pi;*(y|x) &prop; &pi;_ref(y|x) &middot; exp(&beta;&middot;r(x,y)). Three pieces are worth slow reading. <em>(1) The Boltzmann target as the unique fixed-reference KL-regularized RLVR optimizer.</em> Section 2 shows that the standard KL-anchored RL objective max_&pi; E_&pi;[r] - (1/&beta;)&middot;KL(&pi;||&pi;_ref) has a closed-form solution &mdash; the exponentially-tilted reference, normalized to a probability distribution. This is the same construction as the Boltzmann distribution in statistical mechanics: the inverse-temperature &beta; trades off &ldquo;follow the energy landscape&rdquo; (large &beta;) against &ldquo;stay close to the prior&rdquo; (small &beta;). In the &beta;&rarr;&infin; limit, the construction collapses onto the support of argmax r, which (for binary verifiable rewards) is exactly C(x) &mdash; and reduces to <em>UCPO when the reference policy is uniform on C(x), to the base-tilted-on-C(x) policy when the reference is the base model</em>. <em>(2) The Target-Matched Weighted SFT identity.</em> Section 3 is the surprise: a static, off-policy weighted-SFT objective &mdash; with importance weights w(x,y) = exp(&beta;&middot;r(x,y)) / Z(x), normalized per prompt &mdash; produces the same fixed-reference Boltzmann target under MLE. This is mechanically a one-step policy improvement: sample from &pi;_ref, weight by exp(&beta;&middot;r)/Z, do MLE, get the Boltzmann optimum exactly. The catch is the <em>finite one-shot gap</em>: because your samples are from &pi;_ref rather than &pi;*, the importance weights have variance that grows in &beta; and in the support mismatch between &pi;_ref and &pi;* &mdash; quantified in Theorem 4.2 as a finite-sample slack term that closes only as you refresh the reference. <em>(3) Refreshed BOLT as KL Policy Mirror Descent.</em> The conceptual punchline. If you iterate one-shot Boltzmann projection with a periodic reference refresh &mdash; &pi;_k+1 &prop; &pi;_k &middot; exp(&beta;&middot;r), with &pi;_ref &larr; &pi;_k every K steps &mdash; the algorithm <em>is</em> KL-divergence Policy Mirror Descent on the reward functional, with the &ldquo;mirror map&rdquo; being the soft-Bregman-induced one. This connects the Boltzmann-tilt construction to the standard convex-analysis machinery from Beck-Teboulle. For your purposes, three takeaways. <em>(a)</em> The UCPO &amp; Boltzmann Projection &amp; Binary-Rewards papers are all working in the same probability geometry &mdash; tilted distributions on the correct set &mdash; differing only in which prior they tilt and whether they regularize to a finite or infinite &beta;. The right unified write-up of this week&rsquo;s arc is &ldquo;three Boltzmann temperatures on C(x).&rdquo; <em>(b)</em> For formal-methods: the natural prior &pi;_ref for Lean proof search isn&rsquo;t the base LM &mdash; it&rsquo;s the <em>tactic-typed policy</em>, the one that respects Lean&rsquo;s type discipline. Boltzmann Projection with &pi;_ref = tactic-typed gives you a KL-anchor to <em>well-typed proofs</em>, which is the closest analog of &ldquo;syntactic prior&rdquo; in the formal setting. Sketch this for the LIFR draft. <em>(c)</em> The Policy Mirror Descent framing is what lets you import convergence-rate results: the BMD analysis in Hu-Ji-Telgarsky and the mirror-descent line in Lan&rsquo;s book both apply, and they say something the RLVR literature hasn&rsquo;t internalized &mdash; <em>convergence to the Boltzmann target is sublinear in &beta; for fixed reference, geometric with refresh</em>. That&rsquo;s the convergence-rate paragraph for the LIFR introduction you were stuck on.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.10141">FormalRewardBench: A Benchmark for Formal Theorem Proving Reward Models</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 11, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The first benchmark that asks &ldquo;how well do current reward models score <em>partial</em> progress in Lean 4 proof search?&rdquo; and the answer is &mdash; not well. The paper formalizes sparse credit assignment in formal-methods RLVR (long proofs where only the final QED line gets reward, even though the intermediate tactic sequence carries enormous useful structure) and shows that off-the-shelf reward models trained on natural-language reasoning transfer poorly to Lean proof traces. For your work this is the empirical gap between &ldquo;UCPO on the correct set&rdquo; and &ldquo;UCPO on the tactic-sequence-up-to-equivalence set&rdquo; quantified: the benchmark gives you something to evaluate against if you build the proof-equivalence-aware reward model you sketched in the Direction-2 note. The construction worth noting: they include both whole-proof reward-modeling tasks and stepwise tactic-scoring tasks, and they explicitly call out that current PRM-style training data is essentially absent for Lean. That&rsquo;s a paper-shaped gap.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.17283">OProver: A Unified Framework for Agentic Formal Theorem Proving</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 17, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The agentic-loop sibling of the Lean in-context proof learning paper you read yesterday. OProver iterates: attempt proof, run Lean compiler, on failure retrieve compiler-verified proofs that look structurally similar, revise the attempt with the retrieved exemplars in context, repeat. The architectural lift over &ldquo;naive in-context retrieval&rdquo; is two-fold: <em>(i)</em> the retrieval index is built from <em>compiler-verified</em> proofs only &mdash; a strong correctness filter at retrieval time, much cleaner than &ldquo;retrieve any plausible proof&rdquo; &mdash; and <em>(ii)</em> the revision step uses Lean&rsquo;s error trace, not just the failure boolean, to focus the next attempt on the specific subgoal that failed. Read this as the <em>agentic</em> manifestation of the Boltzmann Projection idea: each iteration is one-shot tilt + reference refresh, where the &ldquo;reference&rdquo; is the population of verified proofs and the &ldquo;reward&rdquo; is &ldquo;compiles in Lean.&rdquo; The framing in the paper isn&rsquo;t mathematical &mdash; it&rsquo;s an engineering paper &mdash; but the algorithmic shape is exactly the refreshed-BOLT one. Worth holding both views in your head while reading.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.11775">Entropy Polarity in Reinforcement Fine-Tuning: Direction, Asymmetry, and Control</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 13, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The diagnostic the diversity-collapse literature has been missing. The paper defines <em>entropy polarity</em>: a signed, token-level quantity that predicts whether a given RL update will <em>expand</em> or <em>contract</em> the policy&rsquo;s entropy. The core observation is sharp: reinforcing high-probability tokens contracts entropy (collapse); reinforcing low-probability tokens expands it (exploration). This is the gradient-level mechanism behind the UCPO / GCPO / Boltzmann Projection arc &mdash; <em>they all change the objective so that the gradient stops disproportionately reinforcing high-probability tokens within the correct set</em>. The asymmetry is the part to internalize: positive advantages on high-probability tokens cause &gt;&gt;collapse than equal-magnitude negative advantages cause expansion, so vanilla GRPO has a built-in entropy-contraction bias that&rsquo;s structural rather than tunable. For your work, this is the diagnostic to add to the training loop: log polarity-decomposed gradient norm by token, plot it over training, and you&rsquo;ll see diversity collapse coming before your Pass@K drops.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.07660">Not All Tokens Learn Alike: Attention Entropy Reveals Heterogeneous Signals in RL Reasoning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 10, 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        Companion piece to Entropy Polarity, from a different angle. Rather than looking at <em>policy</em> entropy, this paper studies <em>attention</em> entropy &mdash; how concentrated the attention distribution is at each token &mdash; and shows it&rsquo;s a strong predictor of which tokens carry the meaningful learning signal in RL reasoning training. Three tokens with the same loss can have wildly different attention-entropy signatures, and only the high-attention-entropy ones (broad attention, integrative reasoning) actually drive improvement. Pair this with EP-GRPO from yesterday: EP-GRPO used policy-entropy <em>change</em> as an implicit process reward; this paper uses attention-entropy <em>level</em> as a credit-assignment heuristic. Both are saying the same thing in different vocabularies &mdash; the per-token GRPO signal is hugely heterogeneous, and uniform credit assignment leaves a lot on the table. Useful to scan as a 3-minute piece; the table comparing attention-entropy vs. token-loss across reasoning benchmarks is the figure.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-interp">Interp</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.02395">Controllable and Verifiable Process Data Synthesis for Process Reward Models</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.12227">dGRPO: Combining On-Policy Optimization and Distillation for Long-Context Reasoning</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.18261">Knowledge-to-Verification (K2V): Exploring RLVR for LLMs in Knowledge-Intensive Domains</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Today&rsquo;s deep dive cleared the &ldquo;selection principle triangle&rdquo; carry-over. The remaining queue narrows: <em>Controllable Process Data Synthesis</em> is the obvious next read once you start thinking about the PRM-style training data that FormalRewardBench called out as missing in Lean &mdash; the symbolic-injection construction transfers to tactics. <em>dGRPO</em> stays parked; long-context comes later. <em>K2V</em> is a fresh addition &mdash; the &ldquo;automated verifiable data synthesis&rdquo; trick is the same gap FormalRewardBench identifies, but for knowledge-intensive (rather than mathematical) domains, and the data-synthesis recipe might transfer.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://simonw.substack.com/p/i-think-agent-may-finally-have-a">Simon Willison &mdash; &ldquo;I think &lsquo;agent&rsquo; may finally have a widely enough agreed upon definition to be useful jargon now&rdquo;</a></div>
+      <div class="card-meta">
+        <span>simonw.substack.com &middot; recent</span><span class="dot">&middot;</span><span>~6 min read</span>
+      </div>
+      <div class="card-body">
+        Not a podcast, but the right palate-cleanser for this morning&rsquo;s reading. Simon&rsquo;s working definition &mdash; &ldquo;an LLM agent runs tools in a loop to achieve a goal&rdquo; &mdash; is what OProver instantiates exactly: the Lean compiler is the tool, &ldquo;prove this theorem&rdquo; is the goal, the retrieval-revise loop is the loop. Worth holding the definition in mind as you read OProver&rsquo;s pseudocode this morning; the architectural shape becomes obvious. The longer point Simon makes &mdash; that the term is now stable enough to use without scare quotes &mdash; matches what you&rsquo;re seeing in the formal-methods literature: the &ldquo;agentic proof search&rdquo; framing is no longer a hype tag, it&rsquo;s a load-bearing architectural choice.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-agents">Agents</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; recent episodes (carry)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; ongoing</span><span class="dot">&middot;</span><span>~1.5h</span>
+      </div>
+      <div class="card-body">
+        Carrying the Reich episode forward if you haven&rsquo;t finished it; otherwise grab the next available one for the commute. The Reich conversation is the right kind of background listening for a digest morning that&rsquo;s heavy on math &mdash; you want something that&rsquo;s rigorous but in a different vocabulary, so your math-attention can recover while your domain-attention is still engaged.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Simon Willison &mdash; &ldquo;agent&rdquo; definition (6 min, anywhere)</li>
+          <li>Entropy Polarity &mdash; abstract + the asymmetry diagram (it&rsquo;s the figure)</li>
+          <li>Not All Tokens Learn Alike &mdash; attention-entropy table</li>
+          <li>Dwarkesh / Reich &mdash; commute / walk</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>Boltzmann Projection (deep dive &mdash; &sect;3 weighted-SFT identity + &sect;4 finite gap; sketch the &beta;&rarr;&infin; collapse to UCPO in the margin)</li>
+          <li>FormalRewardBench &mdash; check whether their data format would slot into a PRM-style training loop</li>
+          <li>OProver &mdash; the retrieval index construction; note the parallel with refreshed BOLT</li>
+          <li>Margin note: &ldquo;three Boltzmann temperatures on C(x)&rdquo; &mdash; the unified write-up of this week&rsquo;s arc</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 39</strong> &middot; 5 reading items + 3 bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the selection-principle triangle closes</em>. UCPO (yesterday) and Boltzmann Projection (today) are the same construction at different inverse-temperatures and different priors: tilt-the-reference-by-exp(&beta;&middot;r) restricted to C(x), with UCPO living at &beta;&rarr;&infin; with uniform prior and Boltzmann Projection living at finite &beta; with the base model as prior. The unified one-line write-up is &ldquo;three Boltzmann temperatures on the correct set.&rdquo; The natural fourth &mdash; the one with a Direction-2 paper inside it &mdash; is the same construction with &pi;_ref the tactic-typed policy and r the Lean verifier. Once you draft that, the LIFR introduction writes itself.</p>
+  </footer>
+</body>
+</html>

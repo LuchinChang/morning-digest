@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 38,
+    "dayCount": 39,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3409,12 +3409,13 @@
       "date": "2026-05-04",
       "tags": [
         "RLVR",
-        "READ"
+        "READ",
+        "DEEP DIVE"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-20",
       "estimatedMinutes": 18,
-      "digestDay": null
+      "digestDay": 39
     },
     {
       "id": "2026-05-11-007",
@@ -4100,6 +4101,86 @@
       "assignedDate": "2026-05-19",
       "estimatedMinutes": 120,
       "digestDay": 38
+    },
+    {
+      "id": "2026-05-20-001",
+      "title": "FormalRewardBench: A Benchmark for Formal Theorem Proving Reward Models",
+      "url": "https://arxiv.org/abs/2605.10141",
+      "source": "arXiv",
+      "date": "2026-05-11",
+      "tags": [
+        "FORMAL METHODS",
+        "RLVR",
+        "READ",
+        "TRENDING",
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-20",
+      "estimatedMinutes": 4,
+      "digestDay": 39
+    },
+    {
+      "id": "2026-05-20-002",
+      "title": "OProver: A Unified Framework for Agentic Formal Theorem Proving",
+      "url": "https://arxiv.org/abs/2605.17283",
+      "source": "arXiv",
+      "date": "2026-05-17",
+      "tags": [
+        "FORMAL METHODS",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-20",
+      "estimatedMinutes": 4,
+      "digestDay": 39
+    },
+    {
+      "id": "2026-05-20-003",
+      "title": "Entropy Polarity in Reinforcement Fine-Tuning: Direction, Asymmetry, and Control",
+      "url": "https://arxiv.org/abs/2605.11775",
+      "source": "arXiv",
+      "date": "2026-05-13",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-20",
+      "estimatedMinutes": 4,
+      "digestDay": 39
+    },
+    {
+      "id": "2026-05-20-004",
+      "title": "Not All Tokens Learn Alike: Attention Entropy Reveals Heterogeneous Signals in RL Reasoning",
+      "url": "https://arxiv.org/abs/2605.07660",
+      "source": "arXiv",
+      "date": "2026-05-10",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-20",
+      "estimatedMinutes": 3,
+      "digestDay": 39
+    },
+    {
+      "id": "2026-05-20-007",
+      "title": "Knowledge-to-Verification (K2V): Exploring RLVR for LLMs in Knowledge-Intensive Domains",
+      "url": "https://arxiv.org/abs/2605.18261",
+      "source": "arXiv",
+      "date": "2026-05-18",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 10,
+      "digestDay": null
     }
   ],
   "feeds": [
