@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 39,
+    "dayCount": 40,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -4018,13 +4018,14 @@
       "source": "arXiv",
       "date": "2026-05-04",
       "tags": [
-        "RLVR",
-        "READ"
+        "DEEP DIVE",
+        "READ",
+        "RLVR"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-21",
       "estimatedMinutes": 12,
-      "digestDay": null
+      "digestDay": 40
     },
     {
       "id": "2026-05-18-008",
@@ -4181,6 +4182,85 @@
       "assignedDate": null,
       "estimatedMinutes": 10,
       "digestDay": null
+    },
+    {
+      "title": "LeanSearch v2: Global Premise Retrieval for Lean 4 Theorem Proving",
+      "url": "https://arxiv.org/abs/2605.13137",
+      "source": "arXiv",
+      "date": "2026-05-13",
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-21",
+      "estimatedMinutes": 4,
+      "digestDay": 40,
+      "id": "2026-05-21-001"
+    },
+    {
+      "title": "Code as Agent Harness",
+      "url": "https://arxiv.org/abs/2605.18747",
+      "source": "arXiv",
+      "date": "2026-05-18",
+      "tags": [
+        "AGENTS",
+        "CODE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-21",
+      "estimatedMinutes": 4,
+      "digestDay": 40,
+      "id": "2026-05-21-002"
+    },
+    {
+      "title": "Vibe coding and agentic engineering are getting closer than I'd like",
+      "url": "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+      "source": "Simon Willison",
+      "date": "2026-05-06",
+      "tags": [
+        "READ",
+        "CODE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-21",
+      "estimatedMinutes": 3,
+      "digestDay": 40,
+      "id": "2026-05-21-003"
+    },
+    {
+      "title": "Reward Hacking Benchmark: Measuring Exploits in LLM Agents with Tool Use",
+      "url": "https://arxiv.org/abs/2605.02964",
+      "source": "arXiv",
+      "date": "2026-05-05",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-21",
+      "estimatedMinutes": 4,
+      "digestDay": 40,
+      "id": "2026-05-21-004"
+    },
+    {
+      "title": "High Leverage #9 \u2014 The AI Coding Paradigm Shift with Simon Willison",
+      "url": "https://www.heavybit.com/library/podcasts/high-leverage/ep-9-the-ai-coding-paradigm-shift-with-simon-willison",
+      "source": "Heavybit / High Leverage Podcast",
+      "date": "2026-05-06",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-21",
+      "estimatedMinutes": 50,
+      "digestDay": 40,
+      "id": "2026-05-21-005"
     }
   ],
   "feeds": [
