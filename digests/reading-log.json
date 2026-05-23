@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 40,
+    "dayCount": 41,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3651,13 +3651,14 @@
       "source": "arXiv",
       "date": "2026-05-13",
       "tags": [
-        "RLVR",
-        "READ"
+        "PROMOTED",
+        "READ",
+        "RLVR"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-23",
       "estimatedMinutes": 14,
-      "digestDay": null
+      "digestDay": 41
     },
     {
       "id": "2026-05-14-008",
@@ -4261,6 +4262,133 @@
       "estimatedMinutes": 50,
       "digestDay": 40,
       "id": "2026-05-21-005"
+    },
+    {
+      "id": "2026-05-23-001",
+      "title": "SAGE: Shaping Anchors for Guided Exploration in RLVR of LLMs",
+      "url": "https://arxiv.org/abs/2605.18864",
+      "source": "arXiv",
+      "date": "2026-05-23",
+      "tags": [
+        "DEEP DIVE",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-23",
+      "estimatedMinutes": 25,
+      "digestDay": 41
+    },
+    {
+      "id": "2026-05-23-002",
+      "title": "Process-Verified Reinforcement Learning for Theorem Proving via Lean",
+      "url": "https://openreview.net/forum?id=P00k4DFaXF",
+      "source": "OpenReview",
+      "date": "2026-05-22",
+      "tags": [
+        "FORMAL METHODS",
+        "RLVR",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-23",
+      "estimatedMinutes": 4,
+      "digestDay": 41
+    },
+    {
+      "id": "2026-05-23-003",
+      "title": "Rethinking RL for LLM Reasoning: It's Sparse Policy Selection, Not Capability Learning",
+      "url": "https://arxiv.org/abs/2605.06241",
+      "source": "arXiv",
+      "date": "2026-05-07",
+      "tags": [
+        "MULTI-DAY",
+        "READ",
+        "RLVR",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-23",
+      "estimatedMinutes": 4,
+      "digestDay": 41
+    },
+    {
+      "id": "2026-05-23-004",
+      "title": "How open model ecosystems compound",
+      "url": "https://www.interconnects.ai/p/how-open-model-ecosystems-compound",
+      "source": "Interconnects (Nathan Lambert)",
+      "date": "2026-05-12",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-23",
+      "estimatedMinutes": 3,
+      "digestDay": 41
+    },
+    {
+      "id": "2026-05-23-005",
+      "title": "Dwarkesh Podcast \u2014 Eric Jang on Building AlphaGo From Scratch With Modern AI Tools",
+      "url": "https://www.dwarkesh.com/podcast",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-05-15",
+      "tags": [
+        "LISTEN",
+        "MULTI-DAY",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-23",
+      "estimatedMinutes": null,
+      "digestDay": 41
+    },
+    {
+      "id": "2026-05-23-006",
+      "title": "GRPO is Secretly a Process Reward Model",
+      "url": "https://arxiv.org/abs/2509.21154",
+      "source": "arXiv",
+      "date": "2025-09-25",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 12,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-23-007",
+      "title": "Anchored Policy Optimization: Mitigating Exploration Collapse via Support-Constrained Rectification",
+      "url": "https://arxiv.org/abs/2602.05717",
+      "source": "arXiv",
+      "date": "2026-02-11",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 10,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-23-008",
+      "title": "The Unlearnability Phenomenon in RLVR for Language Models",
+      "url": "https://arxiv.org/abs/2605.16787",
+      "source": "arXiv",
+      "date": "2026-05-22",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 10,
+      "digestDay": null
     }
   ],
   "feeds": [

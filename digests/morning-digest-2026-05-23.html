@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 23, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 41</div>
+    <h1>Saturday, May 23, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;It is by logic that we prove, but by intuition that we discover.&rdquo;</p>
+    <cite>&mdash; Henri Poincar&eacute;, <em>Science et M&eacute;thode</em> (1908). Today&rsquo;s arc: <em>anchor-shaping is intuition operationalized as a target distribution</em>. Two days ago the thread closed on the policy side (selection-principle triangle) and pivoted to the data side (controllable PRM synthesis). Today it pivots once more &mdash; to the <em>reference</em> side: instead of asking what the policy should look like or what the rewards should be, ask what the KL anchor itself should be. SAGE says: don&rsquo;t treat the reference as something to be relaxed away from; sculpt it.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; SAGE &mdash; Shaping Anchors for Guided Exploration in RLVR. The reverse-KL is not a constraint to relax; it is a knob to <em>aim</em>. Reshape the anchor distribution to point at under-explored reasoning modes &mdash; orthogonal to advantage shaping, dynamic sampling, and entropy bonuses.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; Process-Verified RL for Theorem Proving via Lean &mdash; tactic-level credit signals from the elaborator, fused into GRPO with first-error propagation. The Lean-side companion to Thursday&rsquo;s PDS deep dive.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; Rethinking RL for LLM Reasoning &mdash; ReasonMaxxer claims RL gains are sparse policy selection at entropy-gated decision points, reproducible with tens of problems and minutes of GPU. ~3 orders of magnitude cheaper than full RLVR.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>EDO (promoted from bookmarks)</strong> &mdash; Exploration-Driven Optimization for test-time LLM reasoning. The test-time twin of SAGE: same exploration concern, opposite end of the train/inference axis.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Nathan Lambert &mdash; &ldquo;How open model ecosystems compound.&rdquo; The R&amp;D-cost-vs-final-train-cost decomposition and why open ecosystems with cheap R&amp;D compound faster than closed ones.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; GRPO-is-secretly-a-PRM (older but central), Anchored Policy Optimization (SAGE&rsquo;s closest cousin), Unlearnability Phenomenon in RLVR (limits of selection).</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Pivot from Thursday.</strong> The PDS deep dive closed the <em>data</em> side of the PRM threat-model. Today&rsquo;s pivot is to the <em>anchor</em>: in reverse-KL-regularized RLVR, the policy is pulled toward &pi;_ref by definition. If you reshape &pi;_ref to itself favor under-explored modes, you get exploration <em>for free</em> &mdash; without touching the rewards, the advantages, or the sampling heuristic. SAGE is the Boltzmann-Projection thread&rsquo;s natural sequel: that paper asked &ldquo;what should the policy look like in the limit?&rdquo;, this one asks &ldquo;what should it be pulled toward along the way?&rdquo; The answers compose: a Boltzmann-target policy with a SAGE-shaped anchor is the cleanest two-sided statement of the selection principle we&rsquo;ve seen this month.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.18864">SAGE: Shaping Anchors for Guided Exploration in RLVR of LLMs</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 23, 2026</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        The cleanest new framing on the exploration problem in months. Where most of this season&rsquo;s exploration work (UCPO, GCPO, EP-GRPO, Boltzmann Projection) modifies the <em>policy-side</em> machinery &mdash; advantage normalization, group structure, entropy bonuses &mdash; SAGE makes a structural observation that reframes the whole conversation: in reverse-KL-regularized RLVR, the <em>anchor distribution &pi;_ref is itself a free design choice</em>, not a fixed object to be relaxed away from. Three pieces worth slow reading. <em>(1) The structural argument.</em> Sections 2&ndash;3 walk through why anchor choice is load-bearing. Standard RLVR sets &pi;_ref = base model and adds &beta;&middot;KL(&pi; &Vert; &pi;_ref) as a stability regularizer. Under reverse KL, this <em>anchors</em> the policy near the base &mdash; which stabilizes training but suppresses any reasoning mode the base model assigns low probability to. The paper&rsquo;s key move: treat &pi;_ref as a <em>target to be sculpted</em>, not a constraint to be relaxed. If you replace the base anchor with a constructed one that puts more mass on under-explored solution patterns (lower-frequency reasoning skeletons, longer chains, abstention behaviors), the same reverse-KL term that used to suppress them now <em>pulls the policy toward them</em>. Same regularizer, opposite effect. <em>(2) How they construct the anchor.</em> Section 4 is the implementation core. The SAGE anchor is built as a mixture: &pi;_anchor = (1&minus;&lambda;) &pi;_base + &lambda; &pi;_shape, where &pi;_shape is a small set of <em>mode templates</em> &mdash; reasoning patterns the practitioner wants to upweight (e.g. &ldquo;verify before answering,&rdquo; &ldquo;decompose into named subgoals,&rdquo; &ldquo;use auxiliary calculation,&rdquo; &ldquo;explicit abstention&rdquo;). The shape distribution is itself a small LM fine-tuned on a curated mode catalog, not hand-engineered token-level priors. The mixing coefficient &lambda; is annealed: high early in training (strong pull), low late (let RLVR do the rest). The whole pipeline is orthogonal to GRPO/POPO/etc. &mdash; it modifies <em>only</em> the KL anchor; the optimizer, the reward, and the sampling scheme are unchanged. <em>(3) The empirical results.</em> Section 5 reports pass@1 and pass@k on math, code, and logic benchmarks. The headline: SAGE is the only exploration intervention in their comparison table that improves pass@k <em>without</em> degrading pass@1 (most exploration methods buy diversity at the cost of accuracy; SAGE buys both). The pass@k gap is largest on problems where the base model assigns negligible probability to the correct reasoning skeleton &mdash; exactly the regime where standard RLVR fails to discover. They also report a clean ablation: replacing &pi;_shape with a uniform-over-tokens distribution recovers the standard entropy-bonus result; replacing it with a sharpened version of &pi;_base recovers vanilla RLVR; the mode-catalog version is qualitatively different. For your purposes, three takeaways. <em>(a) SAGE composes with Boltzmann Projection.</em> If you set the policy&rsquo;s long-run target to the binary-reward Boltzmann distribution (per the May 20 deep dive) <em>and</em> shape the anchor with SAGE, you get a two-sided statement: the optimal-distribution side from the projection paper, the gradient-direction side from SAGE. That&rsquo;s the cleanest formal articulation of &ldquo;policy selection via support-shaped reference&rdquo; we&rsquo;ve had. Worth writing up as a unified note while it&rsquo;s fresh. <em>(b) SAGE ports to formal-methods RL with minimal modification.</em> Replace the mode catalog with a curated set of <em>proof skeletons</em> &mdash; induction-on-n, case-split-on-cases, contradiction, generalize-then-specialize, rewrite-chain. The shape distribution becomes a small Lean-specific LM trained on Mathlib proof skeletons grouped by structural template. The KL anchor then explicitly pulls the prover toward attempting <em>structurally diverse</em> proofs, not just textually different ones. This is the missing piece between FormalRewardBench&rsquo;s reward-side framing and the policy-side machinery you&rsquo;ve been collecting. <em>(c) The mode-catalog &rarr; threat-taxonomy bridge.</em> Connect with Thursday: the Controllable PDS error taxonomy and the SAGE mode catalog are <em>dual structures</em> &mdash; one enumerates ways to be wrong (for PRM training), the other enumerates ways to be diversely right (for anchor shaping). The PRM scores trajectories against the taxonomy; the anchor pulls toward the mode catalog; together they form a coordinate system on the space of reasoning chains. The LIFR introduction has its third paragraph now: <em>policy side &middot; data side &middot; reference side</em>, with the joint geometry being the substantive claim.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://openreview.net/forum?id=P00k4DFaXF">Process-Verified Reinforcement Learning for Theorem Proving via Lean</a></div>
+      <div class="card-meta">
+        <span>OpenReview &middot; May 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The Lean-side companion to Thursday&rsquo;s Controllable PDS deep dive, by a different group with a very different solution to the same problem. The setup: treat the Lean elaborator as a <em>symbolic process oracle</em> &mdash; not just &ldquo;does the proof typecheck?&rdquo; (outcome) but &ldquo;which is the earliest tactic that fails to elaborate, and which prior tactics are locally sound?&rdquo; (process). Two mechanisms worth tracking. <em>First-error propagation</em>: once Lean&rsquo;s elaborator flags tactic t_k as the first failing step, all subsequent tactics inherit a structured negative signal; tactics before t_k inherit a positive sound-step signal, not a discounted version of the final binary outcome. <em>First-token credit</em>: within a tactic, the credit lands on the token that committed to the failed move (the lemma name, the rewrite target), not spread uniformly across the tactic. Both are fused into a GRPO-style objective that interpolates outcome and process advantages. The contrast with PDS is the right way to think about this: PDS <em>synthesizes</em> step-labeled training data offline using a corruption-then-recompute pipeline; Process-Verified RL <em>extracts</em> step labels online from the elaborator&rsquo;s own structural feedback. They&rsquo;re complementary &mdash; you could in principle train a PRM on PDS-style synthesized data and then RL with Process-Verified credit using the same PRM as a second-stage scorer. For your work, this paper is closer to the &ldquo;Direction-2 LIFR&rdquo; sketch than anything else this month; it&rsquo;s the engineering instantiation of the Lean-elaborator-as-symbolic-engine port you wrote in Thursday&rsquo;s margin note.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06241">Rethinking RL for LLM Reasoning: It&rsquo;s Sparse Policy Selection, Not Capability Learning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 7, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The empirical paper most aligned with the selection-principle frame you&rsquo;ve been sharpening for the LIFR draft. Claim: RLVR&rsquo;s reasoning gains aren&rsquo;t evidence of new capability; they&rsquo;re evidence of <em>sparse policy selection at entropy-gated decision points</em>. The method, ReasonMaxxer: identify the small set of tokens where the base model&rsquo;s entropy is high (the &ldquo;decision points&rdquo;), apply a contrastive loss to push toward the eventually-correct continuation at those tokens, and stop. No reward model, no rollouts, no GRPO &mdash; just a targeted contrastive update at ~10&ndash;100 tokens per example. The reported result is striking: matches or exceeds full RLVR on math benchmarks using tens of problems and minutes of single-GPU training &mdash; <em>roughly three orders of magnitude</em> cheaper than full RL pipelines. The right way to read this is <em>not</em> &ldquo;RLVR is over.&rdquo; The right way: this is the <em>strongest evidence yet</em> for the selection-vs-capability decomposition you&rsquo;ve been pushing. If ReasonMaxxer reproduces RLVR with three OOM less compute by operating only at high-entropy decision points, then RLVR&rsquo;s capability footprint <em>is</em> just those decision points; the rest of the gradient is moving mass between equivalent outputs. This is the empirical foundation the LIFR &ldquo;policy selection over a base&rdquo; argument has been missing. Pair with SAGE: ReasonMaxxer says &ldquo;only the entropy-gated tokens matter&rdquo;; SAGE says &ldquo;the anchor controls which entropy-gated tokens get explored.&rdquo; Same underlying view from two angles.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks.</strong> EDO has been parked since May 14. It&rsquo;s the natural train-time/test-time pairing with SAGE &mdash; both attack the exploration problem; SAGE at training (shape the anchor), EDO at inference (shape the search).</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.09853">Exploration-Driven Optimization (EDO) for Test-Time LLM Reasoning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 14, 2026 &middot; Promoted</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Test-time reasoning enhancement framed as an <em>exploration-exploitation balance over a search tree of candidate continuations</em>, with the explore/exploit decision parameterized by a learned per-step uncertainty estimator. EDO doesn&rsquo;t train the policy at all; it modifies the inference-time search to spend more samples on under-explored prefixes when the uncertainty model says the current best is brittle. The link to today&rsquo;s deep dive: SAGE shapes <em>where</em> the policy gets pulled during training; EDO shapes <em>where</em> the same policy spends compute at inference. If you adopt both, the practical recipe is &ldquo;train with a mode-aware anchor, then deploy with a mode-aware search.&rdquo; The interaction is non-obvious and worth a margin note: does a SAGE-trained policy <em>need</em> EDO-style search, or does the mode-shaped training make the inference distribution naturally well-spread? The paper&rsquo;s ablations on policies of different training recipes don&rsquo;t include anchor-shaped baselines, so the question is open &mdash; potentially a quick experiment in the LIFR appendix.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://www.interconnects.ai/p/how-open-model-ecosystems-compound">Nathan Lambert &mdash; &ldquo;How open model ecosystems compound&rdquo;</a></div>
+      <div class="card-meta">
+        <span>Interconnects &middot; May 12, 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        The cost-structure essay that&rsquo;s been quietly reframing how people think about why DeepSeek and Qwen keep pulling ahead on the open leaderboards. Lambert&rsquo;s key decomposition: the compute to <em>train the final model end-to-end</em> is a small fraction of the compute to <em>build the leading model</em>. Most of the spend is R&amp;D &mdash; failed runs, hyperparameter sweeps, data ablations, post-training recipes. In a closed-lab regime, every lab pays that R&amp;D cost privately. In an open-ecosystem regime (Chinese labs, Western open-weights efforts), the R&amp;D learnings get socialized across the ecosystem &mdash; the next lab&rsquo;s post-training pipeline starts from the previous lab&rsquo;s public recipe, not from scratch. The implication: open ecosystems have a <em>lower marginal R&amp;D cost per generation</em>, which compounds across generations in a way that&rsquo;s invisible if you only look at &ldquo;cost to train the final checkpoint.&rdquo; The framing matters for your reading because most of the RLVR papers you&rsquo;ve been tracking come out of exactly this socialized-R&amp;D regime &mdash; the post-training recipe is the moat, and the moat is leaking by design. Worth pairing with the May 4 &ldquo;distillation panic&rdquo; piece if you haven&rsquo;t finished it.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2509.21154">GRPO is Secretly a Process Reward Model (Sullivan et al.)</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2602.05717">Anchored Policy Optimization: Mitigating Exploration Collapse via Support-Constrained Rectification</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.16787">The Unlearnability Phenomenon in RLVR for Language Models</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Three new bookmarks, all in the orbit of today&rsquo;s anchor-shaping thread. <em>GRPO-as-PRM</em> is the older but central paper that proves vanilla GRPO is doing process reward modeling implicitly via prefix-sharing within groups &mdash; the theoretical companion to today&rsquo;s SAGE deep dive (SAGE shapes <em>where</em> the implicit PRM puts mass; this paper says it&rsquo;s been a PRM all along). <em>Anchored Policy Optimization</em> is SAGE&rsquo;s closest cousin &mdash; same diagnosis (anchor-induced exploration collapse), different intervention (rectify the support rather than mix in shape mass). <em>Unlearnability</em> is the counterweight: among &ldquo;hard&rdquo; examples, a substantial subset remains unlearnable even when correct rollouts are present &mdash; the empirical ceiling on what any selection-style method (ReasonMaxxer, SAGE, Boltzmann Projection) can buy you.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; Eric Jang on Building AlphaGo From Scratch With Modern AI Tools</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; May 15, 2026</span><span class="dot">&middot;</span><span>~1.5h</span>
+      </div>
+      <div class="card-body">
+        The episode that&rsquo;s been quietly recommended in every RL Discord this week. Jang walks through what it would actually take to rebuild AlphaGo today &mdash; what&rsquo;s easier (the self-play loop is essentially commoditized), what&rsquo;s harder than it looks (the value network&rsquo;s calibration on positions the rollouts have never visited), and what&rsquo;s genuinely new (modern LLMs as a learned prior over move sequences, the way SAGE uses an LM as &pi;_shape). The middle third is the most useful for your reading: Jang draws the analogy between AlphaGo&rsquo;s MCTS-as-policy-improvement and modern RLVR&rsquo;s rollout-then-update step, with the punchline that <em>both are policy selection algorithms over a fixed value function</em>, the value function just changes form (learned value head vs verifier). Good audio for the gym slot today; it&rsquo;ll prime you for the SAGE deep dive afterward by getting the &ldquo;policy improvement under a fixed evaluator&rdquo; framing into your head first.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.youtube.com/@MachineLearningStreetTalk">MLST &mdash; Beth Barnes &amp; David Rein on the METR timelines graph (carry)</a></div>
+      <div class="card-meta">
+        <span>youtube.com &middot; carry from Day 38</span><span class="dot">&middot;</span><span>~1h</span>
+      </div>
+      <div class="card-body">
+        Carrying for the walk/commute slot if you haven&rsquo;t closed it out. The last 20 minutes (where Barnes pushes back on the &ldquo;exponential curve&rdquo; reading) is the part most worth your time &mdash; the careful methodological point about <em>what an exponential fit can and cannot tell you about the next data point</em> generalizes directly to the RLVR scaling-law debate you&rsquo;ve been tracking.
+      </div>
+      <div class="tags">
+        <span class="tag tag-watch">Watch</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Nathan Lambert &mdash; open ecosystems compound (3 min, anywhere)</li>
+          <li>Rethinking RL &mdash; the ReasonMaxxer headline + cost figures</li>
+          <li>Process-Verified RL &mdash; the first-error-propagation diagram</li>
+          <li>Dwarkesh / Eric Jang &mdash; gym, walk, errands</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>SAGE (deep dive &mdash; &sect;3 structural argument + &sect;4 anchor construction; sketch the Lean port: replace &pi;_shape&rsquo;s mode catalog with proof-skeleton templates trained on Mathlib)</li>
+          <li>EDO &mdash; section on the uncertainty estimator; flag the SAGE+EDO interaction question for the LIFR appendix</li>
+          <li>Margin note: &ldquo;the mode catalog and the error taxonomy are dual structures&rdquo; &mdash; a coordinate system on the chain space</li>
+          <li>LIFR intro: add the third paragraph &mdash; <em>policy side &middot; data side &middot; reference side</em>, joint geometry as the substantive claim</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 41</strong> &middot; 5 reading items + 3 bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the reference distribution is a design choice, not a default.</em> SAGE makes the move explicit &mdash; sculpt &pi;_ref to point at the modes you want; the same reverse-KL term that used to suppress them now pulls you toward them. ReasonMaxxer is the empirical evidence that RLVR&rsquo;s footprint is small (entropy-gated decision points), so a well-targeted intervention at those points dominates a broad one across all tokens. Process-Verified RL is the Lean-side instantiation: the elaborator&rsquo;s first-error structure is itself a free anchor-shape signal &mdash; the symbolic engine tells you which moves are sound at the prefix level, and you can shape an anchor that preferentially weights them. The LIFR intro has its third paragraph now: <em>policy side (selection limit) &middot; data side (PRM taxonomy as threat model) &middot; reference side (anchor as design choice)</em>. The joint geometry &mdash; a coordinate system on chain-space whose axes are mode and error type &mdash; is the substantive claim the three sides are pointing at.</p>
+  </footer>
+</body>
+</html>
