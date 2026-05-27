@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 41,
+    "dayCount": 44,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -4355,10 +4355,10 @@
         "RLVR",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-25",
       "estimatedMinutes": 12,
-      "digestDay": null
+      "digestDay": 42
     },
     {
       "id": "2026-05-23-007",
@@ -4383,11 +4383,269 @@
       "date": "2026-05-22",
       "tags": [
         "RLVR",
+        "READ",
+        "PROMOTED"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-26",
+      "estimatedMinutes": 10,
+      "digestDay": 43
+    },
+    {
+      "id": "2026-05-25-001",
+      "title": "From Reasoning Chains to Verifiable Subproblems: Curriculum RL Enables Credit Assignment for LLM Reasoning",
+      "url": "https://arxiv.org/abs/2605.22074",
+      "source": "arXiv",
+      "date": "2026-05-22",
+      "tags": [
+        "DEEP DIVE",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-25",
+      "estimatedMinutes": 25,
+      "digestDay": 42
+    },
+    {
+      "id": "2026-05-25-002",
+      "title": "CAM-Bench: A Benchmark for Computational and Applied Mathematics in Lean",
+      "url": "https://arxiv.org/abs/2605.17255",
+      "source": "arXiv",
+      "date": "2026-05-17",
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-25",
+      "estimatedMinutes": 4,
+      "digestDay": 42
+    },
+    {
+      "id": "2026-05-25-005",
+      "title": "Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs",
+      "url": "https://arxiv.org/abs/2605.07153",
+      "source": "arXiv",
+      "date": "2026-05-08",
+      "tags": [
+        "RLVR",
         "READ"
       ],
       "status": "bookmarked",
       "assignedDate": null,
+      "estimatedMinutes": 8,
+      "digestDay": null
+    },
+    {
+      "id": "2026-05-25-003",
+      "title": "OPPO: Bayesian Value Recursion for Token-Level Credit Assignment in LLM Reasoning",
+      "url": "https://arxiv.org/abs/2605.21851",
+      "source": "arXiv",
+      "date": "2026-05-21",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-25",
+      "estimatedMinutes": 4,
+      "digestDay": 42
+    },
+    {
+      "id": "2026-05-25-004",
+      "title": "Recent Developments in LLM Architectures: KV Sharing, mHC, and Compressed Attention",
+      "url": "https://sebastianraschka.com/blog/2026/recent-llm-architecture-developments.html",
+      "source": "Sebastian Raschka",
+      "date": "2026-05-16",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-25",
+      "estimatedMinutes": 3,
+      "digestDay": 42
+    },
+    {
+      "id": "2026-05-25-006",
+      "title": "Latent Space \u2014 RLHF 201 with Nathan Lambert of AI2 and Interconnects",
+      "url": "https://www.latent.space/p/rlhf-201",
+      "source": "Latent Space",
+      "date": "2026-05-15",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-25",
+      "estimatedMinutes": 5,
+      "digestDay": 42
+    },
+    {
+      "id": "2026-05-26-001",
+      "title": "Metacognition as Reward: Reinforcing LLM Reasoning via Knowledge and Regulation Signals",
+      "url": "https://arxiv.org/abs/2605.23384",
+      "source": "arXiv",
+      "date": "2026-05-22",
+      "tags": [
+        "DEEP DIVE",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-26",
+      "estimatedMinutes": 25,
+      "digestDay": 43
+    },
+    {
+      "id": "2026-05-26-002",
+      "title": "Rewarding Beliefs, Not Actions: Consistency-Guided Credit Assignment for Long-Horizon Agents (ReBel)",
+      "url": "https://arxiv.org/abs/2605.20061",
+      "source": "arXiv",
+      "date": "2026-05-19",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-26",
+      "estimatedMinutes": 4,
+      "digestDay": 43
+    },
+    {
+      "id": "2026-05-26-003",
+      "title": "Formal Conjectures: An Open and Evolving Benchmark for Verified Discovery in Mathematics",
+      "url": "https://arxiv.org/abs/2605.13171",
+      "source": "arXiv",
+      "date": "2026-05-17",
+      "tags": [
+        "FORMAL METHODS",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-26",
+      "estimatedMinutes": 4,
+      "digestDay": 43
+    },
+    {
+      "id": "2026-05-26-004",
+      "title": "Nathan Lambert \u2014 How to scale RL (ScaleRL revisit)",
+      "url": "https://www.interconnects.ai/p/the-new-rl-scaling-laws",
+      "source": "Interconnects (Nathan Lambert)",
+      "date": "2025-10-20",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-26",
+      "estimatedMinutes": 3,
+      "digestDay": 43
+    },
+    {
+      "id": "2026-05-26-006",
+      "title": "Listwise Policy Optimization: Group-based RLVR as Target-Projection on the LLM Response Simplex",
+      "url": "https://arxiv.org/abs/2605.06139",
+      "source": "arXiv",
+      "date": "2026-05-07",
+      "tags": [
+        "RLVR",
+        "READ",
+        "PROMOTED"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-27",
       "estimatedMinutes": 10,
+      "digestDay": 44
+    },
+    {
+      "id": "2026-05-27-001",
+      "title": "Resolving Action Bottleneck: Agentic Reinforcement Learning Informed by Token-Level Energy (ActFocus)",
+      "url": "https://arxiv.org/abs/2605.14558",
+      "source": "arXiv",
+      "date": "2026-05-14",
+      "tags": [
+        "DEEP DIVE",
+        "RLVR",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-27",
+      "estimatedMinutes": 25,
+      "digestDay": 44
+    },
+    {
+      "id": "2026-05-27-002",
+      "title": "Self-Distilled Agentic Reinforcement Learning (SDAR)",
+      "url": "https://arxiv.org/abs/2605.15155",
+      "source": "arXiv",
+      "date": "2026-05-14",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-27",
+      "estimatedMinutes": 4,
+      "digestDay": 44
+    },
+    {
+      "id": "2026-05-27-003",
+      "title": "Nathan Lambert \u2014 What comes next with reinforcement learning",
+      "url": "https://www.interconnects.ai/p/what-comes-next-with-reinforcement",
+      "source": "Interconnects (Nathan Lambert)",
+      "date": "2026-05-27",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-27",
+      "estimatedMinutes": 3,
+      "digestDay": 44
+    },
+    {
+      "id": "2026-05-27-004",
+      "title": "High Leverage Ep. 9 \u2014 Simon Willison on the AI Coding Paradigm Shift (carry from Day 40)",
+      "url": "https://www.heavybit.com/library/podcasts/high-leverage/ep-9-the-ai-coding-paradigm-shift-with-simon-willison",
+      "source": "Heavybit / High Leverage Podcast",
+      "date": "2026-05-15",
+      "tags": [
+        "MULTI-DAY",
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-27",
+      "estimatedMinutes": 55,
+      "digestDay": 44
+    },
+    {
+      "id": "2026-05-27-005",
+      "title": "AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2605.00425",
+      "source": "arXiv",
+      "date": "2026-05-01",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 7,
       "digestDay": null
     }
   ],

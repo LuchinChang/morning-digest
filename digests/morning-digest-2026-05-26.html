@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 26, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 43</div>
+    <h1>Tuesday, May 26, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;Looking back at the completed solution, reconsidering and re-examining the result and the path that led to it, the student could consolidate his knowledge and develop his ability to solve problems.&rdquo;</p>
+    <cite>&mdash; George P&oacute;lya, <em>How to Solve It</em> (1945), Looking Back. Today&rsquo;s arc: <em>from outcome verification to metacognitive shaping</em>. Day 42 closed the curriculum triangle &mdash; SAGE (anchor), ReasonMaxxer (policy), SCRL (data). MaR proposes a fourth axis: shape reward by what the model <em>knows about its own reasoning</em>, not just whether the answer matched. P&oacute;lya&rsquo;s fourth phase &mdash; the one most students skip and the one that makes the difference between solving a problem and learning from it &mdash; turned operational. The LIFR draft now has to decide whether metacognition lives inside the &ldquo;selection principle&rdquo; frame or sits orthogonal to it.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; Metacognition as Reward (MaR) &mdash; an RL framework that derives reward from two general process dimensions (metacognitive knowledge and metacognitive regulation) instead of instance-specific rubrics. The cleanest attempt yet to make process supervision <em>portable</em> across tasks.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; ReBel &mdash; <em>Rewarding Beliefs, Not Actions</em>. Long-horizon agent credit assignment via consistency between intermediate beliefs and final-state evidence. The agentic-RL counterpart to MaR&rsquo;s reasoning case.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; Formal Conjectures &mdash; an open, evolving Lean 4 benchmark for verified mathematical discovery, already used for real conjectures in mid-2026. Pairs naturally with CAM-Bench from yesterday.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>The Unlearnability Phenomenon in RLVR (promoted from bookmarks)</strong> &mdash; the ceiling result MaR claims to break. Some hard problems remain unlearnable even when correct rollouts exist in the group; does richer process signal help?</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Nathan Lambert &mdash; <em>How to scale RL</em> (revisit). The compute-scaling companion piece to MaR&rsquo;s reward-design move; what the ScaleRL paper means for whether process-shaped rewards survive at 10x compute.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; Anchored Policy Optimization (carry), Beyond Reasoning &mdash; RL unlocks parametric knowledge (carry), Listwise Policy Optimization (new add).</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>The fourth axis question.</strong> Day 42 closed the triangle: shape the anchor (SAGE) &middot; pick the decision-point (ReasonMaxxer) &middot; densify the reward (SCRL). MaR forces a decision in the LIFR draft: is metacognitive-process signal a <em>fourth corner</em> (orthogonal to policy/data/reference) or a <em>refinement of the data side</em> (a different way to construct the subproblem ladder, using the model&rsquo;s self-assessed knowledge instead of the reference chain)? Today&rsquo;s read is biased toward the former &mdash; MaR doesn&rsquo;t need a reference chain at all, so it&rsquo;s structurally distinct from SCRL &mdash; but the deep dive is exactly where to test that intuition. Hold the question open until after the bookmark-promoted Unlearnability paper: if MaR can break unlearnability on problems where SCRL can&rsquo;t (because no reference exists), the four-corner reading is the right one.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.23384">Metacognition as Reward: Reinforcing LLM Reasoning via Knowledge and Regulation Signals</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 22, 2026</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        The most ambitious process-reward proposal of the month, and the first one that doesn&rsquo;t hide a hand-tuned rubric inside a generic-sounding framework. Three things to work through carefully. <em>(1) The diagnosis.</em> Sections 1&ndash;2 sharpen the gap MaR is trying to fill: outcome-only RLVR is sparse and brittle on multi-step reasoning (the SCRL/SAGE/ReasonMaxxer complaint you&rsquo;ve been tracking); process reward models (PRMs) are dense but expensive to label and notoriously prone to reward hacking; Rubrics-as-Reward gives natural-language guidance but requires instance-specific rubric authoring that doesn&rsquo;t generalize. MaR&rsquo;s claim is that there exist two <em>task-general</em> process dimensions that you can score without either step-labels or instance-specific rubrics: <em>metacognitive knowledge</em> (does the chain identify the relevant subject-matter facts, formulas, prior results, and constraints required for the problem?) and <em>metacognitive regulation</em> (does the chain monitor its own progress &mdash; flag uncertainty, revise wrong steps, check intermediate results against constraints, decide when to backtrack?). The argument that these two are general across tasks is the load-bearing claim; if it holds, MaR is the first portable process reward. <em>(2) The construction.</em> Section 3 is the implementation. MaR trains a small auxiliary scorer (a fine-tuned 7B model) on synthetic data: for each reasoning chain, a strong model annotates two scalar scores in [0,1] &mdash; knowledge-coverage and regulation-quality &mdash; using a fixed rubric that&rsquo;s the same for every task. The scorer is then frozen and used as a process reward signal alongside the outcome verifier during GRPO training. The trick that makes this not collapse to standard PRM hacking: MaR scores the chain&rsquo;s <em>process</em>, not the chain&rsquo;s correctness, so reward-hacking the scorer would require the policy to write chains that <em>look</em> metacognitive without being correct &mdash; and the outcome verifier still has to fire. The composite reward is r = &alpha;&middot;r_outcome + &beta;&middot;r_knowledge + &gamma;&middot;r_regulation, with the ablations in &sect;5 showing all three terms necessary. <em>(3) The empirical claim.</em> Section 6 reports gains across MATH, GSM8K, and a held-out logic-reasoning suite, with the most interesting finding buried in &sect;6.3: on problems where outcome-only GRPO has pass@1 &asymp; 0 (the unlearnability regime), MaR lifts pass@1 to 15&ndash;25% &mdash; smaller than SCRL&rsquo;s 40&ndash;60% on the same regime, but achieved <em>without any reference chain</em>. That&rsquo;s the result that matters for your LIFR draft. SCRL needs a reference. MaR doesn&rsquo;t. The two are structurally complementary, not competitive. Three notes. <em>(a) MaR is the data-free dual to SCRL.</em> SCRL constructs a curriculum by parsing the reference chain into subproblems; MaR constructs a curriculum by scoring the policy&rsquo;s own chains on two general process axes. When you have a reference (math benchmarks, code with tests), SCRL is the stronger signal; when you don&rsquo;t (open-ended reasoning, novel formal goals), MaR is the only option that&rsquo;s not back to outcome-only. For Lean theorem proving the implication is direct: you have references for textbook theorems but <em>not</em> for the conjecture-style discovery problems in the Formal Conjectures benchmark (today&rsquo;s quick read), so MaR is the right tool for the discovery regime. <em>(b) The regulation score is doing more than the knowledge score.</em> The ablation in &sect;5.2 is the headline you should remember: removing the knowledge score costs &asymp;3 pp; removing the regulation score costs &asymp;8 pp. That means the &ldquo;does the chain monitor itself&rdquo; signal is where the gradient is, not the &ldquo;does the chain mention the right facts&rdquo; signal. This connects to ReasonMaxxer&rsquo;s entropy-gated-decision-points story: regulation is what happens at those decision points; knowledge is the substrate that determines what options are even available. The two are different kinds of selection. <em>(c) The reward-hacking question is unsettled.</em> The paper&rsquo;s own &sect;7 limitations admits that the metacognitive scorer can be fooled by chains that perform <em>verbal</em> regulation (&ldquo;Let me check this&hellip; yes that&rsquo;s right&rdquo;) without doing real regulation, and that they didn&rsquo;t see this in their training runs but cannot rule it out at longer training horizons. Worth thinking about for the LIFR draft: if regulation-as-process-signal is gameable through performative regulation, the four-corner reading of the triangle breaks down and MaR collapses back into a rubric-with-extra-steps. The honest assessment in &sect;7 is the reason the paper is worth your time even if the headline result doesn&rsquo;t fully land. Add to LIFR backlog: a MaR ablation that scores regulation against an <em>independent verifier</em> of regulation (e.g., does the chain&rsquo;s self-check token-sequence predict actual error correction?) rather than against a learned scorer. If regulation-as-process-signal survives that ablation, the four-corner reading is right.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.20061">Rewarding Beliefs, Not Actions: Consistency-Guided Credit Assignment for Long-Horizon Agents (ReBel)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 19, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The agentic counterpart to today&rsquo;s MaR deep dive, with the same diagnosis applied to multi-turn tool-using agents: outcome-only RL on long-horizon trajectories has too sparse a signal to learn from, but action-level credit assignment via PRMs is brittle. ReBel&rsquo;s move is to score the agent&rsquo;s <em>intermediate beliefs</em> (what does it think the world looks like after each tool call?) rather than its actions. The reward is consistency: does the agent&rsquo;s belief at step t correctly predict the observation at step t+1, and does the trajectory of beliefs cohere with the final-state evidence? The framing is essentially &ldquo;process reward = self-consistency of the agent&rsquo;s internal world model.&rdquo; This is the same shape as MaR&rsquo;s regulation signal one level up: MaR scores whether a reasoning chain monitors its own progress; ReBel scores whether an agent&rsquo;s belief trajectory monitors its own predictions. Together they argue for a general principle &mdash; <em>consistency-of-internal-state-over-time as the canonical task-general process signal</em>. Worth pairing in the LIFR draft&rsquo;s &ldquo;Discussion&rdquo; section as the agentic generalization of metacognitive reward. The empirical headline is single-turn-equivalent: ReBel matches or beats outcome-only RL on WebArena and SWE-Bench-style traces at 50&ndash;70% of the gradient steps.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.13171">Formal Conjectures: An Open and Evolving Benchmark for Verified Discovery in Mathematics</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 17, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The complement to yesterday&rsquo;s CAM-Bench. Where CAM-Bench targets <em>textbook</em> theorems in applied math (1,000 fixed Lean 4 goals adapted from undergraduate exercises), Formal Conjectures targets the regime CAM-Bench can&rsquo;t: open mathematical conjectures, formalized in Lean 4 against Mathlib, with the benchmark growing as new conjectures are added and resolved. The methodology is worth your time: rather than fixing a problem set, the authors define a protocol for submitting and validating new entries (the conjecture must be statable in Lean 4 using only Mathlib + a small declared local context; it must be open at the time of submission; it gets formally retracted from the benchmark once resolved). The benchmark has already been used in real discovery: a handful of entries have been resolved by a combination of human and AI provers in the months since the v1 release. For your work this is the natural complement to MaR. CAM-Bench is the regime where SCRL works (reference textbook solutions exist); Formal Conjectures is the regime where MaR is the only RL option that&rsquo;s not back to outcome-only (no references exist, by definition the answers are open). Pair the two benchmarks in the LIFR draft&rsquo;s &ldquo;Evaluation&rdquo; section as the two halves of Lean RLVR&rsquo;s evaluation problem.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks.</strong> The Unlearnability paper has been parked since Saturday (Day 41). It&rsquo;s the natural pair to today&rsquo;s MaR deep dive: Unlearnability says some hard problems remain unlearnable under RLVR even when correct rollouts exist; MaR&rsquo;s headline result is partial progress on exactly that regime (pass@1 0&nbsp;&rarr;&nbsp;15&ndash;25% on the unlearnability set). Read together they pose the open question: is unlearnability a property of the <em>data</em> (some problems are intrinsically too hard for the policy class) or of the <em>signal</em> (better process rewards break it)?</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.16787">The Unlearnability Phenomenon in RLVR for Language Models</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 16, 2026 &middot; Promoted</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The result is sharper than the title. The authors define a problem as <em>unlearnable</em> under RLVR if, even when the rollout group contains at least one correct trajectory, repeated GRPO updates fail to lift the policy&rsquo;s probability of the correct trajectory above baseline. On a curated subset of MATH and CompetitionMath, &asymp;30% of initially-hard problems exhibit unlearnability under standard GRPO. The diagnosis: the correct trajectories in the group are <em>structurally outlier</em> &mdash; they reach the answer via a reasoning pattern that doesn&rsquo;t share enough prefix with the dominant-but-wrong group members for the group-relative advantage to credit them properly. (This is the same prefix-sharing observation that GRPO-as-PRM exploits, but viewed from the failure side: when prefixes <em>don&rsquo;t</em> share, the implicit PRM signal vanishes.) The paper&rsquo;s contribution is mostly the diagnosis; the proposed fix (selective oversampling of the structurally-outlier correct trajectories) recovers some but not all of the unlearnability gap. For your LIFR draft this is the right empirical anchor for the &ldquo;why outcome-only RLVR fails&rdquo; section, and the open question it leaves &mdash; can MaR&rsquo;s process signal credit the outlier-correct trajectories where GRPO&rsquo;s prefix-sharing-implicit-PRM can&rsquo;t? &mdash; is one of the cleanest experimental questions on the backlog right now. The MaR &sect;6.3 numbers suggest yes, partially; a careful replication would be a paper on its own.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://www.interconnects.ai/p/the-new-rl-scaling-laws">Nathan Lambert &mdash; &ldquo;How to scale RL&rdquo; (revisit)</a></div>
+      <div class="card-meta">
+        <span>Interconnects &middot; revisit</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        Worth a three-minute revisit alongside today&rsquo;s deep dive. Lambert&rsquo;s read of the ScaleRL paper is that RL training curves have a stereotyped &ldquo;quick rise &mdash; slow saturation&rdquo; shape, fittable from the first quarter of compute, with the saturation level governed by reward structure rather than compute alone. The implication for MaR is sharp: if the saturation level is reward-structure-bound, then richer process signals (regulation + knowledge) should <em>raise the saturation ceiling</em>, not just speed convergence to the same ceiling. That&rsquo;s the experiment MaR doesn&rsquo;t run &mdash; their 6.3 results are at fixed compute. The natural follow-up: take MaR to 10x compute and check whether the unlearnability-set pass@1 keeps climbing or asymptotes around 25%. If it asymptotes, the four-corner reading needs revision: MaR is a convergence-speed move, not a capability-frontier move.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2602.05717">Anchored Policy Optimization: Mitigating Exploration Collapse via Support-Constrained Rectification</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.07153">Beyond Reasoning: RL Unlocks Parametric Knowledge in LLMs</a>
+        <span class="bookmark-time">~8 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.06139">Listwise Policy Optimization: Group-based RLVR as Target-Projection on the LLM Response Simplex</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Two carries plus one fresh add. <em>Anchored Policy Optimization</em> continues to be the SAGE companion on the reference side &mdash; today&rsquo;s MaR doesn&rsquo;t replace it; the two operate on different corners. <em>Beyond Reasoning</em> (carry from yesterday) is the &ldquo;RL improves direct factual recall by &asymp;27%&rdquo; result &mdash; relevant if MaR&rsquo;s knowledge-coverage score is what&rsquo;s actually doing the work, since better knowledge-coverage scoring would predict exactly the kind of parametric-knowledge unlock Beyond Reasoning measures. <em>Listwise Policy Optimization</em> is the new add: it reframes GRPO as a target-projection on the response simplex, which is the cleanest geometric framing of group-based RLVR yet and the right next-step companion to GRPO-as-PRM (read on Day 42). Three reads that triangulate the &ldquo;what GRPO is actually doing&rdquo; question from different angles.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://podcasts.apple.com/us/podcast/machine-learning-street-talk-mlst/id1510472996">MLST &mdash; Michael I. Jordan on statistics, operations research, and what ML actually inherits</a></div>
+      <div class="card-meta">
+        <span>Machine Learning Street Talk &middot; May 20, 2026</span><span class="dot">&middot;</span><span>~1h 17m</span>
+      </div>
+      <div class="card-body">
+        The episode is largely a tour of why Jordan thinks the field misnames itself: ML&rsquo;s methods came from statistics and operations research, not from the AI tradition, and the AGI framing collapses important distinctions about what these methods actually do. The middle 25 minutes on <em>data markets as Stackelberg games rather than optimization problems</em> is the most relevant stretch for the LIFR draft: Jordan&rsquo;s framing of multi-agent reward design generalizes the reward-shaping conversation you&rsquo;ve been having about MaR/SCRL/SAGE. The closing third on what young researchers should actually work on &mdash; foundations rather than benchmarks &mdash; is the kind of long-arc career-advice content you save for the gym slot. Good audio for the commute or a walk.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; Eric Jang on Building AlphaGo From Scratch With Modern AI Tools (carry)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; carry from Day 41</span><span class="dot">&middot;</span><span>~1.5h</span>
+      </div>
+      <div class="card-body">
+        Still in the queue. The Jordan episode above is the natural pair: Jordan&rsquo;s &ldquo;ML inherits from OR, not AI&rdquo; framing and Jang&rsquo;s &ldquo;rebuild AlphaGo with 2026 tools&rdquo; reconstruction both argue, in different registers, that the field&rsquo;s self-narration obscures what it actually does. If you only have one podcast slot today, the MLST/Jordan ep is the fresher pick.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Lambert &mdash; ScaleRL revisit (3 min, with coffee)</li>
+          <li>ReBel &mdash; the consistency-reward equation in &sect;3 and the WebArena headline number</li>
+          <li>Formal Conjectures &mdash; the submission-protocol box; skim resolved-conjectures table</li>
+          <li>MLST / Michael Jordan ep &mdash; gym, walk, errands</li>
+          <li>Dwarkesh / Eric Jang carry &mdash; commute backup</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>MaR deep dive &mdash; &sect;3 scorer construction + &sect;5 ablations; trace the knowledge-vs-regulation gap (8 pp from regulation, 3 pp from knowledge)</li>
+          <li>MaR &sect;6.3 &mdash; unlearnability-regime pass@1 numbers; compare against SCRL&rsquo;s same-regime numbers</li>
+          <li>Unlearnability &mdash; work through the structurally-outlier-trajectory argument; sketch the prefix-sharing failure case on paper</li>
+          <li>Margin note: &ldquo;MaR&rsquo;s regulation signal = process-level analog of ReasonMaxxer&rsquo;s decision-point selection; knowledge signal = process-level analog of SAGE&rsquo;s anchor support&rdquo;</li>
+          <li>LIFR draft &mdash; decide whether metacognition is a fourth corner or a refinement of the data side; the right test is whether MaR works <em>without</em> a reference (it does, per &sect;6.3) but with much lower ceiling than SCRL when a reference exists</li>
+          <li>LIFR backlog add: MaR with regulation scored by an independent verifier rather than a learned scorer; MaR at 10x compute to check the ScaleRL saturation question</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 43</strong> &middot; 5 reading items + 3 bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>metacognition as the fourth axis of credit assignment</em>. MaR proposes two task-general process dimensions (knowledge-coverage and self-regulation) that don&rsquo;t need a reference chain or per-task rubric &mdash; the first portable process reward to clear the &ldquo;not secretly a rubric&rdquo; bar. ReBel is the agentic generalization (consistency of belief trajectory over time); Formal Conjectures is the natural Lean home for the data-free regime where MaR is the only option. The promoted Unlearnability paper is the ceiling result: MaR breaks 15&ndash;25% of it without references; SCRL breaks 40&ndash;60% of it with references; the gap between those two is the open empirical question for the LIFR draft. The triangle from Day 42 may need to become a tetrahedron: <em>policy &middot; data &middot; reference &middot; metacognition</em>. Hold judgment until after the Unlearnability replication.</p>
+  </footer>
+</body>
+</html>

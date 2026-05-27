@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 27, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 44</div>
+    <h1>Wednesday, May 27, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;An optimal policy has the property that whatever the initial state and initial decisions are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decisions.&rdquo;</p>
+    <cite>&mdash; Richard Bellman, <em>Dynamic Programming</em> (1957), the Principle of Optimality. Today&rsquo;s arc: <em>where in the trajectory does the gradient actually live?</em> Day 43 left the LIFR draft holding a tetrahedron &mdash; policy &middot; data &middot; reference &middot; metacognition. Today flips down a level: ActFocus claims the GRPO gradient concentrates sharply on <strong>action tokens</strong>, not reasoning tokens; MaR (yesterday) said the regulation signal lives in <strong>reasoning tokens</strong>; Listwise PO says the whole question is mis-framed and the gradient really lives on the <strong>response simplex</strong>. Bellman&rsquo;s principle is the right anchor: the credit must flow back along the trajectory, but the question of <em>which sub-trajectory carries the signal</em> is what every paper today is fighting over.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; ActFocus / Action Bottleneck &mdash; an energy-based diagnosis showing that PPO and GRPO concentrate token-level training signal on <em>action tokens</em>, not the reasoning chain. A direct counter-claim to MaR&rsquo;s regulation-signal story; the tension is the deep dive.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; SDAR &mdash; <em>Self-Distilled Agentic RL</em>. OPSD as a gated auxiliary objective over GRPO; +9.4% ALFWorld / +10.2% WebShop. The agentic counterpart to today&rsquo;s &ldquo;where does the gradient live&rdquo; question.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>Listwise Policy Optimization (promoted from bookmarks)</strong> &mdash; GRPO recast as target-projection on the response simplex. The third position in today&rsquo;s three-way fight over where the gradient lives.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; Nathan Lambert &mdash; <em>What comes next with reinforcement learning</em>. Lambert&rsquo;s argument against pushing further into sparser, harder verifiable domains; pairs with today&rsquo;s deep dive on what actually carries the signal.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; Anchored Policy Optimization (carry), LongCoT (long-stalled carry), AEM &mdash; Adaptive Entropy Modulation (new add).</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>The three positions on credit flow.</strong> Yesterday MaR proposed that the load-bearing reward signal is <em>metacognitive regulation</em> &mdash; a property of reasoning tokens (the model monitoring its own progress). Today ActFocus proposes the opposite: the trained-signal gradient already concentrates on <em>action tokens</em>, and the right intervention is to <strong>down</strong>weight reasoning-token gradients. Meanwhile Listwise PO frames the whole question at a higher level &mdash; GRPO is a projection of a target distribution onto the LLM response simplex, so &ldquo;which token carries credit&rdquo; is the wrong question; the right one is &ldquo;which direction in the simplex does the group-relative advantage point?&rdquo; The LIFR draft has to pick a side. Three live hypotheses for today: (H1) MaR is right and ActFocus is measuring the symptom not the cause; (H2) ActFocus is right and MaR&rsquo;s regulation gains come from action tokens that <em>follow</em> regulation phrases, not the regulation phrases themselves; (H3) Listwise is right and the action-vs-reasoning split is a token-level artefact of a simplex-level optimization. The deep dive is exactly the place to test these.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.14558">Resolving Action Bottleneck: Agentic Reinforcement Learning Informed by Token-Level Energy (ActFocus)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 14, 2026</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        The most provocative empirical paper of the week, because its diagnosis cuts directly against the implicit assumption behind MaR, ReBel, and most of the process-reward literature. Three things to work through. <em>(1) The diagnosis &mdash; the &ldquo;Action Bottleneck&rdquo;.</em> Section 2 sets up the analysis: under standard PPO and GRPO, treat the per-token training signal as an energy landscape and look at where the magnitude concentrates. The empirical finding (Fig. 2&ndash;4) is sharp &mdash; across ALFWorld, WebShop, Search-QA, and synthetic multi-turn tasks, the gradient magnitude on <em>action tokens</em> (tool calls, search queries, the discrete environment-facing moves) is roughly 3&ndash;8&times; larger than on the <em>reasoning tokens</em> that precede them. Uniform-credit policy gradient still backpropagates the same trajectory return to every token, but the per-step effective update is dominated by action tokens. The authors call this the Action Bottleneck: <em>reasoning tokens are uniformly credited, but the dynamics make their gradients small</em>. That&rsquo;s exactly the opposite of the assumption MaR makes &mdash; MaR&rsquo;s composite reward gives an additional process-shaped signal to the reasoning portion of the chain on the grounds that outcome-only credit is too weak there; ActFocus measures that the trajectory gradient is <em>already</em> not where the literature claims it is. <em>(2) The construction &mdash; an embarrassingly simple test.</em> Section 3 is the cleanest experiment in the paper. ActFocus is a one-line intervention: multiply the per-token gradient by a learned mask that downweights reasoning tokens and concentrates the update on action tokens. No new reward, no auxiliary model, no curriculum &mdash; just a token-class-conditional gradient scale. Across four environments this <em>improves</em> learning effectiveness and training stability. The deltas are modest (1.2&ndash;4.8 pp on average task success) but the direction is the headline: <em>removing reasoning-token gradient does not hurt performance, and sometimes helps</em>. If that result replicates, MaR&rsquo;s implicit theory of change is wrong. <em>(3) The implications &mdash; three readings, all uncomfortable for the LIFR draft.</em> <em>(a) The strong reading:</em> reasoning-token gradients are noise. Action tokens are what determine environment outcomes, the trajectory return is the only signal that ground-truth-relates to outcomes, and concentrating gradient on action tokens is just &ldquo;putting the signal where the truth lives.&rdquo; In this reading, MaR&rsquo;s gains are an artefact of the metacognitive scorer subtly biasing the policy toward <em>action choices</em> that follow regulation phrases (because the scorer rewards the regulation phrase, the policy outputs the regulation phrase, and the next action token gets credit). Process reward becomes a roundabout way to do action-token credit assignment. <em>(b) The intermediate reading:</em> the Action Bottleneck is real but ActFocus is overcorrecting. Reasoning tokens carry small-but-real gradient that aggregates over many tokens to a meaningful contribution. MaR&rsquo;s regulation signal amplifies the per-reasoning-token gradient enough to clear the action-token noise floor. Both effects exist; the question is the gradient ratio at which the strong reading breaks down. <em>(c) The weak reading:</em> ActFocus is an environment-specific phenomenon. ALFWorld and WebShop are heavily action-discrete; pure math reasoning (where MaR was tested) has no &ldquo;action tokens&rdquo; in the same sense, so the diagnosis simply doesn&rsquo;t apply. The four-environment evaluation in Section 6 doesn&rsquo;t include math benchmarks, which is the obvious gap. Three notes. <em>(i)</em> ActFocus does not refute MaR &mdash; they evaluate on different task families. But ActFocus does refute the <em>generic</em> argument that reasoning-token gradient is weak and needs process reward to lift it; on the agentic side, reasoning-token gradient is already a small minority of the total signal, and reducing it further does not hurt. <em>(ii)</em> The token-level energy framing is the right analytic tool here. It cleanly separates &ldquo;what gradient does the policy see&rdquo; from &ldquo;what gradient does the literature assume the policy sees&rdquo;. Borrow this for the LIFR draft &mdash; specifically, a token-class-conditional gradient-magnitude plot is the diagnostic you should produce for any new process-reward proposal before claiming it works because of process signal. <em>(iii)</em> The cross-paper experiment writes itself: run ActFocus and MaR head-to-head on a shared agentic benchmark with reasoning-heavy traces (SWE-Bench, the kind ReBel uses), and see whether ActFocus&rsquo;s reasoning-downweighting <em>cancels</em> MaR&rsquo;s reasoning-upweighting. If they cancel cleanly, the regulation signal is real but its gradient lives mostly on the action tokens that come <em>after</em> it. If they don&rsquo;t cancel &mdash; if MaR + ActFocus beats either alone &mdash; then both reasoning- and action-token gradients carry distinct signal and the LIFR draft needs to model the two channels separately. Add to backlog: <em>ActFocus &times; MaR on agentic-math (e.g., MATH solved by tool-using agent), measure token-class-conditional gradient before and after each intervention</em>. This is the highest-leverage cross-paper experiment on the backlog now.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.15155">Self-Distilled Agentic Reinforcement Learning (SDAR)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 14, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Same submission day as ActFocus, same agentic-RL diagnosis (trajectory-level reward is too coarse for long-horizon agents), opposite solution. Rather than re-shaping the gradient at the token level, SDAR adds an auxiliary on-policy self-distillation (OPSD) objective: a teacher branch sees privileged context, and its token-level signals are mapped through a sigmoid gate to either strengthen distillation on teacher-endorsed tokens or soft-attenuate negative teacher rejections. The big numbers are real: +9.4% on ALFWorld, +7.0% on Search-QA, +10.2% on WebShop-Acc over GRPO across the Qwen2.5 and Qwen3 families. The interesting wrinkle for today&rsquo;s thread: SDAR&rsquo;s teacher signal also concentrates on tokens, but it doesn&rsquo;t share ActFocus&rsquo;s diagnosis about which tokens dominate &mdash; the sigmoid gate is selectivity by <em>positive-vs-negative gap</em>, not by action-vs-reasoning. Read together with ActFocus, SDAR is what you get if you trust the dense token-level signal but don&rsquo;t commit to a story about which token <em>class</em> it should live on. The two papers are the &ldquo;structured&rdquo; (ActFocus, class-conditional) and &ldquo;learned&rdquo; (SDAR, gap-conditional) variants of the same intuition: GRPO&rsquo;s uniform credit assignment is leaving signal on the table.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks.</strong> You added Listwise PO to the bookmark stack yesterday with the note &ldquo;the cleanest geometric framing of group-based RLVR yet.&rdquo; Today&rsquo;s ActFocus deep dive is exactly the moment to read it &mdash; ActFocus reframes credit assignment as a token-level question; Listwise reframes it as a simplex-level question. Reading them back-to-back is the cleanest test of whether the LIFR draft should pick a level of analysis.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06139">Listwise Policy Optimization: Group-based RLVR as Target-Projection on the LLM Response Simplex</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 9, 2026 &middot; Promoted</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The third position in today&rsquo;s three-way fight, and the one that operates at the highest level of abstraction. Listwise PO recasts GRPO as a target-projection: the rollout group defines an empirical target distribution over the response simplex (the K-simplex of possible responses for a given prompt), and the group-relative advantage is the direction in that simplex from the current policy to the target. Two things matter for the LIFR draft. <em>(1) The reframing dissolves the action-vs-reasoning question.</em> If the policy gradient is a projection onto the simplex, the token-class-conditional energy ActFocus measures is just the gradient&rsquo;s coordinate representation in token-space &mdash; not its underlying structure. The &ldquo;Action Bottleneck&rdquo; becomes an artefact of the basis you chose to look in. Two papers can both be right: ActFocus is right about the token-coordinate concentration; Listwise is right that the underlying update direction is basis-independent. <em>(2) The reframing makes group size a first-class object.</em> The paper&rsquo;s headline result is a universal scaling law for group size: the optimal K depends on the geometry of the target simplex (specifically, on the entropy of the optimal response distribution), and you can derive a closed-form prediction from a small-K calibration run. That&rsquo;s the kind of result GRPO empiricism has been chasing for a year &mdash; principled group-size selection from the data, not from sweep. Pair this with the U-statistic paper (Day 41 if you remember &mdash; <em>Demystifying GRPO</em>) and you have two complementary geometric framings of group-based RLVR: U-statistic on the sampling side, target-projection on the update side. Together they argue that the whole &ldquo;which token carries credit&rdquo; debate is at the wrong level. The LIFR draft should at minimum cite this in the &ldquo;Discussion&rdquo; section as the framing that lets the four corners of the tetrahedron (policy, data, reference, metacognition) be reasoned about as different projections of the same simplex-level optimization.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://www.interconnects.ai/p/what-comes-next-with-reinforcement">Nathan Lambert &mdash; &ldquo;What comes next with reinforcement learning&rdquo;</a></div>
+      <div class="card-meta">
+        <span>Interconnects &middot; recent</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        Lambert&rsquo;s argument: the next leg of RL progress is <em>not</em> pushing further into sparser, harder verifiable domains. Current RL training is helping models get more robust at the individual tasks that compose a long trajectory, and the long-horizon behavior is then assembled by prompting and giving the model more inference compute &mdash; not by doing sparse credit assignment over hour-long traces. The path he sketches goes back from verifiable rewards to human preferences (RLHF-redux), with verifiable rewards as the middle leg of a longer arc. For today&rsquo;s thread this is the &ldquo;maybe credit assignment is over-rated&rdquo; voice in the room: if Lambert is right, the action-vs-reasoning-vs-simplex debate is a debate about the local structure of the easy regime, and the hard regime will need a totally different signal. Worth keeping next to today&rsquo;s deep dive as the methodological reminder.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2602.05717">Anchored Policy Optimization: Mitigating Exploration Collapse via Support-Constrained Rectification</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2604.14140">LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning</a>
+        <span class="bookmark-time">~8 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.00425">AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning</a>
+        <span class="bookmark-time">~7 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Two carries plus one fresh add. <em>Anchored Policy Optimization</em> continues to hold the SAGE corner of the tetrahedron and shouldn&rsquo;t be dropped just because today&rsquo;s reading is on the gradient-flow question rather than the anchor question. <em>LongCoT</em> is the longest-parked bookmark you have (added May 3, 24 days ago) &mdash; if the action-vs-reasoning gradient question is going anywhere, the obvious next experiment is on long-horizon CoT, and LongCoT is the right benchmark to design that experiment against. <em>AEM</em> (new add) is the multi-turn agentic counterpart to the Entropy Polarity paper from Day 41: it gives an adaptive entropy controller for multi-turn agents and ties exploration directly to per-turn entropy modulation. Useful companion to SDAR for the &ldquo;what makes agentic RL stable&rdquo; sub-question in the LIFR draft.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.heavybit.com/library/podcasts/high-leverage/ep-9-the-ai-coding-paradigm-shift-with-simon-willison">High Leverage Ep. 9 &mdash; Simon Willison on the AI Coding Paradigm Shift (carry)</a></div>
+      <div class="card-meta">
+        <span>Heavybit / High Leverage &middot; carry from Day 40 (May 21)</span><span class="dot">&middot;</span><span>~55 min</span>
+      </div>
+      <div class="card-body">
+        Re-queued from Day 40. Willison on what he&rsquo;s now calling &ldquo;agentic engineering&rdquo; &mdash; the workflow shift from vibe-coding to coding agents (Claude Code, Codex) that both generate and execute, then iterate against test results. The middle 20 minutes on the difference between &ldquo;LLM that writes a function&rdquo; and &ldquo;agent that closes the loop on its own output&rdquo; is the most relevant stretch for thinking about how Lean RLVR&rsquo;s feedback loop should look &mdash; the agent / tool / verifier triangle is the same shape in both. Good audio for a walk; if you actually listen this time, the action-vs-reasoning gradient question from today&rsquo;s deep dive maps cleanly onto Willison&rsquo;s &ldquo;agent loop closes on action output&rdquo; framing.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; Eric Jang on Building AlphaGo From Scratch With Modern AI Tools (carry)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; carry from Day 41</span><span class="dot">&middot;</span><span>~1.5h</span>
+      </div>
+      <div class="card-body">
+        Still in the queue. If you finish the Willison ep with time left, the Jang reconstruction of AlphaGo with 2026 tools is the right pairing for today&rsquo;s deep dive &mdash; AlphaGo&rsquo;s policy-network credit assignment was the canonical solved-version of the action-vs-reasoning question that ActFocus is wrestling with on language traces. Jang&rsquo;s &ldquo;here&rsquo;s what we&rsquo;d do today&rdquo; reconstruction makes the comparison concrete.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Lambert &mdash; &ldquo;What comes next&rdquo; (3 min, with coffee)</li>
+          <li>SDAR &mdash; the sigmoid-gate equation in &sect;3 and the +9.4/+7.0/+10.2 headlines</li>
+          <li>Listwise PO &mdash; the simplex-projection figure and the universal group-size scaling law</li>
+          <li>Heavybit / Willison ep &mdash; walk, errands, gym</li>
+          <li>Dwarkesh / Jang carry &mdash; commute backup</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>ActFocus &sect;2 &mdash; the token-level energy plot (Fig. 2&ndash;4); confirm the 3&ndash;8&times; action-vs-reasoning gradient ratio with your own eyes before trusting the headline</li>
+          <li>ActFocus &sect;3 &mdash; the one-line gradient mask. Decide whether the intervention is too crude for your taste, or exactly the right test of the action-bottleneck hypothesis</li>
+          <li>Margin note: &ldquo;ActFocus says reasoning gradient is small; MaR says reasoning gradient needs lifting. These can both be true if the small-but-real reasoning gradient is the one that determines whether the action gets credit at all.&rdquo; Sketch the conditional-credit graph on paper.</li>
+          <li>Listwise &sect;4 &mdash; the target-projection derivation; check whether it specializes to GRPO under uniform group weights</li>
+          <li>LIFR draft &mdash; add a section titled &ldquo;Where does the gradient live?&rdquo; with three sub-claims (action-token, reasoning-token, simplex-direction); decide which one the draft endorses and what evidence would falsify the others</li>
+          <li>Backlog add (highest leverage): <em>ActFocus &times; MaR head-to-head on an agentic-math task</em>. Either they cancel (gradient lives on action tokens following regulation phrases) or they compound (two distinct signal channels) &mdash; result either way is publishable</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 44</strong> &middot; 4 reading items + 3 bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>where does the gradient actually live in a GRPO update?</em> ActFocus says <strong>action tokens</strong> &mdash; the per-token energy concentrates 3&ndash;8&times; there, and downweighting reasoning tokens doesn&rsquo;t hurt. MaR (Day 43) said <strong>reasoning tokens</strong>, specifically the regulation-monitoring ones. Listwise PO says <strong>neither &mdash; the question is at the wrong level</strong>: the gradient is a projection onto the response simplex, and the token-class concentration is a basis artefact. Lambert&rsquo;s framing-level rejoinder: maybe credit assignment is a debate about the easy regime, and the hard regime will need a totally different signal. The LIFR draft has to take a position. Best guess after today: action-token gradient is empirically dominant, reasoning-token gradient is small-but-causally-pivotal (regulation phrases gate which action tokens get credit at all), and the simplex view is the right level to write the theory at &mdash; but the token-level view is the right level to design experiments at. Run the ActFocus &times; MaR cancellation experiment to settle it.</p>
+  </footer>
+</body>
+</html>
