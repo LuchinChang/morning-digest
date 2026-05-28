@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 28, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-deep-bg);
+      border: 1px solid var(--tag-deep);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 45</div>
+    <h1>Thursday, May 28, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;When solving a problem of interest, do not solve a more general problem as an intermediate step. Try to get the answer that you really need but not a more general one.&rdquo;</p>
+    <cite>&mdash; Vladimir Vapnik, <em>Statistical Learning Theory</em> (1998), the imperative of discriminative methods. Today&rsquo;s arc: <em>discriminate, don&rsquo;t generate.</em> Yesterday&rsquo;s three positions all asked &ldquo;which token carries the credit?&rdquo; &mdash; action tokens (ActFocus), reasoning tokens (MaR), or simplex-direction (Listwise). Today DelTA opens a <strong>fourth position</strong>: the wrong question. The right one is <em>which tokens are discriminative</em> &mdash; i.e., which token-gradient directions actually separate high-reward from low-reward responses, vs. which ones are just high-frequency shared patterns (formatting, boilerplate) that dominate the centroid by sheer count. The action-vs-reasoning split is one cut of the data; the discriminative-vs-shared split may be the cleaner one.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; DelTA &mdash; the discriminator view of RLVR. Recasts the policy-gradient update as a linear discriminator over token-gradient vectors. The fourth position in the &ldquo;where does the gradient live&rdquo; debate, and the one most likely to subsume ActFocus.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Quick read &middot; <strong>Advancing Mathematics Research with AI-Driven Formal Proof Search</strong> &mdash; major formal-methods news. An LLM agent autonomously resolved 9 of 353 open Erd&#x151;s problems, 44/492 OEIS conjectures, and a 15-year-old open Hilbert-function question, via Lean 4 proof search. <em>Read carefully; this is the headline paper of the week for your dissertation area.</em></span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; LambdaPO &mdash; decomposed pairwise preference structure for the advantage. Replaces the scalar advantage with a pairwise discriminator. Pairs naturally with DelTA&rsquo;s framing.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; <strong>AEM &mdash; Adaptive Entropy Modulation (promoted from yesterday&rsquo;s bookmarks)</strong>. Multi-turn agentic entropy controller; the agentic counterpart of SAGE&rsquo;s anchor mechanism.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick skim &middot; Nathan Lambert &mdash; <em>Some ideas for what comes next, May 2026</em>. The field-level reflection post; useful counterweight to the &ldquo;more is better&rdquo; default.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; Anchored PO (carry), LongCoT (long carry), SU-01 (new &mdash; 30B-A3B Olympiad gold-medal recipe).</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>A fourth position on credit flow.</strong> Yesterday&rsquo;s three-way debate &mdash; action tokens (ActFocus), reasoning tokens (MaR), simplex direction (Listwise PO) &mdash; turns out to share an implicit assumption: that the right way to partition the gradient is by <em>token role</em>. DelTA breaks that. Its diagnosis: the policy-gradient update direction is a linear discriminator over token-gradient vectors, and the discriminator&rsquo;s centroids are dominated by <em>shared high-frequency patterns</em> (formatting, boilerplate, common reasoning connectives). These tokens are neither &ldquo;action&rdquo; nor &ldquo;reasoning&rdquo; in the LIFR sense &mdash; they&rsquo;re just <em>frequent</em>, and frequency dominates averaging. So ActFocus&rsquo;s &ldquo;action tokens get 3&ndash;8&times; the gradient&rdquo; finding may largely be reporting that action tokens happen to coincide with the high-frequency formatting cluster (tool-call brackets, search-query delimiters), and the underlying signal is being washed out by averaging across token-frequency-matched non-discriminative noise. DelTA&rsquo;s test for the LIFR draft: <strong>partition tokens by discriminability, not by role.</strong> If LIFR re-runs the ActFocus token-energy diagnostic with a discriminability axis instead of an action-vs-reasoning axis, the &ldquo;Action Bottleneck&rdquo; may turn into a &ldquo;Discriminative Bottleneck&rdquo; that cleanly subsumes both MaR&rsquo;s and ActFocus&rsquo;s claims.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.21467">DelTA: Discriminative Token Credit Assignment for Reinforcement Learning from Verifiable Rewards</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 20, 2026 &middot; Zhang, Wu, Lin</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        The cleanest reframing of the credit-assignment debate to land this month. Three things to take from it. <em>(1) The diagnosis &mdash; the discriminator view.</em> Section 2 is the heart of the paper. Treat the RLVR policy-gradient update at a given prompt as a vector in token-gradient space; the authors show that this update is exactly a <em>linear discriminator</em> in that space, with positive- and negative-side centroids formed by advantage-weighted averages of token-gradient vectors over high-reward and low-reward rollouts respectively. The direction the policy moves is the centroid difference. This is a clean, basis-free way to talk about &ldquo;what the gradient is doing&rdquo; that doesn&rsquo;t depend on a token-class taxonomy. The reason this matters: every prior framing in the credit-assignment literature (ActFocus, MaR, Listwise, ReBel, OPPO) is implicitly a <em>choice of basis</em> &mdash; ActFocus picks action-vs-reasoning, MaR picks regulation-vs-knowledge, Listwise picks the response simplex. DelTA picks no basis; it works directly with the centroid geometry. <em>(2) The pathology &mdash; shared-pattern dominance.</em> Section 3 is the diagnostic that should make you sit up. The authors measure the cosine similarity between the positive and negative centroids across a range of RLVR training runs. Across math reasoning, code, and agentic tasks, the centroids are <em>highly aligned</em> &mdash; cosine 0.7&ndash;0.95 depending on task. That means the linear discriminator is operating mostly along a direction that&rsquo;s common to both sides; only a thin perpendicular component is actually discriminative. The cause: high-frequency tokens (formatting, common connectives, boilerplate) dominate both centroids because there are simply more of them. The discriminative component &mdash; the tokens that actually distinguish a correct trajectory from an incorrect one &mdash; is buried under shared-pattern noise. This is exactly the failure mode that &ldquo;uniform credit&rdquo; in vanilla GRPO produces, but it&rsquo;s diagnosed at the right level: not &ldquo;reasoning tokens get the same credit as action tokens&rdquo; but &ldquo;high-frequency tokens dominate the centroid average regardless of their discriminative value.&rdquo; <em>(3) The fix &mdash; coefficient reweighting.</em> Section 4 introduces the DelTA reweighting. The construction is principled: for each token-gradient vector, estimate a coefficient that amplifies the side-specific component (the component that points away from the shared-centroid direction) and downweights the shared component. The coefficient is computed via a self-normalized estimator on the rollout batch &mdash; no auxiliary model, no annotation, no extra forward pass. The resulting effective update direction has a much larger discriminative-to-shared ratio (the cosine between positive and negative centroids drops from ~0.85 to ~0.35 in their flagship experiment). On performance: DelTA improves over GRPO by 2.1&ndash;6.4 pp across MATH, GSM8K, HumanEval, and ALFWorld, with the largest gains exactly where the prior credit-assignment literature said gains were possible &mdash; long-horizon agentic tasks. Three notes. <em>(i)</em> This subsumes the strong reading of ActFocus. If ActFocus&rsquo;s &ldquo;action tokens get 3&ndash;8&times; the gradient&rdquo; finding is largely measuring frequency dominance (action tokens like search brackets, tool-call openers, environment-state markers are extremely high-frequency in agentic traces), then DelTA&rsquo;s reweighting should <em>reduce</em> the action-vs-reasoning gradient ratio while <em>improving</em> performance &mdash; and that&rsquo;s exactly what their Section 5.3 ablation reports. ActFocus&rsquo;s diagnosis is right at the token-class level but wrong at the causal level. <em>(ii)</em> This makes MaR more interesting, not less. MaR&rsquo;s metacognitive regulation tokens are <em>rare</em> (they&rsquo;re a specific subset of reasoning behavior, not generic CoT padding). If DelTA&rsquo;s discriminability framing is right, then rare-but-discriminative tokens are precisely where the signal lives, and MaR&rsquo;s gains come from <em>boosting</em> these naturally-low-frequency-but-high-discriminability tokens above the formatting noise floor. The MaR &times; DelTA cross-test you should add to the backlog: run MaR&rsquo;s composite reward on top of DelTA&rsquo;s reweighting and check whether the gains compose. If they do, MaR is boosting a token <em>class</em> that DelTA was already amplifying for discriminability; if they don&rsquo;t, MaR is overlapping with DelTA&rsquo;s effective update direction. Either result is informative. <em>(iii)</em> For the LIFR draft, this is the unifying framing you&rsquo;ve been waiting for. The four corners of the tetrahedron (policy, data, reference, metacognition) are different ways of <em>increasing the discriminative-to-shared ratio</em> of the effective update direction. Write the &ldquo;Where does the gradient live?&rdquo; section around DelTA&rsquo;s discriminator view as the master frame, with action-token / reasoning-token / simplex-direction as three coarse partition schemes that each capture some discriminative axis but get tangled with frequency confounds. Add to backlog: <em>Token-discriminability vs. token-class plot &mdash; for ALFWorld, plot the per-token cosine similarity to the discriminative centroid difference (DelTA&rsquo;s axis) on the y-axis and token class (action / reasoning / format) on the x-axis; check whether discriminability and class are correlated or orthogonal.</em> If they&rsquo;re orthogonal, the entire token-class debate of the past month was a basis-choice artefact, and LIFR&rsquo;s right move is to anchor on DelTA.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card formal">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.22763">Advancing Mathematics Research with AI-Driven Formal Proof Search</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 21, 2026 &middot; Tsoukalas et al.</span><span class="dot">&middot;</span><span>~5 min read</span>
+      </div>
+      <div class="card-body">
+        The headline formal-methods paper of the week, and probably of the quarter. Tsoukalas et al. build an LLM agent that generates Lean 4 proofs and search-loops against the compiler; the agent <em>autonomously resolved 9 of 353 open Erd&#x151;s problems</em> at a per-problem cost of a few hundred dollars, <em>proved 44 of 492 open OEIS conjectures</em>, resolved a 15-year-old open Hilbert-function question in algebraic geometry, and improved an open bound in convex optimization by discovering a novel algorithmic parameter schedule. The methodology is &ldquo;agent &times; Lean &times; library retrieval&rdquo; in the same shape as OProver and Leanabell-V2, but the scale of the open-problem evaluation is what&rsquo;s new. Two things matter for you. <em>(1)</em> The Lean 4 verifier feedback loop is doing the work here, which is exactly the RLVR feedback shape you&rsquo;ve been arguing the LIFR draft should anchor on. The agent doesn&rsquo;t need a learned reward model &mdash; the compiler is the reward model &mdash; and the per-problem-cost number suggests the loop is efficient enough that the binary verifier signal is dense enough to do useful credit assignment over multi-hour proof attempts. That&rsquo;s a falsifying datum for the &ldquo;binary verifier rewards are too sparse&rdquo; family of claims (including Binary Rewards / Fundamental Challenges from your reading list). <em>(2)</em> The math itself is consequential. Nine open Erd&#x151;s problems is the kind of result that changes how mathematicians use these tools, and your dissertation is exactly the kind of work that lives downstream of this shift. Read the methodology carefully (Section 3) and the failure analysis (Section 6); if you want to write a credible Lean-RLVR thread in the dissertation, this paper is now the natural citation for &ldquo;the RLVR + verifier loop is empirically useful for open mathematics.&rdquo; <strong>Strong candidate to promote to deep dive tomorrow if you want to spend more time with it.</strong>
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.19416">LambdaPO: A Lambda-Style Policy Optimization for Reasoning Language Models</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 19, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Re-conceptualises the advantage estimation from a scalar to a <em>decomposed pairwise preference structure</em> &mdash; in the spirit of LambdaRank from learning-to-rank, hence the name. The advantage between two rollouts in a group is computed pairwise (with a lambda weight that encodes how much you trust the comparison), and the policy update aggregates over all pairs rather than over a single scalar mean. Two reasons to read this next to DelTA. <em>(1)</em> It&rsquo;s also operating at a level above token-class &mdash; pairwise advantage is a response-level object, not a token-class object, so LambdaPO and DelTA are operating on complementary parts of the GRPO update: LambdaPO restructures the <em>advantage signal</em> (what each rollout contributes), DelTA restructures the <em>token-gradient reweighting</em> (what each token within a rollout contributes). They&rsquo;re compatible interventions. <em>(2)</em> The pairwise-preference framing is the natural bridge from RLVR back to RLHF &mdash; Lambert&rsquo;s &ldquo;next leg goes back to preferences&rdquo; argument from yesterday becomes operational with LambdaPO as the mechanism. If the dissertation needs to argue that the RLVR &rarr; preference transition can preserve verifier-signal density, LambdaPO is the construction to point at.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks.</strong> You added AEM yesterday as the new fresh bookmark with the note &ldquo;multi-turn agentic counterpart to Entropy Polarity.&rdquo; Today&rsquo;s reading is heavy on credit-assignment geometry; AEM is the entropy-side complement &mdash; the exploration controller that determines <em>what rollouts the discriminator gets to discriminate over</em>. Reading them back-to-back closes the credit/exploration loop.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.00425">AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 1, 2026 &middot; Promoted</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        Per-turn adaptive entropy controller for multi-turn agentic RL: the entropy target is modulated turn-by-turn based on the local reward signal and the current trajectory&rsquo;s entropy budget, rather than held fixed across the whole trajectory. The construction is simple (a PID-like controller on per-turn entropy that targets a learned setpoint) and the gains are modest-but-consistent across ALFWorld, WebShop, and a synthetic multi-turn task. The reason this matters for today&rsquo;s thread: DelTA tells you what the policy gradient <em>does</em> given a batch of rollouts; AEM tells you what rollouts you <em>get</em> at each turn. The discriminative-vs-shared ratio of the centroid difference depends on the rollout diversity, which depends on the per-turn exploration policy. If your rollouts are entropy-collapsed in middle turns (a known failure mode of multi-turn GRPO), DelTA&rsquo;s discriminator centroids will both collapse onto whatever the policy is currently doing and the discriminative direction will vanish &mdash; even with perfect DelTA reweighting. AEM is the exploration-side condition for DelTA to have something to work with.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://www.interconnects.ai/p/some-ideas-for-what-comes-next-may">Nathan Lambert &mdash; &ldquo;Some ideas for what comes next, May 2026&rdquo;</a></div>
+      <div class="card-meta">
+        <span>Interconnects &middot; May 26, 2026</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        The companion essay to yesterday&rsquo;s &ldquo;What comes next with RL&rdquo; piece. Lambert widens the lens: models becoming more capable, the work shifting quickly, the economics getting real, and external risk surfacing. Three minutes well spent because it&rsquo;s the field-level reflection essay that explicitly resists the &ldquo;more is better&rdquo; default. The relevant pull for today: Lambert&rsquo;s frame &mdash; that the next leg of progress is about <em>controllability and assembly</em>, not about pushing further into sparser-reward regimes &mdash; is a methodological prior to take into the DelTA reading. If discriminability rather than sparsity is the right axis for credit assignment, Lambert&rsquo;s prediction is also consistent with the LIFR draft&rsquo;s emerging position: don&rsquo;t reach for sparser signals; reach for more discriminative use of the signals you already have.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2602.05717">Anchored Policy Optimization: Mitigating Exploration Collapse via Support-Constrained Rectification</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2604.14140">LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning</a>
+        <span class="bookmark-time">~8 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.13301">SU-01: Achieving Gold-Medal-Level Olympiad Reasoning via Simple and Unified Scaling</a>
+        <span class="bookmark-time">~8 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Two carries plus one fresh add. <em>Anchored PO</em> still parked &mdash; today&rsquo;s AEM promotion partially covers the exploration-controller corner, but Anchored PO&rsquo;s support-constrained rectification is a distinct mechanism worth holding for the SAGE/AEM/Anchored-PO comparison you owe the LIFR draft. <em>LongCoT</em> still the longest carry (25 days now) &mdash; the DelTA discriminability story screams to be tested on long-horizon CoT, where the shared-pattern dominance problem should be most severe; if you don&rsquo;t get to it this week, demote to MULTI-DAY explicitly and rotate. <em>SU-01</em> is the new add: a 30B-A3B backbone with SFT on ~340K sub-8K-token trajectories plus 200 RL steps reaching gold-medal-level olympiad performance. The 200-RL-step number is the surprise &mdash; if the recipe really requires that little RL on top of strong SFT, then the entire credit-assignment debate (action vs reasoning vs simplex vs discriminative) may be operating in the regime where RL is mostly a polish step rather than the load-bearing training. Worth thinking about before committing the LIFR framing.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.heavybit.com/library/podcasts/high-leverage/ep-9-the-ai-coding-paradigm-shift-with-simon-willison">High Leverage Ep. 9 &mdash; Simon Willison on the AI Coding Paradigm Shift (carry, Day 2)</a></div>
+      <div class="card-meta">
+        <span>Heavybit / High Leverage &middot; MULTI-DAY carry from Day 44</span><span class="dot">&middot;</span><span>~55 min</span>
+      </div>
+      <div class="card-body">
+        Carried again. Willison&rsquo;s &ldquo;agent loop closes on action output&rdquo; framing maps cleanly onto today&rsquo;s DelTA reading &mdash; the discriminative tokens in an agent loop are typically the rare ones that change the environment&rsquo;s trajectory, not the ubiquitous formatting tokens that mark the agent&rsquo;s output structure. If you walk today, this is the audio. Falling off MULTI-DAY tomorrow if not listened.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; Eric Jang on Building AlphaGo From Scratch With Modern AI Tools (carry)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; carry from Day 41</span><span class="dot">&middot;</span><span>~1.5h</span>
+      </div>
+      <div class="card-body">
+        Still queued. AlphaGo&rsquo;s policy-network update was a clean instance of the discriminative-tokens story (the move at a critical node has high discriminability; the moves in the obvious-forced-continuation chain have low discriminability), so Jang&rsquo;s reconstruction is good context for today&rsquo;s DelTA deep dive. Commute backup.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Lambert &mdash; &ldquo;Some ideas for what comes next&rdquo; (3 min, with coffee)</li>
+          <li>Erd&#x151;s / Lean proof paper &mdash; abstract + the open-problems list in Section 1; save the methodology for laptop</li>
+          <li>LambdaPO &mdash; the pairwise-advantage figure and the lambda-weight definition</li>
+          <li>AEM &mdash; the per-turn entropy controller diagram and the ALFWorld/WebShop deltas</li>
+          <li>Willison ep &mdash; walk or gym (last day of MULTI-DAY carry)</li>
+          <li>Dwarkesh / Jang &mdash; commute backup</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>DelTA &sect;2 &mdash; the discriminator-view derivation; check that the centroid construction actually reduces to GRPO under uniform coefficients</li>
+          <li>DelTA &sect;3 &mdash; the 0.7&ndash;0.95 cosine-similarity diagnostic between positive and negative centroids; this is the most quotable plot in the paper. Confirm it with your own eyes</li>
+          <li>DelTA &sect;5.3 &mdash; the ablation showing that DelTA <em>reduces</em> the ActFocus-style action-vs-reasoning ratio while <em>improving</em> performance. If this replicates, ActFocus&rsquo;s causal story is wrong</li>
+          <li>Margin note: &ldquo;Action-vs-reasoning is a basis choice. Discriminative-vs-shared is closer to the underlying geometry. LIFR should anchor on the latter.&rdquo;</li>
+          <li>Lean / Erd&#x151;s paper &sect;3 &mdash; methodology of the agent loop. Identify which compiler-feedback signals the agent uses for next-step selection; this is the closest live example of dense RLVR-via-verifier-loop</li>
+          <li>LIFR draft &mdash; rewrite the &ldquo;Where does the gradient live?&rdquo; section to lead with DelTA&rsquo;s discriminator view as the master framing; demote ActFocus, MaR, and Listwise to three coarse partition schemes that capture different discriminative axes</li>
+          <li>Backlog add (highest leverage): <em>Token-discriminability vs. token-class plot on ALFWorld &mdash; check whether DelTA&rsquo;s discriminative axis is orthogonal to the action-vs-reasoning class axis. If yes, the entire token-class debate was a basis artefact</em></li>
+          <li>Backlog add: <em>MaR &times; DelTA composition test &mdash; do MaR&rsquo;s composite-reward gains compose with DelTA&rsquo;s reweighting, or do they overlap?</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 45</strong> &middot; 5 reading items + 3 bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the discriminator view of RLVR.</em> Yesterday left the LIFR draft with a three-way fight over which token role carries the credit. Today DelTA cuts beneath the role question: the policy-gradient update is a linear discriminator over token-gradient vectors, and the centroids on the two sides are 70&ndash;95% cosine-aligned because shared high-frequency patterns (formatting, common connectives) dominate the average. The discriminative signal lives in the thin perpendicular component, which is exactly what DelTA&rsquo;s coefficient reweighting amplifies. The ActFocus &ldquo;Action Bottleneck&rdquo; finding is probably measuring frequency dominance dressed up as a token-class story; MaR&rsquo;s regulation signal works because regulation tokens are rare-but-discriminative, exactly the kind DelTA wants to amplify. The LIFR draft should be rewritten around the discriminative-vs-shared axis as the master frame, with the token-role debates of the past month recast as different partition schemes capturing different fractions of the underlying discriminative geometry. Run the token-discriminability vs. token-class plot on ALFWorld to test it.</p>
+    <p style="margin-top: 6px;">Meanwhile, in formal methods: an LLM agent autonomously resolved 9 open Erd&#x151;s problems via Lean 4 proof search. The dissertation just got a major citation.</p>
+  </footer>
+</body>
+</html>

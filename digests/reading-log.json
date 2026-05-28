@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 44,
+    "dayCount": 45,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -4641,12 +4641,107 @@
       "tags": [
         "RLVR",
         "AGENTS",
+        "READ",
+        "PROMOTED"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-28",
+      "estimatedMinutes": 7,
+      "digestDay": 45
+    },
+    {
+      "id": "2026-05-28-001",
+      "title": "DelTA: Discriminative Token Credit Assignment for Reinforcement Learning from Verifiable Rewards",
+      "url": "https://arxiv.org/abs/2605.21467",
+      "source": "arXiv",
+      "date": "2026-05-20",
+      "tags": [
+        "DEEP DIVE",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-28",
+      "estimatedMinutes": 25,
+      "digestDay": 45
+    },
+    {
+      "id": "2026-05-28-002",
+      "title": "Advancing Mathematics Research with AI-Driven Formal Proof Search",
+      "url": "https://arxiv.org/abs/2605.22763",
+      "source": "arXiv",
+      "date": "2026-05-21",
+      "tags": [
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-28",
+      "estimatedMinutes": 5,
+      "digestDay": 45
+    },
+    {
+      "id": "2026-05-28-003",
+      "title": "LambdaPO: A Lambda-Style Policy Optimization for Reasoning Language Models",
+      "url": "https://arxiv.org/abs/2605.19416",
+      "source": "arXiv",
+      "date": "2026-05-19",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-28",
+      "estimatedMinutes": 4,
+      "digestDay": 45
+    },
+    {
+      "id": "2026-05-28-004",
+      "title": "Some ideas for what comes next, May 2026",
+      "url": "https://www.interconnects.ai/p/some-ideas-for-what-comes-next-may",
+      "source": "Nathan Lambert / Interconnects",
+      "date": "2026-05-26",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-28",
+      "estimatedMinutes": 3,
+      "digestDay": 45
+    },
+    {
+      "id": "2026-05-28-005",
+      "title": "SU-01: Achieving Gold-Medal-Level Olympiad Reasoning via Simple and Unified Scaling",
+      "url": "https://arxiv.org/abs/2605.13301",
+      "source": "arXiv",
+      "date": "2026-05-13",
+      "tags": [
+        "RLVR",
         "READ"
       ],
       "status": "bookmarked",
       "assignedDate": null,
-      "estimatedMinutes": 7,
+      "estimatedMinutes": 8,
       "digestDay": null
+    },
+    {
+      "id": "2026-05-28-006",
+      "title": "High Leverage Ep. 9 \u2014 Simon Willison on the AI Coding Paradigm Shift (Day 2 carry)",
+      "url": "https://www.heavybit.com/library/podcasts/high-leverage/ep-9-the-ai-coding-paradigm-shift-with-simon-willison",
+      "source": "Heavybit / High Leverage",
+      "date": "2026-05-05",
+      "tags": [
+        "MULTI-DAY",
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-28",
+      "estimatedMinutes": 55,
+      "digestDay": 45
     }
   ],
   "feeds": [
