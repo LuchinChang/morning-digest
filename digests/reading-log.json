@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 45,
+    "dayCount": 47,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -4722,10 +4722,10 @@
         "RLVR",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-05-29",
       "estimatedMinutes": 8,
-      "digestDay": null
+      "digestDay": 46
     },
     {
       "id": "2026-05-28-006",
@@ -4742,6 +4742,182 @@
       "assignedDate": "2026-05-28",
       "estimatedMinutes": 55,
       "digestDay": 45
+    },
+    {
+      "id": "2026-05-29-001",
+      "title": "Advancing Mathematics Research with AI-Driven Formal Proof Search (Deep Dive carry)",
+      "url": "https://arxiv.org/abs/2605.22763",
+      "source": "arXiv",
+      "date": "2026-05-22",
+      "tags": [
+        "DEEP DIVE",
+        "FORMAL METHODS",
+        "TRENDING",
+        "MULTI-DAY",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-29",
+      "estimatedMinutes": 25,
+      "digestDay": 46
+    },
+    {
+      "id": "2026-05-29-002",
+      "title": "GXPO: Gradient Extrapolation-Based Policy Optimization",
+      "url": "https://arxiv.org/abs/2605.06755",
+      "source": "arXiv",
+      "date": "2026-05-09",
+      "tags": [
+        "RLVR",
+        "READ",
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-29",
+      "estimatedMinutes": 4,
+      "digestDay": 46
+    },
+    {
+      "id": "2026-05-29-003",
+      "title": "Harmony in Diversity: Multi-domain Contrastive Policy Optimization for Large Reasoning Models (MCPO)",
+      "url": "https://arxiv.org/abs/2605.25443",
+      "source": "arXiv",
+      "date": "2026-05-25",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-29",
+      "estimatedMinutes": 4,
+      "digestDay": 46
+    },
+    {
+      "id": "2026-05-29-004",
+      "title": "I think Anthropic and OpenAI have found product-market fit",
+      "url": "https://simonwillison.net/2026/May/27/product-market-fit/",
+      "source": "Simon Willison",
+      "date": "2026-05-27",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-29",
+      "estimatedMinutes": 3,
+      "digestDay": 46
+    },
+    {
+      "id": "2026-05-29-005",
+      "title": "EP-GRPO: Entropy-Progress Aligned Group Relative Policy Optimization with Implicit Process Guidance",
+      "url": "https://arxiv.org/abs/2605.04960",
+      "source": "arXiv",
+      "date": "2026-05-04",
+      "tags": [
+        "RLVR",
+        "READ",
+        "MULTI-DAY",
+        "PROMOTED"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-30",
+      "estimatedMinutes": 6,
+      "digestDay": 47
+    },
+    {
+      "id": "2026-05-30-001",
+      "title": "GCPO: Guidance Contrastive Token Credit Assignment for Discrete Policy Optimization",
+      "url": "https://arxiv.org/abs/2605.29198",
+      "source": "arXiv",
+      "date": "2026-05-28",
+      "tags": [
+        "DEEP DIVE",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-30",
+      "estimatedMinutes": 25,
+      "digestDay": 47
+    },
+    {
+      "id": "2026-05-30-002",
+      "title": "Rethinking Supervision Granularity: Segment-Level Learning for LLM-Based Theorem Proving",
+      "url": "https://arxiv.org/abs/2605.11905",
+      "source": "arXiv",
+      "date": "2026-05-18",
+      "tags": [
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-30",
+      "estimatedMinutes": 4,
+      "digestDay": 47
+    },
+    {
+      "id": "2026-05-30-003",
+      "title": "Rethinking RL for LLM Reasoning: It's Sparse Policy Selection, Not Capability Learning",
+      "url": "https://arxiv.org/abs/2605.06241",
+      "source": "arXiv",
+      "date": "2026-05-07",
+      "tags": [
+        "RLVR",
+        "ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-30",
+      "estimatedMinutes": 4,
+      "digestDay": 47
+    },
+    {
+      "id": "2026-05-30-004",
+      "title": "sqlite AGENTS.md",
+      "url": "https://simonwillison.net/2026/May/28/sqlite-agents-md/",
+      "source": "Simon Willison",
+      "date": "2026-05-28",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-30",
+      "estimatedMinutes": 3,
+      "digestDay": 47
+    },
+    {
+      "id": "2026-05-30-005",
+      "title": "Latent Space x Unsupervised Learning - AIE Europe Debrief + Agent Labs Thesis (2026)",
+      "url": "https://www.latent.space/p/unsupervised-learning-2026",
+      "source": "Latent Space",
+      "date": "2026-05-20",
+      "tags": [
+        "LISTEN",
+        "TRENDING",
+        "MULTI-DAY"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-05-30",
+      "estimatedMinutes": 70,
+      "digestDay": 47
+    },
+    {
+      "id": "2026-05-30-006",
+      "title": "T2T: Boosting LLM Reasoning via Human-Inspired Reward Shaping (Thickening-to-Thinning)",
+      "url": "https://arxiv.org/abs/2602.04265",
+      "source": "arXiv",
+      "date": "2026-05-14",
+      "tags": [
+        "RLVR",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 6,
+      "digestDay": null
     }
   ],
   "feeds": [

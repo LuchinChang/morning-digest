@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 29, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --tag-multi: #b45309;
+      --tag-multi-bg: #fef3c7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --tag-multi: #fbbf24;
+        --tag-multi-bg: #2e1d06;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card.multi {
+      border-left: 4px solid var(--tag-multi);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+    .tag-multi    { color: var(--tag-multi);   background: var(--tag-multi-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-multi-bg);
+      border: 1px solid var(--tag-multi);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-multi);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 46</div>
+    <h1>Friday, May 29, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;The only way to rectify our reasonings is to make them as tangible as those of the Mathematicians, so that we can find our error at a glance, and when there are disputes among persons, we can simply say: <em>Calculemus</em> &mdash; let us calculate, without further ado, to see who is right.&rdquo;</p>
+    <cite>&mdash; Gottfried Wilhelm Leibniz, <em>The Art of Discovery</em> (1685). Today the verifier is Lean 4, the disputants are an LLM agent and an open Erd&#x151;s problem, and &ldquo;let us calculate&rdquo; takes about an hour of compute. The methodology you flagged yesterday as &ldquo;the headline paper of the week&rdquo; gets its deep dive today. The thread to hold: <em>what makes the Lean verifier-feedback loop dense enough to do credit assignment over multi-hour proof attempts</em> &mdash; and how that density argument connects back to DelTA&rsquo;s discriminator view.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; <strong>Tsoukalas et al. &mdash; AI-Driven Formal Proof Search.</strong> Promoted from yesterday&rsquo;s quick-read &mdash; the Lean 4 agent that resolved 9 open Erd&#x151;s problems, 44 OEIS conjectures, and a 15-year-old Hilbert-function question. Read methodology (&sect;3) and failure analysis (&sect;6) carefully.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>GXPO</strong> &mdash; gradient extrapolation for GRPO. Plug-compatible update rule that approximates a longer local lookahead using three backward passes. Composes naturally with DelTA&rsquo;s reweighting.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>MCPO</strong> &mdash; multi-domain contrastive policy optimization. Cross-domain knowledge sharing via structural rollout relationships; the response-batch analogue of DelTA&rsquo;s discriminator view.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>SU-01 (promoted from yesterday&rsquo;s bookmarks)</strong>. 30B-A3B + 200 RL steps reaching gold-medal-level Olympiad reasoning. The minimum-RL question for the LIFR draft.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick skim &middot; <strong>Simon Willison</strong> &mdash; &ldquo;Anthropic and OpenAI have found product-market fit.&rdquo; The economics-of-RL framing the dissertation will need a paragraph on.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; Anchored PO (carry), LongCoT (long carry &mdash; explicit MULTI-DAY rotation), EP-GRPO (new add).</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing from yesterday.</strong> Yesterday the Erd&#x151;s/Lean paper sat in the quick-read slot with the explicit promotion note &ldquo;strong candidate to promote to deep dive tomorrow.&rdquo; Today it gets the slot. The thread to carry from yesterday&rsquo;s DelTA reading: the Lean verifier-feedback loop is empirically the densest live RLVR signal we have &mdash; not because the reward is dense per-token, but because the compiler returns <em>structured, type-checked error messages</em> that the agent can localize to a specific tactic. That structure is what makes the binary verifier signal informative enough to do credit assignment over multi-hour proof attempts. For the LIFR draft, this is the empirical counterpoint to the &ldquo;binary verifier rewards are too sparse&rdquo; family of claims: <em>density isn&rsquo;t a property of the reward; it&rsquo;s a property of the verifier&rsquo;s feedback channel.</em></span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep multi">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.22763">Advancing Mathematics Research with AI-Driven Formal Proof Search</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 22, 2026 &middot; Tsoukalas et al.</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        The deep dive promised in yesterday&rsquo;s footer. Three things to take from a careful reading. <em>(1) The methodology &mdash; agent &times; Lean 4 &times; library retrieval.</em> Section 3 is the methodology to internalize. The agent is a Sonnet-class LLM in a loop with the Lean 4 compiler; on each step the agent proposes a tactic block, the compiler returns either &ldquo;goals remaining&rdquo; (with the new goal stack) or a structured error (with the type error&rsquo;s span and the available local context). The agent decides next-step based on whether the goal stack shrank, whether new goals were created, and whether the error message localizes to a particular subterm. There&rsquo;s no learned reward model in the loop &mdash; the compiler is the reward model &mdash; but the &ldquo;reward signal&rdquo; isn&rsquo;t binary; it&rsquo;s a structured object that the agent uses for local credit assignment. The library-retrieval module is a Mathlib-indexed RAG over lemma statements; the agent can request lemmas matching a goal pattern and the retrieval pre-filters by type compatibility. This is the closest live example of dense-feedback-via-verifier-channel rather than dense-feedback-via-reward-shaping. <em>(2) The scale of the open-problem evaluation.</em> Section 5 is what makes this paper consequential. <strong>9 of 353 open Erd&#x151;s problems resolved</strong> at a per-problem cost of a few hundred dollars; <strong>44 of 492 open OEIS conjectures</strong> resolved; a <strong>15-year-old open Hilbert-function question</strong> in algebraic geometry resolved; and an improved bound on an open problem in convex optimization via a novel algorithmic parameter schedule. The Erd&#x151;s problems are not the easy ones &mdash; they&rsquo;re problems that have been openly posted and unsolved for years, in some cases decades. The methodology section makes clear that the agent didn&rsquo;t pattern-match these from training data: each resolved problem required a new construction or a new bound, formalized in Lean 4, that the human authors verified for novelty. This is the kind of result that changes how mathematicians use these tools, and the dissertation lives downstream of that shift. <em>(3) The failure analysis &mdash; Section 6.</em> The most useful section for the LIFR draft. The authors taxonomize 100 failed proof attempts and find three dominant failure modes: <strong>(a)</strong> goal-decomposition errors &mdash; the agent picks a too-aggressive intermediate lemma whose proof is harder than the original goal; <strong>(b)</strong> library-retrieval misses &mdash; the relevant lemma exists in Mathlib but the agent&rsquo;s retrieval query is at the wrong level of abstraction; <strong>(c)</strong> tactic-budget exhaustion &mdash; the agent finds a proof sketch but the Lean elaborator times out on a particular sub-proof and the agent can&rsquo;t recover. The interesting empirical claim is that <em>(c) is the largest category</em> by a meaningful margin &mdash; the agent often knows what to prove but can&rsquo;t get the elaborator to accept it. That&rsquo;s a different bottleneck than the &ldquo;reasoning capacity&rdquo; story the broader RLVR literature has been telling. For the LIFR draft, the relevant pull is: <em>tactic-level credit assignment matters more than token-level credit assignment in formal proofs</em>, because a single tactic block can encode an unbounded amount of computation that the Lean elaborator either accepts or rejects atomically. DelTA&rsquo;s discriminator view operates at the token level, but the Lean failure mode is at the tactic level &mdash; one rung up. The composition question the LIFR draft should pose: <em>does the discriminative-vs-shared geometry from DelTA generalize to discriminative-vs-shared tactics, where the &ldquo;centroid&rdquo; is computed over tactic-embedding vectors rather than token-gradient vectors?</em> If it does, DelTA&rsquo;s framing extends naturally to formal proofs and the dissertation has a clean cross-domain story. <em>(4) Methodology note for your own work.</em> Section 4.2 describes the agent&rsquo;s prompt scaffold and the per-step temperature schedule (high temperature for tactic exploration, low for goal-decomposition); their reported per-problem cost includes both successful and failed runs in the denominator. The economics are real: if you build a Lean-RLVR loop with this shape, expect to spend ~$300&ndash;$800 per open-problem attempt at current API prices, and budget for a 5&ndash;20% solve rate on problems of comparable difficulty to the Erd&#x151;s benchmark. For the dissertation, this is the empirical baseline to compare against. Action items: <em>(i)</em> re-read &sect;3 with the LIFR draft open and note where &ldquo;tactic-level&rdquo; replaces &ldquo;token-level&rdquo; in their methodology relative to standard RLVR; <em>(ii)</em> star Section 6 in Zotero &mdash; the tactic-budget-exhaustion finding is the most quotable empirical anchor for the &ldquo;density-of-feedback-channel matters more than density-of-reward&rdquo; thesis; <em>(iii)</em> add to backlog: <em>cross-domain replication of DelTA&rsquo;s 0.7&ndash;0.95 centroid-similarity diagnostic, but with tactic-embedding vectors over a Lean training run; if the centroids are similarly aligned, the discriminator view ports cleanly to formal proofs.</em>
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-multi">Multi-Day</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06755">GXPO: Gradient Extrapolation-Based Policy Optimization</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 9, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Plug-compatible update rule for GRPO-style reasoning RL. The construction: rather than taking the standard policy-gradient step on each batch, GXPO performs three backward passes within an &ldquo;active phase&rdquo; and uses the gradient trajectory to extrapolate where a longer local lookahead would have landed. The cost is roughly 3&times; the per-step compute of vanilla GRPO; the benefit, in their reported numbers, is reaching comparable final performance in ~40% fewer outer-loop steps on MATH and GSM8K. Two reasons this matters today. <em>(1)</em> It&rsquo;s a clean orthogonal axis to DelTA. DelTA reweights <em>which tokens contribute</em> to the update; GXPO reweights <em>how far the update reaches</em> by extrapolating along the local gradient field. Their compositions are independent &mdash; you should expect to be able to stack them &mdash; and if you do, the discriminator-view centroid geometry changes shape: GXPO&rsquo;s extrapolated update direction is dominated more by the discriminative component (because the shared-pattern component tends to be locally flat) than the single-step direction is. Worth noting in the LIFR draft as the &ldquo;temporal lookahead&rdquo; complement to DelTA&rsquo;s &ldquo;per-token reweighting.&rdquo; <em>(2)</em> The three-backward-pass cost is acceptable for a small lab. If you&rsquo;re doing Lean-RLVR experiments at the scale the Tsoukalas paper suggests is possible (~$300&ndash;$800 per attempt), the GXPO multiplier is small enough to fit in budget &mdash; especially if it cuts outer-loop steps. Useful for the LIFR draft&rsquo;s experimental-protocol section.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.25443">Harmony in Diversity: Multi-domain Contrastive Policy Optimization for Large Reasoning Models (MCPO)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 25, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Cross-domain GRPO variant. The idea: when you train a reasoning model on multiple domains (math, code, agentic), the structural relationships among rollouts across domains carry information that single-domain GRPO throws away. MCPO adds a contrastive term that promotes <em>cross-domain knowledge sharing</em> (rollouts that succeed in one domain pull representations that succeed in similar contexts in another) and <em>in-domain consolidation</em> (rollouts within a domain are encouraged to converge on a shared structure). The contrastive loss is computed over a learned embedding of rollouts; the authors report 1.5&ndash;3.2 pp improvements on multi-domain benchmarks. The reason to read this next to today&rsquo;s thread: MCPO is operating at the <em>response-batch</em> level &mdash; it asks &ldquo;which rollouts in the batch are discriminative across domains&rdquo; &mdash; whereas DelTA operates at the <em>token level</em> within a single rollout. They&rsquo;re complementary instantiations of the same discriminator-view metaphor at different scales. For the LIFR draft, MCPO is the natural citation for the cross-domain generalization claim: if the dissertation argues that RLVR&rsquo;s gains compose across formal-methods and code-reasoning domains, MCPO is the construction that operationalizes that.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks.</strong> SU-01 was yesterday&rsquo;s fresh bookmark add with the note &ldquo;the 200-RL-step number is the surprise &mdash; worth thinking about before committing the LIFR framing.&rdquo; Today&rsquo;s deep dive is about <em>density of the verifier feedback channel</em>; SU-01 is the orthogonal claim that <em>RL itself may be a polish step</em> when SFT is strong. Reading them back-to-back forces the question the LIFR draft needs to answer.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.13301">SU-01: Achieving Gold-Medal-Level Olympiad Reasoning via Simple and Unified Scaling</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 13, 2026 &middot; Promoted</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The recipe: a 30B-active-3B MoE backbone, SFT on ~340K sub-8K-token reasoning trajectories curated for diversity and difficulty, then <em>just 200 RL steps</em> with a vanilla GRPO loss against a verifier. Reaches gold-medal-level Olympiad performance on AIME &rsquo;26 and a held-out IMO subset. Two things to take from this. <em>(1) The 200-step number.</em> If the recipe really does only need 200 RL steps on top of strong SFT to reach gold-medal-level reasoning, then the entire credit-assignment debate of the past month &mdash; ActFocus, MaR, Listwise, DelTA, GXPO, MCPO &mdash; is operating in a regime where <em>RL is mostly a polish step</em>, not the load-bearing training. The token-level credit-assignment story matters because the polish has to be efficient; but the heavy lifting is in the SFT corpus curation. <em>(2) What this means for the LIFR draft.</em> Two consistent framings. <em>(i)</em> The conservative framing: SFT does the bulk of the work; RL fine-tunes the discriminative-vs-shared ratio of the policy&rsquo;s output distribution; DelTA / GXPO / MCPO matter because the 200 steps need to be efficient and the geometry of those 200 steps is exactly what those interventions improve. <em>(ii)</em> The aggressive framing: the &ldquo;200 RL steps&rdquo; claim doesn&rsquo;t replicate at scale, and the actual contribution of RL is larger than the headline number suggests because the GRPO loss is being applied to a carefully-engineered curriculum that has been pre-filtered for RLVR-amenable signal. Read &sect;4 carefully &mdash; their curriculum-construction protocol &mdash; before committing to either framing in the LIFR draft. <em>(3) Action item for backlog.</em> Re-run the headline SU-01 result with the GRPO loss replaced by DelTA reweighting and check whether the 200-step number drops further. If it does (say, to 100 steps), DelTA is doing what the discriminator-view story predicts; if it doesn&rsquo;t, the SFT curriculum is already capturing most of the discriminative signal and the LIFR draft should foreground curriculum over update-rule.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/May/27/product-market-fit/">I think Anthropic and OpenAI have found product-market fit &mdash; Simon Willison</a></div>
+      <div class="card-meta">
+        <span>simonwillison.net &middot; May 27, 2026</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        Willison&rsquo;s field-level note pegged to two data points: Anthropic&rsquo;s first profitable quarter is reportedly imminent, and companies are publicly surprised at how high their LLM bills are getting from staff usage of coding agents. His read: PMF has arrived for both labs, and the &ldquo;running an agent loop costs real money&rdquo; reality is finally pricing into enterprise budgets. The relevant pull for the dissertation: the economics of multi-hour Lean-RLVR loops (the Tsoukalas-paper regime) are about to look much more reasonable in context. If a single open Erd&#x151;s problem costs $300&ndash;$800 to attempt and a routine coding-agent task costs $20&ndash;$80, the formal-methods-via-RLVR cost structure looks affordable for any university lab with a moderate compute budget. Worth flagging in the dissertation&rsquo;s &ldquo;Why now&rdquo; section: the convergence of dense verifier feedback (Lean), efficient RL recipes (SU-01-style), and a market that has internalized the per-token cost of agent loops creates the window for the next leg of formal-methods-via-RLVR work.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2602.05717">Anchored Policy Optimization: Mitigating Exploration Collapse via Support-Constrained Rectification</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2604.14140">LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning (Multi-Day carry, Day 26)</a>
+        <span class="bookmark-time">~8 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.04960">EP-GRPO: Entropy-Progress Aligned Group Relative Policy Optimization with Implicit Process Guidance</a>
+        <span class="bookmark-time">~6 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        One carry, one explicit MULTI-DAY rotation, one fresh add. <em>Anchored PO</em> still parked &mdash; today&rsquo;s deep dive is formal-methods-heavy and didn&rsquo;t open the exploration-controller slot; AEM did some of that work yesterday but Anchored PO&rsquo;s support-constrained rectification remains the distinct mechanism for the SAGE/AEM/Anchored-PO comparison the LIFR draft owes. <em>LongCoT</em> is now Day 26 of carry &mdash; tagging it MULTI-DAY explicitly so the normalizer treats the next reassignment as expected; the discriminator-view test on long-horizon CoT is still the highest-leverage empirical move and you should put it on the calendar for next week or formally close it. <em>EP-GRPO</em> is the new add: a self-supervised process-guidance signal extracted from the model&rsquo;s own information flow, used to densify the credit assignment without an auxiliary reward model. Sits naturally between DelTA (token-level) and the Lean-tactic-level credit assignment the Tsoukalas paper makes salient &mdash; worth a quick read by mid-next-week to see whether the &ldquo;intrinsic information flow&rdquo; signal matches the discriminative-component signal DelTA isolates.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; Eric Jang on Building AlphaGo From Scratch With Modern AI Tools (carry)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; carry from Day 41</span><span class="dot">&middot;</span><span>~1.5h</span>
+      </div>
+      <div class="card-body">
+        Bumped again &mdash; this one keeps coming back because the Lean-RLVR deep dive today maps cleanly onto Jang&rsquo;s AlphaGo reconstruction. The Lean compiler is the Go game-engine analogue: a verifier that produces structured feedback rather than a scalar score, and the agent&rsquo;s next-step selection is shaped by that structure. If you walk or commute today, this is the audio. Five-day carry now &mdash; either listen today or drop it from the queue Monday.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.interconnects.ai/podcast">Interconnects Podcast &mdash; Nathan Lambert latest episodes</a></div>
+      <div class="card-meta">
+        <span>interconnects.ai &middot; current backlog</span><span class="dot">&middot;</span><span>~45&ndash;60 min ea.</span>
+      </div>
+      <div class="card-body">
+        Lambert&rsquo;s podcast feed is the natural companion to yesterday&rsquo;s &ldquo;Some ideas for what comes next&rdquo; piece, and to today&rsquo;s Willison product-market-fit note. The field-level reflection cadence is useful counterweight to the per-paper firehose; pick the most recent episode if you have an hour. Background listening for the weekend.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Willison &mdash; &ldquo;product-market fit&rdquo; (3 min, coffee)</li>
+          <li>SU-01 &mdash; the recipe paragraph and the 200-step claim; check &sect;4 curriculum protocol</li>
+          <li>GXPO &mdash; the three-backward-pass figure and the per-step cost</li>
+          <li>MCPO &mdash; the cross-domain contrastive loss definition</li>
+          <li>Erd&#x151;s/Lean paper &sect;1 + open-problems list; save methodology and &sect;6 failure analysis for laptop</li>
+          <li>Dwarkesh / Jang &mdash; walk or gym (last day before drop)</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>Tsoukalas &sect;3 &mdash; agent loop architecture; identify which compiler-feedback signals drive next-step selection</li>
+          <li>Tsoukalas &sect;5 &mdash; per-problem cost table; calibrate your own Lean-RLVR budget against this</li>
+          <li>Tsoukalas &sect;6 &mdash; tactic-budget-exhaustion as dominant failure mode; this is the most quotable finding for the LIFR draft</li>
+          <li>Margin note: &ldquo;Density isn&rsquo;t a property of the reward; it&rsquo;s a property of the verifier&rsquo;s feedback channel. Lean&rsquo;s structured errors are the channel.&rdquo;</li>
+          <li>LIFR draft &mdash; add a &ldquo;tactic-level credit assignment&rdquo; subsection that argues DelTA&rsquo;s discriminator view ports up one rung (token &rarr; tactic) and that the centroid-similarity diagnostic should be re-run on tactic embeddings</li>
+          <li>Backlog add (highest leverage): <em>Cross-domain centroid-similarity diagnostic &mdash; run DelTA&rsquo;s positive/negative centroid cosine measurement on a Lean training corpus with tactic-embedding vectors; if alignment is 0.7&ndash;0.95 like the token-gradient case, the discriminator view generalizes</em></li>
+          <li>Backlog add: <em>SU-01 + DelTA composition test &mdash; does the 200-RL-step number drop when GRPO is replaced by DelTA reweighting? Tests whether RL is polish or substrate.</em></li>
+          <li>GXPO &mdash; sketch the three-backward-pass schedule into the LIFR draft&rsquo;s experimental-protocol section as the &ldquo;temporal lookahead&rdquo; complement to DelTA&rsquo;s &ldquo;per-token reweighting&rdquo;</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 46</strong> &middot; 5 reading items + 3 bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>density of the verifier feedback channel.</em> The Tsoukalas Lean/Erd&#x151;s paper isn&rsquo;t important because the Lean reward is binary; it&rsquo;s important because the Lean compiler returns <strong>structured, type-checked error messages</strong> that the agent can localize to a specific tactic, and that structure is what makes the verifier signal informative enough to do credit assignment over multi-hour proof attempts. Density isn&rsquo;t a property of the reward; it&rsquo;s a property of the feedback channel. The dominant failure mode &mdash; tactic-budget exhaustion (Section 6) &mdash; reframes the credit-assignment debate one rung up the stack: in formal proofs, the right granularity for credit assignment is the tactic, not the token. DelTA&rsquo;s discriminator view is the natural framework, but it needs to be re-instantiated with tactic-embedding vectors instead of token-gradient vectors. Run the centroid-similarity diagnostic on a Lean training run and find out whether the geometry ports. Today&rsquo;s quick reads sketch the orthogonal axes that compose with DelTA: GXPO adds temporal lookahead, MCPO adds cross-domain contrastive structure, SU-01 forces the question of whether RL is polish or substrate. Willison&rsquo;s PMF note gives the macro condition for any of this being practical at lab scale.</p>
+    <p style="margin-top: 6px;">LIFR-draft action: write the &ldquo;tactic-level credit assignment&rdquo; subsection today while the Tsoukalas paper is fresh; commit to the centroid-similarity-on-Lean diagnostic as the cross-domain validation experiment.</p>
+  </footer>
+</body>
+</html>

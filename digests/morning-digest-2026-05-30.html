@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; May 30, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --tag-multi: #b45309;
+      --tag-multi-bg: #fef3c7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --tag-multi: #fbbf24;
+        --tag-multi-bg: #2e1d06;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card.multi {
+      border-left: 4px solid var(--tag-multi);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+    .tag-multi    { color: var(--tag-multi);   background: var(--tag-multi-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-multi-bg);
+      border: 1px solid var(--tag-multi);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-multi);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 47</div>
+    <h1>Saturday, May 30, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;The first rule of teaching is to know what you are supposed to teach. The second rule of teaching is to know a little more than what you are supposed to teach. &hellip; Yet do not forget &mdash; let your students <em>guess</em> before you tell them anything. Let them find out by themselves as much as is feasible.&rdquo;</p>
+    <cite>&mdash; George P&oacute;lya, <em>Mathematical Discovery</em> (1962). Saturday reframing: the discriminator-view literature you&rsquo;ve been chasing for two weeks &mdash; DelTA, MCPO, and today&rsquo;s GCPO &mdash; is, at the methodological level, doing exactly what P&oacute;lya prescribes. The model is the student; the verifier is the teacher; the question is <em>which tokens did the student guess about</em> versus <em>which did the student already know</em>. Token-level credit assignment is teaching the model to distinguish guessing from knowing. Hold that frame loosely all morning &mdash; it is the cleanest one-sentence handle on what these papers are collectively doing.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; <strong>GCPO &mdash; Guidance Contrastive Token Credit Assignment.</strong> Hot off arXiv (May 28). Per-token credit by contrasting positive vs. negative prompt predictions. The natural successor to yesterday&rsquo;s DelTA thread &mdash; same discriminator framing, different mechanism.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>Segment-Level Learning for Lean Theorem Proving</strong>. Bridges yesterday&rsquo;s Tsoukalas Lean paper to tactic-granularity supervision; the empirical anchor for &ldquo;tactic &gt; token&rdquo; in formal proofs.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>EP-GRPO (promoted from yesterday&rsquo;s bookmarks)</strong>. Self-supervised process guidance via the model&rsquo;s own entropy-progress signal. The third mechanism in the &ldquo;dense feedback without an auxiliary reward model&rdquo; trio.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>Rethinking RL for LLM Reasoning</strong>. The contrarian claim: RL&rsquo;s footprint is &ldquo;sparse policy selection, not capability learning.&rdquo; Pair against GCPO/DelTA before committing the LIFR draft&rsquo;s framing.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick skim &middot; <strong>Willison on sqlite/AGENTS.md</strong>. Saturday lightness; the &ldquo;SQLite does not accept agentic code&rdquo; line is a useful counterweight to the agentic-everywhere narrative.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; Anchored PO (still parked), LongCoT (Day 27 carry), T2T (new add &mdash; thickening-to-thinning reward shaping).</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Closing yesterday&rsquo;s deep dive.</strong> Tsoukalas (Lean/Erd&#x151;s) had its 2-day arc and is now done as an explicit assigned read &mdash; the takeaway to carry forward is the &sect;6 tactic-budget-exhaustion finding (the agent often <em>knows</em> what to prove but can&rsquo;t get the Lean elaborator to accept it). Today&rsquo;s segment-level theorem-proving paper picks up exactly there: it argues that the right unit of supervision in Lean isn&rsquo;t the whole proof or the single tactic, but the <em>locally-coherent segment</em> &mdash; and today&rsquo;s GCPO offers a token-level analogue (positive vs. negative prompt contrast) that the LIFR draft can present as the discriminator-view machinery at the &ldquo;next rung up&rdquo; from DelTA. Three discriminator-view papers in 8 days is now a thread, not a coincidence.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.29198">GCPO: Guidance Contrastive Token Credit Assignment for Discrete Policy Optimization</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 28, 2026</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Two-day-old paper, dropped while you were reading DelTA, and it is the cleanest mechanism you have seen yet for token-level credit assignment without an auxiliary reward model. The construction: at each rollout, the model generates token logits under two prompt conditions in parallel &mdash; a <em>positive guidance prompt</em> (the standard task prompt, possibly augmented with a hint that should make the task easier) and a <em>negative guidance prompt</em> (the same task with the guidance corrupted, neutralized, or replaced with an adversarial distractor). The per-token advantage is then proportional to the KL-divergence between the positive and negative conditional distributions at that token position. Tokens where the two distributions agree get near-zero advantage; tokens where they diverge sharply get large advantage. The interpretation is that <em>large divergence = the token&rsquo;s identity depends on the guidance, i.e., it is where the model is &ldquo;using&rdquo; the prompt to make a decision</em>; small divergence = the token would have been generated regardless. GRPO&rsquo;s sample-level advantage is replaced by this per-token contrastive signal, and the trajectory-level reward enters only as the sign and scale. Three things to take from a careful reading. <em>(1) The connection to DelTA.</em> DelTA reweights tokens by their position in a learned discriminator&rsquo;s positive/negative centroid geometry; GCPO reweights tokens by their sensitivity to a prompt-level contrastive perturbation. They are isomorphic at the metaphor level &mdash; both ask &ldquo;which tokens are discriminative?&rdquo; &mdash; but GCPO&rsquo;s answer requires no auxiliary network. That is methodologically cheaper and architecturally cleaner; the LIFR draft should present GCPO as the <em>training-free instantiation</em> of the discriminator view, with DelTA as the learned instantiation. The composition test: do they identify the same tokens as discriminative? If yes, the discriminator view has real explanatory power; if no, they are measuring different things and the LIFR draft needs a more careful taxonomy. <em>(2) The positive-vs-negative prompt design.</em> The authors are explicit that the choice of negative prompt matters: neutral &ldquo;corruption&rdquo; (random shuffling, blanking) gives one signal; adversarial corruption (replacing the guidance with a misleading hint) gives a stronger signal but is harder to construct. For formal-methods applications, the natural choice of negative prompt is <em>swapping the goal statement to a known-similar but logically distinct goal</em> &mdash; the agent&rsquo;s tactic-block choice should be sensitive to which goal it is actually working on. This is a clean transfer of GCPO&rsquo;s framework to a Lean-RLVR setting and you should sketch it into the LIFR draft today. <em>(3) The empirical results on chain-of-thought.</em> GCPO outperforms GRPO and DAPO baselines on math reasoning benchmarks by 2&ndash;4 percentage points, but the more interesting finding is the per-token visualization: the contrastive advantage concentrates on numerical-result tokens, logical-connector tokens, and the first token of each reasoning step &mdash; the exact tokens you would intuit are decision points. This is the most direct empirical evidence yet for the &ldquo;token-level credit assignment matters because most tokens are filler&rdquo; story. For the LIFR draft, this is your Figure 1: the GCPO heatmap on a math problem, contrasted with the uniform GRPO advantage, side-by-side. <em>(4) The thread now.</em> Three discriminator-view papers in 8 days (DelTA &rarr; MCPO &rarr; GCPO), operating at three different granularities (token-gradient &rarr; batch-rollout &rarr; prompt-contrastive). The LIFR draft can now be reframed as a <em>unification paper</em>: the discriminator view is the common abstraction, and the three mechanisms instantiate it at different levels of the optimization stack. That framing has a 10x better chance of being noticed than &ldquo;another credit-assignment paper.&rdquo; Action items: <em>(i)</em> write the &ldquo;discriminator view as common abstraction&rdquo; section of the LIFR draft today; <em>(ii)</em> sketch the negative-prompt design for a Lean setting (swap-goal-with-similar-distinct-goal) and add to backlog as an experiment to run; <em>(iii)</em> add to the Figure 1 backlog: GCPO heatmap on a math problem next to uniform GRPO advantage.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card formal">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.11905">Rethinking Supervision Granularity: Segment-Level Learning for LLM-Based Theorem Proving</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 18, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The bridge from yesterday&rsquo;s Tsoukalas Lean/Erd&#x151;s deep dive to today&rsquo;s GCPO thread. The paper&rsquo;s claim: the standard SFT/RL granularities for Lean &mdash; whole-proof or single-tactic &mdash; are both wrong. Whole-proof is too coarse (the model is rewarded for getting the answer right even when the intermediate tactics were lucky); single-tactic is too noisy (most tactic choices are forced by the local goal stack and carry no decision signal). Their proposal: <em>segment-level supervision</em>, where a &ldquo;segment&rdquo; is a maximal sequence of tactics that operate on a single sub-goal until a goal-stack change occurs. They show that segment-level training data extracted from Mathlib gives consistently lower loss and better generalization than tactic-level or proof-level on a Lean-Pile evaluation. The reason to read this <em>next to</em> GCPO and the Tsoukalas paper: all three are converging on the same insight from different sides. Tsoukalas&rsquo;s tactic-budget-exhaustion failure mode says &ldquo;the model often knows the next move but cannot execute it&rdquo;; segment-level supervision says &ldquo;the right unit to teach is the segment, not the tactic&rdquo;; GCPO&rsquo;s prompt-contrastive credit assignment says &ldquo;most tokens are not decision points, only some are.&rdquo; The synthesis the LIFR draft can claim: <em>across formal proofs and reasoning chains, the unit of credit assignment should match the unit of decision-making</em> &mdash; segments in Lean, contrastive-divergent tokens in CoT, batch-rollouts across domains in MCPO. The discriminator view is the common abstraction; the granularity is domain-specific.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="promoted-callout">
+      <span class="callout-icon">&#x1F4CC;</span>
+      <span><strong>Promoted from your bookmarks.</strong> EP-GRPO was yesterday&rsquo;s fresh add with the note &ldquo;sits naturally between DelTA and the Lean-tactic-level credit assignment.&rdquo; Today&rsquo;s deep dive is GCPO; reading EP-GRPO next to it makes the &ldquo;three mechanisms for dense feedback without a reward model&rdquo; trio explicit. Promote now &mdash; it earns the slot.</span>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.04960">EP-GRPO: Entropy-Progress Aligned Group Relative Policy Optimization with Implicit Process Guidance</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 8, 2026 &middot; Promoted</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The third mechanism in the &ldquo;dense feedback without an auxiliary reward model&rdquo; trio (alongside DelTA and GCPO). The construction: EP-GRPO extracts a process-guidance signal from the model&rsquo;s own internal entropy trajectory across reasoning steps &mdash; high-entropy steps that are followed by low-entropy continuations are interpreted as &ldquo;productive decisions&rdquo; (the model committed to a choice and the choice paid off in downstream confidence); high-entropy steps followed by high-entropy continuations are interpreted as &ldquo;wasted decisions&rdquo; (the commitment did not resolve uncertainty). The advantage signal is weighted by an entropy-progress alignment score. Empirically they report 1.5&ndash;2.5 pp gains on MATH and a sharper gain (~4 pp) on the harder olympiad subset. The interesting structural point for the LIFR draft: EP-GRPO operates on the model&rsquo;s own information-flow geometry, GCPO operates on the prompt-conditional distribution geometry, DelTA operates on the gradient geometry of the policy update. Three different geometries, all yielding the same kind of dense per-token signal. The composition question: do all three identify the same &ldquo;decision tokens&rdquo;? If they converge, the discriminator view is robust; if they diverge, you have a real taxonomy to write about. For the LIFR experiments section: run all three on the same 100 reasoning trajectories and report the pairwise overlap of which tokens each method up-weights. That is a Figure-2-quality experiment.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.06241">Rethinking RL for LLM Reasoning: It&rsquo;s Sparse Policy Selection, Not Capability Learning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 7, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The contrarian claim you need to engage with before committing the LIFR draft&rsquo;s framing. The authors argue that RL&rsquo;s observed gains on reasoning benchmarks are not capability learning at all &mdash; they are a sparse, predictable <em>correction</em> concentrated at high-entropy decision points where the model is uncertain which branch to take. The model&rsquo;s base capabilities are entirely fixed by SFT; RL just routes the model toward branches it already could have taken. They demonstrate this with &ldquo;ReasonMaxxer,&rdquo; a minimal RL-free baseline that applies a contrastive loss <em>only</em> at entropy-gated decision points and matches or beats GRPO on several benchmarks. Why this matters for the LIFR draft: it is the strongest contrarian position to the &ldquo;token-level credit assignment matters&rdquo; story you have been building. If they are right, then the discriminator view is identifying the same decision points that any entropy-gated method would identify, and the &ldquo;mechanism&rdquo; (DelTA vs GCPO vs EP-GRPO) is incidental. The LIFR draft needs to address this directly: <em>is the discriminator view doing something more than entropy-gated decision-point identification, or is it doing the same thing through a different lens?</em> Two empirical tests would resolve this. (a) Compute the entropy of the model at each token position, and check whether the top-decile entropy tokens are the same as the top-decile GCPO-advantage tokens. If they overlap heavily, the contrarian claim is hard to refute. (b) Run a controlled comparison where entropy-gated supervision and GCPO are given the same compute budget; if GCPO wins, the discriminator view contributes information beyond entropy. Add both to the experimental-protocol backlog. Saturday-mood note: this is exactly the kind of paper a PhD student should <em>actively look for</em> &mdash; the one that threatens to falsify the framing you have been building. Engage with it now; do not bury it.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-advice">Advice</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/May/28/sqlite-agents-md/">sqlite AGENTS.md &mdash; Simon Willison</a></div>
+      <div class="card-meta">
+        <span>simonwillison.net &middot; May 28, 2026</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        Saturday lightness. Willison notes that the SQLite project added an AGENTS.md file with the explicit clause <em>&ldquo;SQLite does not accept agentic code. However the project will accept agentic bug reports that include a reproducible test case.&rdquo;</em> A surprisingly elegant piece of policy design: the project keeps the upside of agent-generated bug reproductions (which are checkable artifacts &mdash; a verifier signal, in your vocabulary) while explicitly refusing agent-generated patches (which would require trust in the agent&rsquo;s reasoning chain). It is the formal-methods stance applied to open-source policy. Worth a margin note for the dissertation&rsquo;s &ldquo;Why now&rdquo; section: the cultural infrastructure for distinguishing &ldquo;verifier-checked agent output&rdquo; from &ldquo;unverified agent reasoning&rdquo; is starting to crystallize in practice, not just in research papers. The SQLite policy is the field-level instantiation of the same principle the Lean/Erd&#x151;s paper operationalizes at the methodology level.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2602.05717">Anchored Policy Optimization: Mitigating Exploration Collapse via Support-Constrained Rectification</a>
+        <span class="bookmark-time">~10 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2604.14140">LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning (Multi-Day carry, Day 27)</a>
+        <span class="bookmark-time">~8 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2602.04265">T2T: Boosting LLM Reasoning via Human-Inspired Reward Shaping (Thickening-to-Thinning)</a>
+        <span class="bookmark-time">~6 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Anchored PO is still parked &mdash; it has now sat in the bookmark slot for a week and you should either schedule it for Monday explicitly or drop it from the rotation. The honest move is to schedule it: support-constrained rectification is the distinct exploration-controller mechanism in the SAGE/AEM/Anchored-PO trio and the LIFR draft owes the comparison. <em>LongCoT</em> rolls to Day 27 of carry &mdash; tagging MULTI-DAY again. Put it on the calendar for next week or formally close it. The new add is <em>T2T</em>: human-inspired reward shaping with a thickening-on-failure / thinning-on-success dual phase. Conceptually adjacent to GCPO (both ask &ldquo;where should the gradient signal be denser&rdquo;) but operates at the trajectory-length level rather than the token level. Useful counterpoint for the discriminator-view unification section.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.latent.space/p/unsupervised-learning-2026">Latent Space &times; Unsupervised Learning &mdash; AIE Europe Debrief + Agent Labs Thesis (2026)</a></div>
+      <div class="card-meta">
+        <span>latent.space &middot; May 2026</span><span class="dot">&middot;</span><span>~70 min</span>
+      </div>
+      <div class="card-body">
+        Fresh add for the weekend. Covers synthetic rubrics, &ldquo;Doctor GRPO,&rdquo; and multi-turn RL &mdash; the practical-applications view of exactly the credit-assignment debate today&rsquo;s deep dive sits inside. The interesting angle for you: the hosts argue RL is becoming much more domain-specific and multi-step than the headline papers suggest, which is the field-level version of the segment-level / tactic-level granularity story. Good walking or coffee-shop audio. The Dwarkesh/Jang carry from earlier this week gets dropped now &mdash; five-day carry was the rule and today is day six.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.interconnects.ai/podcast">Interconnects Podcast &mdash; Nathan Lambert latest episodes</a></div>
+      <div class="card-meta">
+        <span>interconnects.ai &middot; current backlog</span><span class="dot">&middot;</span><span>~45&ndash;60 min ea.</span>
+      </div>
+      <div class="card-body">
+        Background carry. Lambert&rsquo;s field-level reflection cadence pairs naturally with the Latent Space crossover above &mdash; both are taking the macro view this week, both are useful counterweight to the per-paper firehose. Pick whichever you have time for; do not feel obligated to do both.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Willison &mdash; sqlite/AGENTS.md (3 min, coffee)</li>
+          <li>Rethinking RL (Sparse Policy Selection) &mdash; abstract + ReasonMaxxer paragraph; engage the contrarian framing</li>
+          <li>EP-GRPO &mdash; the entropy-progress alignment definition and the olympiad-subset number</li>
+          <li>Segment-Level Lean &mdash; the segment definition and the Mathlib-extraction protocol</li>
+          <li>GCPO abstract + Figure 1; save methodology and per-token visualization for laptop</li>
+          <li>Latent Space crossover &mdash; weekend walk or gym</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>GCPO &sect;3 (method) &mdash; positive-vs-negative prompt construction; sketch the Lean-setting analogue (swap-goal-with-similar-distinct-goal) into the LIFR draft</li>
+          <li>GCPO &sect;5 (per-token visualization) &mdash; this is your Figure 1 for the LIFR draft; capture the heatmap-vs-uniform-GRPO comparison</li>
+          <li>LIFR draft &mdash; write the &ldquo;discriminator view as common abstraction&rdquo; section; DelTA (gradient geometry), GCPO (prompt-conditional geometry), EP-GRPO (information-flow geometry) as three instantiations of the same abstraction</li>
+          <li>Backlog add (highest leverage): <em>pairwise-overlap experiment &mdash; run DelTA, GCPO, EP-GRPO on the same 100 reasoning trajectories; report which tokens each method up-weights; if overlap is &gt;0.7 the discriminator view is robust, if &lt;0.4 you have a taxonomy to write about</em></li>
+          <li>Backlog add: <em>entropy-vs-GCPO overlap experiment &mdash; tests the Sparse Policy Selection contrarian claim; if high-entropy tokens = high-GCPO-advantage tokens, the discriminator view is doing the same thing as entropy gating through a different lens</em></li>
+          <li>LIFR draft &mdash; add the Tsoukalas tactic-budget-exhaustion finding (yesterday&rsquo;s deep dive) and the segment-level supervision result (today) as the formal-methods anchor for the &ldquo;granularity should match decision-making&rdquo; thesis</li>
+          <li>Margin note: <em>&ldquo;Token-level credit assignment is teaching the model to distinguish guessing from knowing.&rdquo;</em> (P&oacute;lya quote frame &mdash; use as section opener)</li>
+          <li>Schedule decision: Anchored PO &mdash; either commit to reading it Monday or drop it; one-week-parked is the soft cutoff</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 47</strong> &middot; 5 reading items + 3 bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>three discriminator-view papers in 8 days is now a thread, not a coincidence.</em> DelTA reweights tokens by their position in a learned discriminator&rsquo;s positive/negative centroid geometry; GCPO (today&rsquo;s deep dive) reweights tokens by their sensitivity to a prompt-level contrastive perturbation; EP-GRPO (today&rsquo;s promoted read) reweights tokens by the alignment of the model&rsquo;s entropy-progress trajectory. Three different geometries &mdash; gradient, prompt-conditional, information-flow &mdash; converging on the same abstraction: <em>which tokens are decision points</em>. The LIFR draft can be reframed as the unification paper for these three mechanisms, with the segment-level Lean theorem-proving result (today&rsquo;s quick read) as the formal-methods anchor showing that the &ldquo;granularity should match decision-making&rdquo; principle ports across domains. The contrarian read of the week &mdash; &ldquo;Rethinking RL: Sparse Policy Selection&rdquo; &mdash; argues this is all just entropy-gated decision-point identification through different lenses, and the LIFR draft needs to address that head-on with the pairwise-overlap experiment on the experimental-protocol backlog. Willison&rsquo;s SQLite/AGENTS.md note is the field-level reflection: the cultural infrastructure for distinguishing &ldquo;verifier-checked agent output&rdquo; from &ldquo;unverified agent reasoning&rdquo; is finally crystallizing in practice.</p>
+    <p style="margin-top: 6px;">LIFR-draft action: write the &ldquo;discriminator view as common abstraction&rdquo; section today; queue the pairwise-overlap and entropy-overlap experiments for the experimental-protocol backlog; schedule or drop Anchored PO by Monday.</p>
+  </footer>
+</body>
+</html>
