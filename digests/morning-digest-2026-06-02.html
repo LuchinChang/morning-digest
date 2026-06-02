@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; June 2, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --tag-multi: #b45309;
+      --tag-multi-bg: #fef3c7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --tag-multi: #fbbf24;
+        --tag-multi-bg: #2e1d06;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card.multi {
+      border-left: 4px solid var(--tag-multi);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+    .tag-multi    { color: var(--tag-multi);   background: var(--tag-multi-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-multi-bg);
+      border: 1px solid var(--tag-multi);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-multi);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 48</div>
+    <h1>Tuesday, June 2, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;The art of doing mathematics consists in finding that special case which contains all the germs of generality.&rdquo;</p>
+    <cite>&mdash; David Hilbert. Tuesday reframing: the LIFR draft you started building Saturday &mdash; &ldquo;discriminator view as common abstraction&rdquo; &mdash; is exactly Hilbert&rsquo;s &ldquo;special case which contains all the germs of generality.&rdquo; Today&rsquo;s deep dive (Anchored PO, finally off the bookmark shelf after a full week of being parked) and today&rsquo;s second axis &mdash; <em>process supervision via verifiable Lean signals</em> in GRPO-VPS &mdash; both sit in the same generalization. Hold the frame as you read: the question is never &ldquo;is this paper&rsquo;s mechanism novel?&rdquo; but &ldquo;does this paper&rsquo;s mechanism instantiate the abstraction the LIFR draft is building, and if so, where on the geometry-of-credit-assignment map does it land?&rdquo;</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; <strong>Anchored Policy Optimization (PROMOTED &mdash; finally).</strong> Parked one week. Saturday&rsquo;s digest said &ldquo;Monday or drop&rdquo;; Tuesday is the soft-deadline grace day. Today it earns the slot &mdash; support-constrained rectification is the third exploration-controller in the SAGE/AEM trio and the LIFR draft owes the comparison.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>GRPO-VPS &mdash; Verifiable Process Supervision</strong>. Lean-elaboration-style binary signals as a process-reward source for GRPO. The natural counterpart on the formal-methods axis to the discriminator-view trio &mdash; here the &ldquo;discriminator&rdquo; is the verifier itself.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>CM2: Checklist Rewards for Multi-Turn Tool Use</strong>. Dense criteria, sparse assignment &mdash; the AGENTS analogue of segment-level supervision. Reads at the trajectory level rather than the token level.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick skim &middot; <strong>Willison &mdash; &ldquo;Hackers Simply Asked Meta AI&rdquo;</strong>. Field-level reminder of why verifiable rewards matter culturally as well as methodologically.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>Willison May 2026 Newsletter</strong>. Month-in-review &mdash; treat as orientation for the new month rather than a deep read.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; T2T (carry), LongCoT (Day 27 carry), and a new K2V bump.</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing from Saturday.</strong> Day 47&rsquo;s digest committed to <em>&ldquo;Anchored PO &mdash; schedule it for Monday or drop it.&rdquo;</em> Monday was a no-digest day (gap between May 30 and June 2 is two business days, one of them a public holiday). Tuesday is the honest grace day on that commitment, and today it ships. The LIFR draft&rsquo;s &ldquo;discriminator view as common abstraction&rdquo; section needs the exploration-control axis fleshed out before the unification framing holds &mdash; SAGE controls exploration by reweighting samples, AEM by modulating entropy, Anchored PO by constraining to a learned support. Three mechanisms, three geometric instantiations, same abstraction. Today is the day to commit that comparison to draft.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2602.05717">Anchored Policy Optimization: Mitigating Exploration Collapse via Support-Constrained Rectification</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Feb 11, 2026 &middot; Promoted from bookmarks</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Off the bookmark shelf at last. The paper&rsquo;s problem statement: RLVR with group-relative advantages (GRPO and descendants) reliably suffers from <em>exploration collapse</em> &mdash; after a few hundred steps of training, the policy concentrates on a narrow region of behavior space, group-relative variance crashes, and the gradient signal degenerates into noise. Their diagnosis is that the collapse mechanism is not entropy reduction per se (entropy stays moderate); it is <em>support contraction</em> &mdash; the policy stops generating samples from regions it was once willing to explore, even when those regions remain on-distribution. The mechanism, &ldquo;Anchored PO,&rdquo; introduces a learned <em>anchor distribution</em> &mdash; a frozen snapshot of the policy taken at a configurable point in early training, after the policy has acquired competence but before collapse begins &mdash; and adds a support-constrained rectification term to the gradient update that penalizes any move that pushes probability mass <em>away</em> from the anchor&rsquo;s support, while still allowing the policy to <em>reweight</em> within the anchor&rsquo;s support. The result is that exploration collapse is mitigated without sacrificing the convergence of GRPO. <em>Three things to take from a careful reading.</em> <em>(1) The mechanism axis for the LIFR draft.</em> Anchored PO is the third exploration-control mechanism in the SAGE / AEM / Anchored-PO trio, and it operates at a distinct geometric level. SAGE controls exploration by reweighting <em>samples</em> within a batch (sample-space geometry). AEM controls exploration by modulating the policy&rsquo;s <em>entropy</em> at decision points (output-distribution geometry). Anchored PO controls exploration by constraining the policy&rsquo;s <em>support</em> via a learned anchor (parameter-space geometry, indirectly). Three mechanisms, three geometric instantiations &mdash; the structural symmetry with the DelTA / GCPO / EP-GRPO discriminator-view trio is striking and the LIFR draft can present these as two parallel taxonomies (credit-assignment geometry and exploration-control geometry) both unified by &ldquo;the right unit of intervention should match the right unit of decision-making.&rdquo; <em>(2) The choice of anchor.</em> The paper is honest that the anchor-selection step is the empirically tricky part: too early and the anchor encodes incompetent behavior; too late and the anchor is already in the collapse regime. They sweep anchor-timing across MATH and AIME-2024 and report that the &ldquo;competence inflection point&rdquo; &mdash; the step at which group-relative variance is at its peak before it starts decaying &mdash; is the best empirical heuristic. The interesting transfer for formal-methods is that <em>the analogous anchor in a Lean-RLVR setting is the policy at the step where the agent first solves a non-trivial Mathlib lemma without backtracking</em>. Add this to the experimental-protocol backlog. <em>(3) The composition test with the discriminator view.</em> Anchored PO and GCPO are operating at orthogonal axes &mdash; one constrains exploration, the other reweights credit assignment &mdash; and there is no methodological obstacle to running them simultaneously. The paper does not test this, but the LIFR draft&rsquo;s &ldquo;unification claim&rdquo; is testable: <em>Anchored-PO + GCPO should compose multiplicatively if the two axes are truly independent, additively if they overlap, and sub-linearly if they interfere.</em> That is a Figure-3-quality experiment and the LIFR draft should sketch the experimental design today. <em>(4) The connection to the contrarian Sparse Policy Selection paper.</em> Sparse Policy Selection argues RL is &ldquo;policy selection over the base model&rsquo;s skill set, not capability learning.&rdquo; If that is true, then exploration collapse is just the inevitable consequence of selecting too aggressively &mdash; and Anchored PO is, by their lights, a regularizer that <em>slows the selection rate</em> rather than a mechanism that introduces new capability. Worth a paragraph in the LIFR draft&rsquo;s related-work section. Action items: <em>(i)</em> commit the &ldquo;two parallel taxonomies&rdquo; framing to the LIFR draft today; <em>(ii)</em> add the Anchored-PO + GCPO composition experiment to the protocol backlog as Figure 3; <em>(iii)</em> sketch the Lean-anchor-selection heuristic (first non-trivial Mathlib lemma without backtracking) into the formal-methods application section.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card formal">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.20659">GRPO-VPS: Enhancing Group Relative Policy Optimization with Verifiable Process Supervision for Effective Reasoning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Apr 30, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The formal-methods counterpart to today&rsquo;s discriminator-view thread. The paper&rsquo;s claim: GRPO eliminates the need for a critic model but suffers from <em>indiscriminate credit assignment for intermediate steps</em> &mdash; reasoning chains are scored only at the final answer, and the model gets no signal about which intermediate step caused the failure. Their mechanism, GRPO-VPS, replaces sample-level outcome scoring with <em>verifiable process supervision</em>: each intermediate reasoning step is checked against a procedural verifier (a constraint checker for math, a syntax/type checker for code, a Lean elaborator for theorem proving), and the per-step verification result is folded into the per-step advantage signal. They report up to 2.6-point accuracy gains and 13.7% length reductions on math benchmarks. The interesting structural point for the LIFR draft: GRPO-VPS is what the discriminator-view trio (DelTA / GCPO / EP-GRPO) looks like when the &ldquo;discriminator&rdquo; is replaced by an <em>external symbolic verifier</em> rather than a learned signal. The four mechanisms now form a cleaner taxonomy: <em>learned discriminator</em> (DelTA), <em>prompt-contrastive discriminator</em> (GCPO), <em>self-referential entropy discriminator</em> (EP-GRPO), and <em>external symbolic verifier</em> (GRPO-VPS). The LIFR draft&rsquo;s unification section should present these as four points on the &ldquo;source-of-the-credit-signal&rdquo; axis, with the formal-methods case (Lean elaborator as verifier) as the cleanest instantiation because the verifier is provably sound by construction.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2602.12268">CM2: Reinforcement Learning with Checklist Rewards for Multi-Turn and Multi-Step Agentic Tool Use</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Feb 20, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The AGENTS analogue of segment-level supervision. The problem: realistic agentic objectives (book a flight under constraints, debug a Python repo, draft a multi-step email thread) do not have a clean verifiable outcome signal &mdash; they are instead defined by a checklist of intended behaviors. CM2&rsquo;s mechanism: decompose each turn&rsquo;s objective into a fine-grained checklist of binary criteria with explicit evidence grounding (the model must point at the trace location that satisfies each criterion), score each criterion separately, and use the resulting dense-criterion vector as the reward signal. They train an 8B model on 8k examples and report +8 / +10 / +12 points over the SFT counterpart on three benchmarks (&tau;&sup2;-Bench, BFCL-V4, ToolSandbox). The interesting connection for the LIFR draft: CM2&rsquo;s checklist rewards are <em>sparse-assignment / dense-criteria</em>, the dual of GRPO-VPS&rsquo;s <em>dense-assignment / sparse-criteria</em>. Both are searching for the right granularity at which to inject feedback, but they make opposite design choices about where the granularity lives (in the assignment vs. in the criteria). For the AGENTS chapter of the dissertation, this is a clean pedagogical pair &mdash; same problem, dual solutions.
+      </div>
+      <div class="tags">
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/Jun/1/hackers-simply-asked-meta-ai/">Hackers Simply Asked Meta AI to Give Them Access to High-Profile Instagram Accounts. It Worked.</a></div>
+      <div class="card-meta">
+        <span>simonwillison.net &middot; Jun 1, 2026</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        Field-level reminder of why <em>verifiable</em> rewards are not just a methodological nicety. Willison&rsquo;s gloss on the Wired piece: hackers gained access to high-profile Instagram accounts by asking Meta AI in natural language to perform the requested action, and Meta AI&rsquo;s tool-use layer was not gated by a verifier that checked whether the action was authorized. The whole post is a four-paragraph reminder that the cultural distinction the SQLite/AGENTS.md note from last Saturday was operationalizing &mdash; &ldquo;verifier-checked agent output&rdquo; vs. &ldquo;unverified agent reasoning&rdquo; &mdash; is not a research-paper abstraction. The dissertation&rsquo;s &ldquo;Why Now&rdquo; section keeps getting cleaner: the practical infrastructure for distinguishing the two regimes is the field-level analogue of the methodological move RLVR is making at the training level.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/Jun/1/may-newsletter/">May 2026 Newsletter &mdash; Simon Willison</a></div>
+      <div class="card-meta">
+        <span>simonwillison.net &middot; Jun 1, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Month-in-review. Treat as orientation rather than deep read &mdash; the value here is the consolidated link list of what shipped in May 2026 across the major labs (Claude Opus 4.7 system-prompt diffs, DeepSeek V4 release, the Cursor-xAI deal, the sqlite/AGENTS.md note that closed last week&rsquo;s digest). Skim once for completeness; tag any unfamiliar names for follow-up. Useful for re-orienting at the start of a new month, especially given the no-digest gap from Sunday and Monday.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-advice">Advice</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2602.04265">T2T: Boosting LLM Reasoning via Human-Inspired Reward Shaping (Thickening-to-Thinning)</a>
+        <span class="bookmark-time">~6 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2604.14140">LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning (Multi-Day carry, Day 28)</a>
+        <span class="bookmark-time">~8 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.18261">Knowledge-to-Verification (K2V): Exploring RLVR for LLMs in Knowledge-Intensive Tasks</a>
+        <span class="bookmark-time">~7 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Tuesday triage. <em>T2T</em> rolls to its third day on the bookmark shelf &mdash; schedule it for Wednesday or it follows Anchored PO&rsquo;s path and becomes another &ldquo;parked one week&rdquo; lesson. <em>LongCoT</em> is now Day 28 of carry; the honest move is to either close it or commit a 30-minute reading session this weekend &mdash; it has been useful as a backlog signal but is no longer functioning as an active read. <em>K2V</em> is bumped back into rotation because the GRPO-VPS read this morning will likely surface knowledge-task gaps the K2V framework anticipates &mdash; promote it on Thursday or Friday.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.latent.space/p/unsupervised-learning-2026">Latent Space &times; Unsupervised Learning &mdash; AIE Europe Debrief + Agent Labs Thesis (continued)</a></div>
+      <div class="card-meta">
+        <span>latent.space &middot; multi-day carry, Day 3</span><span class="dot">&middot;</span><span>~70 min</span>
+      </div>
+      <div class="card-body">
+        Third day in the queue. If you only get through one podcast this week, this is the one &mdash; the swyx thesis that &ldquo;2026 is coding agents breaking containment to do everything else&rdquo; is the macro frame the dissertation&rsquo;s opening chapter needs. Today is the soft-deadline for finishing it; the alternative is dropping it from the rotation and accepting that the dissertation will need to build that frame from primary sources rather than this episode.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-multi">Multi-Day</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.interconnects.ai/podcast">Interconnects Podcast &mdash; Nathan Lambert latest episodes</a></div>
+      <div class="card-meta">
+        <span>interconnects.ai &middot; current backlog</span><span class="dot">&middot;</span><span>~45&ndash;60 min ea.</span>
+      </div>
+      <div class="card-body">
+        Background carry. Pair with the Latent Space episode if you have a long commute; otherwise the new May newsletter from Willison covers similar ground in less time. The Lambert backlog is healthy &mdash; do not feel obligated to clear it.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Willison &mdash; &ldquo;Hackers Asked Meta AI&rdquo; (3 min, coffee)</li>
+          <li>Willison &mdash; May newsletter; skim for unfamiliar names (4 min)</li>
+          <li>CM2 abstract + the +8 / +10 / +12 result table; save methodology for laptop</li>
+          <li>GRPO-VPS abstract + the verifier-as-discriminator framing line</li>
+          <li>Anchored PO abstract + the &ldquo;competence inflection point&rdquo; anchor-selection heuristic</li>
+          <li>Latent Space crossover &mdash; Tuesday commute; treat as today&rsquo;s soft-deadline finish</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>Anchored PO &sect;3 (method) &mdash; the support-constrained rectification term; verify the gradient derivation lines up with their Theorem 4.2</li>
+          <li>Anchored PO &sect;5 (anchor selection) &mdash; the &ldquo;competence inflection point&rdquo; heuristic; sketch the Lean-RLVR analogue (first non-trivial Mathlib lemma without backtracking) into LIFR draft</li>
+          <li>LIFR draft &mdash; commit the &ldquo;two parallel taxonomies&rdquo; framing: credit-assignment geometry (DelTA / GCPO / EP-GRPO / GRPO-VPS) and exploration-control geometry (SAGE / AEM / Anchored PO); these are the two axes of the unification</li>
+          <li>Backlog add (highest leverage): <em>Anchored-PO + GCPO composition experiment &mdash; if axes are independent, gains compose multiplicatively; if they overlap, additively; if they interfere, sub-linearly. This is Figure 3.</em></li>
+          <li>Backlog add: <em>verifier-as-discriminator taxonomy &mdash; place DelTA (learned), GCPO (prompt-contrastive), EP-GRPO (self-referential), GRPO-VPS (external symbolic) on a single &ldquo;source of credit signal&rdquo; axis; the LIFR draft&rsquo;s unification section now has four points instead of three.</em></li>
+          <li>LIFR draft &mdash; add the CM2 / GRPO-VPS dual (sparse-assignment-dense-criteria vs. dense-assignment-sparse-criteria) as the AGENTS chapter&rsquo;s pedagogical pair</li>
+          <li>Bookmark triage: schedule T2T for Wednesday; either close LongCoT or commit to a weekend session; promote K2V on Thursday or Friday</li>
+          <li>Margin note: <em>&ldquo;The right unit of intervention should match the right unit of decision-making.&rdquo;</em> (Hilbert-style germ-of-generality &mdash; use as the LIFR draft&rsquo;s thesis sentence)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 48</strong> &middot; 5 reading items + 3 bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the LIFR draft now has two parallel taxonomies</em>. The credit-assignment-geometry taxonomy &mdash; DelTA (learned discriminator, gradient geometry), GCPO (prompt-contrastive discriminator, prompt-conditional geometry), EP-GRPO (self-referential entropy discriminator, information-flow geometry), and now GRPO-VPS (external symbolic verifier as discriminator, verifier-space geometry) &mdash; has a clean fourth point on the &ldquo;source of credit signal&rdquo; axis, with the formal-methods case as the only provably-sound instantiation. The exploration-control-geometry taxonomy &mdash; SAGE (sample reweighting), AEM (entropy modulation), and today&rsquo;s deep dive Anchored PO (support-constrained rectification via a learned anchor) &mdash; gives the second axis. Two axes, four-by-three grid; the composition question (Anchored-PO + GCPO) is the experiment that tests whether the axes are truly independent. The AGENTS chapter gets its pedagogical pair from CM2 / GRPO-VPS: sparse-assignment-dense-criteria vs. dense-assignment-sparse-criteria, two duals of the same granularity problem. The Willison/Meta-AI note is the field-level reminder that this is not only methodology.</p>
+    <p style="margin-top: 6px;">LIFR-draft action: commit the two-axis taxonomy today; queue the Anchored-PO + GCPO composition experiment as Figure 3; schedule T2T for Wednesday and either close LongCoT or commit to a weekend session.</p>
+  </footer>
+</body>
+</html>
