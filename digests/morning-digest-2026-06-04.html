@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; June 4, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --tag-multi: #b45309;
+      --tag-multi-bg: #fef3c7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --tag-multi: #fbbf24;
+        --tag-multi-bg: #2e1d06;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card.multi {
+      border-left: 4px solid var(--tag-multi);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+    .tag-multi    { color: var(--tag-multi);   background: var(--tag-multi-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-multi-bg);
+      border: 1px solid var(--tag-multi);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-multi);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '&#x2192; ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 49</div>
+    <h1>Thursday, June 4, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;If you can&rsquo;t solve a problem, then there is an easier problem you can solve: find it.&rdquo;</p>
+    <cite>&mdash; George P&oacute;lya, <em>How to Solve It</em> (1945). Thursday reframing: today&rsquo;s deep dive (T2T &mdash; finally off the bookmark shelf, two days after Tuesday&rsquo;s &ldquo;Wednesday or drop&rdquo; commitment) is literally an algorithm for P&oacute;lya&rsquo;s heuristic operationalized as a reward schedule. <em>Thicken</em> on failure (explore an easier neighboring problem); <em>thin</em> on success (consolidate the path back to the original). The framing the LIFR draft has been circling for a week &mdash; <em>the right unit of intervention should match the right unit of decision-making</em> &mdash; gets a clean third axis today: <em>the right reward shape should match the current learning regime</em>. Hold P&oacute;lya as you read T2T: the question is whether the thickening-to-thinning mechanism is a phase-transition along the same exploration-control axis as SAGE / AEM / Anchored PO, or whether it is a strictly orthogonal &ldquo;reward-schedule&rdquo; axis that the unification needs to admit as a fourth dimension.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; <strong>T2T &mdash; Thickening-to-Thinning (PROMOTED &mdash; finally).</strong> Parked five days. Tuesday&rsquo;s digest said &ldquo;Wednesday or drop&rdquo;; Wednesday was a no-digest day. Thursday is the honest grace day on the commitment. The reward-schedule axis the LIFR draft has been missing.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>PROGRS &mdash; Outcome-Conditioned Process Rewards</strong>. PRMs centered per-prompt to remove systematic bias while preserving rank information &mdash; the natural extension of Tuesday&rsquo;s GRPO-VPS thread when the verifier is a learned PRM rather than a symbolic oracle.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>CAPO &mdash; Calibration-Aware PO</strong>. New point on the discriminator-view taxonomy: the &ldquo;discriminator&rdquo; is replaced by a calibration-aware AUC surrogate. Theoretically consistent, admits regret bound.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick skim &middot; <strong>Willison &mdash; &ldquo;Uber Caps AI Tool Usage&rdquo;</strong>. Field-level signal on the economics of agentic-coding adoption. The cost-control turn is starting.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>Lambert &mdash; &ldquo;Open and Closed Models on Different Exponentials.&rdquo;</strong> The macro frame the LIFR draft&rsquo;s &ldquo;Why Now&rdquo; section keeps inheriting. Economic, not methodological.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; LongCoT (Day 30 carry &mdash; weekend or close), K2V (Friday slot), Re&sup2; (new add).</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing from Tuesday.</strong> Day 48&rsquo;s commitment was to commit the <em>two parallel taxonomies</em> framing to the LIFR draft &mdash; credit-assignment geometry (DelTA / GCPO / EP-GRPO / GRPO-VPS) and exploration-control geometry (SAGE / AEM / Anchored PO). Wednesday was a no-digest day; T2T was supposed to ship Wednesday and slipped to Thursday. Today&rsquo;s deep dive forces the question the LIFR draft has been avoiding: is T2T a third axis (reward-schedule geometry, dual-phase) or is it the same exploration-control axis with a temporal switch? If it is a third axis, the unification grid expands from 4&times;3 to 4&times;3&times;2 and the composition experiment doubles in size. The honest answer is to read T2T this morning and commit the answer to the LIFR draft today, before the bookmark shelf accumulates further.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2602.04265">T2T: Boosting LLM Reasoning via Human-Inspired Reward Shaping (Thickening-to-Thinning)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Feb 4, 2026 &middot; Promoted from bookmarks</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Off the bookmark shelf at last &mdash; five days late on Tuesday&rsquo;s commitment, but here. The paper&rsquo;s framing is unusual for the post-DeepSeek-R1 RLVR literature: rather than modifying the advantage estimator (DelTA, GCPO, EP-GRPO), the credit-assignment granularity (GRPO-VPS, segment-level), or the exploration controller (SAGE, AEM, Anchored PO), <em>T2T modifies the reward schedule itself as a function of learning regime</em>. The mechanism is two-phase. <em>Phase 1, &ldquo;thickening&rdquo;:</em> on incorrect attempts, the reward function actively incentivizes longer, more diverse reasoning chains &mdash; the model is rewarded not just for being closer to correct but for broadening the search space, generating novel solution paths, and exploring neighborhoods that would otherwise be pruned by the entropy collapse that GRPO induces. <em>Phase 2, &ldquo;thinning&rdquo;:</em> once the policy starts producing correct answers, the reward function flips to a length-penalty regime &mdash; the model is now rewarded for compressing the chain, removing redundancy, and converging on the minimal reasoning path. The transition between phases is per-problem rather than global: a problem the model has already mastered enters the thinning regime, while a problem the model is still struggling with stays in the thickening regime. The authors explicitly motivate the design from a P&oacute;lya-style observation about human mathematical learning &mdash; we explore broadly when stuck, consolidate aggressively when we have a path &mdash; and they argue (correctly, I think) that standard RLVR reward functions are <em>monolithic in regime</em> in a way that contradicts how human learning actually works. <em>Three things to take from a careful reading.</em> <em>(1) The reward-schedule axis is the missing dimension in the LIFR draft.</em> The two-taxonomy framing the draft committed to on Tuesday &mdash; credit-assignment geometry &times; exploration-control geometry &mdash; treats the reward shape as static and modifies only <em>where</em> and <em>how aggressively</em> the gradient pushes. T2T introduces a third orthogonal axis: <em>when</em> the reward changes shape as a function of the learning regime. On math benchmarks (MATH-500, AIME, AMC) the empirical gains over vanilla GRPO are non-trivial and the mechanism does not subsume any of the other axes &mdash; it composes with them. The LIFR draft&rsquo;s unification grid should expand to <em>credit-assignment &times; exploration-control &times; reward-schedule</em>, a 4&times;3&times;2 cube rather than a 4&times;3 grid. The composition-experiment backlog doubles: in addition to Anchored-PO + GCPO (axes 1 &amp; 2), we now need Anchored-PO + GCPO + T2T (all three axes) and a careful ablation showing that the three axes are genuinely independent. <em>(2) The phase-transition heuristic is the operational hinge.</em> The hardest empirical question in T2T is the same as in Anchored PO: <em>when</em> does the policy transition from thickening to thinning? The paper uses a per-problem rolling-accuracy heuristic (transition when the policy solves the problem correctly in &ge;3 of the last 5 attempts), but this is brittle &mdash; it conflates &ldquo;the policy has learned this problem&rdquo; with &ldquo;the policy got lucky three times.&rdquo; The interesting transfer for Lean-RLVR is that the analogous transition signal in formal theorem proving is much cleaner: <em>transition when the policy first proves the lemma without using sorry-elimination as a backup</em>. That gives a noise-free phase-transition signal that the math-only setting cannot get. Add this to the experimental-protocol backlog as the Lean-RLVR contribution to the T2T mechanism. <em>(3) The connection to the contrarian Sparse Policy Selection paper.</em> Sparse Policy Selection&rsquo;s framing &mdash; &ldquo;RL is policy selection over the base model&rsquo;s skill set, not capability learning&rdquo; &mdash; predicts that T2T should fail to extend the reasoning boundary in any interesting way: thickening explores within the support, thinning consolidates within the support, and the support is fixed at the base-model boundary. The T2T paper&rsquo;s gains on AIME/AMC are real but they are small enough that the Sparse Policy Selection critique is not refuted &mdash; T2T could be a regularizer that finds the highest-reward path within an existing skill set rather than a mechanism that pushes the skill set outward. The LIFR draft&rsquo;s related-work section should now have a paragraph on each of the three axes (DelTA / Anchored PO / T2T) showing how each one fits or fails the Sparse Policy Selection frame. Action items: <em>(i)</em> commit the &ldquo;reward-schedule&rdquo; axis to the LIFR draft today and expand the unification grid to three dimensions; <em>(ii)</em> add the Anchored-PO + GCPO + T2T composition experiment to the protocol backlog as Figure 4; <em>(iii)</em> sketch the Lean-phase-transition heuristic (first non-sorry-elimination proof of the lemma) into the formal-methods application section; <em>(iv)</em> add the three-axis paragraph to the related-work section comparing each axis against the Sparse Policy Selection prediction.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card formal">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.02341">PROGRS: LLM Reasoning with Process Rewards for Outcome-Guided Steps</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Apr 4, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The natural extension of Tuesday&rsquo;s GRPO-VPS thread. GRPO-VPS replaces the learned discriminator with an <em>external symbolic verifier</em> (Lean elaborator, type checker, constraint checker) and gets a provably sound credit signal at the cost of being restricted to formally-verifiable domains. PROGRS takes the opposite tack: it keeps the verifier <em>learned</em> &mdash; a frozen quantile-regression PRM paired with a multi-scale coherence evaluator &mdash; but fixes the well-known PRM pathology that locally fluent reasoning gets rewarded even when it ends in a wrong answer. The mechanism, &ldquo;outcome-conditioned centering,&rdquo; shifts PRM scores of incorrect trajectories to have zero mean within each prompt group, removing systematic bias while preserving informative step rankings. The centered process bonus drops directly into GRPO without auxiliary objectives or additional trainable components. Empirically it improves Pass@1 over outcome-only baselines across MATH-500 / AMC / AIME / MinervaMath / OlympiadBench, with stronger performance at fewer rollouts. The structural point for the LIFR draft&rsquo;s &ldquo;source-of-the-credit-signal&rdquo; axis: PROGRS is a fifth point on the taxonomy. We now have <em>learned single-pass discriminator</em> (DelTA), <em>prompt-contrastive discriminator</em> (GCPO), <em>self-referential entropy discriminator</em> (EP-GRPO), <em>external symbolic verifier</em> (GRPO-VPS), and now <em>outcome-centered learned PRM</em> (PROGRS). The Lean transfer is direct &mdash; an outcome-centered Lean-PRM over tactic steps inherits the same bias-correction without giving up the soundness of the elaborator check at the final step. Composition note: PROGRS&rsquo;s &ldquo;no auxiliary objectives&rdquo; design is exactly what makes it cleanly composable with both Anchored PO and T2T &mdash; one orthogonal axis each.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.12632">CAPO: Calibration-Aware Policy Optimization for Reasoning LLMs</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Apr 18, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Another point on the discriminator-view axis &mdash; this time the &ldquo;discriminator&rdquo; is a calibration-aware AUC surrogate. The paper&rsquo;s motivating observation is sharp: vanilla GRPO produces <em>overconfident incorrect responses</em>, where wrong answers yield <em>lower perplexity</em> than correct ones, and the relative calibration (AUC of correctness-vs-confidence) degrades monotonically with training. They prove the degradation is structural &mdash; GRPO&rsquo;s uncertainty-agnostic advantage estimation provably misaligns the gradient with calibration &mdash; and propose CAPO, which uses a logistic AUC surrogate loss (theoretically consistent, admits regret bound) plus a noise-masking mechanism for stable dynamics. The empirical gains are credible: +15% calibration improvement and matching-or-better accuracy than GRPO, plus a Pareto-optimal precision-coverage trade-off when the model is allowed to abstain. The structural point for the LIFR draft: CAPO is the first paper in the discriminator-view taxonomy to <em>explicitly target the calibration / accuracy joint objective</em> rather than treating calibration as a downstream concern. The Lean-RLVR connection is interesting &mdash; in formal theorem proving, calibration matters because the agent&rsquo;s confidence in a tactic gates whether to invoke a more expensive search subroutine. A CAPO-trained Lean agent should produce confidence scores that are actually usable as a search-budget controller. Add to the experimental-protocol backlog as a comparison point against the bare-GRPO baseline.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/Jun/3/uber-caps-usage/">Uber Caps Usage of AI Tools Like Claude Code to Manage Costs</a></div>
+      <div class="card-meta">
+        <span>simonwillison.net &middot; Jun 3, 2026</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        Field-level signal worth noting. Willison&rsquo;s gloss on the Uber announcement: a $1,500/month per-engineer cap on agentic-coding tool spending, applied selectively to Cursor and Claude Code but not to chat-completion tools. The cost-control turn is starting at the major employers, which means the economic frame for agentic coding is shifting from &ldquo;is it productive?&rdquo; to &ldquo;is it productive <em>at this token spend?</em>&rdquo; The structural connection to the dissertation&rsquo;s &ldquo;Why Now&rdquo; section: the verifier-checked-output distinction the sqlite/AGENTS.md note operationalized last week is also an <em>economic</em> distinction &mdash; verifier-checked agent runs amortize their token cost across fewer rollouts, while unverified runs require many rollouts and best-of-N selection. The cost-cap reality means the methodological argument for verifiers is no longer just about correctness; it is also about per-trajectory token efficiency. Worth a half-paragraph in the &ldquo;Why Now&rdquo; section.
+      </div>
+      <div class="tags">
+        <span class="tag tag-read">Read</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://www.interconnects.ai/p/open-and-closed-models-are-on-different">Open and Closed Models Are on Different Exponentials &mdash; Nathan Lambert</a></div>
+      <div class="card-meta">
+        <span>interconnects.ai &middot; Jun 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Lambert&rsquo;s macro frame for the open-vs-closed-model debate, which the dissertation&rsquo;s &ldquo;Why Now&rdquo; section keeps inheriting whether or not the LIFR draft acknowledges it explicitly. His argument: the open and closed model ecosystems are no longer competing on the same axis. Closed models (Claude Opus 4.8, GPT-5, etc.) compete on <em>margin per query</em> &mdash; the economic question is whether enterprise users will keep paying for the marginal capability gap. Open models (Gemma 4, DeepSeek V4, Kimi K2.6, GLM-5.1) compete on <em>capability per unit of self-hosting cost</em> &mdash; the economic question is whether the cost of running them locally drops faster than the capability gap closes. Two different exponentials, two different equilibria. The structural point for the LIFR draft: the RLVR methodology arguments only matter for the closed-model side of the equilibrium &mdash; the open side is downstream of base-model capability and is mostly driven by the pretraining recipe rather than RL fine-tuning. The formal-methods chapter should be explicit that the Lean-RLVR contribution is targeted at the closed-model side: it improves <em>per-query verifiability</em>, which is exactly the axis closed models compete on. That framing also makes the dissertation&rsquo;s claim about practical impact more honest &mdash; we are not arguing RLVR will displace pretraining; we are arguing RLVR is the dominant lever for the closed-model margin question.
+      </div>
+      <div class="tags">
+        <span class="tag tag-advice">Advice</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Saved for later this week</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2604.14140">LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning (Multi-Day carry, Day 30)</a>
+        <span class="bookmark-time">~8 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.18261">Knowledge-to-Verification (K2V): Exploring RLVR for LLMs in Knowledge-Intensive Tasks</a>
+        <span class="bookmark-time">~7 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2603.07197">Re&sup2;: Unlocking LLM Reasoning via Reinforcement Learning with Re-solving</a>
+        <span class="bookmark-time">~6 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Thursday triage. <em>LongCoT</em> hits Day 30 of carry &mdash; the honest move is to commit a 30-minute Saturday-or-Sunday reading slot or close it. The cost of keeping it on the shelf is that it is now functioning as a permanent reminder of an unmet commitment rather than a real read. <em>K2V</em> slots into Friday now that the GRPO-VPS / AgentV-RL pair has clarified the verifier-vs-knowledge axis. <em>Re&sup2;</em> is a fresh add: re-solving as a learned restart heuristic is the closest thing the literature has to a backtracking-controller axis, and it composes with both Anchored PO (which prevents collapse) and T2T (which adjusts reward shape). If the LIFR draft&rsquo;s three-axis unification holds, Re&sup2; should be a clean test case: where does &ldquo;restart on failure&rdquo; sit relative to thickening-on-failure? Same axis or different?
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.interconnects.ai/podcast">Interconnects Podcast &mdash; Nathan Lambert latest episodes (May open-artifacts roundup)</a></div>
+      <div class="card-meta">
+        <span>interconnects.ai &middot; current backlog</span><span class="dot">&middot;</span><span>~45&ndash;60 min</span>
+      </div>
+      <div class="card-body">
+        Promoted up the queue. Pair with the &ldquo;Open and Closed Models on Different Exponentials&rdquo; post above &mdash; the podcast version of Lambert&rsquo;s thesis is more granular about the Gemma 4 / DeepSeek V4 / Kimi K2.6 / GLM-5.1 release wave and the open-source surge dynamics. If you can only listen to one podcast this week, this is the new one to pick; the Latent Space &times; Unsupervised Learning crossover from the May digest is closed (drop from rotation per Tuesday&rsquo;s soft-deadline).
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; latest backlog</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; current backlog</span><span class="dot">&middot;</span><span>~90&ndash;120 min ea.</span>
+      </div>
+      <div class="card-body">
+        Background carry. The mid-May Terry-Tao-adjacent episode is still worth a listen if you have a long commute, and the new June episodes are worth a quick check on the archive page &mdash; Dwarkesh has been the highest-signal interviewer on the labs question for the past quarter. No obligation to clear the backlog; treat as opportunistic.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>Willison &mdash; Uber AI cap (3 min, coffee)</li>
+          <li>Lambert &mdash; &ldquo;Open and Closed Exponentials&rdquo; (4 min)</li>
+          <li>T2T abstract + the thickening-vs-thinning phase-transition figure</li>
+          <li>PROGRS abstract + the outcome-conditioned-centering definition</li>
+          <li>CAPO abstract + the overconfidence-degrades-AUC framing</li>
+          <li>Interconnects podcast &mdash; commute slot, pair with the Lambert post</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>T2T &sect;3 (method) &mdash; the per-problem rolling-accuracy phase-transition heuristic; verify the formal definition of the thickening reward bonus</li>
+          <li>T2T &sect;5 (experiments) &mdash; the MATH-500 / AIME / AMC ablation; check that the thickening gains are not driven entirely by length-budget effects</li>
+          <li>LIFR draft &mdash; <em>commit the third axis</em>: reward-schedule geometry. The unification grid is now 4&times;3&times;2 (credit-assignment &times; exploration-control &times; reward-schedule). Today&rsquo;s draft change.</li>
+          <li>Backlog add (highest leverage): <em>Anchored-PO + GCPO + T2T composition experiment &mdash; three axes, full factorial. If axes are independent, the 8-condition cube has clean multiplicative structure. Figure 4 in the LIFR draft.</em></li>
+          <li>Backlog add: <em>Lean-phase-transition heuristic &mdash; first non-sorry-elimination proof of the lemma as the transition signal. Cleaner than the rolling-accuracy signal T2T uses for math.</em></li>
+          <li>LIFR draft &mdash; add the three-paragraph Sparse Policy Selection rebuttal: one paragraph per axis (DelTA / Anchored PO / T2T) showing where each axis fits the &ldquo;policy selection&rdquo; frame and where it pushes the support outward</li>
+          <li>PROGRS &mdash; sketch the Lean-PRM analogue: outcome-centered PRM over tactic steps with the elaborator check as the final-step outcome signal; the two layers are complementary, not redundant</li>
+          <li>Bookmark triage: schedule LongCoT for Saturday-or-Sunday (or close); promote K2V to Friday; Re&sup2; goes to next week</li>
+          <li>Margin note: <em>P&oacute;lya operationalized as a reward schedule</em>. The thesis sentence the LIFR draft has been circling now has its third pillar.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 49</strong> &middot; 5 reading items + 3 bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the LIFR draft gains a third axis</em>. T2T operationalizes P&oacute;lya&rsquo;s &ldquo;solve an easier problem first&rdquo; heuristic as a per-problem dual-phase reward schedule &mdash; thicken on failure, thin on success &mdash; and the mechanism is orthogonal to both the credit-assignment-geometry axis (DelTA / GCPO / EP-GRPO / GRPO-VPS / PROGRS) and the exploration-control-geometry axis (SAGE / AEM / Anchored PO). The unification grid expands to 4&times;3&times;2; the composition experiment doubles in size; the Lean-phase-transition heuristic (first non-sorry-elimination proof of the lemma) gives a noise-free signal that the math-only setting cannot match. PROGRS extends the discriminator taxonomy to five points (the &ldquo;outcome-centered learned PRM&rdquo; is a methodologically distinct fifth row) and gives a clean Lean-transfer: an outcome-centered Lean-PRM over tactic steps composes with the elaborator&rsquo;s final-step soundness check. CAPO adds a calibration-aware-AUC point to the same taxonomy and gives the Lean agent a usable confidence signal for search-budget control. Willison&rsquo;s Uber-cap note and Lambert&rsquo;s open-vs-closed exponentials post are the &ldquo;Why Now&rdquo; backdrop: the verifier-checked-output distinction is also an economic distinction, and the closed-model margin question is exactly the axis RLVR targets.</p>
+    <p style="margin-top: 6px;">LIFR-draft action: commit the third (reward-schedule) axis today; queue the three-axis composition experiment as Figure 4; sketch the Lean-phase-transition heuristic; close LongCoT by the weekend or commit a 30-minute slot; promote K2V to Friday; Re&sup2; goes to next week.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; June 6, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --tag-multi: #b45309;
+      --tag-multi-bg: #fef3c7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --tag-multi: #fbbf24;
+        --tag-multi-bg: #2e1d06;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card.multi {
+      border-left: 4px solid var(--tag-multi);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+    .tag-multi    { color: var(--tag-multi);   background: var(--tag-multi-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-multi-bg);
+      border: 1px solid var(--tag-multi);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-multi);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '\2192 ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 50</div>
+    <h1>Saturday, June 6, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;The unknown thing to be known appeared to me as some stretch of earth or hard marl, resisting penetration &hellip; the sea advances insensibly in silence, nothing seems to happen, nothing moves, the water is so far off you hardly hear it &hellip; yet it finally surrounds the resistant substance.&rdquo;</p>
+    <cite>&mdash; Alexander Grothendieck, <em>R&eacute;coltes et Semailles</em> (1986), on &ldquo;the rising sea.&rdquo; Saturday framing: the weekend is the rising-sea day &mdash; not the day for a forced theorem but for letting the level rise. Today&rsquo;s deep dive (Re&sup2;, finally off the shelf) is the honest test of whether the LIFR draft&rsquo;s three-axis grid is a real decomposition or a story I&rsquo;ve been telling myself. Re&sup2;&rsquo;s &ldquo;re-solve on failure&rdquo; is the cleanest adversarial case I have: if it collapses into the thickening-on-failure axis (T2T), the third axis is solid; if it needs its own dimension, the grid is already incomplete two days after I committed it. Let the water decide.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; <strong>Re&sup2; &mdash; Reasoning via RL with Re-solving (PROMOTED).</strong> Thursday parked it for &ldquo;next week.&rdquo; The weekend is the right slot for the adversarial test: does restart-on-failure sit on the reward-schedule axis (T2T) or does it open a fourth?</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>Policy-Conditioned Counterfactual Credit (CVT-RL)</strong>. Fresh (Jun 5). Counterfactual contribution via controlled deletion/substitution &mdash; a sixth point on the credit-assignment taxonomy, and the first one with an intervention-based signal.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>Distributional DAgger &mdash; RL from Rich Feedback</strong>. Fresh (Jun 5). Replaces the one-bit reward with execution traces and expert corrections; forward-cross-entropy objective that back-propagates future disagreement.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>LeanMarathon &mdash; Long-Horizon Lean Autoformalization</strong>. Fresh (Jun 5). The formal-methods anchor: reliability over whole-result formalization, not single lemmas. The long-horizon benchmark the Lean-RLVR chapter has been missing.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; <strong>K2V &mdash; Knowledge-to-Verification (PROMOTED)</strong>. Friday&rsquo;s slot, slipped a day (no Friday digest). RLVR in knowledge-intensive domains where the verifier is not a symbolic oracle.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; LongCoT (Day 30 carry &mdash; weekend decision day). Commit a 30-min Sunday slot or close.</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing from Thursday.</strong> Day 49 committed the <em>third axis</em> to the LIFR draft &mdash; reward-schedule geometry (T2T&rsquo;s thicken-on-failure / thin-on-success) as orthogonal to the credit-assignment and exploration-control axes &mdash; and queued the Anchored-PO + GCPO + T2T composition experiment as Figure 4, plus the Lean-phase-transition heuristic. Friday was a no-digest day, so two Thursday commitments roll into today: Re&sup2; (parked for &ldquo;next week&rdquo;) and K2V (slated for Friday). Re&sup2; is the deliberate stress-test of the new axis. If &ldquo;re-solve on failure&rdquo; is the same mechanism as &ldquo;thicken on failure&rdquo; viewed through a different lens, the third axis survives intact; if Re&sup2; needs an independent backtracking/restart dimension, the grid expands again and the composition-experiment backlog grows a fourth factor. Read Re&sup2; this morning and write the verdict into the draft before the weekend ends.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2603.07197">Re&sup2;: Unlocking LLM Reasoning via Reinforcement Learning with Re-solving</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Mar 7, 2026 &middot; Promoted from bookmarks</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Off the shelf at last &mdash; Thursday&rsquo;s digest sent it to &ldquo;next week,&rdquo; but the weekend is the better slot precisely because this is the deep dive that earns its 25 minutes by testing the LIFR draft rather than just adding a row to it. Re&sup2;&rsquo;s core idea is simple and, for that reason, dangerous to the three-axis story: when the policy fails a problem, instead of (or in addition to) reshaping the advantage or the exploration temperature, Re&sup2; <em>restarts the solve</em> &mdash; it conditions a fresh attempt on a compressed trace of the failed one and rewards the policy for re-deriving a correct path from that warm-but-not-anchored state. The mechanism is a learned restart heuristic: the model learns <em>when</em> a partial trajectory is unsalvageable and a re-solve is cheaper than continuing, and it learns <em>what</em> to carry across the restart boundary. <em>The reason this is the right adversarial read for today.</em> Thursday&rsquo;s draft change committed to a third axis &mdash; reward-schedule geometry &mdash; whose canonical instance is T2T&rsquo;s thicken-on-failure / thin-on-success schedule. Re&sup2; also keys off failure, and the obvious lazy reading is &ldquo;re-solve-on-failure is just thicken-on-failure with a hard reset.&rdquo; A careful reading says that is wrong, and the difference is the whole point. T2T modifies the <em>shape of the reward within a single trajectory&rsquo;s lifetime</em> &mdash; it is still one continuous rollout, scored differently depending on regime. Re&sup2; modifies the <em>trajectory structure itself</em> &mdash; it segments a rollout into pre-restart and post-restart sub-trajectories and changes the credit boundary between them. That is not a reward-schedule operation; it is a <em>trajectory-topology</em> operation. <em>Three things to take from the read.</em> <em>(1) Re&sup2; is most likely a fourth axis, not a point on the third.</em> The cleanest way to see it: T2T composes with a fixed rollout structure (you can thicken-then-thin any single trajectory), whereas Re&sup2; changes what counts as &ldquo;a trajectory&rdquo; before any reward schedule is applied. They sit at different levels of the pipeline &mdash; restart is upstream of reward shaping. If that holds under scrutiny, the LIFR grid is now <em>credit-assignment &times; exploration-control &times; reward-schedule &times; trajectory-topology</em>, and the honest move is to admit the fourth factor two days after committing the third rather than forcing Re&sup2; into a box it doesn&rsquo;t fit. The composition backlog grows, but the decomposition is cleaner. <em>(2) The Lean transfer is unusually direct &mdash; cleaner than T2T&rsquo;s.</em> In formal theorem proving, &ldquo;re-solve on failure&rdquo; is already a native operation: when a tactic search dead-ends, the prover backtracks to the last open goal and re-attempts with a different tactic. Re&sup2;&rsquo;s learned restart heuristic is, in the Lean setting, a <em>learned backtracking controller</em> &mdash; learn which subgoal to backtrack to and what proof-state context to carry across. The elaborator gives a noise-free failure signal (the tactic either closes the goal or it doesn&rsquo;t), so the &ldquo;is this trajectory unsalvageable?&rdquo; classifier that Re&sup2; must learn from noisy math rewards is <em>handed to the Lean agent for free</em>. This is a stronger formal-methods hook than the T2T phase-transition heuristic from Thursday, and it belongs in the same section of the draft. <em>(3) The Sparse Policy Selection test.</em> Re&sup2;&rsquo;s gains, like T2T&rsquo;s, are real but bounded, which keeps the &ldquo;RL is selection within the base model&rsquo;s skill set&rdquo; critique alive: a restart that re-derives a correct path is, arguably, still finding a path that was already in the support, just reached by a different route. The interesting empirical question &mdash; and the one the LIFR draft should pose explicitly &mdash; is whether re-solving ever reaches a correct answer the model <em>cannot</em> reach in a single uninterrupted rollout. If yes, that is the first axis in the grid with a plausible claim to pushing the support boundary outward, and it deserves a dedicated probe. <em>Action items:</em> (i) write the verdict into the LIFR draft today &mdash; Re&sup2; as a fourth (trajectory-topology) axis, with the level-of-the-pipeline argument for why it is not a point on the reward-schedule axis; (ii) add the Lean learned-backtracking-controller note to the formal-methods application section as the cleanest of the three transfer hooks so far; (iii) add the &ldquo;does re-solving exceed single-rollout reach?&rdquo; probe to the experimental backlog as the one experiment that could falsify the Sparse Policy Selection frame.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2606.05263">Policy-Conditioned Counterfactual Credit for Verifiable RL of Long-Horizon Language Agents (CVT-RL)</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Jun 5, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Fresh, and a genuinely new point on the credit-assignment-geometry axis &mdash; the sixth, after DelTA, GCPO, EP-GRPO, GRPO-VPS, and PROGRS. The targets are the long-horizon-agent pathologies the draft has been circling: unsupported evidence chains, belief drift, and shortcut actions. The mechanism, CVT-RL, is the first on the taxonomy to use an <em>intervention-based</em> credit signal: instead of inferring a step&rsquo;s contribution from a learned discriminator, it estimates each step&rsquo;s <em>counterfactual contribution</em> by controlled interventions &mdash; deleting or semantically substituting a step and measuring the change in verifiable outcome &mdash; gated by an intervention-validity check so only well-formed counterfactuals count. This is methodologically distinct from the other five points: they all answer &ldquo;how good was this step?&rdquo; with a model; CVT-RL answers it with an experiment. The Lean transfer is appealing &mdash; deleting a tactic and re-running the elaborator is a <em>perfectly valid, noise-free counterfactual</em>, so the intervention-validity gate is trivially satisfied in the formal setting. Add as the sixth row, and flag it as the credit-assignment axis&rsquo;s natural pairing with Re&sup2;: counterfactual credit tells you which step to blame; re-solving tells you what to do about it.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2606.05152">Reinforcement Learning from Rich Feedback with Distributional DAgger</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Jun 5, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        Fresh, and it pushes on the assumption underneath the whole RLVR literature: the one-bit reward. The paper&rsquo;s framing is that sampling many responses and rewarding each with a single correct/incorrect bit throws away almost all of the signal available &mdash; execution traces, tool outputs, intermediate expert corrections. Their distributional variant of DAgger uses that richer feedback to produce a forward cross-entropy objective that does credit assignment by <em>propagating future expert-student disagreement back to earlier decisions</em>. The structural connection to the draft: this is a different answer to the same question PROGRS and CVT-RL ask &mdash; where does the dense signal come from? &mdash; but it sources the signal from <em>imitation against a richer target</em> rather than from a learned PRM or a counterfactual intervention. It is the closest thing in the recent wave to an honest hybrid of RL and supervised credit assignment, which makes it the natural baseline to position the verifier-checked methods against: when a symbolic verifier is available (Lean), do you still need the rich-feedback DAgger machinery, or does the elaborator subsume it? Worth a sentence in the related-work section as the imitation-flavored corner of the credit-signal taxonomy.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card formal">
+      <div class="card-title"><a href="https://arxiv.org/abs/2606.05400">LeanMarathon: Toward Reliable AI Co-Mathematicians through Long-Horizon Lean Autoformalization</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Jun 5, 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The fresh formal-methods anchor for today, and the benchmark the Lean-RLVR chapter has quietly been missing. Most theorem-proving evaluation is lemma-scale &mdash; prove this one statement &mdash; which is exactly the regime where single-rollout RLVR looks best and the hard problem (compounding error across a long formalization) never shows up. LeanMarathon reframes the target as <em>long-horizon, whole-result</em> autoformalization: translate and verify an entire mathematical result, where reliability is dominated by error accumulation across many dependent steps rather than the difficulty of any single one. That reframing matters for the dissertation in a specific way &mdash; it is the natural evaluation home for both Re&sup2;&rsquo;s learned backtracking and CVT-RL&rsquo;s counterfactual credit, because both are <em>long-horizon</em> mechanisms that a lemma-scale benchmark cannot distinguish from vanilla GRPO. If the Lean-RLVR contribution is going to claim it improves reliability rather than peak capability, LeanMarathon (or a benchmark like it) is where that claim has to be made or broken. Add to the experimental-protocol backlog as the long-horizon evaluation target; it pairs the formal-methods chapter&rsquo;s reliability argument with a benchmark that actually stresses it.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.18261">Knowledge-to-Verification (K2V): Exploring RLVR for LLMs in Knowledge-Intensive Domains</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 18, 2026 &middot; Promoted from bookmarks</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        Thursday slated this for Friday; the no-digest Friday slipped it to today, which is fine &mdash; it reads in three minutes and clarifies the one axis the formal-methods framing keeps eliding. K2V asks what RLVR does when the verifier is <em>not</em> a symbolic oracle: in knowledge-intensive domains, &ldquo;correct&rdquo; is a judgment about factual grounding, not a type-check, so the verifiable-reward signal has to be constructed rather than read off an elaborator. The value for the draft is as the <em>contrast class</em> for the Lean argument: it makes precise what the formal setting buys you (a free, sound, noise-free verifier) by showing exactly how much machinery K2V has to build to approximate that in a domain where no oracle exists. Read it as the boundary marker on the &ldquo;source-of-the-verifier&rdquo; axis &mdash; symbolic oracle (Lean) at one end, constructed knowledge-verifier (K2V) at the other &mdash; and use it to keep the dissertation honest about the scope of the Lean claim.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Weekend decision &amp; checkpoints</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2604.14140">LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning (Multi-Day carry &mdash; Day 30, decision day)</a>
+        <span class="bookmark-time">~12 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        Saturday is the weekend the Thursday digest pointed at: <em>commit a 30-minute Sunday slot for LongCoT, or close it.</em> The honest case for keeping it one more day is that LeanMarathon just made it relevant again &mdash; LongCoT is the math-side long-horizon benchmark, LeanMarathon the formal-side one, and the draft&rsquo;s reliability argument wants both as evidence that the long-horizon mechanisms (Re&sup2;, CVT-RL) actually buy reliability rather than peak accuracy. So: <em>do not close it &mdash; commit the Sunday slot</em>, and read LongCoT and LeanMarathon as a pair, the math and formal halves of the same &ldquo;does long-horizon RLVR improve reliability?&rdquo; question. If Sunday slips, close it Monday with no further grace. Two bookmarks cleared off the shelf today (Re&sup2; promoted to the deep dive, K2V to a quick read), so the shelf is shorter, not longer &mdash; the right direction.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; latest episodes (June backlog)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; current backlog</span><span class="dot">&middot;</span><span>~90&ndash;120 min ea.</span>
+      </div>
+      <div class="card-body">
+        Weekend-commute / long-walk slot. The May &ldquo;Eric Jang &mdash; Building AlphaGo From Scratch&rdquo; episode is still the highest-leverage listen on first-principles RL (search, self-play, learning-from-experience) and pairs directly with the Re&sup2; deep dive &mdash; re-solving is a single-agent echo of self-play&rsquo;s &ldquo;try again from a better-informed state.&rdquo; Check the archive for the early-June episodes too; Dwarkesh has been the highest-signal interviewer on the labs question all quarter. No obligation to clear the backlog &mdash; opportunistic.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.interconnects.ai/podcast">Interconnects Podcast &mdash; Nathan Lambert (post-Ai2 era)</a></div>
+      <div class="card-meta">
+        <span>interconnects.ai &middot; current backlog</span><span class="dot">&middot;</span><span>~45&ndash;60 min</span>
+      </div>
+      <div class="card-body">
+        Carry from Thursday. Worth a check this weekend given Lambert&rsquo;s departure from Ai2 (&ldquo;Farewell Ai2&rdquo;) &mdash; the post-Ai2 episodes are likely to be more candid about the open-vs-closed exponentials thesis than the institutional ones were. Background listen; pair with the open/closed-models post if you didn&rsquo;t finish it Thursday.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>CVT-RL abstract + the deletion/substitution counterfactual definition (4 min)</li>
+          <li>Distributional DAgger abstract + the &ldquo;one-bit reward wastes signal&rdquo; framing (4 min)</li>
+          <li>LeanMarathon abstract + the whole-result-vs-lemma reframing (4 min)</li>
+          <li>K2V abstract + the constructed-verifier contrast (3 min)</li>
+          <li>Re&sup2; abstract + the re-solving figure &mdash; prime the deep dive before laptop time</li>
+          <li>Dwarkesh / Eric Jang episode &mdash; weekend walk or commute</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>Re&sup2; &sect;method &mdash; the learned restart heuristic; verify whether the credit boundary at the restart is upstream or downstream of reward shaping (this is the fourth-axis question)</li>
+          <li>LIFR draft &mdash; <em>write the verdict today</em>: Re&sup2; as a fourth (trajectory-topology) axis, with the level-of-pipeline argument. The grid is now 4 axes if it holds.</li>
+          <li>Backlog add: <em>Lean learned-backtracking controller</em> &mdash; the cleanest formal transfer yet (elaborator gives the free unsalvageable-trajectory signal). Add to the formal-methods application section.</li>
+          <li>Backlog add: <em>&ldquo;does re-solving exceed single-rollout reach?&rdquo;</em> probe &mdash; the one experiment that could falsify the Sparse Policy Selection frame.</li>
+          <li>Draft &mdash; add CVT-RL as the sixth credit-assignment row (intervention-based, the first non-model signal); note the Re&sup2; pairing (blame vs. repair).</li>
+          <li>Draft &mdash; one sentence positioning Distributional DAgger as the imitation-flavored corner of the credit-signal taxonomy; pose the &ldquo;does Lean subsume rich-feedback DAgger?&rdquo; question.</li>
+          <li>Experimental protocol &mdash; adopt LeanMarathon as the long-horizon evaluation target; pair with LongCoT (Sunday) as the math/formal reliability pair.</li>
+          <li>Bookmark triage: LongCoT &rarr; commit Sunday 30-min slot (read with LeanMarathon); Monday hard close if it slips.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 50</strong> &middot; 5 reading items + 1 bookmark + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>does the three-axis grid survive its first adversarial test?</em> Re&sup2;&rsquo;s re-solving keys off failure like T2T&rsquo;s thickening, but it operates on trajectory <em>topology</em> (segmenting a rollout at a learned restart boundary) rather than reward <em>shape</em> &mdash; it sits upstream of reward shaping, which argues it is a fourth axis (credit-assignment &times; exploration-control &times; reward-schedule &times; trajectory-topology), not a point on the third. The weekend find is three fresh June-5 papers that thicken the credit-signal taxonomy: CVT-RL adds the first intervention-based credit signal (counterfactual deletion/substitution &mdash; trivially valid in Lean), Distributional DAgger adds the imitation-from-rich-feedback corner (the natural baseline for verifier-checked methods), and LeanMarathon supplies the long-horizon, whole-result formal benchmark the reliability argument has been missing. K2V (promoted) marks the far end of the source-of-the-verifier axis &mdash; constructed knowledge-verifier vs. Lean&rsquo;s free symbolic oracle.</p>
+    <p style="margin-top: 6px;">LIFR-draft action: write the Re&sup2; verdict (fourth axis, trajectory-topology) into the draft today; add CVT-RL as the sixth credit-assignment row; adopt LeanMarathon as the long-horizon evaluation target; sketch the Lean learned-backtracking controller; commit a Sunday 30-min slot for LongCoT (read with LeanMarathon) or hard-close Monday.</p>
+  </footer>
+</body>
+</html>

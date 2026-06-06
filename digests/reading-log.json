@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 48,
+    "dayCount": 50,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -4176,13 +4176,14 @@
       "source": "arXiv",
       "date": "2026-05-18",
       "tags": [
+        "PROMOTED",
         "RLVR",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 10,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-06-06",
+      "estimatedMinutes": 3,
+      "digestDay": 50
     },
     {
       "title": "LeanSearch v2: Global Premise Retrieval for Lean 4 Theorem Proving",
@@ -4913,13 +4914,15 @@
       "source": "arXiv",
       "date": "2026-05-14",
       "tags": [
-        "RLVR",
-        "READ"
+        "DEEP DIVE",
+        "PROMOTED",
+        "READ",
+        "RLVR"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 6,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-06-04",
+      "estimatedMinutes": 25,
+      "digestDay": 49
     },
     {
       "id": "2026-06-02-001",
@@ -4999,6 +5002,193 @@
       "assignedDate": "2026-06-02",
       "estimatedMinutes": 70,
       "digestDay": 48
+    },
+    {
+      "id": "2026-06-04-001",
+      "title": "PROGRS: LLM Reasoning with Process Rewards for Outcome-Guided Steps",
+      "url": "https://arxiv.org/abs/2604.02341",
+      "source": "arXiv",
+      "date": "2026-04-04",
+      "tags": [
+        "FORMAL METHODS",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-04",
+      "estimatedMinutes": 4,
+      "digestDay": 49
+    },
+    {
+      "id": "2026-06-04-002",
+      "title": "CAPO: Calibration-Aware Policy Optimization for Reasoning LLMs",
+      "url": "https://arxiv.org/abs/2604.12632",
+      "source": "arXiv",
+      "date": "2026-04-18",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-04",
+      "estimatedMinutes": 4,
+      "digestDay": 49
+    },
+    {
+      "id": "2026-06-04-003",
+      "title": "Uber Caps Usage of AI Tools Like Claude Code to Manage Costs",
+      "url": "https://simonwillison.net/2026/Jun/3/uber-caps-usage/",
+      "source": "Simon Willison",
+      "date": "2026-06-03",
+      "tags": [
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-04",
+      "estimatedMinutes": 3,
+      "digestDay": 49
+    },
+    {
+      "id": "2026-06-04-004",
+      "title": "Open and Closed Models Are on Different Exponentials",
+      "url": "https://www.interconnects.ai/p/open-and-closed-models-are-on-different",
+      "source": "Interconnects (Nathan Lambert)",
+      "date": "2026-06-01",
+      "tags": [
+        "READ",
+        "ADVICE"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-04",
+      "estimatedMinutes": 4,
+      "digestDay": 49
+    },
+    {
+      "id": "2026-06-04-005",
+      "title": "Re\u00b2: Unlocking LLM Reasoning via Reinforcement Learning with Re-solving",
+      "url": "https://arxiv.org/abs/2603.07197",
+      "source": "arXiv",
+      "date": "2026-03-07",
+      "tags": [
+        "DEEP DIVE",
+        "PROMOTED",
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-06",
+      "estimatedMinutes": 25,
+      "digestDay": 50
+    },
+    {
+      "id": "2026-06-04-006",
+      "title": "Interconnects Podcast \u2014 Nathan Lambert latest episodes (open-artifacts roundup)",
+      "url": "https://www.interconnects.ai/podcast",
+      "source": "Interconnects (Nathan Lambert)",
+      "date": "2026-06-04",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-04",
+      "estimatedMinutes": 60,
+      "digestDay": 49
+    },
+    {
+      "id": "2026-06-04-007",
+      "title": "Dwarkesh Podcast \u2014 latest backlog",
+      "url": "https://www.dwarkesh.com/podcast",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-06-04",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-04",
+      "estimatedMinutes": 90,
+      "digestDay": 49
+    },
+    {
+      "id": "2026-06-06-001",
+      "title": "Policy-Conditioned Counterfactual Credit for Verifiable RL of Long-Horizon Language Agents (CVT-RL)",
+      "url": "https://arxiv.org/abs/2606.05263",
+      "source": "arXiv",
+      "date": "2026-06-05",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-06",
+      "estimatedMinutes": 4,
+      "digestDay": 50
+    },
+    {
+      "id": "2026-06-06-002",
+      "title": "Reinforcement Learning from Rich Feedback with Distributional DAgger",
+      "url": "https://arxiv.org/abs/2606.05152",
+      "source": "arXiv",
+      "date": "2026-06-05",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-06",
+      "estimatedMinutes": 4,
+      "digestDay": 50
+    },
+    {
+      "id": "2026-06-06-003",
+      "title": "LeanMarathon: Toward Reliable AI Co-Mathematicians through Long-Horizon Lean Autoformalization",
+      "url": "https://arxiv.org/abs/2606.05400",
+      "source": "arXiv",
+      "date": "2026-06-05",
+      "tags": [
+        "FORMAL METHODS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-06",
+      "estimatedMinutes": 4,
+      "digestDay": 50
+    },
+    {
+      "id": "2026-06-06-004",
+      "title": "Dwarkesh Podcast \u2014 latest episodes (June backlog)",
+      "url": "https://www.dwarkesh.com/podcast",
+      "source": "Dwarkesh Podcast",
+      "date": "2026-06-06",
+      "tags": [
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-06",
+      "estimatedMinutes": 90,
+      "digestDay": 50
+    },
+    {
+      "id": "2026-06-06-005",
+      "title": "Interconnects Podcast \u2014 Nathan Lambert (post-Ai2 era)",
+      "url": "https://www.interconnects.ai/podcast",
+      "source": "Interconnects",
+      "date": "2026-06-06",
+      "tags": [
+        "LISTEN"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-06",
+      "estimatedMinutes": 50,
+      "digestDay": 50
     }
   ],
   "feeds": [
