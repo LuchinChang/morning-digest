@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; June 7, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --tag-multi: #b45309;
+      --tag-multi-bg: #fef3c7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --tag-multi: #fbbf24;
+        --tag-multi-bg: #2e1d06;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card.multi {
+      border-left: 4px solid var(--tag-multi);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+    .tag-multi    { color: var(--tag-multi);   background: var(--tag-multi-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-multi-bg);
+      border: 1px solid var(--tag-multi);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-multi);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '\2192 ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 51</div>
+    <h1>Sunday, June 7, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;If you cannot solve the proposed problem, try to solve first some related problem. Could you imagine a more accessible related problem?&rdquo;</p>
+    <cite>&mdash; George P&oacute;lya, <em>How to Solve It</em> (1945). Sunday framing: P&oacute;lya&rsquo;s heuristic is the human ancestor of everything the week converged on &mdash; decompose, attempt, backtrack to the more accessible subgoal. LongCoT and LeanMarathon exist because models are bad at exactly this over long horizons, and Re&sup2;&rsquo;s learned restart is P&oacute;lya&rsquo;s advice turned into a trainable controller. Today is the committed slot: read the math half of the reliability pair and close a 35-day carry.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; <strong>LongCoT &mdash; Benchmarking Long-Horizon Chain-of-Thought Reasoning (PROMOTED).</strong> The Sunday slot Saturday committed to. Read it as the math half of the reliability pair with LeanMarathon &mdash; and close the Day-30 carry for good.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>RLV&epsilon;R &mdash; RL with Verifiable <em>Noisy</em> Rewards</strong>. The verifier is almost never clean. Turns yesterday&rsquo;s source-of-the-verifier axis into a quantitative noise spectrum, with Lean at &epsilon;&nbsp;=&nbsp;0.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Quick read &middot; <strong>Simon Willison &mdash; Python in a sandbox with MicroPython + WASM</strong>. Fresh (Jun 6). The practical infrastructure for safe agent code execution &mdash; the tooling side of verified rollouts.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>Charity Majors &mdash; AI enthusiasts race against time, skeptics race against entropy</strong>. The Sunday research-philosophy slot: both camps are right, and the missing piece is a feedback loop between them.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; <strong>Are complicated loss functions necessary? (PROMOTED)</strong>. The 34-day bookmark, skimmed for its thesis only: the null hypothesis every axis of the grid must beat.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; shelf triage: two more cleared today (11 &rarr; 9), none added. T2PO is next in line for Monday.</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing from Saturday.</strong> Day 50 wrote the Re&sup2; verdict into the LIFR draft &mdash; a fourth axis, <em>trajectory-topology</em>, upstream of reward shaping &mdash; added CVT-RL as the sixth credit-assignment row, and adopted LeanMarathon as the long-horizon formal evaluation target. It also made one explicit commitment: <em>a 30-minute Sunday slot for LongCoT, read with LeanMarathon as the math/formal halves of the same reliability question, or hard-close Monday.</em> Today is that slot. The deep dive below is the carry-closer: if LongCoT gives the horizon-scaled metric the reliability argument needs, the evaluation protocol section of the draft gets written today with both benchmarks in it; if it doesn&rsquo;t, it closes anyway and LeanMarathon stands alone.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2604.14140">LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Apr 15, 2026 &middot; Promoted from bookmarks (Day 30 carry)</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Thirty-five days on the shelf, and the week finally built the frame that makes it worth the slot. LongCoT benchmarks reasoning where the failure mode is not &ldquo;the problem is too hard&rdquo; but &ldquo;the chain is too long&rdquo; &mdash; performance degradation driven by error accumulation across many dependent steps rather than by the difficulty of any single one. That is precisely the regime LeanMarathon stakes out on the formal side, which is why Saturday&rsquo;s digest insisted they be read as a pair: LongCoT is the math half and LeanMarathon the formal half of the single question the LIFR draft&rsquo;s reliability argument turns on &mdash; <em>do long-horizon mechanisms buy reliability, or only peak accuracy?</em> <em>Three things to extract.</em> <em>(1) The metric.</em> What the draft needs from this read is a horizon-scaled reliability measure &mdash; per-step survival rate, accuracy as a function of chain length, anything that separates &ldquo;solves harder problems&rdquo; from &ldquo;survives longer chains.&rdquo; Lemma-scale benchmarks cannot make that distinction, and without it the reliability claim is unfalsifiable. If LongCoT&rsquo;s headline metric has this shape, adopt it verbatim for the Lean experiments; if not, note what is missing and define the variant. <em>(2) The discrimination test.</em> The four-axis grid now contains two mechanisms that are specifically <em>long-horizon</em> &mdash; Re&sup2;&rsquo;s learned restart and CVT-RL&rsquo;s counterfactual step-credit &mdash; and a benchmark is only useful to the draft if it can distinguish them from vanilla GRPO. Check whether LongCoT&rsquo;s task structure (dependency depth, restart opportunities, identifiable step boundaries) actually exercises restart and step-credit, or whether it rewards raw context length. This determines whether the Figure 4 composition experiment can run on LongCoT or needs a custom harness. <em>(3) The pairing argument.</em> Write down, explicitly, what transfers between the halves: LongCoT&rsquo;s chains fail silently (no oracle flags step 47), Lean&rsquo;s fail loudly (the elaborator rejects). That asymmetry is the dissertation&rsquo;s central trade &mdash; the formal setting pays an autoformalization tax to buy a noise-free per-step failure signal &mdash; and the two benchmarks together let you price it. <em>Action:</em> write the evaluation-protocol section today with both benchmarks; the carry closes either way. Two promotions today and none added &mdash; the shelf is down to nine.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 16 min total</div>
+
+    <div class="card formal">
+      <div class="card-title"><a href="https://arxiv.org/abs/2601.04411">Rate or Fate? RLV&epsilon;R: Reinforcement Learning with Verifiable Noisy Rewards</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Jan 2026 &middot; surfaced this week</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        A January paper the week&rsquo;s reading made newly relevant. Its premise: in practice the verifier is almost never clean &mdash; unit tests probe only limited corner cases, human and synthetic labels are imperfect &mdash; so &ldquo;verifiable reward&rdquo; quietly means &ldquo;verifiable reward plus noise &epsilon;,&rdquo; and the paper studies what that noise does to learning dynamics. For the draft this upgrades Saturday&rsquo;s qualitative source-of-the-verifier axis (symbolic oracle at one end, K2V&rsquo;s constructed verifier at the other) into a <em>quantitative spectrum parameterized by verifier noise</em>, with Lean&rsquo;s elaborator sitting at the &epsilon;&nbsp;=&nbsp;0 endpoint. That gives the formal-methods chapter its cleanest one-line value proposition yet: Lean doesn&rsquo;t just provide a verifier, it provides the <em>zero-noise limit</em> against which every constructed-verifier result is an approximation. Grab the noise model and whatever degradation curve they report &mdash; if RLVR performance falls off fast in &epsilon;, the case for paying the autoformalization tax writes itself.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/">Running Python code in a sandbox with MicroPython and WASM</a></div>
+      <div class="card-meta">
+        <span>Simon Willison &middot; Jun 6, 2026</span><span class="dot">&middot;</span><span>~5 min read</span>
+      </div>
+      <div class="card-body">
+        Fresh from yesterday. Willison has spent years iterating on safe code execution and thinks this attempt &mdash; MicroPython compiled to WASM, released as the alpha package <em>micropython-wasm</em>, wired into a Datasette Agent plugin &mdash; finally has all the characteristics he wanted: real isolation, tiny footprint, no server-side container fleet. Worth five minutes for the engineering taste alone, but there is a research-adjacent angle too: every RLVR-for-code pipeline is, at bottom, &ldquo;run untrusted model output against a verifier, fast and safely, millions of times.&rdquo; The sandbox is the unglamorous half of the verifiable-reward loop, and a WASM-grade lightweight sandbox is exactly the kind of infrastructure that makes large-scale execution-feedback training (and Distributional DAgger&rsquo;s rich traces) cheap. File under: the tooling that makes the experiments runnable.
+      </div>
+      <div class="tags">
+        <span class="tag tag-code">Code</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://charitydotwtf.substack.com/p/ai-enthusiasts-are-in-a-race-against">AI enthusiasts are in a race against time, AI skeptics are in a race against entropy</a></div>
+      <div class="card-meta">
+        <span>Charity Majors &middot; Jun 4, 2026 &middot; via Simon Willison</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The Sunday research-philosophy slot. Majors&rsquo; framing is the rare both-sides piece that is actually analytical rather than diplomatic: the enthusiasts are right that leaning hard into AI produces real discontinuous capability jumps you cannot wait out, and the skeptics are right that shipping code faster than anyone can read it makes &ldquo;withdrawals from a trust account that took years to build&rdquo; &mdash; reliability decay, evaporating institutional knowledge, systems nobody understands. Her diagnosis is that there is <em>no natural feedback loop connecting the two camps</em>, and designing one is a leadership-and-engineering problem, not a debate to win. The transfer to a one-person research program is direct: the enthusiast-self drafts four axes in a week; the skeptic-self demands the null-hypothesis baseline (see the next read) and the falsifying probe. The LIFR draft stays honest exactly insofar as both selves get scheduled time &mdash; which is, structurally, what this digest&rsquo;s deep-dive-plus-adversarial-test pattern is for.
+      </div>
+      <div class="tags">
+        <span class="tag tag-advice">Advice</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2603.18756">Are complicated loss functions necessary for teaching LLMs to reason?</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Mar 19, 2026 &middot; Promoted from bookmarks</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        The second promotion of the day, and deliberately a skim: what the draft needs from this 34-day-old bookmark is its <em>question</em>, not its experiments. If plain GRPO with a binary verifiable reward matches the elaborate shaping schemes under fair tuning, then every row of the four-axis grid &mdash; six credit-assignment variants, the exploration controllers, T2T&rsquo;s schedule, Re&sup2;&rsquo;s restarts &mdash; is presumed decorative until proven otherwise. That is the null hypothesis the composition experiment (Figure 4) must be designed against, and it slots neatly beside the Sparse Policy Selection critique as the second standing objection the draft answers preemptively. Skim the abstract and the headline table, write the one-sentence null-hypothesis row into the experimental protocol, and let the bookmark die a useful death.
+      </div>
+      <div class="tags">
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Shelf triage &mdash; shrinking two days running</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.02178">T2PO: Uncertainty-Guided Exploration Control for Stable Multi-Turn Agent RL (next in line)</a>
+        <span class="bookmark-time">~16 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        No new bookmarks today &mdash; Sunday is for clearing, not collecting. LongCoT and the loss-functions paper both come off the shelf (11 &rarr; 9), which closes the oldest two carries in the log. Of the nine that remain, T2PO is the strongest candidate for Monday: it is the exploration-control axis&rsquo;s multi-turn instance, and with the evaluation pair now fixed (LongCoT + LeanMarathon) the natural next question is which exploration controller behaves best <em>under the long-horizon metric</em> rather than on single-shot accuracy. The rest of the shelf (dGRPO, FEST, PDCR, AutoTTS, orchestration-RL, search-driven rewards, prompt-perturbation, parametric-knowledge) can keep until the protocol section is drafted.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; Eric Jang on Building AlphaGo From Scratch (carry)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; backlog carry</span><span class="dot">&middot;</span><span>~90&ndash;120 min</span>
+      </div>
+      <div class="card-body">
+        Still the right Sunday-walk listen, and today it pairs better than ever: AlphaGo is the original long-horizon RL system, and its search-plus-self-play loop is the lineage behind both Re&sup2;&rsquo;s restart (try again from a better-informed state) and the whole premise of LongCoT-style horizon benchmarks. Listen with the deep dive in mind &mdash; what AlphaGo got from explicit tree search is what LLM agents are trying to recover with learned backtracking. Opportunistic, no obligation.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.interconnects.ai/podcast">Interconnects Podcast &mdash; Nathan Lambert (post-Ai2 era, carry)</a></div>
+      <div class="card-meta">
+        <span>interconnects.ai &middot; backlog carry</span><span class="dot">&middot;</span><span>~45&ndash;60 min</span>
+      </div>
+      <div class="card-body">
+        Weekend carry from Thursday and Saturday. Background-listen tier: the post-Ai2 episodes continue the open-vs-closed exponentials thread from the June 4 essay, and his &ldquo;Some ideas for what comes next&rdquo; May wrap (read on Day 49) is the written companion. Queue it for chores; drop it without guilt if the LongCoT slot runs long &mdash; the reading plan owns today.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>RLV&epsilon;R abstract + the noise model &mdash; how is &epsilon; defined? (4 min)</li>
+          <li>Charity Majors post end-to-end &mdash; it reads fast and lands better whole (4 min)</li>
+          <li>Willison sandbox post &mdash; skim to the &ldquo;Try it yourself&rdquo; section (5 min)</li>
+          <li>Loss-functions abstract + headline table only &mdash; resist reading further (3 min)</li>
+          <li>LongCoT abstract + benchmark-construction figure &mdash; prime the deep dive before laptop time</li>
+          <li>Eric Jang episode &mdash; Sunday walk; listen for the search-vs-learned-backtracking lineage</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>LongCoT &sect;metrics &mdash; extract the horizon-scaled reliability measure (accuracy vs. chain length, per-step survival); decide adopt-verbatim vs. define-variant</li>
+          <li>LongCoT &sect;task-structure &mdash; the discrimination test: can it separate Re&sup2;-style restart and CVT-RL-style step-credit from vanilla GRPO, or does it reward raw context length?</li>
+          <li>Draft &mdash; <em>write the evaluation-protocol section today</em>: LongCoT (math half) + LeanMarathon (formal half) as the reliability pair; price the autoformalization tax via the silent-vs-loud failure asymmetry</li>
+          <li>Draft &mdash; upgrade the source-of-the-verifier axis with RLV&epsilon;R&rsquo;s noise spectrum; Lean as the &epsilon;&nbsp;=&nbsp;0 endpoint; pull their degradation curve if it exists</li>
+          <li>Draft &mdash; add the null-hypothesis row (plain GRPO + binary reward) to the Figure 4 composition experiment, citing the loss-functions paper; pair it with Sparse Policy Selection as the two standing objections</li>
+          <li>Log hygiene &mdash; LongCoT and loss-functions carries close today; T2PO queued for Monday&rsquo;s slot</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 51</strong> &middot; 5 reading items + 0 new bookmarks + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the evaluation pair gets written down.</em> Saturday fixed the grid at four axes; Sunday fixes how the grid gets judged. LongCoT (math, silent failures) and LeanMarathon (formal, loud failures) are the two halves of the reliability question, RLV&epsilon;R supplies the spectrum that locates Lean at the zero-noise endpoint, and the loss-functions paper supplies the null hypothesis every axis must beat. The shelf shrinks for the second day running &mdash; two promotions, zero additions &mdash; and the oldest carry in the log (LongCoT, Day 30) closes on schedule.</p>
+    <p style="margin-top: 6px;">LIFR-draft action: write the evaluation-protocol section with both benchmarks today; add the verifier-noise spectrum to the source-of-the-verifier axis; add the null-hypothesis row to the composition experiment; queue T2PO for Monday as the exploration-control read under the new metric.</p>
+  </footer>
+</body>
+</html>

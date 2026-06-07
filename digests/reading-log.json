@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 50,
+    "dayCount": 51,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3084,14 +3084,16 @@
       "source": "arXiv",
       "date": "2026-04-15",
       "tags": [
-        "AGENTS",
+        "DEEP DIVE",
+        "PROMOTED",
         "RLVR",
+        "AGENTS",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 12,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-06-07",
+      "estimatedMinutes": 25,
+      "digestDay": 51
     },
     {
       "id": "2026-05-03-007",
@@ -3314,13 +3316,14 @@
       "source": "arXiv",
       "date": "2026-03-19",
       "tags": [
+        "PROMOTED",
         "RLVR",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
-      "estimatedMinutes": 12,
-      "digestDay": null
+      "status": "assigned",
+      "assignedDate": "2026-06-07",
+      "estimatedMinutes": 3,
+      "digestDay": 51
     },
     {
       "id": "2026-05-11-001",
@@ -5189,6 +5192,55 @@
       "assignedDate": "2026-06-06",
       "estimatedMinutes": 50,
       "digestDay": 50
+    },
+    {
+      "id": "2026-06-07-001",
+      "title": "Rate or Fate? RLVeR: Reinforcement Learning with Verifiable Noisy Rewards",
+      "url": "https://arxiv.org/abs/2601.04411",
+      "source": "arXiv",
+      "date": "2026-01-01",
+      "tags": [
+        "FORMAL METHODS",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-07",
+      "estimatedMinutes": 4,
+      "digestDay": 51
+    },
+    {
+      "id": "2026-06-07-002",
+      "title": "Running Python code in a sandbox with MicroPython and WASM",
+      "url": "https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/",
+      "source": "Simon Willison",
+      "date": "2026-06-06",
+      "tags": [
+        "CODE",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-07",
+      "estimatedMinutes": 5,
+      "digestDay": 51
+    },
+    {
+      "id": "2026-06-07-003",
+      "title": "AI enthusiasts are in a race against time, AI skeptics are in a race against entropy",
+      "url": "https://charitydotwtf.substack.com/p/ai-enthusiasts-are-in-a-race-against",
+      "source": "Charity Majors",
+      "date": "2026-06-04",
+      "tags": [
+        "ADVICE",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-07",
+      "estimatedMinutes": 4,
+      "digestDay": 51
     }
   ],
   "feeds": [
