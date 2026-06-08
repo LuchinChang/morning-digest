@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; June 8, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --tag-multi: #b45309;
+      --tag-multi-bg: #fef3c7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --tag-multi: #fbbf24;
+        --tag-multi-bg: #2e1d06;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card.multi {
+      border-left: 4px solid var(--tag-multi);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+    .tag-multi    { color: var(--tag-multi);   background: var(--tag-multi-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-multi-bg);
+      border: 1px solid var(--tag-multi);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-multi);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '\2192 ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 52</div>
+    <h1>Monday, June 8, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;Far better an approximate answer to the right question, which is often vague, than an exact answer to the wrong question, which can always be made precise.&rdquo;</p>
+    <cite>&mdash; John W. Tukey (1962). Monday framing: Tukey is the patron saint of today&rsquo;s deep dive. T2PO&rsquo;s whole move is to treat the model&rsquo;s own <em>uncertainty</em> &mdash; a vague, approximate signal &mdash; as the right question to ask about where to explore, rather than chasing the exact-but-wrong objective of maximizing reward on every turn. The week&rsquo;s evaluation pair is fixed; now the grid gets its first exploration row read under the long-horizon lens.</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; <strong>T2PO &mdash; Uncertainty-Guided Exploration Control (PROMOTED).</strong> The Monday slot Sunday queued. The exploration-control axis&rsquo;s multi-turn instance &mdash; read it asking which controller survives the long-horizon metric, not which wins single-shot accuracy.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Quick read &middot; <strong>Learning to Repair Lean Proofs from Compiler Feedback</strong>. Fresh formal-methods paper: the loud-failure half of the reliability pair made concrete &mdash; the elaborator rejects, the model repairs.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>TSR &mdash; Trajectory-Search Rollouts for Multi-Turn RL</strong>. The natural sparring partner to T2PO: search-at-rollout vs. uncertainty-gated exploration. Two answers to the same multi-turn credit problem.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; <strong>SLEA-RL &mdash; Step-Level Experience Augmented RL</strong>. The step-credit lineage continued; skim for whether its experience buffer is orthogonal to T2PO&rsquo;s gating or competes with it.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; <strong>Simon Willison &mdash; Vibe engineering</strong>. The Monday research-philosophy slot: the discipline that separates &ldquo;vibe coding&rdquo; from real engineering, mapped onto the enthusiast/skeptic feedback loop from yesterday.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; shelf triage: T2PO promoted off (9 &rarr; 8), one fresh exploration paper added. dGRPO is next in line.</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing from Sunday.</strong> Day 51 closed the two oldest carries (LongCoT + the loss-functions skim), wrote the evaluation-protocol section with LongCoT as the math half and LeanMarathon as the formal half, and located Lean at the &epsilon;&nbsp;=&nbsp;0 endpoint of RLV&epsilon;R&rsquo;s noise spectrum. It made one explicit hand-off: <em>T2PO is the strongest Monday candidate &mdash; the exploration-control axis&rsquo;s multi-turn instance, to be read under the now-fixed long-horizon metric rather than on single-shot accuracy.</em> Today is that read. The deep dive is the grid&rsquo;s first exploration row evaluated against the reliability question: does uncertainty-gated exploration buy <em>survival over long chains</em>, or just faster convergence? If T2PO reports per-turn behavior that the LongCoT/LeanMarathon protocol can actually measure, the exploration axis gets its first quantified entry; if it only reports end-task reward, that gap becomes the experiment to run.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.02178">T2PO: Uncertainty-Guided Exploration Control for Stable Multi-Turn Agentic Reinforcement Learning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 2026 &middot; Promoted from bookmarks (Day 39 carry)</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Queued yesterday, read today: T2PO is the multi-turn instance of the four-axis grid&rsquo;s exploration-control row, and the point of the slot is to read it through the lens the evaluation pair now provides. The core mechanism is an intrinsic, uncertainty-derived signal that <em>gates</em> exploration turn-by-turn &mdash; explore where the model is genuinely uncertain, exploit where it is not &mdash; rather than injecting undirected entropy across the whole trajectory, which is what destabilizes long multi-turn rollouts. <em>Three things to extract.</em> <em>(1) The uncertainty estimator.</em> What exactly is the signal &mdash; token-entropy, value-variance, an ensemble disagreement &mdash; and is it cheap enough to compute every turn at training scale? The draft&rsquo;s exploration axis needs a controller whose intrinsic signal is both well-defined and affordable; if T2PO&rsquo;s estimator is expensive or brittle, that is the axis&rsquo;s real cost, not its headline reward number. <em>(2) The long-horizon test.</em> Read the stability claims against the LongCoT/LeanMarathon metric specifically: does the paper report per-turn survival or accuracy-vs-horizon, or only end-task reward? An exploration controller that stabilizes <em>training</em> is not the same as one that improves <em>reliability over long chains</em> &mdash; the grid only credits the latter, and whether T2PO&rsquo;s evaluation can distinguish them decides if this row is filled or flagged. <em>(3) The composition question.</em> Uncertainty-gating sits upstream of credit assignment, so check whether it is orthogonal to CVT-RL-style step-credit and Re&sup2;-style restart, or whether gated exploration changes which trajectories the credit mechanisms even see. That orthogonality is exactly what the Figure 4 composition experiment is meant to probe &mdash; T2PO is the first axis whose interaction with the others the draft has to predict rather than assume. <em>Action:</em> write the exploration-axis entry with the uncertainty estimator named and costed; mark whether its evaluation meets the reliability protocol or needs a re-run on the fixed benchmarks. T2PO comes off the shelf (9 &rarr; 8), closing the Day-39 carry.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card formal">
+      <div class="card-title"><a href="https://arxiv.org/abs/2602.02990">Learning to Repair Lean Proofs from Compiler Feedback</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Feb 2026 &middot; surfaced this week</span><span class="dot">&middot;</span><span>~5 min read</span>
+      </div>
+      <div class="card-body">
+        The RL-plus-formal-methods anchor for today, and a clean concretization of Sunday&rsquo;s &ldquo;loud failure&rdquo; half. The setup: a model proposes a Lean proof, the Lean 4 elaborator rejects it with a typed error, and the model learns to <em>repair</em> from that compiler feedback rather than resampling from scratch. This is the formal-methods analogue of Re&sup2;&rsquo;s restart &mdash; but where Re&sup2; restarts on a silent heuristic, here the restart signal is a noise-free, machine-checkable error message. That is the whole value proposition of the formal setting in one paper: the verifier doesn&rsquo;t just score the final answer, it tells you <em>where</em> the proof broke, turning credit assignment into a supervised repair problem. Grab their repair-loop formulation and whatever they report on how many repair rounds converge &mdash; it is the per-step failure signal the dissertation&rsquo;s silent-vs-loud asymmetry is built on.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2602.11767">TSR: Trajectory-Search Rollouts for Multi-Turn RL of LLM Agents</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Feb 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The deliberate sparring partner to today&rsquo;s deep dive. Where T2PO controls exploration with an intrinsic uncertainty gate, TSR attacks the same multi-turn credit problem from the outside &mdash; searching over rollout trajectories at generation time, AlphaGo-style, to surface higher-quality experience for the policy update. Read the two together as the two ends of the exploration axis: <em>cheap intrinsic gating</em> vs. <em>expensive explicit search</em>. The question the grid needs answered is whether they are substitutes or complements &mdash; does uncertainty-gating make search cheaper by pruning where to look, or do they redundantly solve the same problem? Skim for the rollout-search budget and any head-to-head against vanilla multi-turn GRPO.
+      </div>
+      <div class="tags">
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2603.18079">SLEA-RL: Step-Level Experience Augmented Reinforcement Learning for Multi-Turn Agentic Training</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Mar 2026</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        A skim, for placement not depth. SLEA-RL augments multi-turn training with a step-level experience buffer &mdash; replaying high-value intermediate steps rather than whole trajectories. The one thing to decide: is this orthogonal to T2PO&rsquo;s gating (it shapes <em>what gets remembered</em>, T2PO shapes <em>where to explore</em>) or does the buffer quietly re-introduce the off-policy instability the uncertainty gate was meant to prevent? It is a candidate fourth method for the exploration/credit corner of the grid &mdash; note whether it belongs there or duplicates a row already filled, then move on.
+      </div>
+      <div class="tags">
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonw.substack.com/p/vibe-engineering">Vibe engineering</a></div>
+      <div class="card-meta">
+        <span>Simon Willison &middot; 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        The Monday research-philosophy slot, and a direct sequel to yesterday&rsquo;s Charity Majors read. Willison&rsquo;s argument: &ldquo;vibe coding&rdquo; (accept whatever the model emits, ship it) and real engineering with AI are different disciplines &mdash; the latter keeps the tests, the review, the version control, the architectural judgment, and uses the model to go faster <em>within</em> that scaffold, not to discard it. Map it straight onto the research program: the enthusiast-self lets the model draft four axes in a week; the engineer-self keeps the null hypothesis, the falsifying probe, and the elaborator that rejects a broken proof. The discipline is not slower &mdash; it is the thing that makes the speed trustworthy.
+      </div>
+      <div class="tags">
+        <span class="tag tag-advice">Advice</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Shelf triage &mdash; one off, one on</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.12227">dGRPO: On-Policy Optimization plus Distillation (next in line)</a>
+        <span class="bookmark-time">~16 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2509.22601">Self-imitation with Progressive Exploration for Agentic RL (added today)</a>
+        <span class="bookmark-time">~15 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        T2PO comes off the shelf as today&rsquo;s deep dive, closing the Day-39 carry (9 &rarr; 8), and one fresh paper goes on: <em>Self-imitation with Progressive Exploration</em> is a natural follow-up to the T2PO/TSR pairing &mdash; a third answer to the exploration question (replay your own best trajectories on a progressive schedule) that the grid will want benchmarked alongside the other two. Net shelf: 8. dGRPO is the strongest candidate for tomorrow &mdash; with the exploration axis now actively under read, the on-policy-vs-distillation trade is the natural next question for how the credit signal gets propagated. The rest (FEST, PDCR, prompt-perturbation, parametric-knowledge, search-driven rewards, multi-agent orchestration) holds.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; Eric Jang on Building AlphaGo From Scratch (carry)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; May 15, 2026 &middot; backlog carry</span><span class="dot">&middot;</span><span>~90&ndash;120 min</span>
+      </div>
+      <div class="card-body">
+        Carried from the weekend, and now it pairs with the deep dive rather than just the calendar: AlphaGo is the original explicit-search RL system, and TSR&rsquo;s trajectory-search rollouts are a direct descendant of its self-play-plus-tree-search loop. Listen with the exploration axis in mind &mdash; what AlphaGo bought with explicit MCTS is exactly what T2PO tries to approximate with a cheap uncertainty gate, and the gap between those two is the axis the grid is mapping. Commute/gym listen, no obligation.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.interconnects.ai/podcast">Interconnects Podcast &mdash; Nathan Lambert (post-Ai2 era, carry)</a></div>
+      <div class="card-meta">
+        <span>interconnects.ai &middot; backlog carry</span><span class="dot">&middot;</span><span>~45&ndash;60 min</span>
+      </div>
+      <div class="card-body">
+        Still in the background-listen tier. The post-Ai2 episodes continue the open-vs-closed exponentials thread; useful ambient context for where the open-model RL recipes the grid relies on are headed, but not today&rsquo;s priority. Queue for chores; drop without guilt if the T2PO read runs long &mdash; the reading plan owns the morning.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>T2PO abstract + the uncertainty-estimator definition &mdash; what is the intrinsic signal? (prime the deep dive)</li>
+          <li>Lean-repair abstract + the repair-loop figure &mdash; how many rounds to converge? (5 min)</li>
+          <li>TSR abstract + the rollout-search budget &mdash; how expensive vs. T2PO? (4 min)</li>
+          <li>SLEA-RL abstract + headline table only &mdash; orthogonal or competing? (3 min)</li>
+          <li>Willison &ldquo;Vibe engineering&rdquo; end-to-end &mdash; it reads fast and lands whole (3 min)</li>
+          <li>Eric Jang episode &mdash; commute listen; track the search-vs-learned-exploration lineage</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>T2PO &sect;method &mdash; name and cost the uncertainty estimator; is it affordable per-turn at scale?</li>
+          <li>T2PO &sect;results &mdash; the long-horizon test: per-turn survival / accuracy-vs-horizon, or only end-task reward? Decide if the exploration row is filled or flagged for re-run</li>
+          <li>Draft &mdash; write the exploration-axis entry: uncertainty-gating upstream of credit; predict its interaction with CVT-RL step-credit and Re&sup2; restart for the Figure 4 composition experiment</li>
+          <li>Draft &mdash; add the Lean-repair loop as the concrete &ldquo;loud failure&rdquo; mechanism in the silent-vs-loud asymmetry section; cite alongside LeanMarathon</li>
+          <li>Draft &mdash; log the TSR vs. T2PO trade (explicit search vs. intrinsic gate) as the exploration axis&rsquo;s two endpoints; flag SLEA-RL and Self-imitation as the candidate middle</li>
+          <li>Log hygiene &mdash; T2PO carry closes; Self-imitation bookmarked; dGRPO queued for tomorrow</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 52</strong> &middot; 5 reading items + 1 new bookmark + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the grid gets its first exploration row.</em> Sunday fixed how the grid is judged; Monday reads the first method judged by it. T2PO (uncertainty-gated exploration) and TSR (explicit trajectory search) are the two endpoints of the exploration axis, Self-imitation joins the shelf as the candidate middle, and Lean-proof repair supplies the concrete loud-failure mechanism the formal half of the reliability pair was promising in the abstract. The shelf nets to eight; the Day-39 T2PO carry closes on schedule.</p>
+  </footer>
+</body>
+</html>

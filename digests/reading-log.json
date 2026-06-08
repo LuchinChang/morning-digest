@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 51,
+    "dayCount": 52,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3524,14 +3524,16 @@
       "source": "arXiv",
       "date": "2026-05-04",
       "tags": [
-        "RLVR",
         "AGENTS",
-        "READ"
+        "DEEP DIVE",
+        "PROMOTED",
+        "READ",
+        "RLVR"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-06-08",
       "estimatedMinutes": 16,
-      "digestDay": null
+      "digestDay": 52
     },
     {
       "id": "2026-05-13-007",
@@ -5241,6 +5243,85 @@
       "assignedDate": "2026-06-07",
       "estimatedMinutes": 4,
       "digestDay": 51
+    },
+    {
+      "id": "2026-06-08-001",
+      "title": "Learning to Repair Lean Proofs from Compiler Feedback",
+      "url": "https://arxiv.org/abs/2602.02990",
+      "source": "arXiv",
+      "date": "2026-02-04",
+      "tags": [
+        "FORMAL METHODS",
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-08",
+      "estimatedMinutes": 5,
+      "digestDay": 52
+    },
+    {
+      "id": "2026-06-08-002",
+      "title": "TSR: Trajectory-Search Rollouts for Multi-Turn RL of LLM Agents",
+      "url": "https://arxiv.org/abs/2602.11767",
+      "source": "arXiv",
+      "date": "2026-02-13",
+      "tags": [
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-08",
+      "estimatedMinutes": 4,
+      "digestDay": 52
+    },
+    {
+      "id": "2026-06-08-003",
+      "title": "SLEA-RL: Step-Level Experience Augmented Reinforcement Learning for Multi-Turn Agentic Training",
+      "url": "https://arxiv.org/abs/2603.18079",
+      "source": "arXiv",
+      "date": "2026-03-22",
+      "tags": [
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-08",
+      "estimatedMinutes": 3,
+      "digestDay": 52
+    },
+    {
+      "id": "2026-06-08-004",
+      "title": "Vibe engineering",
+      "url": "https://simonw.substack.com/p/vibe-engineering",
+      "source": "Simon Willison",
+      "date": "2026-06-01",
+      "tags": [
+        "ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-08",
+      "estimatedMinutes": 3,
+      "digestDay": 52
+    },
+    {
+      "id": "2026-06-08-005",
+      "title": "Self-imitation with Progressive Exploration for Agentic Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2509.22601",
+      "source": "arXiv",
+      "date": "2025-09-27",
+      "tags": [
+        "AGENTS",
+        "RLVR"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 15,
+      "digestDay": null
     }
   ],
   "feeds": [
