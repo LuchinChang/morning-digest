@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; June 9, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --tag-multi: #b45309;
+      --tag-multi-bg: #fef3c7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --tag-multi: #fbbf24;
+        --tag-multi-bg: #2e1d06;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card.multi {
+      border-left: 4px solid var(--tag-multi);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+    .tag-multi    { color: var(--tag-multi);   background: var(--tag-multi-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-multi-bg);
+      border: 1px solid var(--tag-multi);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-multi);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '\2192 ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 53</div>
+    <h1>Tuesday, June 9, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.&rdquo;</p>
+    <cite>&mdash; Richard Bellman (1957), <em>Principle of Optimality</em>. Tuesday framing: yesterday read the <em>exploration</em> axis; today the question moves one column over to <em>how the learning signal propagates back</em>. Bellman is the right patron because dGRPO&rsquo;s whole bet is that a sparse outcome reward at the end of a long chain is too coarse to credit the steps that mattered &mdash; so it borrows a dense, per-token signal from a teacher. The deep dive is a test of exactly Bellman&rsquo;s claim: can value be pushed back through a 100k-token rollout, or does the credit dissolve before it reaches the decisions that earned it?</cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; <strong>dGRPO &mdash; On-Policy Optimization + Distillation for Long-Context Reasoning (PROMOTED).</strong> The hand-off Monday queued. The credit-propagation axis&rsquo;s long-context instance &mdash; read it asking whether the teacher&rsquo;s dense signal <em>complements</em> the sparse reward or quietly <em>overrides</em> it.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Quick read &middot; <strong>HiPER &mdash; Hierarchical RL with Explicit Credit Assignment</strong>. Fresh: the structural alternative to dGRPO &mdash; instead of a teacher&rsquo;s dense signal, factor the agent into planner + executor so credit has a shorter distance to travel.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>InftyThink+ &mdash; Infinite-Horizon Reasoning via RL</strong>. The natural long-context sparring partner: dGRPO fixes the signal, InftyThink+ fixes the <em>horizon</em>. Two routes to the same forgetting problem.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; <strong>Leanabell-Prover-V2 &mdash; Verifier-Integrated RL for Theorem Proving</strong>. The RL-plus-formal-methods anchor: the Lean 4 verifier <em>is</em> the reward, and credit is assigned from a machine-checkable signal rather than a learned teacher.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; <strong>Simon Willison &mdash; Agentic Engineering Patterns</strong>. The Tuesday research-philosophy slot: a sequel to yesterday&rsquo;s &ldquo;vibe engineering&rdquo; &mdash; the repeatable patterns that turn ad-hoc agent use into a discipline.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; shelf triage: dGRPO promoted off (9 &rarr; 8), one fresh GRPO-correction paper added. FEST is next in line.</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing from Monday.</strong> Day 52 read T2PO as the exploration axis&rsquo;s multi-turn instance, closed the Day-39 carry (shelf 9&nbsp;&rarr;&nbsp;8), and added <em>Self-imitation with Progressive Exploration</em> as the candidate middle between intrinsic gating and explicit search. It made one explicit hand-off: <em>dGRPO is the strongest candidate for tomorrow &mdash; with the exploration axis now actively under read, the on-policy-vs-distillation trade is the natural next question for how the credit signal gets propagated.</em> Today is that read. The deep dive moves the grid one column over, from <em>where to explore</em> to <em>how the learning signal travels back</em>: does augmenting a sparse outcome reward with a teacher&rsquo;s dense per-token signal actually improve credit assignment over a long chain, or does it just paper over a reward that&rsquo;s too coarse to begin with? If dGRPO reports where its gains come from &mdash; teacher signal vs. the RL objective &mdash; the credit-propagation row gets its first quantified entry; if the two are entangled in the ablation, that disentangling becomes the experiment to run.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.12227">dGRPO: Combining On-Policy Optimization and Distillation for Long-Context Reasoning in Large Language Models</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 2026 &middot; Promoted from bookmarks (Day 31 carry)</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Queued Monday, read today: dGRPO is the long-context instance of the grid&rsquo;s credit-propagation row, and the slot exists to read it through the lens the exploration axis just sharpened. The core mechanism augments vanilla GRPO &mdash; whose only signal is a sparse, outcome-level reward at the end of the chain &mdash; with a <em>dense, token-level</em> signal distilled on-policy from a stronger teacher. The claim is that in long-context settings, sparse reward alone degrades reasoning structure and induces forgetting of short-context skills, and that the teacher&rsquo;s per-token guidance restores the gradient the sparse reward can&rsquo;t supply. <em>Three things to extract.</em> <em>(1) The composition of the objective.</em> How are the two terms combined &mdash; a fixed mixing weight, an annealed schedule, a per-token gate? The credit-propagation axis needs to know whether the dense signal is a <em>regularizer</em> on the RL update or the <em>dominant</em> term with RL as garnish; the mixing rule is where that&rsquo;s decided, and it&rsquo;s the first thing the ablation should isolate. <em>(2) The provenance of the gains.</em> Read the ablations specifically for a teacher-only baseline (pure on-policy distillation, no reward) and a reward-only baseline (vanilla long-context GRPO). If dGRPO beats both, the interaction is real; if it only beats reward-only and ties teacher-only, then the RL objective is doing nothing and this is distillation wearing an RL hat &mdash; a distinction the grid must record, because it decides whether the row belongs under &ldquo;credit assignment&rdquo; at all. <em>(3) The forgetting claim.</em> The paper&rsquo;s motivating failure is short-context skill loss under long-context RL; check whether the short-context retention is measured directly (a held-out short benchmark across training) or only asserted. That retention curve is the dissertation&rsquo;s real interest &mdash; it&rsquo;s the long-horizon analogue of the silent-vs-loud failure asymmetry, where the failure here is <em>silent erosion</em> of a capability the reward never names. <em>Action:</em> write the credit-propagation entry with the mixing rule named and the teacher-vs-reward decomposition logged; mark whether dGRPO&rsquo;s gain survives the teacher-only ablation, because that single result decides if the row is a credit-assignment method or a distillation method mislabeled. dGRPO comes off the shelf (9 &rarr; 8), closing the Day-31 carry.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2602.16165">HiPER: Hierarchical Reinforcement Learning with Explicit Credit Assignment for Large Language Model Agents</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Feb 2026 &middot; surfaced this week</span><span class="dot">&middot;</span><span>~5 min read</span>
+      </div>
+      <div class="card-body">
+        The structural counterpoint to today&rsquo;s deep dive. Where dGRPO fixes long-horizon credit by importing a <em>denser signal</em> from a teacher, HiPER fixes it by shortening the <em>distance the signal has to travel</em> &mdash; factoring the agent into a high-level planner and a low-level executor so each level&rsquo;s credit is assigned over a horizon it can actually resolve. Read the two as the two families of answer to the same problem: enrich the signal vs. restructure the trajectory. The question for the grid is whether they&rsquo;re substitutes or stackable &mdash; does a planner/executor split make the teacher&rsquo;s dense signal redundant, or would dGRPO-style distillation still help <em>inside</em> each level? Skim for how the planner&rsquo;s reward is defined and whether the hierarchy is learned or hand-specified.
+      </div>
+      <div class="tags">
+        <span class="tag tag-agents">Agents</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2602.06960">InftyThink+: Effective and Efficient Infinite-Horizon Reasoning via Reinforcement Learning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Feb 2026</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The long-context sparring partner. dGRPO and InftyThink+ both attack the degradation that shows up when reasoning chains get long, but from opposite ends: dGRPO keeps the chain and fixes the <em>signal</em>; InftyThink+ keeps the signal and fixes the <em>horizon</em>, segmenting unbounded reasoning into bounded windows that summarize forward so the effective context never blows up. Read it asking which problem is actually load-bearing for the dissertation &mdash; is long-context failure a credit-assignment problem (dGRPO&rsquo;s premise) or a context-management problem (InftyThink+&rsquo;s)? If both methods help and compose, that&rsquo;s evidence the two failure modes are distinct axes rather than one mislabeled twice. Skim for the summarization step and any head-to-head against a plain long-context RL baseline.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card formal">
+      <div class="card-title"><a href="https://arxiv.org/abs/2507.08649">Leanabell-Prover-V2: Verifier-Integrated Reasoning for Formal Theorem Proving via Reinforcement Learning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; 2026 &middot; formal-methods anchor</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        The RL-plus-formal-methods anchor, and the cleanest contrast to the deep dive. dGRPO borrows its dense signal from a <em>learned teacher</em>; Leanabell-Prover-V2 gets its dense signal for free from the <em>Lean 4 verifier</em> &mdash; the prover proposes, the verifier checks, and the typed error is the reward, fed back to drive generation and correction. This is the formal setting&rsquo;s structural advantage stated as an RL recipe: no teacher to distill, no reward model to train, because the environment itself supplies a noise-free per-step signal. Read it directly against dGRPO&rsquo;s teacher term &mdash; the verifier is what a teacher is trying to approximate, and the gap between &ldquo;machine-checked&rdquo; and &ldquo;distilled&rdquo; is exactly the silent-vs-loud reliability axis. Grab whatever they report on verifier-feedback granularity: per-tactic, per-step, or end-of-proof.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonw.substack.com/p/agentic-engineering-patterns">Agentic Engineering Patterns</a></div>
+      <div class="card-meta">
+        <span>Simon Willison &middot; June 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        The Tuesday research-philosophy slot, and the direct sequel to yesterday&rsquo;s &ldquo;Vibe engineering.&rdquo; If Monday&rsquo;s read drew the line between vibes and discipline, this one names the discipline&rsquo;s reusable moves &mdash; the patterns Willison keeps reaching for when an agent is in the loop: tight feedback, checkable outputs, small reversible steps, a human-legible trace of what the agent did and why. Map it onto the research program rather than the codebase: every pattern is a way of keeping a <em>dense, loud signal</em> on a process that would otherwise only tell you whether the final answer was right. That&rsquo;s the same instinct dGRPO and Leanabell encode in the loss &mdash; don&rsquo;t wait for the outcome to learn; instrument the steps.
+      </div>
+      <div class="tags">
+        <span class="tag tag-advice">Advice</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Shelf triage &mdash; one off, one on</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.15012">FEST: Boosting RLVR via Randomly Selected Few-Shot Guidance (next in line)</a>
+        <span class="bookmark-time">~14 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2603.13134">When Right Meets Wrong: Bilateral Context Conditioning with Reward-Confidence Correction for GRPO (added today)</a>
+        <span class="bookmark-time">~15 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        dGRPO comes off the shelf as today&rsquo;s deep dive, closing the Day-31 carry (9 &rarr; 8), and one fresh paper goes on: <em>When Right Meets Wrong</em> is a natural follow-up to the credit-propagation read &mdash; it corrects GRPO&rsquo;s advantage estimate using reward-confidence, a fourth answer to &ldquo;how do you keep a sparse signal honest&rdquo; that belongs next to dGRPO&rsquo;s teacher term and HiPER&rsquo;s hierarchy. Net shelf: 8. FEST is the strongest candidate for tomorrow &mdash; with the dense-signal question now open, the few-shot-guidance angle (cheap demonstrations vs. a distilled teacher) is the natural next probe. The rest (PDCR, prompt-perturbation, parametric-knowledge, search-driven rewards, multi-agent orchestration, AutoTTS, Self-imitation) holds.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; latest episode (June 4 backlog)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; June 4, 2026 &middot; backlog carry</span><span class="dot">&middot;</span><span>~90&ndash;120 min</span>
+      </div>
+      <div class="card-body">
+        Still the weekend carry, still a commute/gym listen. Keep the credit-propagation lens on it: most of Dwarkesh&rsquo;s RL-adjacent guests circle the same question dGRPO does &mdash; where the learning signal actually comes from when the reward is thin and the horizon is long. No obligation; drop it without guilt if the dGRPO read runs over &mdash; the reading plan owns the morning.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.interconnects.ai/podcast">Interconnects Podcast &mdash; Nathan Lambert (post-Ai2 era, carry)</a></div>
+      <div class="card-meta">
+        <span>interconnects.ai &middot; backlog carry</span><span class="dot">&middot;</span><span>~45&ndash;60 min</span>
+      </div>
+      <div class="card-body">
+        Background-listen tier. Lambert&rsquo;s open-vs-closed thread is the right ambient context for today: dGRPO leans on an open teacher model, and how good the freely available teachers get directly bounds how far the distillation half of the recipe can carry. Queue for chores; no priority over the reading plan.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>dGRPO abstract + the objective definition &mdash; how are the reward and teacher terms combined? (prime the deep dive)</li>
+          <li>HiPER abstract + the planner/executor split &mdash; learned or hand-specified? (5 min)</li>
+          <li>InftyThink+ abstract + the summarization step &mdash; horizon fix vs. signal fix (4 min)</li>
+          <li>Leanabell-V2 abstract + verifier-feedback granularity &mdash; per-tactic or end-of-proof? (3 min)</li>
+          <li>Willison &ldquo;Agentic Engineering Patterns&rdquo; end-to-end &mdash; reads fast, lands whole (3 min)</li>
+          <li>Dwarkesh episode &mdash; commute listen; track where the learning signal comes from</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>dGRPO &sect;method &mdash; name the mixing rule (fixed weight / anneal / per-token gate); is the dense term a regularizer or the dominant signal?</li>
+          <li>dGRPO &sect;ablations &mdash; the decisive test: teacher-only vs. reward-only vs. combined. Decide if the credit-propagation row is filled or flagged as distillation-in-disguise</li>
+          <li>Draft &mdash; write the credit-propagation entry: dense-teacher signal vs. HiPER hierarchy vs. verifier feedback as three sources of per-step credit; predict their interaction for the composition experiment</li>
+          <li>Draft &mdash; add Leanabell&rsquo;s verifier-as-reward as the &epsilon;&nbsp;=&nbsp;0 endpoint of the dense-signal spectrum (machine-checked vs. distilled); cite alongside the silent-vs-loud section</li>
+          <li>Draft &mdash; log the dGRPO short-context retention curve (if reported) as the long-horizon &ldquo;silent erosion&rdquo; failure case</li>
+          <li>Log hygiene &mdash; dGRPO carry closes; Bilateral Context Conditioning bookmarked; FEST queued for tomorrow</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 53</strong> &middot; 5 reading items + 1 new bookmark + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the grid moves from exploration to credit propagation.</em> Monday read where to explore; Tuesday reads how the learning signal travels back. dGRPO (dense teacher signal) and HiPER (shorter credit horizon via hierarchy) are two answers to long-horizon credit assignment, InftyThink+ reframes it as a context-management problem, and Leanabell-Prover-V2 supplies the limiting case where the verifier itself is the per-step signal. The shelf nets to eight; the Day-31 dGRPO carry closes on schedule.</p>
+  </footer>
+</body>
+</html>

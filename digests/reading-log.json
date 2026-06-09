@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 52,
+    "dayCount": 53,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3784,12 +3784,14 @@
       "date": "2026-05-13",
       "tags": [
         "RLVR",
-        "READ"
+        "READ",
+        "DEEP DIVE",
+        "PROMOTED"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-06-09",
       "estimatedMinutes": 15,
-      "digestDay": null
+      "digestDay": 53
     },
     {
       "id": "2026-05-15-007",
@@ -5317,6 +5319,84 @@
       "tags": [
         "AGENTS",
         "RLVR"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 15,
+      "digestDay": null
+    },
+    {
+      "id": "2026-06-09-001",
+      "title": "HiPER: Hierarchical Reinforcement Learning with Explicit Credit Assignment for Large Language Model Agents",
+      "url": "https://arxiv.org/abs/2602.16165",
+      "source": "arXiv",
+      "date": "2026-02-01",
+      "tags": [
+        "AGENTS",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-09",
+      "estimatedMinutes": 5,
+      "digestDay": 53
+    },
+    {
+      "id": "2026-06-09-002",
+      "title": "InftyThink+: Effective and Efficient Infinite-Horizon Reasoning via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2602.06960",
+      "source": "arXiv",
+      "date": "2026-02-01",
+      "tags": [
+        "RLVR",
+        "TRENDING",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-09",
+      "estimatedMinutes": 4,
+      "digestDay": 53
+    },
+    {
+      "id": "2026-06-09-003",
+      "title": "Leanabell-Prover-V2: Verifier-Integrated Reasoning for Formal Theorem Proving via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2507.08649",
+      "source": "arXiv",
+      "date": "2026-01-01",
+      "tags": [
+        "FORMAL METHODS",
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-09",
+      "estimatedMinutes": 3,
+      "digestDay": 53
+    },
+    {
+      "id": "2026-06-09-004",
+      "title": "Agentic Engineering Patterns",
+      "url": "https://simonw.substack.com/p/agentic-engineering-patterns",
+      "source": "Simon Willison",
+      "date": "2026-06-09",
+      "tags": [
+        "ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-09",
+      "estimatedMinutes": 3,
+      "digestDay": 53
+    },
+    {
+      "id": "2026-06-09-005",
+      "title": "When Right Meets Wrong: Bilateral Context Conditioning with Reward-Confidence Correction for GRPO",
+      "url": "https://arxiv.org/abs/2603.13134",
+      "source": "arXiv",
+      "date": "2026-03-01",
+      "tags": [
+        "RLVR",
+        "READ"
       ],
       "status": "bookmarked",
       "assignedDate": null,
