@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Digest &middot; June 10, 2026</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-deep: #7c3aed;
+      --tag-deep-bg: #f5f3ff;
+      --tag-trending: #dc2626;
+      --tag-trending-bg: #fef2f2;
+      --tag-read: #059669;
+      --tag-read-bg: #ecfdf5;
+      --tag-listen: #d97706;
+      --tag-listen-bg: #fffbeb;
+      --tag-watch: #2563eb;
+      --tag-watch-bg: #eff6ff;
+      --tag-code: #0891b2;
+      --tag-code-bg: #ecfeff;
+      --tag-formal: #9333ea;
+      --tag-formal-bg: #faf5ff;
+      --tag-promoted: #be185d;
+      --tag-promoted-bg: #fdf2f8;
+      --tag-agents: #0369a1;
+      --tag-agents-bg: #e0f2fe;
+      --tag-advice: #65a30d;
+      --tag-advice-bg: #f7fee7;
+      --tag-rlvr: #7c3aed;
+      --tag-rlvr-bg: #f5f3ff;
+      --tag-interp: #0d9488;
+      --tag-interp-bg: #f0fdfa;
+      --tag-multi: #b45309;
+      --tag-multi-bg: #fef3c7;
+      --divider: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --card: #1e1e1e;
+        --text: #f0f0f0;
+        --muted: #9ca3af;
+        --border: #2e2e2e;
+        --accent: #60a5fa;
+        --accent-soft: #1e3a5f;
+        --tag-deep: #a78bfa;
+        --tag-deep-bg: #2d1f5e;
+        --tag-trending: #f87171;
+        --tag-trending-bg: #3b1212;
+        --tag-read: #34d399;
+        --tag-read-bg: #0d2e1f;
+        --tag-listen: #fbbf24;
+        --tag-listen-bg: #2e1d06;
+        --tag-watch: #60a5fa;
+        --tag-watch-bg: #1e2f4a;
+        --tag-code: #22d3ee;
+        --tag-code-bg: #0a2a30;
+        --tag-formal: #c084fc;
+        --tag-formal-bg: #2a1040;
+        --tag-promoted: #f472b6;
+        --tag-promoted-bg: #3a0a20;
+        --tag-agents: #38bdf8;
+        --tag-agents-bg: #0a2233;
+        --tag-advice: #a3e635;
+        --tag-advice-bg: #1a2900;
+        --tag-rlvr: #a78bfa;
+        --tag-rlvr-bg: #2d1f5e;
+        --tag-interp: #2dd4bf;
+        --tag-interp-bg: #042f2e;
+        --tag-multi: #fbbf24;
+        --tag-multi-bg: #2e1d06;
+        --divider: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      border-bottom: 3px solid #1d4ed8;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .quote-block {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      margin: 16px;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .quote-block cite {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    section {
+      padding: 0 16px 8px;
+    }
+
+    section + section {
+      padding-top: 4px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .plan-banner {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .plan-banner h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .plan-time {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .plan-label {
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card.deep {
+      border-left: 4px solid var(--tag-deep);
+    }
+
+    .card.promoted {
+      border-left: 4px solid var(--tag-promoted);
+    }
+
+    .card.formal {
+      border-left: 4px solid var(--tag-formal);
+    }
+
+    .card.multi {
+      border-left: 4px solid var(--tag-multi);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .dot {
+      opacity: 0.4;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-deep     { color: var(--tag-deep);    background: var(--tag-deep-bg); }
+    .tag-trending { color: var(--tag-trending); background: var(--tag-trending-bg); }
+    .tag-read     { color: var(--tag-read);    background: var(--tag-read-bg); }
+    .tag-listen   { color: var(--tag-listen);  background: var(--tag-listen-bg); }
+    .tag-watch    { color: var(--tag-watch);   background: var(--tag-watch-bg); }
+    .tag-code     { color: var(--tag-code);    background: var(--tag-code-bg); }
+    .tag-formal   { color: var(--tag-formal);  background: var(--tag-formal-bg); }
+    .tag-promoted { color: var(--tag-promoted);background: var(--tag-promoted-bg); }
+    .tag-agents   { color: var(--tag-agents);  background: var(--tag-agents-bg); }
+    .tag-advice   { color: var(--tag-advice);  background: var(--tag-advice-bg); }
+    .tag-rlvr     { color: var(--tag-rlvr);    background: var(--tag-rlvr-bg); }
+    .tag-interp   { color: var(--tag-interp);  background: var(--tag-interp-bg); }
+    .tag-multi    { color: var(--tag-multi);   background: var(--tag-multi-bg); }
+
+    .promoted-callout {
+      background: var(--tag-promoted-bg);
+      border: 1px solid var(--tag-promoted);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--tag-promoted);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .promoted-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .continuation-callout {
+      background: var(--tag-multi-bg);
+      border: 1px solid var(--tag-multi);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 0 16px 14px;
+      font-size: 13px;
+      color: var(--tag-multi);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .continuation-callout .callout-icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .bookmark-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .bookmark-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+    }
+
+    .bookmark-item:first-of-type {
+      border-top: none;
+    }
+
+    .bookmark-item a {
+      color: var(--accent);
+      text-decoration: none;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .bookmark-item a:hover {
+      text-decoration: underline;
+    }
+
+    .bookmark-time {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .device-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .device-col h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .device-col ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .device-col ul li {
+      padding: 3px 0;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .device-col ul li::before {
+      content: '\2192 ';
+      color: var(--muted);
+    }
+
+    .podcast-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--tag-listen);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .podcast-card .card-title {
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px 30px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--divider);
+      margin-top: 12px;
+    }
+
+    footer p {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-meta">Morning Digest &middot; Day 54</div>
+    <h1>Wednesday, June 10, 2026</h1>
+    <div class="subtitle">Formal Methods &times; RL &middot; 45-minute reading plan</div>
+  </header>
+
+  <div class="quote-block">
+    <p>&ldquo;When solving a problem of interest, do not solve a more general problem as an intermediate step. Try to get the answer that you really need, but not a more general one.&rdquo;</p>
+    <cite>&mdash; Vladimir Vapnik, <em>The Nature of Statistical Learning Theory</em> (1995). Wednesday framing: yesterday&rsquo;s dGRPO answered the credit-propagation question by training a whole teacher to manufacture a dense signal &mdash; the &ldquo;more general problem.&rdquo; Vapnik is today&rsquo;s patron because the morning&rsquo;s deep dive, FEST, takes his imperative literally: if all you need is a slightly less sparse gradient, don&rsquo;t distill a teacher &mdash; drop a handful of random worked examples into the context and let them do it for free. The whole row reorganizes around one question: <em>how cheap can the dense signal get before it stops helping?</em></cite>
+  </div>
+
+  <div class="plan-banner">
+    <h2>&#x1F4CB; Your 45-Minute Plan</h2>
+    <div class="plan-row"><span class="plan-time">25 min</span><span class="plan-label"><strong>Deep dive</strong> &middot; <strong>FEST &mdash; Boosting RLVR via Randomly Selected Few-Shot Guidance (PROMOTED).</strong> The hand-off Tuesday queued. Yesterday&rsquo;s dGRPO bought its dense signal from a trained teacher; FEST asks whether a few random demonstrations buy the same thing for nothing.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Quick read &middot; <strong>TL-GRPO &mdash; Turn-Level RL</strong>. Fresh: instead of enriching the signal, shrink the credit unit &mdash; assign advantage per turn so good and bad turns stop sharing one outcome reward.</span></div>
+    <div class="plan-row"><span class="plan-time">4 min</span><span class="plan-label">Quick read &middot; <strong>Cycle-Consistency for Lean4 Autoformalization</strong>. The formal-methods anchor: GRPO with a <em>learned</em> NL&rarr;Lean&rarr;NL&prime; reward &mdash; the case where the verifier can check syntax but not meaning, so the dense signal has to be manufactured.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; <strong>FIPO &mdash; Future-KL Influenced Policy Optimization</strong>. The fourth source of dense signal: shape it from the policy&rsquo;s own future divergence rather than from demonstrations, a teacher, or a verifier.</span></div>
+    <div class="plan-row"><span class="plan-time">3 min</span><span class="plan-label">Quick read &middot; <strong>Cameron Wolfe &mdash; GRPO from scratch</strong>. The Wednesday research-process slot: before stacking a fifth correction onto GRPO, re-derive the group-relative baseline that all of them are correcting.</span></div>
+    <div class="plan-row"><span class="plan-time">5 min</span><span class="plan-label">Bookmarks &middot; shelf triage: FEST promoted off (9 &rarr; 8), one fresh credit-assignment paper added. PDCR is next in line.</span></div>
+  </div>
+
+  <div class="continuation-callout">
+    <span class="callout-icon">&#x1F517;</span>
+    <span><strong>Continuing from Tuesday.</strong> Day 53 read dGRPO as the credit-propagation row&rsquo;s long-context instance and logged its central question &mdash; does augmenting a sparse outcome reward with a teacher&rsquo;s dense per-token signal actually improve credit assignment, or just paper over a reward that&rsquo;s too coarse? It made one explicit hand-off: <em>FEST is the strongest candidate for tomorrow &mdash; with the dense-signal question now open, the few-shot-guidance angle (cheap demonstrations vs. a distilled teacher) is the natural next probe.</em> Today is that read. The row stays fixed on credit propagation, but the column slides from <em>how rich can the signal be</em> to <em>how cheaply can it be sourced</em>: a distilled teacher (dGRPO), a handful of random demonstrations (FEST), turn-level structure (TL-GRPO), a learned cycle-consistency reward where the verifier falls silent (Lean4), or the policy&rsquo;s own future divergence (FIPO). If FEST&rsquo;s random few-shot matches dGRPO&rsquo;s teacher on the same benchmark, the grid gets a cost axis it didn&rsquo;t have yesterday &mdash; and dGRPO&rsquo;s teacher term has to justify its training cost against a baseline that needed none.</span>
+  </div>
+
+  <section>
+    <div class="section-title">&#x1F31F; Deep Dive &middot; 25 min</div>
+
+    <div class="card deep promoted">
+      <div class="card-title"><a href="https://arxiv.org/abs/2605.15012">FEST: Boosting RLVR via Randomly Selected Few-Shot Guidance</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; May 2026 &middot; Promoted from bookmarks (Day 28 carry)</span><span class="dot">&middot;</span><span>~25 min read</span>
+      </div>
+      <div class="card-body">
+        Queued since the dense-signal question went live, read today: FEST is the cheap-source endpoint of the credit-propagation row, and the slot exists to read it directly against yesterday&rsquo;s dGRPO. dGRPO manufactures its dense signal by <em>training</em> a teacher and distilling it on-policy; FEST manufactures a dense signal by <em>dropping a handful of randomly selected few-shot demonstrations into the rollout context</em> and letting them reshape where the policy explores &mdash; no teacher trained, no reward model, no extra forward pass at update time. The bet is Vapnik&rsquo;s imperative made operational: if the only thing the sparse reward is missing is a denser gradient near good trajectories, a few worked examples may supply it without solving the harder problem of learning a teacher first. <em>Three things to extract.</em> <em>(1) Where the demonstrations act.</em> Are the few-shot examples purely a context prefix that biases the rollouts (so the &ldquo;dense signal&rdquo; is really an exploration prior), or do they also enter the advantage/reward computation? This is the load-bearing distinction for the grid &mdash; if it&rsquo;s context-only, FEST belongs in the <em>exploration</em> row, not credit propagation, and the whole framing shifts. <em>(2) Why &ldquo;randomly selected.&rdquo;</em> The title&rsquo;s provocation is that random demonstrations work; read the ablation that pits random against curated/retrieved selection. If random ties curated, the gain is regularization of exploration, not information transfer &mdash; and that&rsquo;s a sharper claim than the paper&rsquo;s headline, because it says the demonstrations matter as <em>noise structure</em>, not as content. <em>(3) The cost-matched comparison.</em> Hunt for any head-to-head against a distilled-teacher or process-reward baseline at equal compute. dGRPO&rsquo;s whole justification is that the teacher term earns its training cost; FEST is the null hypothesis that says it might not. <em>Action:</em> add a <em>cost</em> column to the credit-propagation entry &mdash; teacher-distilled (dGRPO), demonstration-injected (FEST), turn-structured (TL-GRPO), verifier-supplied (Leanabell) &mdash; and rank them by signal-quality-per-unit-compute, flagging which comparisons the literature actually runs versus which are still assumed. FEST comes off the shelf (9 &rarr; 8), closing the Day-28 carry.
+      </div>
+      <div class="tags">
+        <span class="tag tag-deep">Deep Dive</span>
+        <span class="tag tag-promoted">Promoted</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x26A1; Quick Reads &middot; 15 min total</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2601.16480">TL-GRPO: Turn-Level RL for Reasoning-Guided Iterative Optimization</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Jan 2026 &middot; surfaced this week</span><span class="dot">&middot;</span><span>~5 min read</span>
+      </div>
+      <div class="card-body">
+        The structural counterpoint to today&rsquo;s deep dive, and a direct descendant of Tuesday&rsquo;s HiPER. Where FEST enriches the signal with demonstrations, TL-GRPO leaves the signal alone and shrinks the <em>unit of credit</em>: vanilla GRPO&rsquo;s coarse, trajectory-level advantage gives every turn in a multi-turn rollout the same outcome reward, so a high-quality turn and the low-quality turn that followed it get updated identically &mdash; noisy gradients, unstable training. TL-GRPO assigns advantage per turn instead. Read it as the third family of answer to long-horizon credit: enrich the signal (dGRPO, FEST), restructure the agent (HiPER), or refine the granularity at which the existing signal is applied (TL-GRPO). The grid question: are finer granularity and a denser signal substitutes, or does turn-level credit make the demonstration injection sharper because each turn now has its own target? Skim for how turns are delimited and whether the per-turn advantage is estimated or assigned by rule.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card formal">
+      <div class="card-title"><a href="https://arxiv.org/abs/2603.24372">Improving Lean4 Autoformalization via Cycle Consistency Fine-tuning</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Mar 2026 &middot; formal-methods anchor</span><span class="dot">&middot;</span><span>~4 min read</span>
+      </div>
+      <div class="card-body">
+        The RL-plus-formal-methods anchor, and the sharpest contrast in today&rsquo;s set. Yesterday&rsquo;s Leanabell-Prover-V2 had it easy: the Lean 4 verifier supplies a free, noise-free per-step signal because <em>proving</em> is machine-checkable. Autoformalization isn&rsquo;t &mdash; the verifier can tell you the Lean compiles, but not that it means the same thing as the English. So this paper trains with GRPO against a <em>learned</em> cycle-consistency reward: translate NL&rarr;Lean4&rarr;NL&prime; and score the cosine similarity of the round trip. That makes it the formal-methods instance of exactly today&rsquo;s theme &mdash; when the verifier goes silent on the dimension you care about (meaning, not syntax), you&rsquo;re back to manufacturing a dense signal, and the question is whether an embedding-similarity reward is the FEST-grade cheap proxy or a reward-hacking surface waiting to happen. Read it against Leanabell as the two ends of the formal dense-signal spectrum: verifier-supplied vs. learned-proxy. Grab whatever they report on reward gaming &mdash; whether the cycle reward can be satisfied by a translation that round-trips but is formally wrong.
+      </div>
+      <div class="tags">
+        <span class="tag tag-formal">Formal Methods</span>
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://arxiv.org/abs/2603.19835">FIPO: Eliciting Deep Reasoning with Future-KL Influenced Policy Optimization</a></div>
+      <div class="card-meta">
+        <span>arXiv &middot; Mar 2026</span><span class="dot">&middot;</span><span>~3 min read</span>
+      </div>
+      <div class="card-body">
+        The fourth source of dense signal, and the only one that needs nothing external. dGRPO borrows from a teacher, FEST from demonstrations, Lean4 from a learned proxy &mdash; FIPO shapes the gradient from the policy&rsquo;s <em>own future KL divergence</em>, rewarding steps that keep later reasoning from collapsing toward a low-entropy answer too early. Read it as the &ldquo;intrinsic&rdquo; corner of the cheapness axis: if a self-derived signal recovers part of dGRPO&rsquo;s gain, the teacher term&rsquo;s justification narrows further. The grid question is whether future-KL shaping and demonstration injection touch the same failure (premature convergence) or different ones &mdash; skim the objective for how far &ldquo;future&rdquo; reaches and whether the KL term is a bonus or a constraint.
+      </div>
+      <div class="tags">
+        <span class="tag tag-rlvr">RLVR</span>
+        <span class="tag tag-trending">Trending</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://cameronrwolfe.substack.com/p/grpo">Group Relative Policy Optimization (GRPO), from scratch</a></div>
+      <div class="card-meta">
+        <span>Cameron R. Wolfe &middot; Deep Learning Focus</span><span class="dot">&middot;</span><span>~3 min skim</span>
+      </div>
+      <div class="card-body">
+        The Wednesday research-process slot, and a deliberate step backward. Four of this week&rsquo;s papers are <em>corrections</em> to GRPO &mdash; denser teachers, finer turns, future-KL, demonstrations &mdash; and it&rsquo;s worth five minutes to re-derive the thing they&rsquo;re all correcting. Wolfe&rsquo;s walkthrough is the cleanest statement of why GRPO drops the value function entirely and estimates the baseline from the spread of a <em>group</em> of rollouts, which is precisely the design choice every paper in today&rsquo;s set is patching: a group-relative baseline is, by construction, a single scalar per prompt with no per-step structure. Read it to keep the critiques honest &mdash; each &ldquo;dense signal&rdquo; method is reintroducing exactly the per-step credit that GRPO threw away to avoid training a critic. The research-taste lesson is Vapnik&rsquo;s again: know which simplification you&rsquo;re paying to undo before you pay for it.
+      </div>
+      <div class="tags">
+        <span class="tag tag-advice">Advice</span>
+        <span class="tag tag-read">Read</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F516; Bookmarks &middot; 5 min</div>
+
+    <div class="bookmark-section">
+      <h3>Shelf triage &mdash; one off, one on</h3>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2605.13467">PDCR: Perception-Decomposed Confidence Reward for Vision-Language (next in line)</a>
+        <span class="bookmark-time">~13 min</span>
+      </div>
+      <div class="bookmark-item">
+        <a href="https://arxiv.org/abs/2511.12159">CriticSearch: Fine-Grained Credit Assignment for Search Agents via a Retrospective Critic (added today)</a>
+        <span class="bookmark-time">~16 min</span>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5;">
+        FEST comes off the shelf as today&rsquo;s deep dive, closing the Day-28 carry (9 &rarr; 8), and one fresh paper goes on: <em>CriticSearch</em> assigns credit with a retrospective critic rather than a forward teacher &mdash; a fifth source of dense signal (hindsight, not foresight) that belongs next to FEST&rsquo;s demonstrations and FIPO&rsquo;s future-KL. Net shelf: 8. PDCR is the strongest candidate for tomorrow &mdash; with the cheapness axis now open, its decomposed <em>confidence</em> reward is the natural next probe into whether a dense signal can be built from the model&rsquo;s own calibration. The rest (AutoTTS, prompt-perturbation, parametric-knowledge, search-driven rewards, multi-agent orchestration, Self-imitation, When-Right-Meets-Wrong) holds.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F3A7; Listen / Watch Queue</div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.youtube.com/watch?v=PAz_-xPJcRM">Latent Space &mdash; The RLVR Revolution, with Nathan Lambert</a></div>
+      <div class="card-meta">
+        <span>YouTube &middot; Latent Space &middot; fresh</span><span class="dot">&middot;</span><span>~75 min</span>
+      </div>
+      <div class="card-body">
+        The on-theme listen. Lambert&rsquo;s through-line is exactly this week&rsquo;s row &mdash; where the verifiable reward signal actually comes from, and how thin it can get before RLVR stops working. Keep the cheapness lens on it: every method in today&rsquo;s reading is a different bet on manufacturing a dense signal without a critic, and Lambert is the best ambient narrator of why the field keeps reaching for that. Commute/gym tier; no priority over the morning plan.
+      </div>
+      <div class="tags">
+        <span class="tag tag-watch">Watch</span>
+        <span class="tag tag-listen">Listen</span>
+        <span class="tag tag-trending">Trending</span>
+      </div>
+    </div>
+
+    <div class="podcast-card">
+      <div class="card-title"><a href="https://www.dwarkesh.com/podcast">Dwarkesh Podcast &mdash; latest episode (June backlog carry)</a></div>
+      <div class="card-meta">
+        <span>dwarkesh.com &middot; backlog carry</span><span class="dot">&middot;</span><span>~90&ndash;120 min</span>
+      </div>
+      <div class="card-body">
+        Still the weekend carry, still optional. Drop it without guilt if the FEST read runs over &mdash; the reading plan owns the morning. Background-listen tier for chores.
+      </div>
+      <div class="tags">
+        <span class="tag tag-listen">Listen</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">&#x1F4F1;&#x1F4BB; Phone vs. Laptop Strategy</div>
+    <div class="device-section">
+      <div class="device-col">
+        <h3>&#x1F4F1; Phone</h3>
+        <ul>
+          <li>FEST abstract + figure 1 &mdash; do the demonstrations sit in context, or in the reward? (prime the deep dive)</li>
+          <li>TL-GRPO abstract + how a &ldquo;turn&rdquo; is delimited (5 min)</li>
+          <li>Cycle-Consistency abstract + the NL&rarr;Lean&rarr;NL&prime; loop &mdash; learned proxy vs. verifier (4 min)</li>
+          <li>FIPO abstract + the future-KL term &mdash; bonus or constraint? (3 min)</li>
+          <li>Wolfe GRPO explainer end-to-end &mdash; reads fast, lands whole (3 min)</li>
+          <li>Latent Space &times; Lambert &mdash; commute listen; track where the signal comes from</li>
+        </ul>
+      </div>
+      <div class="device-col">
+        <h3>&#x1F4BB; Laptop</h3>
+        <ul>
+          <li>FEST &sect;method &mdash; pin whether few-shot is a context prefix (exploration) or enters the advantage (credit). This decides which grid row FEST belongs in</li>
+          <li>FEST &sect;ablations &mdash; random vs. curated demonstrations, and the cost-matched comparison against a distilled-teacher / process-reward baseline</li>
+          <li>Draft &mdash; add a <em>cost</em> column to the credit-propagation entry: teacher-distilled / demonstration-injected / turn-structured / verifier-supplied, ranked by signal-quality-per-compute</li>
+          <li>Draft &mdash; log Cycle-Consistency as the formal-setting case where the verifier is silent on meaning; cite alongside Leanabell as the two ends of the formal dense-signal spectrum</li>
+          <li>Draft &mdash; note FIPO and CriticSearch as the intrinsic (future-KL) and hindsight (retrospective critic) corners of the cheapness axis</li>
+          <li>Log hygiene &mdash; FEST carry closes (9 &rarr; 8); CriticSearch bookmarked; PDCR queued for tomorrow</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Day 54</strong> &middot; 5 reading items + 1 new bookmark + 2 queue items &middot; 45 min</p>
+    <p>Formal Methods &times; Reinforcement Learning &middot; auto-generated</p>
+    <p style="margin-top: 6px; opacity: 0.7;">Today&rsquo;s thread: <em>the credit-propagation row gets a cost axis.</em> Tuesday read dGRPO, which manufactures a dense signal by training a teacher. Wednesday reads the cheaper alternatives: FEST (random demonstrations), TL-GRPO (finer credit granularity), Cycle-Consistency for Lean4 (a learned proxy where the verifier can&rsquo;t see meaning), and FIPO (the policy&rsquo;s own future-KL) &mdash; with Wolfe&rsquo;s from-scratch GRPO as the reminder of which simplification all four are paying to undo. The shelf nets to eight; the Day-28 FEST carry closes on schedule. Tomorrow: PDCR and the calibration-as-signal question.</p>
+  </footer>
+</body>
+</html>

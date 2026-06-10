@@ -1,7 +1,7 @@
 {
   "meta": {
     "started": "2026-03-18",
-    "dayCount": 53,
+    "dayCount": 54,
     "researchArea": "Formal Methods + Reinforcement Learning",
     "dailyMinutes": 45,
     "format": "html",
@@ -3881,13 +3881,15 @@
       "source": "arXiv",
       "date": "2026-05-14",
       "tags": [
+        "DEEP DIVE",
+        "PROMOTED",
         "RLVR",
         "READ"
       ],
-      "status": "bookmarked",
-      "assignedDate": null,
+      "status": "assigned",
+      "assignedDate": "2026-06-10",
       "estimatedMinutes": 10,
-      "digestDay": null
+      "digestDay": 54
     },
     {
       "id": "2026-05-17-006",
@@ -5401,6 +5403,101 @@
       "status": "bookmarked",
       "assignedDate": null,
       "estimatedMinutes": 15,
+      "digestDay": null
+    },
+    {
+      "id": "2026-06-10-001",
+      "title": "TL-GRPO: Turn-Level RL for Reasoning-Guided Iterative Optimization",
+      "url": "https://arxiv.org/abs/2601.16480",
+      "source": "arXiv",
+      "date": "2026-01-26",
+      "tags": [
+        "RLVR",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-10",
+      "estimatedMinutes": 5,
+      "digestDay": 54
+    },
+    {
+      "id": "2026-06-10-002",
+      "title": "Improving Lean4 Autoformalization via Cycle Consistency Fine-tuning",
+      "url": "https://arxiv.org/abs/2603.24372",
+      "source": "arXiv",
+      "date": "2026-03-30",
+      "tags": [
+        "FORMAL METHODS",
+        "RLVR",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-10",
+      "estimatedMinutes": 4,
+      "digestDay": 54
+    },
+    {
+      "id": "2026-06-10-003",
+      "title": "FIPO: Eliciting Deep Reasoning with Future-KL Influenced Policy Optimization",
+      "url": "https://arxiv.org/abs/2603.19835",
+      "source": "arXiv",
+      "date": "2026-03-25",
+      "tags": [
+        "RLVR",
+        "READ",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-10",
+      "estimatedMinutes": 3,
+      "digestDay": 54
+    },
+    {
+      "id": "2026-06-10-004",
+      "title": "Group Relative Policy Optimization (GRPO), from scratch",
+      "url": "https://cameronrwolfe.substack.com/p/grpo",
+      "source": "Cameron R. Wolfe",
+      "date": "2026-06-10",
+      "tags": [
+        "ADVICE",
+        "READ"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-10",
+      "estimatedMinutes": 3,
+      "digestDay": 54
+    },
+    {
+      "id": "2026-06-10-005",
+      "title": "Latent Space \u2014 The RLVR Revolution, with Nathan Lambert",
+      "url": "https://www.youtube.com/watch?v=PAz_-xPJcRM",
+      "source": "Latent Space",
+      "date": "2026-06-10",
+      "tags": [
+        "WATCH",
+        "LISTEN",
+        "TRENDING"
+      ],
+      "status": "assigned",
+      "assignedDate": "2026-06-10",
+      "estimatedMinutes": 75,
+      "digestDay": 54
+    },
+    {
+      "id": "2026-06-10-006",
+      "title": "CriticSearch: Fine-Grained Credit Assignment for Search Agents via a Retrospective Critic",
+      "url": "https://arxiv.org/abs/2511.12159",
+      "source": "arXiv",
+      "date": "2025-11-15",
+      "tags": [
+        "RLVR",
+        "AGENTS",
+        "READ"
+      ],
+      "status": "bookmarked",
+      "assignedDate": null,
+      "estimatedMinutes": 16,
       "digestDay": null
     }
   ],
